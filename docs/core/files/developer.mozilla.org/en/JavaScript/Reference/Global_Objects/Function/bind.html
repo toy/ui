@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:58:27 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>bind - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=60217">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=60217">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 60217;
+Deki.PageTitle = 'en/JavaScript/Reference/Global Objects/Function/bind';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../../../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../../../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../../../../deki/scripts/res/syntax/shBrushJScript.js"></script><link href="../../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsFunctionbind" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">bind</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Parameters" rel="internal">Parameters</a>
+</li>
+<li>
+<span>4.</span> <a href="#Description" rel="internal">Description</a>
+</li>
+<li>
+<span>5.</span> <a href="#Compatibility" rel="internal">Compatibility</a>
+</li>
+<li>
+<span>6.</span> <a href="#Examples" rel="internal">Examples</a>
+</li>
+<li>
+<span>7.</span> <a href="#Supplemental" rel="internal">Supplemental</a>
+</li>
+<li>
+<span>8.</span> <a href="#See_also" rel="internal">See also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">
+<div style="border: 1px solid #818151; background-color: #FFFFE1; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p style="margin: 4px 0px 4px 0px;">Introduced in <a rel="custom nofollow" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.8.5">JavaScript 1.8.5</a></p>
+</div>
+
+</span></p>
+<p>This method is compliant with ECMAScript 5.</p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Creates a new function that, when called, itself calls this function in the context of the provided <code>this</code> value, with a given sequence of arguments preceding any provided when the new function was called.</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<p><code>var bound = fun.bind(<em>thisValue</em> [, <em>arg1</em> [, <em>arg2</em> [...] ] ]);</code></p>
+</div>
+<div id="section_3">
+<span id="Parameters"></span><h3 class="editable">Parameters</h3>
+<dl>
+<dt>thisValue</dt> <dd>The value to be passed as the <code>this</code> parameter to the target function when the bound function is called.  The value is ignored if the bound function is constructed using the <a rel="internal" href="../../Operators/Special/new.html"><code>new</code> operator</a>.</dd> <dt>arg1, arg2, ...</dt> <dd>Arguments to prepend to arguments provided to the bound function when invoking the target function.</dd>
+</dl>
+</div>
+<div id="section_4">
+<span id="Description"></span><h3 class="editable">Description</h3>
+<p>The <code>bind</code> function creates a new function (a <em>bound function</em>) that calls the function that is its <code>this</code> value (the bound function's <em>target function</em>) with a specified <code>this</code> parameter, which cannot be overridden. <code>bind</code> also accepts leading default arguments to provide to the target function when the bound function is called.  A bound function may also be constructed using the <code>new</code> operator: doing so acts as though the target function had instead been constructed.  The provided <code>this</code> value is ignored, while prepended arguments are provided to the emulated function.</p>
+</div>
+<div id="section_5">
+<span id="Compatibility"></span><h3 class="editable">Compatibility</h3>
+<p><code>bind</code> is a recent addition to ECMA-262, 5th edition; as such it may not be present in all browsers. You can partially work around this by inserting the following code at the beginning of your scripts, allowing use of much of the functionality of <code>bind</code> in implementations that do not natively support it.</p>
+
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+// Function.prototype.bind polyfill
+if ( !Function.prototype.bind ) {
+
+  Function.prototype.bind = function( obj ) {
+    var slice = [].slice,
+        args = slice.call(arguments, 1), 
+        self = this, 
+        nop = function () {}, 
+        bound = function () {
+          return self.apply( this instanceof nop ? this : ( obj || {} ), 
+                              args.concat( slice.call(arguments) ) );    
+        };
+
+    nop.prototype = self.prototype;
+
+    bound.prototype = new nop();
+
+    return bound;
+  };
+}</pre>
+        
+<p>Some of the many differences (there may well be others, as this list does not seriously attempt to be exhaustive) between this algorithm and the specified algorithm are:</p>
+<ul>
+<li>The partial implementation, when used with the <code style="color: inherit; font-weight: inherit; ">new</code> operator does not work correctly with the <code style="color: inherit; font-weight: inherit; "><a style="text-decoration: none; color: rgb(4, 137, 183) !important; cursor: default; " rel="internal" href="../../Operators/Special/instanceof.html">instanceof</a></code><a style="text-decoration: none; color: rgb(4, 137, 183) !important; cursor: default; " rel="internal" href="../../Operators/Special/instanceof.html"> operator</a>. Instances created using the unbounded constructor will not be an instance-of the bounded constructor.</li> <li>The partial implementation relies upon a number of built-in methods and property names to have their original values.</li> <li>The partial implementation creates functions that do not have immutable "poison pill" <code>caller</code> and <code>arguments</code> properties that throw a <code>TypeError</code> upon get, set, or deletion. (This could be added if the implementation supports <a rel="internal" href="../Object/defineProperty.html"><code>Object.defineProperty</code></a>, or partially implemented [without throw-on-delete behavior] if the implementation supports the <a rel="internal" href="../Object/defineGetter-2.html"><code>__defineGetter__</code></a> and <a rel="internal" href="../Object/defineSetter-2.html"><code>__defineSetter__</code></a> extensions.)</li> <li>The partial implementation creates functions that have a <code>prototype</code> property. (Proper bound functions have none.)</li> <li>The partial implementation creates bound functions whose <code>length</code> property does not agree with that mandated by ECMA-262: it creates functions with length 0, while a full implementation, depending on the length of the target function and the number of pre-specified arguments, may return a non-zero length.</li>
+</ul>
+<p>If you choose to use this partial implementation, <strong>you must not rely on those cases where behavior deviates from ECMA-262, 5th edition!</strong> With some care, however (and perhaps with additional modification to suit specific needs), this partial implementation may be a reasonable bridge to the time when <code>bind</code> is widely implemented according to the specification.</p>
+</div>
+<div id="section_6">
+<span id="Examples"></span><h3 class="editable">Examples</h3>
+<p>The simplest use of <code>bind</code> is to make a function that, no matter how it is called, is called with a particular <code>this</code> value.  A common mistake for new JavaScript programmers is to extract a method from an object, then to later call that function and expect it to use the original object as its <code>this</code> (e.g. by using that method in callback-based code).  Without special care, however, the original object is usually lost.  Creating a bound function from the function, using the original object, neatly solves this problem:</p>
+
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+// Manipulate explicit scope
+var x = 9, 
+    module = {
+      getX: function() { 
+        return this.x; 
+      },
+      x: 81
+    };
+
+
+//  `module.getX()` called, `module` is scope, `module.x` is returned
+module.getX();
+// &gt; 81  
+
+//  store a reference in the global scope
+var getX = module.getX;
+
+//  `getX()` called, scope is global, `x` is returned
+getX();
+// &gt; 9
+
+//  store a reference with `module` bound as scope
+var boundGetX = getX.bind(module);
+
+//  `boundGetX()` called, `module` is scope again, `module.x` is returned
+boundGetX();
+// &gt; 81</pre>
+        
+<p>The next simplest use of <code>bind</code> is to make a function with pre-specified initial arguments.  These arguments (if any) follow the provided <code>this</code> value and are then inserted at the start of the arguments passed to the target function, followed by the arguments passed to the bound function, whenever the bound function is called.</p>
+
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+// Creating a function that calls another function with pre-specified leading arguments
+
+function List() {
+  var a = [];
+  
+  for (var i = 0; i &lt; arguments.length; i++) {
+   
+    a.push(arguments[i]);
+  
+  }
+      
+  return a;
+}
+
+//  create a list 
+var listOne = List(1, 2, 3); 
+
+listOne;
+// &gt;  [1, 2, 3]
+
+
+//  Create a function with a preset leading argument
+var leadingZeroList = List.bind(null /* this */, 0);
+
+leadingZeroList(); 
+// &gt; [0]
+
+leadingZeroList(1); 
+// &gt; [0, 1]
+
+leadingZeroList(1, 2);
+// &gt; [0, 1, 2]</pre>
+        
+<p>Bound functions are automatically suitable for use with the <code>new</code> operator to construct new instances created by the target function. When a bound function is used to construct a value, the provided <code>this</code> is ignored. However, provided arguments are still prepended to the constructor call:</p>
+
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+//  Creating a constructor with a bound function
+
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+//  declare a new toString method on the Point constructor's prototype
+Point.prototype.toString = function() { 
+  return this.x + "," + this.y; 
+};
+
+//  create a new object of the Point constructor
+var p = new Point(1, 2);
+
+p.toString();
+// &gt;  "1,2"
+
+
+var emptyObj = {}, 
+    YAxisPoint = Point.bind(emptyObj, 0 /* x */);
+
+
+//  create a new object of the YAxisPoint constructor
+var axisPoint = new YAxisPoint(5);
+
+axisPoint.toString();
+// &gt;  "0,5"
+
+axisPoint instanceof Point;
+// &gt;  true
+
+new YAxisPoint(17) instanceof Point;
+// &gt;  true
+
+new YAxisPoint(17) instanceof YAxisPoint;
+// &gt;  true
+
+new Point(17, 42) instanceof YAxisPoint;
+// &gt;  true //  `false` when using the partial implementation shown above</pre>
+        
+<p>Note that you need do nothing special to create a bound function for use with <code>new</code>. The corollary is that you need do nothing special to create a bound function to be called plainly, even if you would rather require the bound function to only be called using <code>new</code>. If you wish to support use of a bound function only using <code>new</code>, or only by calling it, the target function must enforce that restriction.</p>
+
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+// ...continuing from above
+
+// Can still be called as a normal function (although usually this is undesired)
+YAxisPoint(13);
+
+emptyObj.x + "," + emptyObj.y;
+// &gt;  "0,13"</pre>
+        
+</div>
+<div id="section_7">
+<span id="Supplemental"></span><h3 class="editable">Supplemental</h3>
+<p>One interesting wrinkle of bound functions working "as expected" with the <code>new</code> operator is that it is now possible to implement what one might call "<code>Function.prototype.construct</code>", an analog to <code><a rel="internal" href="apply-2.html">Function.prototype.apply</a></code> that takes an array of values as its sole argument, constructing this function with the provided arguments using the <code>new</code> operator:</p>
+
+          <pre name="code" class="js">// Example can be run directly in your JavaScript console
+// Function.prototype.construct will work with the Function.prototype.bind defined above
+
+if ( !Function.prototype.construct ) { 
+  Function.prototype.construct = function(args) {
+
+    var boundArgs = [].concat.apply([null], args), 
+        boundFn = this.bind.apply(this, boundArgs);
+        
+    return new boundFn();
+    
+  };
+}
+
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function() { 
+  return this.x + "," + this.y; 
+};
+
+Point.construct( [2, 4] ).toString();
+// &gt;  "2,4"</pre>
+        
+<p>But note well: the efficiency of constructing a new function every time you wish to construct an object by invoking a bound function via <code>new</code> with a variable number of arguments is questionable. Your code will be faster and more efficient if you use <code>Function.prototype.apply</code> instead, with normal call syntax rather than using <code>new</code> operator-based syntax.</p>
+</div>
+<div id="section_8">
+<span id="See_also"></span><h3 class="editable">See also</h3>
+<ul>
+<li><code><a rel="internal" href="apply-2.html">Function.prototype.apply</a></code></li> <li><code><a rel="internal" href="call-2.html">Function.prototype.call</a></code></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="bind.html">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:58:27 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/delay/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:34 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Function#delay</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Function#delay
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Function#delay(timeout[, args...]) &rarr; <a href="../../../Number/index.html" title="Number (class)">Number</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">timeout</code>
+          <span class="argument-types">(<code><a href="../../../Number/index.html" title="Number (class)">Number</a></code>)</span>
+         &ndash; The time, in seconds, to wait before calling the function.
+      </li>
+      <li>
+        <code class="argument-name">args</code>
+          <span class="argument-types">(<code>?</code>)</span>
+         &ndash; Optional arguments to pass to the function when calling it.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Schedules the function to run after the specified amount of time, passing
+any arguments given.</p>
+
+<p>Behaves much like <code>window.setTimeout</code>, but the timeout is in seconds
+rather than milliseconds. Returns an integer ID that can be used to
+clear the timeout with <code>window.clearTimeout</code> before it runs.</p>
+
+<p>To schedule a function to run as soon as the interpreter is idle, use
+<code><a href="../defer/index.html" title="Function#defer (instance method)">Function#defer</a></code>.</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">showMsg</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">showMsg</span><span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;Hi there!&quot;</span><span class="p">);</span>
+<span class="c1">// -&gt; Waits a 10th of a second, then alerts &quot;Hi there!&quot;</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/delay/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:34 GMT -->
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/Blob by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:58 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Blob - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=62808">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=62808">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 62808;
+Deki.PageTitle = 'en/DOM/Blob';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMBlob" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Blob</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Method_overview" rel="internal">Method overview</a>
+</li>
+<li>
+<span>2.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>3.</span> <a href="#Methods" rel="internal">Methods</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li>
+<span>3.1.</span> <a href="#slice()" rel="internal">slice()</a>
+</li></ol>
+</li>
+<li>
+<span>4.</span> <a href="#See_also" rel="internal">See also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 2.0</p>
+
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+</div>
+</span> <span class="lang lang-en">
+<div style="margin: 1em 0px; padding: 1em; background-color: rgb(255, 255, 204); text-align: center;">
+<strong>DRAFT</strong>
+<div style="font-size: x-small;">This page is not complete.</div>
+</div>
+</span>
+</p>
+<p>A <code>Blob</code> object represents raw data. It's used to represent data that isn't necessarily in a JavaScript-native format. The 
+<code><a rel="custom nofollow" href="File.html">File</a></code> interface is based on it, inheriting the <code>Blob</code>'s functionality and expanding it to support files on the user's system.</p>
+<div id="section_1">
+<span id="Method_overview"></span><h2 class="editable">Method overview</h2>
+<table class="standard-table"><tbody><tr>
+<td><code>Blob <a rel="internal" href="Blob.html#slice()">slice</a>(in unsigned long long start, in unsigned long long length, optional DOMString contentType);</code></td> </tr></tbody></table>
+</div>
+<div id="section_2">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<table class="standard-table"><tbody>
+<tr>
+<td class="header">Property</td> <td class="header">Type</td> <td class="header">Description</td> </tr>
+<tr>
+<td><code>size</code></td> <td><code>unsigned long long<br></code></td> <td>The size, in bytes, of the data contained in the <code>Blob</code> object. <strong>Read only.</strong>
+</td> </tr>
+<tr>
+<td><code>type</code></td> <td><code>DOMString</code></td> <td>An ASCII-encoded string, in all lower case, indicating the MIME type of the data contained in the <code>Blob</code>. If the type is unknown, this string is empty. <strong>Read only.</strong>
+</td> </tr>
+</tbody></table>
+</div>
+<div id="section_3">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<div id="section_4">
+<span id="slice()"></span><h3 class="editable">slice()</h3>
+<p>Returns a new <code>Blob</code> object containing the data in the specified range of bytes of the source <code>Blob</code>.</p>
+<pre>
+Blob slice(
+  in unsigned long long start,
+  in unsigned long long length,
+  optional DOMString contentType
+); 
+</pre>
+<div id="section_5">
+<span id="Parameters"></span><h6 class="editable">Parameters</h6>
+<dl>
+<dt><code>start</code></dt> <dd>An index into the <code>Blob</code> indicating the first byte to copy into the new <code>Blob</code>.</dd> <dt><code>length</code></dt> <dd>The number of bytes to copy into the new <code>Blob</code>.</dd> <dt>
+<code>contentType</code> <span class="lang lang-en"><span style="border: 1px solid #9ED2A4; background-color: #C0FFC7; font-size: x-small; white-space: nowrap; padding: 2px;">Optional</span></span> </dt> <dd>The content type to assign to the new <code>Blob</code>; this will be the value of its <code>type</code> property.</dd>
+</dl>
+</div>
+<div id="section_6">
+<span id="Return_value"></span><h6 class="editable">Return value</h6>
+<p>A new <code>Blob</code> object containing the specified data from the source <code>Blob</code>.</p>
+</div>
+<div id="section_7">
+<span id="Notes"></span><h6 class="editable">Notes</h6>
+<p>If you specify values for start and <code>length</code> such that <code>start</code> + <code>length</code> exceeds the size of the source <code>Blob</code>, the returned <code>Blob</code> contains data from the <code>start</code> index to the end of the source <code>Blob</code>.</p>
+<p>If you specify a value for <code>start</code> that is larger than the size of the source <code>Blob</code>, the returned <code>Blob</code> has size 0 and contains no data.</p>
+</div>
+</div>
+</div>
+<div id="section_8">
+<span id="See_also"></span><h2 class="editable">See also</h2>
+<ul>
+<li>
+<a rel="custom nofollow" href="http://www.w3.org/TR/FileAPI/#dfn-Blob">File API Specification: Blob</a><span title="Working Draft" style="background-color:#ff0; font-size: x-small; margin-left:6px; white-space: nowrap; padding: 2px;">WD</span>
+</li> <li>
+<code><a rel="custom nofollow" href="File.html">File</a></code>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Blob.html">https://developer.mozilla.org/en/DOM/Blob</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/Blob by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:58 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

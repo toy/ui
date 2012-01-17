@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/element by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:05:15 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>element - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=4180">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=4180">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 4180;
+Deki.PageTitle = 'en/DOM/element';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMelement" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">element</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>2.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+<li>
+<span>3.</span> <a href="#Event_Handlers" rel="internal">Event Handlers</a>
+</li>
+<li>
+<span>4.</span> <a href="#Other_Events" rel="internal">Other Events</a>
+</li>
+<li>
+<span>5.</span> <a href="#Constants" rel="internal">Constants</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<p>This chapter provides a brief reference for the general methods, properties, and events available to most HTML and XML elements in the Gecko DOM.</p>
+<p>Various W3C specifications apply to elements:</p>
+<ul>
+<li>
+<a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Core/" title="http://www.w3.org/TR/DOM-Level-2-Core/" target="_blank">DOM Core Specification</a>—describes the core interfaces shared by most DOM objects in HTML and XML documents</li> <li>
+<a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-HTML/" title="http://www.w3.org/TR/DOM-Level-2-HTML/" target="_blank">DOM HTML Specification</a>—describes interfaces for objects in HTML and XHTML documents that build on the core specification</li> <li>
+<a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Events/" title="http://www.w3.org/TR/DOM-Level-2-Events/" target="_blank">DOM Events Specification</a>—describes events shared by most DOM objects, building on the DOM Core and <a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Views/" title="http://www.w3.org/TR/DOM-Level-2-Views/" target="_blank">Views</a> specifications</li> <li>
+<a title="http://www.w3.org/TR/ElementTraversal/" class="external" rel="external nofollow" href="http://www.w3.org/TR/ElementTraversal/" target="_blank">Element Traversal Specification</a>—describes the new attributes that allow traversal of elements in the DOM tree 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</li>
+</ul>
+<p>The articles listed here span the above and include links to the appropriate W3C DOM specification.</p>
+<p>While these interfaces are generally shared by most HTML and XML elements, there are more specialized interfaces for particular objects listed in the DOM HTML Specification. Note, however, that these HTML interfaces are "only for [HTML 4.01] and [XHTML 1.0] documents and are not guaranteed to work with any future version of XHTML." The HTML 5 draft does state it aims for backwards compatibility with these HTML interfaces but says of them that "some features that were formerly deprecated, poorly supported, rarely used or considered unnecessary have been removed." One can avoid the potential conflict by moving entirely to DOM XML attribute methods such as <code>getAttribute()</code>.</p>
+<p><a rel="internal" href="HTMLHtmlElement.html">Html</a>, <a rel="internal" href="HTMLHeadElement.html">Head</a>, <a rel="internal" href="HTMLLinkElement.html">Link</a>, <a rel="internal" href="HTMLTitleElement.html">Title</a>, <a rel="internal" href="HTMLMetaElement.html">Meta</a>, <a rel="internal" href="HTMLBaseElement.html">Base</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">IsIndex</a>, <a rel="internal" href="HTMLStyleElement.html">Style</a>, <a rel="internal" href="HTMLBodyElement-2.html">Body</a>, <a rel="internal" href="HTMLFormElement.html">Form</a>, <a rel="internal" href="HTMLSelectElement.html">Select</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">OptGroup</a>, <a style="" rel="internal" href="https://developer.mozilla.org/en/HTML/Element/HTMLOptionElement" class="new ">Option</a>, <a rel="internal" href="HTMLInputElement.html">Input</a>, <a rel="internal" href="HTMLTextareaElement-2.html">TextArea</a>, <a rel="internal" href="HTMLButtonElement-2.html">Button</a>, <a rel="internal" href="HTMLLabelElement.html">Label</a>, <a rel="internal" href="HTMLFieldSetElement-2.html">FieldSet</a>, <a rel="internal" href="HTMLLegendElement.html">Legend</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">UList</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">OList</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">DList</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Directory</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Menu</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">LI</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Div</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Paragraph</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Heading</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Quote</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Pre</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">BR</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">BaseFont</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Font</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">HR</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Mod</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Anchor</a>, <a rel="internal" href="HTMLImageElement.html">Image</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Object</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Param</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Applet</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Map</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Area</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Script</a>, <a rel="internal" href="HTMLTableElement.html">Table</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">TableCaption</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">TableCol</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">TableSection</a>, <a rel="internal" href="HTMLTableRowElement.html">TableRow</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">TableCell</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">FrameSet</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">Frame</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">IFrame</a></p>
+<div id="section_1">
+<span id="Properties"></span><h3 class="editable">Properties</h3>
+<table class="fullwidth-table"><tbody>
+<tr>
+<th>Name</th> <th>Description</th> <th>Type</th> <th>Availability</th> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-3.html">attributes</a></code></td> <td>All attributes associated with an element.</td> <td><code><a rel="internal" href="NamedNodeMap.html">NamedNodeMap</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">baseURI</a></code></td> <td>Base URI as a string</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-9.html">baseURIObject</a></code> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</td> <td>The read-only 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIURI">nsIURI</a></code> object representing the base URI for the element.</td> <td>
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIURI">nsIURI</a></code>
+</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a> (with UniversalXPConnect privileges)</small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Element-10.html"><code>childElementCount</code></a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</td> <td>The number of child nodes that are elements.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></td> <td nowrap> <p><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></p> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-4.html">childNodes</a></code></td> <td>All child nodes of an element.</td> <td><code><a rel="internal" href="NodeList.html">NodeList</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Element-11.html"><code>children</code></a> 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</td> <td>A live 
+<code><a rel="internal" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIDOMNodeList" class="new">nsIDOMNodeList</a></code> of the current child elements.</td> <td><code><a rel="internal" href="NodeList.html">NodeList</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="element-12.html">classList</a></code> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</td> <td>Token list of class attribute</td> <td><a class="internal" rel="internal" href="DOMTokenList.html">DOMTokenList</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-13.html">className</a></code></td> <td>Gets/sets the class of the element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-14.html">clientHeight</a></code></td> <td>The inner height of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-15.html">clientLeft</a></code></td> <td>The width of the left border of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-16.html">clientTop</a></code></td> <td>The width of the top border of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-17.html">clientWidth</a></code></td> <td>The inner width of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td>
+<a rel="internal" href="Element-18.html"><code>contentEditable</code></a> 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</td> <td>Gets/sets whether or not the element is editable.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-19.html">dir</a></code></td> <td>Gets/sets the directionality of the element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-5.html">firstChild</a></code></td> <td>The first direct child node of an element, or <code>null</code> if this element has no child nodes.</td> <td><code><a rel="internal" href="Node.html">Node</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Element-20.html"><code>firstElementChild</code></a> 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</td> <td>The first direct child element of an element, or <code>null</code> if the element has no child elements.</td> <td><strong><code>Element</code></strong></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-21.html">id</a></code></td> <td>Gets/sets the id of the element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-3.html">innerHTML</a></code></td> <td>Gets/sets the markup and content of the element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td>
+<a rel="internal" href="Element-22.html"><code>isContentEditable</code></a> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2</span>
+</td> <td>Indicates whether or not the content of the element can be edited. Read only.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Boolean"><code>Boolean</code></a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-23.html">lang</a></code></td> <td>Gets/sets the language of an element's attributes, text, and element contents.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-6.html">lastChild</a></code></td> <td>The last direct child node of an element, or <code>null</code> if this element has no child nodes.</td> <td><code><a rel="internal" href="Node.html">Node</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Element-24.html"><code>lastElementChild</code></a> 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</td> <td>The last direct child element of an element, or <code>null</code> if the element has no child elements.</td> <td><strong><code>Element</code></strong></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-7.html">localName</a></code></td> <td>The local part of the qualified name of an element. In Firefox 3.5 and earlier, the property upper-cases the local name for HTML elements (but not XHTML elements). In later versions, this does not happen, so the property is in lower case for both HTML and XHTML. 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<th>Name</th> <th>Description</th> <th>Type</th> <th>Availability</th> </tr>
+<tr>
+<td><code><a rel="internal" href="element-25.html">name</a></code></td> <td>Gets/sets the name attribute of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-8.html">namespaceURI</a></code></td> <td>The namespace URI of this node, or <code>null</code> if it is no namespace. In Firefox 3.5 and earlier, HTML elements are in no namespace. In later versions, HTML elements are in the <code><a title="Linkification: http://www.w3.org/1999/xhtml" class="linkification-ext external" rel="external nofollow" href="http://www.w3.org/1999/xhtml" target="_blank">http://www.w3.org/1999/xhtml</a></code> namespace in both HTML and XML trees. 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-9.html">nextSibling</a></code></td> <td>The node immediately following the given one in the tree, or <code>null</code> if there is no sibling node.</td> <td><code><a rel="internal" href="Node.html">Node</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Element-26.html"><code>nextElementSibling</code></a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</td> <td>The element immediately following the given one in the tree, or <code>null</code> if there's no sibling node.</td> <td><strong>Element</strong></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-10.html">nodeName</a></code></td> <td>The name of the node.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="Node-13.html">nodePrincipal</a> </code>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</td> <td>The node's principal.</td> <td><code>
+<code><a rel="internal" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIPrincipal" class="new">nsIPrincipal</a></code></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a> (with UniversalXPConnect privileges)</small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-11.html">nodeType</a></code></td> <td>A number representing the type of the node. Is always equal to <code>1</code> for DOM elements.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-12.html">nodeValue</a></code></td> <td>The value of the node. Is always equal to <code>null</code> for DOM elements.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-27.html">offsetHeight</a></code></td> <td>The height of an element, relative to the layout.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-28.html">offsetLeft</a></code></td> <td>The distance from this element's left border to its <code>offsetParent</code>'s left border.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-29.html">offsetParent</a></code></td> <td>The element from which all offset calculations are currently computed.</td> <td><code><strong>Element</strong></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-30.html">offsetTop</a></code></td> <td>The distance from this element's top border to its <code>offsetParent</code>'s top border.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-31.html">offsetWidth</a></code></td> <td>The width of an element, relative to the layout.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-14.html">ownerDocument</a></code></td> <td>The document that this node is in, or <code>null</code> if the node is not inside of one.</td> <td><code><a rel="internal" href="document.html">Document</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<th>Name</th> <th>Description</th> <th>Type</th> <th>Availability</th> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-15.html">parentNode</a></code></td> <td>The parent element of this node, or <code>null</code> if the node is not inside of a <a rel="internal" href="document.html">DOM Document</a>.</td> <td><code><a rel="internal" href="Node.html">Node</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-16.html">prefix</a></code></td> <td>The namespace prefix of the node, or <code>null</code> if no prefix is specified.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-17.html">previousSibling</a></code></td> <td>The node immediately preceding the given one in the tree, or <code>null</code> if there is no sibling node.</td> <td><code><a rel="internal" href="Node.html">Node</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Element-32.html"><code>previousElementSibling</code></a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</td> <td>The element immediately preceding the given one in the tree, or <code>null</code> if there is no sibling element.</td> <td><strong><code>Element</code></strong></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><a rel="internal" href="https://developer.mozilla.org/" class="new internal"><code>schemaTypeInfo</code></a></td> <td>Returns TypeInfo regarding schema information for the element (also available on <a rel="internal" href="Attr.html">Attr</a>).</td> <td><a class="internal" rel="internal" href="TypeInfo.html"><code>TypeInfo</code></a></td> <td nowrap>Not supported</td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-33.html">scrollHeight</a></code></td> <td>The scroll view height of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-34.html">scrollLeft</a></code></td> <td>Gets/sets the left scroll offset of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-35.html">scrollTop</a></code></td> <td>Gets/sets the top scroll offset of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-36.html">scrollWidth</a></code></td> <td>The scroll view width of an element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="https://developer.mozilla.org/en/XUL/Attribute/spellcheck">spellcheck</a></code></td> <td>Controls <a rel="internal" href="https://developer.mozilla.org/en/Controlling_spell_checking_in_HTML_forms">spell-checking</a> (present on all HTML elements)</td> <td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-4.html">style</a></code></td> <td>An object representing the declarations of an element's style attributes.</td> <td><code><a rel="internal" href="CSSStyleDeclaration.html">CSSStyleDeclaration</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-37.html">tabIndex</a></code></td> <td>Gets/sets the position of the element in the tabbing order.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-38.html">tagName</a></code></td> <td>The name of the tag for the given element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-18.html">textContent</a></code></td> <td>Gets/sets the textual contents of an element and all its descendants.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="element-39.html">title</a></code></td> <td>A string that appears in a popup box when mouse is over the element.</td> <td><code><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+</tbody></table>
+</div>
+<div id="section_2">
+<span id="Methods"></span><h3 class="editable">Methods</h3>
+<table class="fullwidth-table"><tbody>
+<tr>
+<th>Name &amp; Description</th> <th>Return</th> <th>Availability</th> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-7.html">addEventListener</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">type</a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">listener</a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">useCapture</a> )</code><br> Register an event handler to a specific event type on the element.</td> <td>-</td> <td nowrap><small><a rel="internal" href="event.html">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-2.html">appendChild</a>( <a rel="internal" href="Node.html">appendedNode</a> )</code><br> Insert a node as the last child node of this element.</td> <td><a rel="internal" href="Node.html">Node</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-40.html">blur</a>()</code><br> Removes keyboard focus from the current element.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-41.html">click</a>()</code><br> Simulates a click on the current element.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-19.html">cloneNode</a>( <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">deep</a> )</code><br> Clone a node, and optionally, all of its contents.</td> <td><a rel="internal" href="Node.html">Node</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="Node-20.html">compareDocumentPosition</a></code> ( <code><a class="internal" rel="internal" href="Node.html">otherNode</a></code> )</td> <td><code><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-42.html">dispatchEvent</a>( <a rel="internal" href="event.html">event</a> )</code><br> Dispatch an event to this node in the DOM.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-43.html">focus</a>()</code><br> Gives keyboard focus to the current element.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-6.html">getAttribute</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Retrieve the value of the named attribute from the current node.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-44.html">getAttributeNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Retrieve the value of the attribute with the specified name and namespace, from the current node.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-45.html">getAttributeNode</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Retrieve the node representation of the named attribute from the current node.</td> <td><a rel="internal" href="Attr.html">Attr</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-46.html">getAttributeNodeNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Retrieve the node representation of the attribute with the specified name and namespace, from the current node.</td> <td><a rel="internal" href="Attr.html">Attr</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="element-47.html"><code>getBoundingClientRect</code></a> ( )</td> <td> </td> <td nowrap> </td> </tr>
+<tr>
+<td> <p><a class="internal" rel="internal" href="element-48.html"><code>getClientRects</code></a> ( )<br> Returns a collection of rectangles that indicate the bounding rectangles for each line of text in a client.</p> </td> <td> </td> <td nowrap> </td> </tr>
+<tr>
+<th>Name &amp; Description</th> <th>Return</th> <th>Availability</th> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="Element-49.html"><span class="internal">getElementsByClassName</span></a> </code>( )</td> <td><code><a rel="internal" href="NodeList.html">NodeList</a></code></td> <td nowrap> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-2.html">getElementsByTagName</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Retrieve a set of all descendant elements, of a particular tag name, from the current element.</td> <td><a rel="internal" href="NodeList.html">NodeList</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-50.html">getElementsByTagNameNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Retrieve a set of all descendant elements, of a particular tag name and namespace, from the current element.</td> <td><a rel="internal" href="NodeList.html">NodeList</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a rel="internal" href="https://developer.mozilla.org/" class="new internal"><code>getFeature</code></a> ( <code>feature</code>, <code>version</code>  )</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">Object</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Node-21.html"><code>getUserData</code></a> ( <code>key</code> )</td> <td><a rel="internal" href="DOMUserData.html">DOMUserData</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-51.html">hasAttribute</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Check if the element has the specified attribute, or not.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-52.html">hasAttributeNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Check if the element has the specified attribute, in the specified namespace, or not.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-22.html">hasAttributes</a>()</code><br> Check if the element has any attributes, or not.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-23.html">hasChildNodes</a>()</code><br> Check if the element has any child nodes, or not.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-24.html">insertBefore</a>( <a rel="internal" href="Node.html">insertedNode</a>, <a rel="internal" href="Node.html">adjacentNode</a> )</code><br> Inserts the first node before the second, child, Node in the DOM.</td> <td><a rel="internal" href="Node.html">Node</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="Node-25.html">isDefaultNamespace</a></code> ( <code>namespaceURI</code> )</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a rel="internal" href="https://developer.mozilla.org/" class="new internal"><code>isEqualNode</code></a> ( <code><a class="internal" rel="internal" href="Node.html">nodeArg</a></code> )</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="https://developer.mozilla.org/" class="new internal">isSameNode</a></code> ( <code><a class="internal" rel="internal" href="Node.html">otherNode</a></code> ) </td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-26.html">isSupported</a> ( feature, version )</code></td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Node-27.html"><code>lookupNamespaceURI</code></a> ( <code>prefix</code> )</td> <td><code><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Node-28.html"><code>lookupPrefix</code></a> ( <code>namespaceURI</code> )</td> <td><code><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></code></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-33.html">mozMatchesSelector</a>( selector )</code><br> Returns whether or not the element would be selected by the specified selector string.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-29.html">normalize</a>()</code><br> Clean up all the text nodes under this element (merge adjacent, remove empty).</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="Element-53.html">querySelector</a>( selectors[, nsresolver] )</code> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</td> <td><a class="internal" rel="internal" href="Node.html">Node</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a class="internal" rel="internal" href="Element-54.html">querySelectorAll</a>( selectors[, nsresolver] )</code>
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</td> <td><a class="internal" rel="internal" href="NodeList.html">NodeList</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-55.html">removeAttribute</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Remove the named attribute from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-56.html">removeAttributeNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a> )</code><br> Remove the attribute with the specified name and namespace, from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<th>Name &amp; Description</th> <th>Return</th> <th>Availability</th> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-57.html">removeAttributeNode</a>( <a rel="internal" href="Attr.html">attrNode</a> )</code><br> Remove the node representation of the named attribute from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-30.html">removeChild</a>( <a rel="internal" href="Node.html">removedNode</a> )</code><br> Removes a child node from the current element.</td> <td><a rel="internal" href="Node.html">Node</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-58.html">removeEventListener</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">type</a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function">handler</a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">useCapture</a> )</code><br> Removes an event listener from the element.</td> <td>-</td> <td nowrap><small><a rel="internal" href="event.html">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-31.html">replaceChild</a>( <a rel="internal" href="Node.html">insertedNode</a>, <a rel="internal" href="Node.html">replacedNode</a> )</code><br> Replaces one child node in the current element with another.</td> <td><a rel="internal" href="Node.html">Node</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-59.html">scrollIntoView</a>( <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">alignWithTop</a> )</code><br> Scrolls the page until the element gets into the view.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-5.html">setAttribute</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">value</a> )</code><br> Set the value of the named attribute from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-60.html">setAttributeNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a>, <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object">value</a> )</code><br> Set the value of the attribute with the specified name and namespace, from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-61.html">setAttributeNode</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a>, <a rel="internal" href="Attr.html">attrNode</a> )</code><br> Set the node representation of the named attribute from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-62.html">setAttributeNodeNS</a>( <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">namespace</a>, <a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">name</a>, <a rel="internal" href="Attr.html">attrNode</a> )</code><br> Set the node representation of the attribute with the specified name and namespace, from the current node.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="element-63.html">setCapture</a>( retargetToElement )</code><br> Sets up mouse event capture, redirecting all mouse events to this element.</td> <td>-</td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+<tr>
+<td> <p><a rel="internal" href="https://developer.mozilla.org/" class="new internal"><code>setIdAttribute</code></a> (<code>name</code>, <code>isIdBoolean</code>)<br> Sets the attribute to be treated as an ID type attribute.</p> </td> <td>-</td> <td nowrap>Not supported</td> </tr>
+<tr>
+<td>
+<a rel="internal" href="https://developer.mozilla.org/" class="new internal"><code>setIdAttributeNS</code></a> ( <code>namespaceURI</code>, <code>localName</code>, <code>isIdBoolean</code> )<br> Sets the attribute to be treated as an ID type attribute.</td> <td>-</td> <td nowrap>Not supported</td> </tr>
+<tr>
+<td>
+<a rel="internal" href="https://developer.mozilla.org/" class="new internal"><code>setIdAttributeNode</code></a> ( <code>idAttr</code>, <code>isIdBoolean</code> )<br> Sets the attribute to be treated as an ID type attribute.</td> <td>-</td> <td nowrap>Not supported</td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Node-32.html"><code>setUserData</code></a> ( <code>key</code>, <a class="internal" rel="internal" href="DOMUserData.html"><code>data</code></a>, <code>handler</code> )</td> <td><a rel="internal" href="DOMUserData.html">DOMUserData</a></td> <td nowrap><small><a rel="internal" href="https://developer.mozilla.org/en/DOM">All</a></small></td> </tr>
+</tbody></table>
+</div>
+<div id="section_3">
+<span id="Event_Handlers"></span><h3 class="editable">Event Handlers</h3>
+<p>These are properties that correspond to the HTML 'on' event attributes.</p>
+<p>Unlike the corresponding attributes, the values of these properties are functions (or any other object implementing the <a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener" title="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventListener" target="_blank">EventListener</a> interface) rather than a string. In fact, assigning an event attribute in HTML creates a wrapper function around the specified code. For example, given the following HTML:</p>
+<pre>
+&lt;div onclick="foo();"&gt;click me!&lt;/div&gt;
+</pre>
+<p>If <code>element</code> is a reference to this <code>div</code>, the value of <code>element.onclick</code> is effectively:</p>
+<pre>
+function onclick(event) {
+   foo();
+}
+</pre>
+<p>Note how the <a rel="internal" href="event.html">event</a> object is passed as parameter <code>event</code> to this wrapper function.</p>
+<dl>
+<dt>
+<a rel="internal" href="element-64.html">oncopy</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns the event handling code for the copy event.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="element-65.html">oncut</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns the event handling code for the cut event.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="element-66.html">onpaste</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns the event handling code for the paste event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">onbeforeunload</a></dt> <dd>Returns the event handling code for the beforeunload event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-67.html">onblur</a></dt> <dd>Returns the event handling code for the blur event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-68.html">onchange</a></dt> <dd>Returns the event handling code for the change event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-69.html">onclick</a></dt> <dd>Returns the event handling code for the click event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">oncontextmenu</a></dt> <dd>Returns the event handling code for the contextmenu event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-70.html">ondblclick</a></dt> <dd>Returns the event handling code for the dblclick event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-71.html">onfocus</a></dt> <dd>Returns the event handling code for the focus event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-72.html">onkeydown</a></dt> <dd>Returns the event handling code for the keydown event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-73.html">onkeypress</a></dt> <dd>Returns the event handling code for the keypress event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-74.html">onkeyup</a></dt> <dd>Returns the event handling code for the keyup event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-75.html">onmousedown</a></dt> <dd>Returns the event handling code for the mousedown event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-76.html">onmousemove</a></dt> <dd>Returns the event handling code for the mousemove event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-77.html">onmouseout</a></dt> <dd>Returns the event handling code for the mouseout event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-78.html">onmouseover</a></dt> <dd>Returns the event handling code for the mouseover event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-79.html">onmouseup</a></dt> <dd>Returns the event handling code for the mouseup event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-80.html">onresize</a></dt> <dd>Returns the event handling code for the resize event.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="element-81.html">onscroll</a></dt> <dd>Returns the event handling code for the scroll event.</dd>
+</dl>
+</div>
+<div id="section_4">
+<span id="Other_Events"></span><h3 class="editable">Other Events</h3>
+<p>There are also other <a rel="internal" href="https://developer.mozilla.org/en/DOM_Events">DOM Events</a> like <code>DOMSubtreeModified</code>, <code>DOMAttrModified</code> etc. as well as <a rel="internal" href="https://developer.mozilla.org/en/Gecko-Specific_DOM_Events">Gecko-Specific DOM Events</a> like <code>DOMContentLoaded</code>, <code>DOMTitleChanged</code> etc.</p>
+</div>
+<div id="section_5">
+<span id="Constants"></span><h3 class="editable">Constants</h3>
+<p>See <a rel="internal" href="Node.html">Node</a> for those constants which Element inherits.</p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="element.html">https://developer.mozilla.org/en/DOM/element</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/element by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:07:36 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

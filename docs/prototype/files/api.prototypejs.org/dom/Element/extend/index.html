@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/extend/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:08 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.extend</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Element.extend
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.extend(element) &rarr; <a href="../index.html" title="Element (class)">Element</a></code></pre>
+
+
+      <p>Extends the given element instance with all of the Prototype goodness and
+syntactic sugar, as well as any extensions added via <code><a href="../addMethods/index.html" title="Element.addMethods (class method)">Element.addMethods</a></code>.
+(If the element instance was already extended, this is a no-op.)</p>
+
+<p>You only need to use <code><a href="index.html" title="Element.extend (class method)">Element.extend</a></code> on element instances you've acquired
+directly from the DOM; <strong>all</strong> Prototype methods that return element
+instances (such as <code><a href="../../dollar/index.html" title="$ (utility)">$</a></code>, <code><a href="../down/index.html" title="Element.down (class method)">Element.down</a></code>, etc.) will pre-extend the
+element before returning it.</p>
+
+<p>Check out <a href="../../../../prototypejs.org/learn/extensions.html">"How Prototype extends the
+DOM"</a> for more about element
+extensions.</p>
+
+<h5>Details</h5>
+
+<p>Specifically, <code><a href="index.html" title="Element.extend (class method)">Element.extend</a></code> extends the given instance with the methods
+contained in <code><a href="../Methods/index.html" title="Element.Methods (mixin)">Element.Methods</a></code> and <code>Element.Methods.Simulated</code>. If <code>element</code>
+is an <code>input</code>, <code>textarea</code>, or <code>select</code> element, it will also be extended
+with the methods from <code>Form.Element.Methods</code>. If it is a <code>form</code> element, it
+will also be extended with the methods from <code>Form.Methods</code>.</p>
+      
+        <p class="alias aliases">Aliased as: <code><a href="../../../Prototype/Selector/extendElement/index.html" title="Prototype.Selector.extendElement (class method)">Prototype.Selector.extendElement</a></code></p>
+
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/extend/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:08 GMT -->
+</html>

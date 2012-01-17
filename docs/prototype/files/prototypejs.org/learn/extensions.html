@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from prototypejs.org/learn/extensions by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Prototype JavaScript framework: How Prototype extends the DOM</title>
+	<link href="stylesheets/main.html" rel="stylesheet" type="text/css" charset="utf-8" />	
+	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 6]><link href="/stylesheets/ie-sucks-for-api.css" rel="stylesheet" type="text/css" media="screen"><![endif]-->
+  <link href="http://feeds.feedburner.com/prototype-blog" rel="alternate" type="application/atom+xml" />
+ <script src="../javascripts/prototype.js" type="text/javascript"></script>
+<script src="../javascripts/code_highlighter.js" type="text/javascript"></script>
+<script src="../javascripts/javascript.js" type="text/javascript"></script>
+<script src="../javascripts/html.js" type="text/javascript"></script>
+<script src="../javascripts/css.js" type="text/javascript"></script>
+<script src="../javascripts/ruby.js" type="text/javascript"></script>
+<script src="../javascripts/ebnf.js" type="text/javascript"></script>
+
+
+<link href="../images/fav.png" rel="shortcut icon" type="image/ico" />
+</head>
+
+<body id="main">
+            
+   <h2>How Prototype extends the DOM</h2>
+   <div id="lmeta">Last updated on January 14th, 2007</div>
+  <div id="learn-excerpt"><p>The biggest part of the Prototype framework are its DOM extensions. Prototype adds many convenience methods to elements returned by the <code>$()</code> function: for instance, you can write <code>$('comments').addClassName('active').show()</code> to get the element with the ID 'comments', add a class name to it and show it (if it was previously hidden). The 'comments' element didn't have those methods in native JavaScript; how is this possible? This document reveals some clever hacks found in Prototype.</p></div>
+  <div id="abody"><h3>The Element.extend() method</h3>
+
+<p>Most of the DOM methods are encapsulated by the <code>Element.Methods</code> object and
+then copied over to the <code>Element</code> object (for convenience). They all receive the
+element to operate with as the first parameter:</p>
+
+<pre><code class="javascript">
+Element.hide('comments');
+var div_height = Element.getHeight(my_div);
+Element.addClassName('contactform', 'pending');
+</code></pre>
+
+<p>These examples are concise and readable, but we can do better. If you have an
+element to work with, you can pass it through <code>Element.extend()</code> and it will
+copy all those methods directly to the element. Example, to create an element
+and manipulate it:</p>
+
+<pre><code class="javascript">
+var my_div = document.createElement('div');
+
+Element.extend(my_div);
+my_div.addClassName('pending').hide();
+
+// insert it in the document
+document.body.appendChild(my_div);
+</code></pre>
+
+<p>Our method calls just got shorter and more intuitive! As mentioned before,
+<code>Element.extend()</code> copies all the methods from <code>Element.Methods</code> to our element
+which automatically becomes the first argument for all those functions. The
+<code>extend()</code> method is smart enough not to try to operate twice on the same
+element. What's even better, **the dollar function <code>$()</code> extends every element
+passed through it** with this mechanism.</p>
+
+<p>In addition, <code>Element.extend()</code> also applies <code>Form.Methods</code> to FORM elements
+and <code>Form.Element.Methods</code> to INPUT, TEXTAREA and SELECT elements:</p>
+
+<pre><code class="javascript">
+var contact_data = $('contactform').serialize();
+var search_terms = $('search_input').getValue();
+</code></pre>
+
+<p>Note that not only the dollar function automatically extends elements!
+<code>Element.extend()</code> is also called in <code>document.getElementsByClassName</code>,
+<code>Form.getElements</code>, on elements returned from the <code>$$()</code> function (elements
+matching a CSS selector) and other places - in the end, chances are you will
+rarely need to explicitly call <code>Element.extend()</code> at all.</p>
+
+<h3>Adding your own methods with Element.addMethods()</h3>
+
+<p>If you have some DOM methods of your own that you'd like to add to those of
+Prototype, no problem! Prototype provides a mechanism for this, too. Suppose
+you have a bunch of functions encapsulated in an object, just pass the object
+over to <code>Element.addMethods()</code>:</p>
+
+<pre><code class="javascript">
+var MyUtils = {
+    truncate: function(element, length){
+        element = $(element);
+        return element.update(element.innerHTML.truncate(length));
+    },
+    updateAndMark: function(element, html){
+        return $(element).update(html).addClassName('updated');
+    }
+}
+
+Element.addMethods(MyUtils);
+
+// now you can:
+$('explanation').truncate(100);
+</code></pre>
+
+<p>The only thing to watch out here is to make sure the first argument of these methods is the element itself. In your methods, you can also return the element in the end to allow for chainability (or, as practiced in the example, any method which itself returns the element).</p>
+
+<h3>Native extensions</h3>
+
+<p>There is a secret behind all this.</p>
+
+<p>In browsers that support adding methods to prototype of native objects such as 
+<code>HTMLElement</code> <em>all</em> DOM extensions on the element are available by
+default without ever having to call <code>Element.extend()</code>, dollar function or
+anything! This will then work in those browsers:</p>
+
+<pre><code class="javascript">
+var my_div = document.createElement('div');
+my_div.addClassName('pending').hide();
+document.body.appendChild(my_div);
+</code></pre>
+
+<p>Because the prototype of the native browser object is extended, all DOM elements
+have Prototype extension methods built-in. This, however, isn't true for IE
+which doesn't let anyone touch <code>HTMLElement.prototype</code>. To make the previous
+example work in IE you would have to extend the element with <code>Element.extend()</code>.
+Don't worry, the method is smart enough not to extend an element more than once.</p>
+
+<p>Because of browsers that don't support this you must take care to use DOM
+extensions only on elements that have been extended. For instance, the example
+above works in Firefox and Opera, but add <code>Element.extend(my_div)</code> after
+creating the element to make the script really solid. You can use the dollar
+function as a shortcut like in the following example:</p>
+
+<pre><code class="javascript">
+// this will error out in IE: 
+$('someElement').parentNode.hide()
+// to make it cross-browser:
+$($('someElement').parentNode).hide()
+</code></pre>
+
+<p>Don't forget about this! Always test in all the browsers you plan to support.</p></div>
+
+
+
+          </body>
+
+<!-- Mirrored from prototypejs.org/learn/extensions by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+</html>

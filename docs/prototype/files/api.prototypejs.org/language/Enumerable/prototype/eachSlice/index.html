@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Enumerable/prototype/eachSlice/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:16 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Enumerable#eachSlice</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Enumerable#eachSlice
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Enumerable#eachSlice(number[, iterator = Prototype.K[, context]]) &rarr; <a href="../../index.html" title="Enumerable (mixin)">Enumerable</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">number</code>
+          <span class="argument-types">(<code><a href="../../../Number/index.html" title="Number (class)">Number</a></code>)</span>
+         &ndash; The number of items to include in each slice.
+      </li>
+      <li>
+        <code class="argument-name">iterator</code>
+          <span class="argument-types">(<code><a href="../../../Function/index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; An optional function to use to transform each element before it's included in the slice; if this is not provided, the element itself is included.
+      </li>
+      <li>
+        <code class="argument-name">context</code>
+          <span class="argument-types">(<code><a href="../../../Object/index.html" title="Object (class)">Object</a></code>)</span>
+         &ndash; An optional object to use as <code>this</code> within calls to the iterator.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Groups items into chunks of the given size. The final "slice" may have
+fewer than <code>number</code> items; it won't "pad" the last group with empty
+values. For that behavior, use <code><a href="../inGroupsOf/index.html" title="Enumerable#inGroupsOf (instance method)">Enumerable#inGroupsOf</a></code>.</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Sunny&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Audrey&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Matt&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">20</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Amelie&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">26</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Will&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">21</span> <span class="p">}</span>
+<span class="p">];</span>
+ <span class="nx">students</span><span class="p">.</span><span class="nx">eachSlice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">student</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">student</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="c1">// -&gt; [[&#39;Sunny&#39;, &#39;Audrey&#39;, &#39;Matt&#39;], [&#39;Amelie&#39;, &#39;Will&#39;]]</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Enumerable/prototype/eachSlice/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:16 GMT -->
+</html>

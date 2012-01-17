@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/stripTags/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:15 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | String#stripTags</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> String#stripTags
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">String#stripTags() &rarr; <a href="../../index.html" title="String (class)">String</a></code></pre>
+
+
+      <p>Strips a string of any HTML tags.</p>
+
+<p>Note that <code><a href="index.html" title="String#stripTags (instance method)">String#stripTags</a></code> will only strip HTML 4.01 tags &mdash; like
+<code>div</code>, <code>span</code>, and <code>abbr</code>. It <em>will not</em> strip namespace-prefixed tags
+such as <code>h:table</code> or <code>xsl:template</code>.</p>
+
+<p>Watch out for <code>&lt;script&gt;</code> tags in your string, as <code><a href="index.html" title="String#stripTags (instance method)">String#stripTags</a></code> will
+<em>not</em> remove their content. Use <code><a href="../stripScripts/index.html" title="String#stripScripts (instance method)">String#stripScripts</a></code> to do so.</p>
+
+<h5>Caveat User</h5>
+
+<p>Note that the processing <code><a href="index.html" title="String#stripTags (instance method)">String#stripTags</a></code> does is good enough for most
+purposes, but you cannot rely on it for security purposes. If you're
+processing end-user-supplied content, <code><a href="index.html" title="String#stripTags (instance method)">String#stripTags</a></code> is <em>not</em>
+sufficiently robust to ensure that the content is completely devoid of
+HTML tags in the case of a user intentionally trying to circumvent tag
+restrictions. But then, you'll be running them through
+<code><a href="../escapeHTML/index.html" title="String#escapeHTML (instance method)">String#escapeHTML</a></code> anyway, won't you?</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="s1">&#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&#39;</span><span class="p">.</span><span class="nx">stripTags</span><span class="p">();</span>
+ <span class="c1">// -&gt; &#39;a link&#39;</span>
+ <span class="s1">&#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&lt;script&gt;alert(&quot;hello world!&quot;);&lt;/script&gt;&#39;</span><span class="p">.</span><span class="nx">stripTags</span><span class="p">();</span>
+<span class="c1">// -&gt; &#39;a linkalert(&quot;hello world!&quot;);&#39;</span>
+ <span class="s1">&#39;a &lt;a href=&quot;#&quot;&gt;link&lt;/a&gt;&lt;script&gt;alert(&quot;hello world!&quot;);&lt;/script&gt;&#39;</span><span class="p">.</span><span class="nx">stripScripts</span><span class="p">().</span><span class="nx">stripTags</span><span class="p">();</span>
+<span class="c1">// -&gt; &#39;a link&#39;</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/stripTags/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:15 GMT -->
+</html>

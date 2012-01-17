@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/event.button by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:24 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>event.button - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=8632">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=8632">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 8632;
+Deki.PageTitle = 'en/DOM/event.button';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMeventbutton" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">event.button</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Example" rel="internal">Example</a>
+</li>
+<li>
+<span>4.</span> <a href="#Notes" rel="internal">Notes</a>
+</li>
+<li>
+<span>5.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Indicates which mouse button caused the event.</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<pre>
+var buttonCode = event.button;
+</pre>
+<p>Returns an integer value indicating the button that changed state.</p>
+<ul>
+<li>0 for standard 'click', usually left button</li> <li>1 for middle button, usually wheel-click</li> <li>2 for right button, usually right-click</li> <li> <div class="note">Note that this convention is not followed in Internet Explorer: see <a title="http://www.quirksmode.org/js/events_properties.html#button" class="external" rel="external nofollow" href="http://www.quirksmode.org/js/events_properties.html#button" target="_blank">QuirksMode for details</a>.</div> </li>
+</ul>
+<p>The order of buttons may be different depending on how the pointing device has been configured.</p>
+</div>
+<div id="section_3">
+<span id="Example"></span><h3 class="editable">Example</h3>
+<pre>
+&lt;script type="text/javascript"&gt;
+
+function whichButton(e)
+{
+  // Handle different event models
+  var e = e || window.event;
+  var btnCode;
+
+  if ('object' == typeof e){
+    btnCode = e.button;
+
+    switch (btnCode){
+      case 0  : alert('Left button clicked');
+                break;
+      case 1  : alert('Middle button clicked');
+                break;
+      case 2  : alert('Right button clicked');
+                break;
+      default : alert('Unexpected code: ' + btnCode);
+    }
+  }
+}
+
+&lt;/script&gt;
+
+&lt;p onmouseup="whichButton(event);" oncontextmenu="event.preventDefault();"&gt;Click with mouse...&lt;/p&gt;
+
+</pre>
+</div>
+<div id="section_4">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<p>Because mouse clicks are frequently intercepted by the user interface, it may be difficult to detect buttons other than those for a standard mouse click (usually the left button) in some circumstances.</p>
+<p>Users may change the configuration of buttons on their pointing device so that if an event's button property is zero, it may not have been caused by the button that is physically left–most on the pointing device; however, it should behave as if the left button was clicked in the standard button layout.</p>
+</div>
+<div id="section_5">
+<span id="Specification"></span><h3 class="editable">Specification</h3>
+<p>DOM 2 Events Specification: <a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-MouseEvent-button" title="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-MouseEvent-button" target="_blank">button</a></p>
+
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="event-4.html">https://developer.mozilla.org/en/DOM/event.button</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/event.button by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:24 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

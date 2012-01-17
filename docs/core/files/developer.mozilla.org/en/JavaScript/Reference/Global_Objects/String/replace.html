@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/replace by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:58:03 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>replace - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=31301">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=31301">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 31301;
+Deki.PageTitle = 'en/JavaScript/Reference/Global Objects/String/replace';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../../../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../../../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../../../../deki/scripts/res/syntax/shBrushJScript.js"></script><link href="../../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsStringreplace" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">replace</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Parameters" rel="internal">Parameters</a>
+</li>
+<li>
+<span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>4.1.</span> <a href="#Specifying_a_string_as_a_parameter" rel="internal">Specifying a string as a parameter</a>
+</li>
+<li>
+<span>4.2.</span> <a href="#Specifying_a_function_as_a_parameter" rel="internal">Specifying a function as a parameter</a>
+</li>
+</ol>
+</li>
+<li>
+<span>5.</span> <a href="#Examples" rel="internal">Examples</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>5.1.</span> <a href="#Example.3a_Using_global_and_ignore_with_replace" rel="internal">Example: Using global and ignore with replace</a>
+</li>
+<li>
+<span>5.2.</span> <a href="#Example.3a_Defining_the_regular_expression_in_replace" rel="internal">Example: Defining the regular expression in replace</a>
+</li>
+<li>
+<span>5.3.</span> <a href="#Example.3a_Switching_words_in_a_string" rel="internal">Example: Switching words in a string</a>
+</li>
+<li>
+<span>5.4.</span> <a href="#Example.3a_Using_an_inline_function_that_modifies_the_matched_characters" rel="internal">Example: Using an inline function that modifies the matched characters</a>
+</li>
+<li>
+<span>5.5.</span> <a href="#Example.3a_Replacing_a_Fahrenheit_degree_with_its_Celsius_equivalent" rel="internal">Example: Replacing a Fahrenheit degree with its Celsius equivalent</a>
+</li>
+</ol>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Returns a new string with some or all matches of a <code>pattern</code> replaced by a <code>replacement</code>.  The <code>pattern</code> can be a string or a RegExp, and the <code>replacement</code> can be a string or a function to be called for each match.</p>
+<table style="width: auto;" class="fullwidth-table"><tbody>
+<tr>
+<td colspan="2" class="header">Method of <a rel="internal" href="../String.html">String</a>
+</td> </tr>
+<tr>
+<td>Implemented in:</td> <td>JavaScript 1.2 <p>JavaScript 1.3 added the ability to specify a function as the second parameter.</p> </td> </tr>
+<tr>
+<td>ECMAScript Edition:</td> <td>ECMA-262 Edition 3</td> </tr>
+</tbody></table>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<p><code><em>str</em>.replace(<em>regexp|substr</em>, <em>newSubStr|function[</em>, </code><span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>      <code><em>flags]</em>);</code></p>
+</div>
+<div id="section_3">
+<span id="Parameters"></span><h3 class="editable">Parameters</h3>
+<dl>
+<dt>
+<code>regexp</code> </dt> <dd>A <a rel="internal" href="../RegExp.html">RegExp</a> object. The match is replaced by the return value of parameter #2.</dd>
+</dl>
+<dl>
+<dt>
+<code>substr</code> </dt> <dd>A <a rel="internal" href="../String.html">String</a> that is to be replaced by <code>newSubStr</code>.</dd>
+</dl>
+<dl>
+<dt>
+<code>newSubStr</code> </dt> <dd>The <a rel="internal" href="../String.html">String</a> that replaces the substring received from parameter #1. A number of special replacement patterns are supported; see the "Specifying a string as a parameter" section below.</dd>
+</dl>
+<dl>
+<dt>
+<code>function</code> </dt> <dd>A function to be invoked to create the new substring (to put in place of the substring received from parameter #1). The arguments supplied to this function are described in the "Specifying a function as a parameter" section below.</dd>
+</dl>
+<dl>
+<dd>
+
+<div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+</dd> <dd>The use of the flags parameter in the String.replace method is non-standard. For cross-browser compatibility, use a <a rel="internal" href="../RegExp.html">RegExp</a> object with corresponding flags.</dd> <dt>
+<code>flags</code> </dt> <dd>A <a rel="internal" href="../String.html">string</a> containing any combination of the RegExp flags: <dl>
+<dt><code>g</code></dt> <dd>global match</dd> <dt><code>i</code></dt> <dd>ignore case</dd> <dt><code>m</code></dt> <dd>match over multiple lines</dd> <dt><code>y</code></dt> <dd>
+<span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>sticky</dd> </dl>
+</dd>
+</dl>
+</div>
+<div id="section_4">
+<span id="Description"></span><h3 class="editable">Description</h3>
+<p>This method does not change the <code>String</code> object it is called on. It simply returns a new string.</p>
+<p>To perform a global search and replace, either include the <code>g</code> flag in the regular expression or if the first parameter is a string, include <code>g</code> in the <code>flags</code> parameter.</p>
+<div id="section_5">
+<span id="Specifying_a_string_as_a_parameter"></span><h4 class="editable">Specifying a string as a parameter</h4>
+<p>The replacement string can include the following special replacement patterns:</p>
+<table class="fullwidth-table"><tbody>
+<tr>
+<td class="header">Pattern</td> <td class="header">Inserts</td> </tr>
+<tr>
+<td><code>$$</code></td> <td>Inserts a "$".</td> </tr>
+<tr>
+<td><code>$&amp;</code></td> <td>Inserts the matched substring.</td> </tr>
+<tr>
+<td><code>$`</code></td> <td>Inserts the portion of the string that precedes the matched substring.</td> </tr>
+<tr>
+<td><code>$'</code></td> <td>Inserts the portion of the string that follows the matched substring.</td> </tr>
+<tr>
+<td style="white-space: nowrap;">
+<code>$<em>n</em></code> or <code>$<em>nn</em></code>
+</td> <td>Where <code><em>n</em></code> or <code><em>nn</em></code> are decimal digits, inserts the <em>n</em>th parenthesized submatch string, provided the first argument was a <code>RegExp</code> object.</td> </tr>
+</tbody></table>
+</div>
+<div id="section_6">
+<span id="Specifying_a_function_as_a_parameter"></span><h4 class="editable">Specifying a function as a parameter</h4>
+<p>You can specify a function as the second parameter. In this case, the function will be invoked after the match has been performed. The function's result (return value) will be used as the replacement string. (Note: the above-mentioned special replacement patterns do <em>not</em> apply in this case.) Note that the function will be invoked multiple times for each full match to be replaced if the regular expression in the first parameter is global.</p>
+<p>The arguments to the function are as follows:</p>
+<table class="fullwidth-table"><tbody>
+<tr>
+<td class="header">Possible name</td> <td class="header">Supplied value</td> </tr>
+<tr>
+<td><code>str</code></td> <td>The matched substring. (Corresponds to $&amp; above.)</td> </tr>
+<tr>
+<td><code>p1, p2, ...</code></td> <td>The <em>n</em>th parenthesized submatch string, provided the first argument to <code>replace</code> was a <code>RegExp</code> object. (Correspond to $1, $2, etc. above.)</td> </tr>
+<tr>
+<td><code>offset</code></td> <td>The offset of the matched substring within the total string being examined. (For example, if the total string was <code>"abcd"</code>, and the matched substring was <code>"bc"</code>, then this argument will be <code>1</code>.)</td> </tr>
+<tr>
+<td style="white-space: nowrap;"><code>s</code></td> <td>The total string being examined.</td> </tr>
+</tbody></table>
+<p>(The exact number of arguments will depend on whether the first argument was a <code>RegExp </code>object and, if so, how many parenthesized submatches it specifies.)</p>
+<p>The following example will set <code>newString </code>to <code style="white-space: nowrap;">"XXzzzz - XX , zzzz"</code>:</p>
+
+          <pre name="code" class="js">function replacer(str, p1, p2, offset, s)
+{
+  return str + " - " + p1 + " , " + p2;
+}
+var newString = "XXzzzz".replace(/(X*)(z*)/, replacer);</pre>
+        
+</div>
+</div>
+<div id="section_7">
+<span id="Examples"></span><h3 class="editable">Examples</h3>
+<div id="section_8">
+<span id="Example:_Using_global_and_ignore_with_replace"></span><span id="Example.3a_Using_global_and_ignore_with_replace"></span><h4 class="editable">Example: Using <code>global</code> and <code>ignore</code> with <code>replace</code>
+</h4>
+<p>In the following example, the regular expression includes the global and ignore case flags which permits <code>replace</code> to replace each occurrence of 'apples' in the string with 'oranges'.</p>
+
+          <pre name="code" class="js">var re = /apples/gi;
+var str = "Apples are round, and apples are juicy.";
+var newstr = str.replace(re, "oranges");
+print(newstr);</pre>
+        
+<p>In this version, a string is used as the first parameter and the global and ignore case flags are specified in the <code>flags</code> parameter.</p>
+
+          <pre name="code" class="js">var str = "Apples are round, and apples are juicy.";
+var newstr = str.replace("apples", "oranges", "gi");
+print(newstr);</pre>
+        
+<p>Both of these examples print "oranges are round, and oranges are juicy."</p>
+</div>
+<div id="section_9">
+<span id="Example:_Defining_the_regular_expression_in_replace"></span><span id="Example.3a_Defining_the_regular_expression_in_replace"></span><h4 class="editable">Example: Defining the regular expression in <code>replace</code>
+</h4>
+<p>In the following example, the regular expression is defined in <code>replace</code> and includes the ignore case flag.</p>
+
+          <pre name="code" class="js">var str = "Twas the night before Xmas...";
+var newstr = str.replace(/xmas/i, "Christmas");
+print(newstr);</pre>
+        
+<p>This prints "Twas the night before Christmas..."</p>
+</div>
+<div id="section_10">
+<span id="Example:_Switching_words_in_a_string"></span><span id="Example.3a_Switching_words_in_a_string"></span><h4 class="editable">Example: Switching words in a string</h4>
+<p>The following script switches the words in the string. For the replacement text, the script uses the <code>$1</code> and <code>$2</code> replacement patterns.</p>
+
+          <pre name="code" class="js">var re = /(\w+)\s(\w+)/;
+var str = "John Smith";
+var newstr = str.replace(re, "$2, $1");
+print(newstr);</pre>
+        
+<p>This prints "Smith, John".</p>
+</div>
+<div id="section_11">
+<span id="Example:_Using_an_inline_function_that_modifies_the_matched_characters"></span><span id="Example.3a_Using_an_inline_function_that_modifies_the_matched_characters"></span><h4 class="editable">Example: Using an inline function that modifies the matched characters</h4>
+<p>In this example, all occurrences of capital letters in the string are converted to lower case, and a hyphen is inserted just before the match location. The important thing here is that additional operations are needed on the matched item before it is given back as a replacement.</p>
+<p>The replacement function accepts the matched snippet as its parameter, and uses it to transform the case and concatenate the hyphen before returning.</p>
+
+          <pre name="code" class="js">function styleHyphenFormat(propertyName)
+{
+  function upperToHyphenLower(match)
+  {
+    return '-' + match.toLowerCase();
+  }
+  return propertyName.replace(/[A-Z]/, upperToHyphenLower);
+}</pre>
+        
+<p>Given <code>styleHyphenFormat('borderTop')</code>, this returns 'border-top'.</p>
+<p>Because we want to further transform the <em>result</em> of the match before the final substitution is made, we must use a function. This forces the evaluation of the match prior to the <code>toLowerCase()</code> method. If we had tried to do this using the match without a function, the toLowerCase() would have no effect.</p>
+
+          <pre name="code" class="js">var newString = propertyName.replace(/[A-Z]/, '-' + '$&amp;'.toLowerCase());  // won't work</pre>
+        
+<p>This is because <code>'$&amp;'.toLowerCase()</code> would be evaluated first as a string literal (resulting in the same <code>'$&amp;'</code>) before using the characters as a pattern.</p>
+</div>
+<div id="section_12">
+<span id="Example:_Replacing_a_Fahrenheit_degree_with_its_Celsius_equivalent"></span><span id="Example.3a_Replacing_a_Fahrenheit_degree_with_its_Celsius_equivalent"></span><h4 class="editable">Example: Replacing a Fahrenheit degree with its Celsius equivalent</h4>
+<p>The following example replaces a Fahrenheit degree with its equivalent Celsius degree. The Fahrenheit degree should be a number ending with F. The function returns the Celsius number ending with C. For example, if the input number is 212F, the function returns 100C. If the number is 0F, the function returns -17.77777777777778C.</p>
+<p>The regular expression <code>test</code> checks for any number that ends with F. The number of Fahrenheit degree is accessible to the function through its second parameter, <code>p1</code>. The function sets the Celsius number based on the Fahrenheit degree passed in a string to the <code>f2c</code> function. <code>f2c</code> then returns the Celsius number. This function approximates Perl's s///e flag.</p>
+
+          <pre name="code" class="js">function f2c(x)
+{
+  function convert(str, p1, offset, s)
+  {
+    return ((p1-32) * 5/9) + "C";
+  }
+  var s = String(x);
+  var test = /(\d+(?:\.\d*)?)F\b/g;
+  return s.replace(test, convert);
+}</pre>
+        
+<p> </p>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="replace.html">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/replace</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String/replace by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:58:03 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

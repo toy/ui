@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/cleanWhitespace/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:26 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.cleanWhitespace</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Element.cleanWhitespace
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.cleanWhitespace(element) &rarr; <a href="../index.html" title="Element (class)">Element</a></code></pre>
+
+
+      <p>Removes all of <code>element</code>'s child text nodes that contain <em>only</em>
+whitespace. Returns <code>element</code>.</p>
+
+<p>This can be very useful when using standard properties like <code>nextSibling</code>,
+<code>previousSibling</code>, <code>firstChild</code> or <code>lastChild</code> to walk the DOM. Usually
+you'd only do that if you are interested in all of the DOM nodes, not
+just Elements (since if you just need to traverse the Elements in the
+DOM tree, you can use <code><a href="../up/index.html" title="Element.up (class method)">Element.up</a></code>, <code><a href="../down/index.html" title="Element.down (class method)">Element.down</a></code>,
+<code><a href="../next/index.html" title="Element.next (class method)">Element.next</a></code>, and <code><a href="../previous/index.html" title="Element.previous (class method)">Element.previous</a></code> instead).</p>
+
+<h4>Example</h4>
+
+<p>Consider the following HTML snippet:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;apples&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Mutsu<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>McIntosh<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>Ida Red<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre>
+</div>
+
+
+<p>Let's grab what we think is the first list item using the raw DOM
+method:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;apples&#39;</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; undefined</span>
+</pre>
+</div>
+
+
+<p>It's undefined because the <code>firstChild</code> of the <code>apples</code> element is a
+text node containing the whitespace after the end of the <code>ul</code> and before
+the first <code>li</code>.</p>
+
+<p>If we remove the useless whitespace, then <code>firstChild</code> works as expected:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;apples&#39;</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">cleanWhitespace</span><span class="p">();</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;Mutsu&#39;</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/cleanWhitespace/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/cleanWhitespace/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:26 GMT -->
+</html>

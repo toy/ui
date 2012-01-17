@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/hide/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:19 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#hide</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#hide
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#hide() &rarr; <a href="../../index.html" title="Element (class)">Element</a></code></pre>
+
+
+      <p>Sets <code>display: none</code> on <code>element</code>. Returns <code>element</code>.</p>
+
+<h5>Examples</h5>
+
+<p>Hide a single element:</p>
+
+<div class="highlight"><pre><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;error-message&quot;</span><span class="o">&gt;&lt;</span><span class="err">/div&gt;</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;error-message&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="c1">// -&gt; Element (and hides div#error-message)</span>
+</pre>
+</div>
+
+
+<p>Hide multiple elements using <code><a href="../../../../language/Enumerable/prototype/each/index.html" title="Enumerable#each (instance method)">Enumerable#each</a></code>:</p>
+
+<div class="highlight"><pre><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;navigation&#39;</span><span class="p">,</span> <span class="s1">&#39;footer&#39;</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span><span class="nx">Element</span><span class="p">.</span><span class="nx">hide</span><span class="p">);</span>
+<span class="c1">// -&gt; [&#39;content&#39;, &#39;navigation&#39;, &#39;footer&#39;]</span>
+</pre>
+</div>
+
+
+<p>Hide multiple elements using <code><a href="../../../../language/Enumerable/prototype/invoke/index.html" title="Enumerable#invoke (instance method)">Enumerable#invoke</a></code>:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;navigation&#39;</span><span class="p">,</span> <span class="s1">&#39;footer&#39;</span><span class="p">).</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; [Element, Element, Element]</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../hide/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/hide/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:19 GMT -->
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/methodize/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:35 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Function#methodize</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Function#methodize
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Function#methodize() &rarr; <a href="../../index.html" title="Function (class)">Function</a></code></pre>
+
+
+      <p>Wraps the function inside another function that, when called, pushes
+<code>this</code> to the original function as the first argument (with any further
+arguments following it).</p>
+
+<p>The <code>methodize</code> method transforms the original function that has an
+explicit first argument to a function that passes <code>this</code> (the current
+context) as an implicit first argument at call time. It is useful when we
+want to transform a function that takes an object to a method of that
+object or its prototype, shortening its signature by one argument.</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="c1">// A function that sets a name on a target object</span>
+<span class="kd">function</span> <span class="nx">setName</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">target</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+ <span class="c1">// Use it</span>
+<span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">setName</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="s1">&#39;Fred&#39;</span><span class="p">);</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="c1">// -&gt; &quot;Fred&quot;</span>
+ <span class="c1">// Make it a method of the object</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">setName</span> <span class="o">=</span> <span class="nx">setName</span><span class="p">.</span><span class="nx">methodize</span><span class="p">();</span>
+ <span class="c1">// Use the method instead</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s1">&#39;Barney&#39;</span><span class="p">);</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+<span class="c1">// -&gt; &quot;Barney&quot;</span>
+</pre>
+</div>
+
+
+<p>The example above is quite simplistic. It's more useful to copy methodized
+functions to object prototypes so that new methods are immediately shared
+among instances. In the Prototype library, <code>methodize</code> is used in various
+places such as the DOM module, so that (for instance) you can hide an
+element either by calling the static version of <code>Element.hide</code> and passing in
+an element reference or ID, like so:</p>
+
+<div class="highlight"><pre><span class="nx">Element</span><span class="p">.</span><span class="nx">hide</span><span class="p">(</span><span class="s1">&#39;myElement&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>...or if you already have an element reference, just calling the
+methodized form instead:</p>
+
+<div class="highlight"><pre><span class="nx">myElement</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/methodize/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:35 GMT -->
+</html>

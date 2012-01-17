@@ -1,0 +1,76 @@
+<!DOCTYPE html SYSTEM>
+<html>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/effect-shrink/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:18 GMT -->
+<head>
+  <title>Effect.Shrink &mdash; Scriptaculous Documentation</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />  
+  <link href="../css/docs.css" rel="stylesheet" media="screen" />
+  <link href="https://github.com/madrobby/scriptaculous/commits/master.atom" title="Recent Commits to scriptaculous:master" rel="alternate" type="application/atom+xml" />
+  <meta name="description" content="script.aculo.us is an open-source JavaScript framework for visual effects and interface behaviours." />
+</head>
+<body>
+
+
+<div id="content">
+  <h1 id="page-title">Effect.Shrink</h1>
+  <div id="wiki">
+    <div class="wikistyle">
+<link href="../../../script.aculo.us/github/styles/sunburst.css" title="Sunburst" rel="stylesheet" />
+<script src="../../../script.aculo.us/prototype.js" type="text/javascript"></script><script src="../../../script.aculo.us/scriptaculous.js" type="text/javascript"></script><p class="upper-chiclet"><a href="../combination-effects/index.html">Combination Effects</a> &gt; <strong>Effect.Shrink</strong></p>
+<p>&#8220;Shrinks&#8221; an element into a specific direction (see demo for better understanding), hides it when the effect is complete.</p>
+<h2>Examples</h2>
+<pre><code class="javascript">
+Effect.Shrink('id_of_element');
+</code></pre>
+<h2>Options</h2>
+<table>
+<tr>
+<th>Option </th>
+<th>Description </th>
+</tr>
+<tr>
+<td> direction </td>
+<td> string, defaults to <code>'center'</code>, can also be: <code>'top-left'</code>, <code>'top-right'</code>, <code>'bottom-left'</code>, <code>'bottom-right'</code>, the direction to &#8220;shrink&#8221; the element to </td>
+</tr>
+<tr>
+<td> duration </td>
+<td> float value, in seconds, defaults to <code>1.0</code> </td>
+</tr>
+</table>
+<h2>Notes</h2>
+<p>Works safely with most Block Elements, except tables.<br />
+You can define different durations for several div elements, and place them in a row in order to make them disappear one after another.</p>
+<h2>Demo</h2>
+<div class="demo">
+<div id="shrink_demo" style="width:80px; height:80px; background:#ccc;"></div>
+<ul>
+<li><a href="#" onclick="Effect.Shrink('shrink_demo'); return false;">Click me for a demo!</a></li>
+<li><a href="#" onclick="$('shrink_demo').show(); return false;">Reset</a></li>
+</ul>
+</div>
+<h3>Source code of this demo</h3>
+<pre><code class="html">
+&lt;div id="shrink_demo" style="width:80px; height:80px; background:#ccc;"&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#" onclick="Effect.Shrink('shrink_demo'); return false;"&gt;Click me for a demo!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#" onclick="$('shrink_demo').show(); return false;"&gt;Reset&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<script src="../../../script.aculo.us/github/highlight.js" type="text/javascript"></script><script type="text/javascript">
+  hljs.initHighlightingOnLoad.apply(null, hljs.ALL_LANGUAGES);
+</script>
+</div>
+  </div>
+
+    
+  
+</div>
+
+
+
+<noscript><p><img src="../../../in.getclicky.com/66350389ns.gif" height="1" alt="Clicky" width="1" /></p></noscript>
+</body>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/effect-shrink/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:18 GMT -->
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Hash/prototype/each/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:37 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Hash#each</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Hash#each
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Hash#each(iterator[, context]) &rarr; <a href="../../index.html" title="Hash (class)">Hash</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">iterator</code>
+          <span class="argument-types">(<code><a href="../../../Function/index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; A function that expects each item in the <code><a href="../../index.html" title="Hash (class)">Hash</a></code> as the first argument and a numerical index as the second.
+      </li>
+      <li>
+        <code class="argument-name">context</code>
+          <span class="argument-types">(<code><a href="../../../Object/index.html" title="Object (class)">Object</a></code>)</span>
+         &ndash; The scope in which to call <code>iterator</code>. Determines what <code>this</code> means inside <code>iterator</code>.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Iterates over the name/value pairs in the hash.</p>
+
+<p>This is actually just the <a href="../../../Enumerable/prototype/each/index.html">#each</a> method from the
+mixed-in <code><a href="../../../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code> module. It is documented here to describe the
+structure of the elements passed to the iterator and the order of
+iteration.</p>
+
+<p>The iterator's first argument (the "item") is an object with two
+properties:</p>
+
+<ul>
+<li><code>key</code>: the key name as a <code>String</code></li>
+<li><code>value</code>: the corresponding value (which may be <code>undefined</code>)</li>
+</ul>
+
+
+<p>The order of iteration is implementation-dependent, as it relies on
+the order of the native <code>for..in</code> loop. Although most modern
+implementations exhibit <em>ordered</em> behavior, this is not standardized and
+may not always be the case, and so cannot be relied upon.</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">h</span> <span class="o">=</span> <span class="nx">$H</span><span class="p">({</span><span class="nx">version</span><span class="o">:</span> <span class="mf">1.6</span><span class="p">,</span> <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;The Core Team&#39;</span><span class="p">});</span>
+ <span class="nx">h</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">pair</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">pair</span><span class="p">.</span><span class="nx">key</span> <span class="o">+</span> <span class="s1">&#39; = &quot;&#39;</span> <span class="o">+</span> <span class="nx">pair</span><span class="p">.</span><span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// Alerts &#39;version = &quot;1.6&quot;&#39; and &#39;author = &quot;The Core Team&quot;&#39;</span>
+<span class="c1">// -or-</span>
+<span class="c1">// Alerts &#39;author = &quot;The Core Team&quot;&#39; and &#39;version = &quot;1.6&quot;&#39;</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Hash/prototype/each/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:37 GMT -->
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/ajax/Ajax/PeriodicalUpdater/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:15 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Ajax.PeriodicalUpdater</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Ajax.PeriodicalUpdater
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>Periodically performs an Ajax request and updates a container's contents
+based on the response text.</p>
+
+<p><code><a href="index.html" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code> behaves like <code><a href="../Updater/index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code>, but performs the
+update at a prescribed interval, rather than only once. (Note that it is
+<em>not</em> a subclass of <code><a href="../Updater/index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code>; it's a wrapper around it.)</p>
+
+<p>This class addresses the common need of periodical update, as required by
+all sorts of "polling" mechanisms (e.g., an online chatroom or an online
+mail client).</p>
+
+<p>The basic idea is to run a regular <code><a href="../Updater/index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code> at regular intervals,
+keeping track of the response text so it can (optionally) react to
+receiving the exact same response consecutively.</p>
+
+<h5>Additional options</h5>
+
+<p><code><a href="index.html" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code> features all the common options and callbacks
+described in the <a href="../index.html" title="Ajax (namespace)">Ajax</a> &mdash; <em>plus</em> those added by
+<code><a href="../Updater/index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code>.</p>
+
+<p>It also provides two new options:</p>
+
+<ul>
+<li><code>frequency</code> (<code><a href="../../../language/Number/index.html" title="Number (class)">Number</a></code>; default is <code>2</code>): How long, in seconds, to wait
+between the end of one request and the beginning of the next.</li>
+<li><code>decay</code> (<code><a href="../../../language/Number/index.html" title="Number (class)">Number</a></code>; default is <code>1</code>): The rate at which the <code>frequency</code>
+grows when the response received is <em>exactly</em> the same as the previous.
+The default of <code>1</code> means <code>frequency</code> will never grow; override the
+default if a stale response implies it's worthwhile to poll less often.
+If <code>decay</code> is set to <code>2</code>, for instance, <code>frequency</code> will double
+(2 seconds, 4 seconds, 8 seconds...) each consecutive time the result
+is the same; when the result is different once again, <code>frequency</code> will
+revert to its original value.</li>
+</ul>
+
+
+<h5>Disabling and re-enabling a <code><a href="index.html" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code></h5>
+
+<p>You can hit the brakes on a running <code><a href="index.html" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code> by calling
+<code><a href="prototype/stop/index.html" title="Ajax.PeriodicalUpdater#stop (instance method)">Ajax.PeriodicalUpdater#stop</a></code>. If you wish to re-enable it later, call
+<code><a href="prototype/start/index.html" title="Ajax.PeriodicalUpdater#start (instance method)">Ajax.PeriodicalUpdater#start</a></code>.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Ajax.PeriodicalUpdater (constructor)">new Ajax.PeriodicalUpdater</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/start/index.html" title="Ajax.PeriodicalUpdater#start (instance method)" class="instance-method">start</a></code></li>
+
+<li><code><a href="prototype/stop/index.html" title="Ajax.PeriodicalUpdater#stop (instance method)" class="instance-method">stop</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/ajax/Ajax/PeriodicalUpdater/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:15 GMT -->
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/HTMLSelectElement by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:14:32 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>HTMLSelectElement - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=44663">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=44663">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 44663;
+Deki.PageTitle = 'en/DOM/HTMLSelectElement';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMHTMLSelectElement" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">HTMLSelectElement</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#HTML_Select_Element_Interface" rel="internal">HTML Select Element Interface</a>
+</li>
+<li>
+<span>2.</span> <a href="#Method_overview" rel="internal">Method overview</a>
+</li>
+<li>
+<span>3.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>4.</span> <a href="#Methods" rel="internal">Methods</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>4.1.</span> <a href="#add()" rel="internal">add()</a>
+</li>
+<li>
+<span>4.2.</span> <a href="#blur()" rel="internal">blur()</a>
+</li>
+<li>
+<span>4.3.</span> <a href="#checkValidity()" rel="internal">checkValidity()</a>
+</li>
+<li>
+<span>4.4.</span> <a href="#focus()" rel="internal">focus()</a>
+</li>
+<li>
+<span>4.5.</span> <a href="#item()" rel="internal">item()</a>
+</li>
+<li>
+<span>4.6.</span> <a href="#namedItem()" rel="internal">namedItem() </a>
+</li>
+<li>
+<span>4.7.</span> <a href="#remove()" rel="internal">remove()</a>
+</li>
+<li>
+<span>4.8.</span> <a href="#setCustomValidity()" rel="internal">setCustomValidity()</a>
+</li>
+</ol>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="HTML_Select_Element_Interface"></span><h2 class="editable">HTML Select Element Interface</h2>
+<p><code>DOM select</code> elements share all of the properties and methods of other HTML elements described in the <a rel="internal" href="element.html">element</a> section. They also have the specialized interface <a class=" external" title="http://dev.w3.org/html5/spec/the-button-element.html#htmlselectelement" rel="external nofollow" href="http://dev.w3.org/html5/spec/the-button-element.html#htmlselectelement" target="_blank">HTMLSelectElement</a> (or 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> <a title="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-94282980" class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-94282980" target="_blank">HTMLSelectElement</a>).</p>
+</div>
+<div id="section_2">
+<span id="Method_overview"></span><h2 class="editable">Method overview</h2>
+<table class="standard-table"><tbody>
+<tr>
+<td>
+<code>void <a title="#add" href="#add"><strong>add</strong></a>(in <a rel="internal" href="HTMLElement.html">HTMLElement</a> element, in optional <a rel="internal" href="HTMLElement.html">HTMLElement</a> before);</code><br><code>void <a title="#add" href="#add"><strong>add</strong></a>(in <a rel="internal" href="HTMLElement.html">HTMLElement</a> element, in optional long before); </code>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> </tr>
+<tr>
+<td>
+<code>void <a title="#blur" href="#blur"><strong>blur</strong></a>(); </code>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> only</td> </tr>
+<tr>
+<td>
+<code>boolean <a title="#checkValidity" href="#checkValidity"><strong>checkValidity</strong></a>();</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> </tr>
+<tr>
+<td>
+<code>void <a title="#focus" href="#focus"><strong>focus</strong></a>(); </code>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> only</td> </tr>
+<tr>
+<td>
+<code>any <a title="#item" href="#item"><strong>item</strong></a>(in unsigned long index); </code>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> </tr>
+<tr>
+<td>
+<code>any <a title="#namedItem" href="#namedItem"><strong>namedItem</strong></a>(in DOMString name);</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> </tr>
+<tr>
+<td><code>void <a title="#remove" href="#remove"><strong>remove</strong></a>(in long index);<br></code></td> </tr>
+<tr>
+<td>
+<code>void <a title="#setCustomValidity" href="#setCustomValidity"><strong>setCustomValidity</strong></a>(in DOMString error);</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> </tr>
+</tbody></table>
+</div>
+<div id="section_3">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<table class="standard-table">
+<thead><tr>
+<th scope="col">Name</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr></thead>
+<tbody>
+<tr>
+<td>
+<code>autofocus</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> <td><code>boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select#attr-autofocus">autofocus</a></code>
+ HTML attribute, which indicates whether the control should have input focus when the page loads, unless the user overrides it, for example by typing in a different control. Only one form-associated element in a document can have this attribute specified.</td> </tr>
+<tr>
+<td><code>disabled</code></td> <td><code>boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select#attr-disabled">disabled</a></code>
+ HTML attribute, which indicates whether the control is disabled. If it is disabled, it does not accept clicks.</td> </tr>
+<tr>
+<td><code>form</code></td> <td><code>readonly <a rel="internal" href="HTMLFormElement.html">HTMLFormElement</a></code></td> <td>The form that this element is associated with. If this element is a descendant of a form element, then this attribute is the ID of that form element. If the element is not a descendant of a form element, then: <ul>
+<li>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> The attribute can be the ID of any form element in the same document.</li> <li>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> The attribute is null.</li> </ul>
+</td> </tr>
+<tr>
+<td>
+<code>labels </code>
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented (see
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=556743" class="external" title="ASSIGNED - Implement the labels attribute">
+bug 
+556743</a>
+)</span>
+</td> <td><code>readonly <a rel="internal" href="NodeList.html">NodeList</a><br></code></td> <td>A list of label elements associated with this select element.</td> </tr>
+<tr>
+<td><code>length</code></td> <td><code>unsigned long</code></td> <td>The number of 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/option">&lt;option&gt;</a></code> elements in this <code>select</code> element.</td> </tr>
+<tr>
+<td><code>multiple</code></td> <td><code>boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select#attr-multiple">multiple</a></code>
+ HTML attribute, whichindicates whether multiple items can be selected.</td> </tr>
+<tr>
+<td><code>name</code></td> <td><code>DOMString</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select#attr-name">name</a></code>
+ HTML attribute, containing the name of this control used by servers and DOM search functions.</td> </tr>
+<tr>
+<td><code>options</code></td> <td><code>readonly <a rel="internal" href="HTMLOptionsCollection.html">HTMLOptionsCollection</a></code></td> <td>The set of 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/option">&lt;option&gt;</a></code> elements contained by this element.</td> </tr>
+<tr>
+<td>
+<code>required</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</td> <td><code>boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select#attr-required">required</a></code>
+ HTML attribute, which indicates whether the user is required to select a value before submitting the form.</td> </tr>
+<tr>
+<td><code>selectedIndex</code></td> <td><code>long</code></td> <td>The index of the first selected 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/option">&lt;option&gt;</a></code> element.</td> </tr>
+<tr>
+<td>
+<code>selectedOptions</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented (see
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=596681" class="external" title="NEW - Implement HTMLSelectElement selectedOptions IDL attribute">
+bug 
+596681</a>
+)</span>
+</td> <td><code>readonly <a rel="internal" href="HTMLCollection.html">HTMLCollection</a></code></td> <td>The set of options that are selected.</td> </tr>
+<tr>
+<td><code>size</code></td> <td><code>long</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select#attr-size">size</a></code>
+ HTML attribute, which contains the number of visible items in the control. The default is 1, 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> unless <strong>multiple</strong> is true, in which case it is 4.</td> </tr>
+<tr>
+<td>
+<code>tabIndex</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> only</td> <td><code>long</code></td> <td>The element's position in the tabbing order. <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>       in 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span>
+</td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="select-2.html">type</a></code></td> <td><code>DOMString</code></td> <td>The form control's type. When <strong>multiple</strong> is true, it returns <code>select-multiple</code>; otherwise, it returns <code>select-one</code>.</td> </tr>
+<tr>
+<td>
+<code>validationMessage</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> <td><code>readonly DOMString</code></td> <td>A localized message that describes the validation constraints that the control does not satisfy (if any). This attribute is the empty string if the control is not a candidate for constraint validation (<strong>willValidate</strong> is false), or it satisfies its constraints.</td> </tr>
+<tr>
+<td>
+<code>validity</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> <td><code>readonly ValidityState</code></td> <td>The validity states that this control is in.</td> </tr>
+<tr>
+<td><code>value</code></td> <td><code>DOMString</code></td> <td>The value of this form control, that is, of the first selected option.</td> </tr>
+<tr>
+<td>
+<code>willValidate</code> 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only</td> <td><code>Boolean</code></td> <td>Indicates whether the button is a candidate for constraint validation. It is false if any conditions bar it from constraint validation.</td> </tr>
+</tbody>
+</table>
+</div>
+<div id="section_4">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<p>While DOM manipulation methods, such as add() and remove() can be used to modify the collection as child node objects of the select object, this is not guaranteed to be supported by all browser platforms.</p>
+<div id="section_5">
+<span id="add"></span><span id="add()"></span><h3 class="editable">add()</h3>
+<p>Adds an element to the collection of <code>option</code> elements for this <code>select</code> element.</p>
+<pre>
+void add(
+  in HTMLElement element, 
+  in optional HTMLElement before
+);
+void add(
+  in HTMLElement element,
+  in optional long before
+);
+</pre>
+<div id="section_6">
+<span id="Parameters"></span><h5 class="editable">Parameters</h5>
+<dl>
+<dt>element</dt> <dd>An item to add to the collection of options.</dd> <dt>before</dt> <dd>An item (or 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> index of an item) that the new item should be inserted before. If this parameter is <code>null</code> (or the index does not exist), the new element is appended to the end of the collection.</dd>
+</dl>
+</div>
+<div id="section_7">
+<span id="Examples"></span><h5 class="editable">Examples</h5>
+<div id="section_8">
+<span id="Creating_Elements_from_Scratch"></span><h6 class="editable">Creating Elements from Scratch</h6>
+<pre class="deki-transform">
+var sel = document.createElement("select");
+var opt1 = document.createElement("option");
+var opt2 = document.createElement("option");
+
+opt1.value = "1";
+opt1.text = "Option: Value 1";
+
+opt2.value = "2";
+opt2.text = "Option: Value 2";
+
+sel.<strong>add</strong>(opt1, null);
+sel.<strong>add</strong>(opt2, null);
+
+/* 
+  Produces the following, conceptually:
+ 
+  &lt;select&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option: Value 2&lt;/option&gt;
+  &lt;/select&gt;
+*/</pre>
+</div>
+<div id="section_9">
+<span id="Append_to_an_Existing_Collection"></span><h6 class="editable">Append to an Existing Collection</h6>
+<pre class="deki-transform">
+var sel = document.getElementById("existingList");
+
+var opt = document.createElement("option");
+opt.value = "3";
+opt.text = "Option: Value 3";
+
+sel.add(opt, null);
+
+/*
+  Takes the existing following select object:
+
+  &lt;select id="existingList" name="existingList"&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option: Value 2&lt;/option&gt;
+  &lt;/select&gt;
+
+  And changes it to:
+
+  
+  &lt;select id="existingList" name="existingList"&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option: Value 2&lt;/option&gt;
+    &lt;option value="3"&gt;Option: Value 3&lt;/option&gt;
+  &lt;/select&gt;
+*/
+</pre>
+</div>
+<div id="section_10">
+<span id="Inserting_to_an_Existing_Collection"></span><h6 class="editable">Inserting to an Existing Collection</h6>
+<pre class="deki-transform">
+var sel = document.getElementById("existingList");
+
+var opt = document.createElement("option");
+opt.value = "3";
+opt.text = "Option: Value 3";
+
+sel.add(opt, sel.options[1]);
+
+/*
+  Takes the existing following select object:
+
+  &lt;select id="existingList" name="existingList"&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option: Value 2&lt;/option&gt;
+  &lt;/select&gt;
+
+  And changes it to:
+
+  
+  &lt;select id="existingList" name="existingList"&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="3"&gt;Option: Value 3&lt;/option&gt;    
+    &lt;option value="2"&gt;Option: Value 2&lt;/option&gt;
+  &lt;/select&gt;
+*/
+</pre>
+<dl>
+<dt></dt>
+</dl>
+</div>
+</div>
+</div>
+<div id="section_11">
+<span id="blur"></span><span id="blur()"></span><h3 class="editable">blur()</h3>
+<p>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> only. Removes input focus from this element. <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>       in 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span></p>
+<pre>
+void blur(
+);
+</pre>
+</div>
+<div id="section_12">
+<span id="checkValidity"></span><span id="checkValidity()"></span><h3 class="editable">checkValidity()</h3>
+<p>{{HTMLVersionInline(5)} only. Checks whether the element has any constraints and whether it satisfies them. If the element fails its constraints, the browser fires a cancelable <code>invalid</code> event at the element (and returns false).</p>
+<pre>
+boolean checkValidity(
+);
+</pre>
+<div id="section_13">
+<span id="Returns"></span><h5 class="editable">Returns</h5>
+<p>A false value if the <code>select</code> element is a candidate for constraint evaluation and it does not satisfy its constraints. Returns true if the element is not constrained, or if it satisfies its constraints.</p>
+</div>
+</div>
+<div id="section_14">
+<span id="focus"></span><span id="focus()"></span><h3 class="editable">focus()</h3>
+<p>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML">HTML 4</a></span> only. Gives input focus to this element. <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>       in 
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span></p>
+<pre>
+void focus(
+);
+</pre>
+</div>
+<div id="section_15">
+<span id="item"></span><span id="item()"></span><h3 class="editable">item()</h3>
+<p>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only. Gets an item from the options collection for this <code>select</code> element. You can also access an item by specifying the index in array-style brackets or parentheses, without calling this method explicitly.</p>
+<pre>
+any item(
+  in unsigned long index
+);
+</pre>
+<div id="section_16">
+<span id="Parameters_2"></span><h5 class="editable">Parameters</h5>
+<dl>
+<dt>index</dt> <dd>The zero-based index into the collection of the option to get.</dd>
+</dl>
+</div>
+<div id="section_17">
+<span id="Returns_2"></span><h5 class="editable">Returns</h5>
+<p>The node at the specified index, or <code>null</code> if such a node does not exist in the collection.</p>
+</div>
+</div>
+<div id="section_18">
+<span id="namedItem"></span><span id="namedItem()"></span><h3 class="editable">namedItem() </h3>
+<p>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only. Gets the item in the options collection with the specified name. The name string can match either the <strong>id</strong> or the <strong>name</strong> attribute of an option node. You can also access an item by specifying the name in array-style brackets or parentheses, without calling this method explicitly.</p>
+<pre>
+any namedItem(
+  in DOMString name
+);
+</pre>
+<div id="section_19">
+<span id="Parameters_3"></span><h5 class="editable">Parameters</h5>
+<dl>
+<dt>name</dt> <dd>The name of the option to get.</dd>
+</dl>
+</div>
+<div id="section_20">
+<span id="Returns_3"></span><h5 class="editable">Returns</h5>
+<ul>
+<li>A node, if there is exactly one match.</li> <li>
+<code>null</code> if there are no matches.</li> <li>A <a rel="internal" href="NodeList.html">NodeList</a> in tree order of nodes whose <strong>name</strong> or <strong>id</strong> attributes match the specified name.</li>
+</ul>
+</div>
+</div>
+<div id="section_21">
+<span id="remove"></span><span id="remove()"></span><h3 class="editable">remove()</h3>
+<p>Removes the element at the specified index from the options collection for this select element.</p>
+<pre>
+void remove(
+  in long index
+);
+</pre>
+<div id="section_22">
+<span id="Parameters_4"></span><h5 class="editable">Parameters</h5>
+<dl>
+<dt>index</dt> <dd>The zero-based index of the option element to remove from the collection.</dd>
+</dl>
+</div>
+<div id="section_23">
+<span id="Example"></span><h5 class="editable">Example</h5>
+<pre>
+var sel = document.getElementById("existingList");
+sel.remove(1);
+
+/*
+  Takes the existing following select object:
+
+  &lt;select id="existingList" name="existingList"&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="2"&gt;Option: Value 2&lt;/option&gt;
+    &lt;option value="3"&gt;Option: Value 3&lt;/option&gt;    
+  &lt;/select&gt;
+
+  And changes it to:
+
+  
+  &lt;select id="existingList" name="existingList"&gt;
+    &lt;option value="1"&gt;Option: Value 1&lt;/option&gt;
+    &lt;option value="3"&gt;Option: Value 3&lt;/option&gt;    
+  &lt;/select&gt;
+*/
+ </pre>
+</div>
+</div>
+<div id="section_24">
+<span id="setCustomValidity"></span><span id="setCustomValidity()"></span><h3 class="editable">setCustomValidity()</h3>
+<p>
+<span style="border: 1px solid rgb(129, 129, 250); background-color: rgb(174, 218, 229); font-size: x-small; white-space: nowrap; padding: 2px;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a></span> only. Sets the custom validity message for the selection element to the specified message. Use the empty string to indicate that the element does <em>not</em> have a custom validity error.</p>
+<pre>
+void setCustomValidity(
+  in DOMString message
+);
+</pre>
+<div id="section_25">
+<span id="Parameters_5"></span><h5 class="editable">Parameters</h5>
+<dl>
+<dt>message</dt> <dd>The string to use for the custom validity message.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="HTMLSelectElement.html">https://developer.mozilla.org/en/DOM/HTMLSelectElement</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/HTMLSelectElement by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:14:33 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

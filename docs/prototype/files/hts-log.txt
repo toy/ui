@@ -1,0 +1,13 @@
+HTTrack3.43-9 launched on Fri, 17 Dec 2010 06:24:52 at http://api.prototypejs.org http://prototypejs.org/learn -* +http://api.prototypejs.org* +http://prototypejs.org/learn* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -github.com/sstephenson/*
+(httrack http://api.prototypejs.org http://prototypejs.org/learn -* +http://api.prototypejs.org* +http://prototypejs.org/learn* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0 -github.com/sstephenson/* )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+06:25:48	Error: 	"Not Found" (404) at link api.prototypejs.org/AppleWebKit/ (from api.prototypejs.org/javascripts/pdoc/prototype.js)
+06:31:27	Error: 	"Not Found" (404) at link prototypejs.org/learn/stylesheets/main.css (from prototypejs.org/learn/contribute)
+
+HTTrack Website Copier/3.43-9 mirror complete in 6 minutes 35 seconds : 529 links scanned, 523 files written (11078633 bytes overall) [11220734 bytes received at 28406 bytes/sec], 82222 bytes transfered using HTTP compression in 8 files, ratio 35%, 31.1 requests per connection
+(2 errors, 0 warnings, 0 messages)

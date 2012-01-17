@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Class/create/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:11 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Class.create</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Class.create
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Class.create([superclass][, methods...]) &rarr; <a href="../index.html" title="Class (class)">Class</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">superclass</code>
+          <span class="argument-types">(<code><a href="../index.html" title="Class (class)">Class</a></code>)</span>
+         &ndash; The optional superclass to inherit methods from.
+      </li>
+      <li>
+        <code class="argument-name">methods</code>
+          <span class="argument-types">(<code><a href="../../Object/index.html" title="Object (class)">Object</a></code>)</span>
+         &ndash; An object whose properties will be "mixed-in" to the new class. Any number of mixins can be added; later mixins take precedence.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p><code><a href="index.html" title="Class.create (class method)">Class.create</a></code> creates a class and returns a constructor function for
+instances of the class. Calling the constructor function (typically as
+part of a <code>new</code> statement) will invoke the class's <code>initialize</code> method.</p>
+
+<p><code><a href="index.html" title="Class.create (class method)">Class.create</a></code> accepts two kinds of arguments. If the first argument is
+a <code><a href="../index.html" title="Class (class)">Class</a></code>, it's used as the new class's superclass, and all its methods
+are inherited. Otherwise, any arguments passed are treated as objects,
+and their methods are copied over ("mixed in") as instance methods of the
+new class. In cases of method name overlap, later arguments take
+precedence over earlier arguments.</p>
+
+<p>If a subclass overrides an instance method declared in a superclass, the
+subclass's method can still access the original method. To do so, declare
+the subclass's method as normal, but insert <code>$super</code> as the first
+argument. This makes <code>$super</code> available as a method for use within the
+function.</p>
+
+<p>To extend a class after it has been defined, use <code><a href="../prototype/addMethods/index.html" title="Class#addMethods (instance method)">Class#addMethods</a></code>.</p>
+
+<p>For details, see the
+<a href="../../../../prototypejs.org/learn/class-inheritance.html">inheritance tutorial</a>
+on the Prototype website.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Class/create/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:11 GMT -->
+</html>

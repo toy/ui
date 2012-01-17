@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/toQueryParams/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:18 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | String#toQueryParams</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> String#toQueryParams
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">String#toQueryParams([separator = '&']) &rarr; <a href="../../../Object/index.html" title="Object (class)">Object</a></code></pre>
+
+
+      <p>Parses a URI-like query string and returns an object composed of
+parameter/value pairs.</p>
+
+<p>This method is realy targeted at parsing query strings (hence the default
+value of<code>"&amp;"</code> for the <code>separator</code> argument).</p>
+
+<p>For this reason, it does <em>not</em> consider anything that is either before a
+question  mark (which signals the beginning of a query string) or beyond
+the hash symbol (<code>"#"</code>), and runs <code>decodeURIComponent()</code> on each
+parameter/value pair.</p>
+
+<p><code><a href="index.html" title="String#toQueryParams (instance method)">String#toQueryParams</a></code> also aggregates the values of identical keys into
+an array of values.</p>
+
+<p>Note that parameters which do not have a specified value will be set to
+<code>undefined</code>.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="s1">&#39;section=blog&amp;id=45&#39;</span><span class="p">.</span><span class="nx">toQueryParams</span><span class="p">();</span>
+<span class="c1">// -&gt; {section: &#39;blog&#39;, id: &#39;45&#39;}</span>
+ <span class="s1">&#39;section=blog;id=45&#39;</span><span class="p">.</span><span class="nx">toQueryParams</span><span class="p">();</span>
+<span class="c1">// -&gt; {section: &#39;blog&#39;, id: &#39;45&#39;}</span>
+ <span class="s1">&#39;http://www.example.com?section=blog&amp;id=45#comments&#39;</span><span class="p">.</span><span class="nx">toQueryParams</span><span class="p">();</span>
+<span class="c1">// -&gt; {section: &#39;blog&#39;, id: &#39;45&#39;}</span>
+ <span class="s1">&#39;section=blog&amp;tag=javascript&amp;tag=prototype&amp;tag=doc&#39;</span><span class="p">.</span><span class="nx">toQueryParams</span><span class="p">();</span>
+<span class="c1">// -&gt; {section: &#39;blog&#39;, tag: [&#39;javascript&#39;, &#39;prototype&#39;, &#39;doc&#39;]}</span>
+ <span class="s1">&#39;tag=ruby%20on%20rails&#39;</span><span class="p">.</span><span class="nx">toQueryParams</span><span class="p">();</span>
+<span class="c1">// -&gt; {tag: &#39;ruby on rails&#39;}</span>
+ <span class="s1">&#39;id=45&amp;raw&#39;</span><span class="p">.</span><span class="nx">toQueryParams</span><span class="p">();</span>
+<span class="c1">// -&gt; {id: &#39;45&#39;, raw: undefined}</span>
+</pre>
+</div>
+
+      
+      
+  <p class="alias alias-of">Alias of: <code><a href="../parseQuery/index.html" title="String#parseQuery (instance method)">String#parseQuery</a></code></p>
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/toQueryParams/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:18 GMT -->
+</html>

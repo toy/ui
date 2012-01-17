@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:24:53 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Home</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      <h1 style="margin-top: 31px; height: 75px; padding: 1px 0; background: url(images/header-stripe-small.png) repeat-x;">
+  <a href="http://prototypejs.org/" style="padding-left: 120px;">
+    <img src="images/header-logo-small.png" alt="Prototype JavaScript Framework API" />
+  </a>
+</h1>
+
+
+      <div class="page-content" id="main">
+        
+<div class="page-introduction">
+  <h1>Prototype</h1>
+
+<h4>An object-oriented JavaScript framework</h4>
+
+<p>Prototype is a JavaScript framework that aims to ease development of dynamic
+web applications.  It offers a familiar class-style OO framework, extensive
+Ajax support, higher-order programming constructs, and easy DOM manipulation.</p>
+
+<h3>Targeted platforms</h3>
+
+<p>Prototype currently targets the following platforms:</p>
+
+<ul>
+<li>Microsoft Internet Explorer for Windows, version 6.0 and higher</li>
+<li>Mozilla Firefox 1.5 and higher</li>
+<li>Apple Safari 2.0.4 and higher</li>
+<li>Opera 9.25 and higher</li>
+<li>Chrome 1.0 and higher</li>
+</ul>
+
+
+<h2>Using Prototype</h2>
+
+<p>To use Prototype in your application, download the latest release from the
+Prototype web site (<a href="http://prototypejs.org/download">http://prototypejs.org/download</a>) and copy
+<code>dist/prototype.js</code> to a suitable location. Then include it in your HTML
+like so:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;/path/to/prototype.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre>
+</div>
+
+
+<h3>Building Prototype from source</h3>
+
+<p><code>prototype.js</code> is a composite file generated from many source files in
+the <code>src/</code> directory. To build Prototype, you'll need:</p>
+
+<ul>
+<li>a copy of the Prototype source tree, either from a distribution tarball or
+from the Git repository (see below)</li>
+<li>Ruby 1.8.2 or higher (<a href="http://www.ruby-lang.org/">http://www.ruby-lang.org/</a>)</li>
+<li>Rake--Ruby Make (<a href="http://rake.rubyforge.org/">http://rake.rubyforge.org/</a>)</li>
+<li>RDoc, if your Ruby distribution does not include it</li>
+</ul>
+
+
+<p>From the root Prototype directory,</p>
+
+<ul>
+<li><code>rake dist</code> will preprocess the Prototype source using Sprockets and
+generate the composite <code>dist/prototype.js</code>.</li>
+<li><code>rake package</code> will create a distribution tarball in the
+<code>pkg/</code> directory.</li>
+</ul>
+
+
+<h2>Contributing to Prototype</h2>
+
+<p>Check out the Prototype source with</p>
+
+<div class="highlight"><pre><span class="nx">$</span> <span class="nx">git</span> <span class="nx">clone</span> <span class="nx">git</span><span class="o">:</span><span class="c1">//github.com/sstephenson/prototype.git</span>
+<span class="nx">$</span> <span class="nx">cd</span> <span class="nx">prototype</span>
+<span class="nx">$</span> <span class="nx">git</span> <span class="nx">submodule</span> <span class="nx">init</span>
+<span class="nx">$</span> <span class="nx">git</span> <span class="nx">submodule</span> <span class="nx">update</span> <span class="nx">vendor</span><span class="o">/</span><span class="nx">sprockets</span> <span class="nx">vendor</span><span class="o">/</span><span class="nx">pdoc</span> <span class="nx">vendor</span><span class="o">/</span><span class="nx">unittest_js</span>
+</pre>
+</div>
+
+
+<p>Find out how to contribute: <a href="http://prototypejs.org/contribute">http://prototypejs.org/contribute</a>.</p>
+
+<h2>Documentation</h2>
+
+<p>Please see the online Prototype API: <a href="index.html">http://api.prototypejs.org</a>.</p>
+</div> <!-- .section -->
+
+              <div class="section section-sections">
+                <div class="section-title">
+                  <h3>Sections</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+  <ul class="section-list">
+    <li>
+      <h4>
+        <a href="ajax/index.html">Ajax</a>
+      </h4>
+      <p /><p>Prototype's APIs around the <code>XmlHttpRequest</code> object.</p>
+    </li>      
+    <li>
+      <h4>
+        <a href="dom/index.html">DOM</a>
+      </h4>
+      <p /><p>Extensions to DOM elements, plus other utilities for DOM traversal
+and modification.</p>
+    </li>      
+    <li>
+      <h4>
+        <a href="language/index.html">Language</a>
+      </h4>
+      <p /><p>Additions to JavaScript's "standard library" and extensions to
+built-in JavaScript objects.</p>
+    </li>      
+  </ul>
+              </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:00 GMT -->
+</html>

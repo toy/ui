@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/stopObserving/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:23 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Event.stopObserving</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Event.stopObserving
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Event.stopObserving(element[, eventName[, handler]]) &rarr; <a href="../../Element/index.html" title="Element (class)">Element</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">element</code>
+          <span class="argument-types">(<code><a href="../../Element/index.html" title="Element (class)">Element</a></code> | <code><a href="../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; The element to stop observing, or its ID.
+      </li>
+      <li>
+        <code class="argument-name">eventName</code>
+          <span class="argument-types">(<code><a href="../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; <em>(Optional)</em> The name of the event to stop observing, in all lower case, without the "on"&nbsp;&mdash; e.g., "click" (not "onclick").
+      </li>
+      <li>
+        <code class="argument-name">handler</code>
+          <span class="argument-types">(<code><a href="../../../language/Function/index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; <em>(Optional)</em> The handler to remove; must be the <em>exact same</em> reference that was passed to <code><a href="../observe/index.html" title="Event.observe (class method)">Event.observe</a></code>.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Unregisters one or more event handlers.</p>
+
+<p>If <code>handler</code> is omitted, unregisters all event handlers on <code>element</code>
+for that <code>eventName</code>. If <code>eventName</code> is also omitted, unregisters <em>all</em>
+event handlers on <code>element</code>. (In each case, only affects handlers
+registered via Prototype.)</p>
+
+<h5>Examples</h5>
+
+<p>Assuming:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">myHandler</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>...we can stop observing using that handler like so:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">myHandler</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>If we want to remove <em>all</em> 'click' handlers from 'foo', we leave off the
+handler argument:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>If we want to remove <em>all</em> handlers for <em>all</em> events from 'foo' (perhaps
+we're about to remove it from the DOM), we simply omit both the handler
+and the event name:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<h5>A Common Error</h5>
+
+<p>When using instance methods as observers, it's common to use
+<code><a href="../../../language/Function/prototype/bind/index.html" title="Function#bind (instance method)">Function#bind</a></code> on them, e.g.:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handlerMethod</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+</pre>
+</div>
+
+
+<p>If you do that, <strong>this will not work</strong> to unregister the handler:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handlerMethod</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span> <span class="c1">// &lt;== WRONG</span>
+</pre>
+</div>
+
+
+<p><code><a href="../../../language/Function/prototype/bind/index.html" title="Function#bind (instance method)">Function#bind</a></code> returns a <em>new</em> function every time it's called, and so
+if you don't retain the reference you used when observing, you can't
+unhook that function specifically. (You can still unhook <strong>all</strong> handlers
+for an event, or all handlers on the element entirely.)</p>
+
+<p>To do this, you need to keep a reference to the bound function:</p>
+
+<div class="highlight"><pre><span class="k">this</span><span class="p">.</span><span class="nx">boundHandlerMethod</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handlerMethod</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">boundHandlerMethod</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>...and then to remove:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">stopObserving</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">boundHandlerMethod</span><span class="p">);</span> <span class="c1">// &lt;== Right</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/stopObserving/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:23 GMT -->
+</html>

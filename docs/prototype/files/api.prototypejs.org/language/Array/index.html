@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Array/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:37 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Array</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Array
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>Prototype extends all native JavaScript arrays with quite a few powerful
+methods.</p>
+
+<p>This is done in two ways:</p>
+
+<ul>
+<li>It mixes in the <code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code> module, which brings in a ton of methods.</li>
+<li>It adds quite a few extra methods, which are documented in this section.</li>
+</ul>
+
+
+<p>With Prototype, arrays become much, much more than the trivial objects we
+used to manipulate, limiting ourselves to using their <code>length</code> property and
+their <code>[]</code> indexing operator. They become very powerful objects that
+greatly simplify the code for 99% of the common use cases involving them.</p>
+
+<h5>Why you should stop using for...in to iterate</h5>
+
+<p>Many JavaScript authors have been misled into using the <code>for...in</code> JavaScript
+construct to loop over array elements. This kind of code just won't work
+with Prototype.</p>
+
+<p>The ECMA 262 standard, which defines ECMAScript 3rd edition, supposedly
+implemented by all major browsers including MSIE, defines ten methods
+on <code><a href="index.html" title="Array (class)">Array</a></code> (&sect;15.4.4), including nice methods like <code>concat</code>, <code>join</code>,
+<code>pop</code>, and <code>push</code>.</p>
+
+<p>This same standard explicitly defines that the <code>for...in</code> construct (&sect;12.6.4)
+exists to enumerate the properties of the object appearing on the right side
+of the <code>in</code> keyword. Only properties specifically marked as <em>non-enumerable</em>
+are ignored by such a loop. By default, the <code>prototype</code> and <code>length</code>
+properties are so marked, which prevents you from enumerating over array
+methods when using for...in. This comfort led developers to use <code>for...in</code> as a
+shortcut for indexing loops, when it is not its actual purpose.</p>
+
+<p>However, Prototype has no way to mark the methods it adds to
+<code>Array.prototype</code> as non-enumerable. Therefore, using <code>for...in</code> on arrays
+when using Prototype will enumerate all extended methods as well, such as
+those coming from the <code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code> module, and those Prototype puts in the
+<code><a href="index.html" title="Array (class)">Array</a></code> namespace (listed further below).</p>
+
+<h5>What you should use instead</h5>
+
+<p>You can revert to vanilla loops:</p>
+
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+  <span class="c1">// Your code working on item here...</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>Or you can use iterators, such as Array#each:</p>
+
+<div class="highlight"><pre><span class="nx">myArray</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Your code working on item here...</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>The inability to use <code>for...in</code> on arrays is not much of a burden: as you'll
+see, most of what you used to loop over arrays for can be concisely done
+using the new methods provided by Array or the mixed-in <code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code>
+module. So manual loops should be fairly rare.</p>
+
+<h5>A note on performance</h5>
+
+<p>Should you have a very large array, using iterators with lexical closures
+(anonymous functions that you pass to the iterators and that get invoked at
+every loop iteration) in methods like Array#each &mdash; <em>or</em> relying on
+repetitive array construction (such as uniq), may yield unsatisfactory
+performance. In such cases, you're better off writing manual indexing loops,
+but take care then to cache the length property and use the prefix <code>++</code>
+operator:</p>
+
+<div class="highlight"><pre><span class="c1">// Custom loop with cached length property: maximum full-loop</span>
+<span class="c1">// performance on very large arrays!</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="o">++</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">[</span><span class="nx">index</span><span class="p">];</span>
+  <span class="c1">// Your code working on item here...</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+                <div class="section section-mixins">
+                <div class="section-title">
+                  <h3>Includes</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+                  <div class="section section-class_methods">
+                <div class="section-title">
+                  <h3>Class methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="from/index.html" title="Array.from (class method)" class="class-method">from</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/clear/index.html" title="Array#clear (instance method)" class="instance-method">clear</a></code></li>
+
+<li><code><a href="prototype/clone/index.html" title="Array#clone (instance method)" class="instance-method">clone</a></code></li>
+
+<li><code><a href="prototype/compact/index.html" title="Array#compact (instance method)" class="instance-method">compact</a></code></li>
+
+<li><code><a href="prototype/first/index.html" title="Array#first (instance method)" class="instance-method">first</a></code></li>
+
+<li><code><a href="prototype/flatten/index.html" title="Array#flatten (instance method)" class="instance-method">flatten</a></code></li>
+
+<li><code><a href="prototype/indexOf/index.html" title="Array#indexOf (instance method)" class="instance-method">indexOf</a></code></li>
+
+<li><code><a href="prototype/inspect/index.html" title="Array#inspect (instance method)" class="instance-method">inspect</a></code></li>
+
+<li><code><a href="prototype/intersect/index.html" title="Array#intersect (instance method)" class="instance-method">intersect</a></code></li>
+
+<li><code><a href="prototype/last/index.html" title="Array#last (instance method)" class="instance-method">last</a></code></li>
+
+<li><code><a href="prototype/lastIndexOf/index.html" title="Array#lastIndexOf (instance method)" class="instance-method">lastIndexOf</a></code></li>
+
+<li><code><a href="prototype/reverse/index.html" title="Array#reverse (instance method)" class="instance-method">reverse</a></code></li>
+
+<li><code><a href="prototype/size/index.html" title="Array#size (instance method)" class="instance-method">size</a></code></li>
+
+<li><code><a href="prototype/toArray/index.html" title="Array#toArray (instance method)" class="instance-method">toArray</a></code></li>
+
+<li><code><a href="prototype/uniq/index.html" title="Array#uniq (instance method)" class="instance-method">uniq</a></code></li>
+
+<li><code><a href="prototype/without/index.html" title="Array#without (instance method)" class="instance-method">without</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Array/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:37 GMT -->
+</html>

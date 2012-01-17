@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/prototype/getInputs/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:42 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Form#getInputs</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Form#getInputs
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Form#getInputs([type [, name]]) &rarr; [<a href="../../../Element/index.html" title="Element (class)">Element</a>…]</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">type</code>
+          <span class="argument-types">(<code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; A value for the <code>type</code> attribute against which to filter.
+      </li>
+      <li>
+        <code class="argument-name">name</code>
+          <span class="argument-types">(<code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; A value for the <code>name</code> attribute against which to filter.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Returns a collection of all INPUT elements in a form.</p>
+
+<p>Use optional <code>type</code> and <code>name</code> arguments to restrict the search on
+these attributes.</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myform&#39;</span><span class="p">);</span>
+ <span class="nx">form</span><span class="p">.</span><span class="nx">getInputs</span><span class="p">();</span>       <span class="c1">// -&gt; all INPUT elements</span>
+<span class="nx">form</span><span class="p">.</span><span class="nx">getInputs</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">);</span> <span class="c1">// -&gt; only text inputs</span>
+ <span class="kd">var</span> <span class="nx">buttons</span> <span class="o">=</span> <span class="nx">form</span><span class="p">.</span><span class="nx">getInputs</span><span class="p">(</span><span class="s1">&#39;radio&#39;</span><span class="p">,</span> <span class="s1">&#39;education&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; only radio buttons of name &quot;education&quot;</span>
+ <span class="c1">// now disable these radio buttons:</span>
+<span class="nx">buttons</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;disable&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<h5>Note</h5>
+
+<p>Elements are returned in the <em>document</em> order, not the
+<a href="http://www.w3.org/TR/html4/interact/forms.html#h-17.11.1">tabindex order</a>.</p>
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../getInputs/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/prototype/getInputs/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:42 GMT -->
+</html>

@@ -1,0 +1,8 @@
+https://developer.mozilla.org/en/JavaScript/Reference -* +https://developer.mozilla.org/en/JavaScript/Reference* +https://developer.mozilla.org/skins/* +https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0 -s0
+File generated automatically on Fri, 17 Dec 2010 17:49:01, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

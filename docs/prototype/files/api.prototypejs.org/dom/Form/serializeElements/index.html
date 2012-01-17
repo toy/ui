@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/serializeElements/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:37 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Form.serializeElements</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Form.serializeElements
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Form.serializeElements(elements[, options]) &rarr; <a href="../../../language/String/index.html" title="String (class)">String</a> | <a href="../../../language/Object/index.html" title="Object (class)">Object</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">elements</code>
+          <span class="argument-types">(<code><a href="../../../language/Array/index.html" title="Array (class)">Array</a></code>)</span>
+         &ndash; A collection of elements to include in the serialization.
+      </li>
+      <li>
+        <code class="argument-name">options</code>
+          <span class="argument-types">(<code><a href="../../../language/Object/index.html" title="Object (class)">Object</a></code>)</span>
+         &ndash; <em>(Optional)</em> A set of options that affect the return value of the method.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Serialize an array of form elements to an object or string suitable
+for <code><a href="../../../ajax/Ajax/index.html" title="Ajax (namespace)">Ajax</a></code> requests.</p>
+
+<p>As per the HTML spec, disabled fields are not included.</p>
+
+<p>If multiple elements have the same name and we're returning an object,
+the value for that key in the object will be an array of the field values
+in the order they appeared on the array of elements.</p>
+
+<p>The preferred method to serialize a form is <code><a href="../serialize/index.html" title="Form.serialize (class method)">Form.serialize</a></code>. Refer to
+it for further information and examples on the <code>hash</code> option. However,
+with <code><a href="index.html" title="Form.serializeElements (class method)">Form.serializeElements</a></code> you can serialize <em>specific</em> input
+elements of your choice, allowing you to specify a subset of form elements
+that you want to serialize data from.</p>
+
+<h5>The Options</h5>
+
+<p>The options allow you to control two things: What kind of return
+value you get (an object or a string), and whether and which <code>submit</code>
+fields are included in that object or string.</p>
+
+<p>If you do not supply an <code>options</code> object <em>at all</em>, the options
+<code>{ hash: false }</code> are used.</p>
+
+<p>If you supply an <code>options</code> object, it may have the following options:</p>
+
+<ul>
+<li><p><code>hash</code> (Boolean): <code>true</code> to return a plain object with keys and
+values (not a <code><a href="../../../language/Hash/index.html" title="Hash (class)">Hash</a></code>; see below), <code>false</code> to return a String in query
+string format. If you supply an <code>options</code> object with no <code>hash</code> member,
+<code>hash</code> defaults to <code>true</code>. Note that this is <strong>not</strong> the same as leaving
+off the <code>options</code> object entirely (see above).</p></li>
+<li><p><code>submit</code> (Boolean | <code><a href="../../../language/String/index.html" title="String (class)">String</a></code>): In essence: If you omit this option
+the first submit button in the form is included; if you supply <code>false</code>,
+no submit buttons are included; if you supply the name of a submit
+button, the first button with that name is included. Note that the
+<code>false</code> value <strong>must</strong> really be <code>false</code>, not <em>falsey</em>;
+falsey-but-not-false is like omitting the option.</p></li>
+</ul>
+
+
+<p><em>(Deprecated)</em> If you pass in a Boolean instead of an object for
+<code>options</code>, it is used as the <code>hash</code> option and all other options are
+defaulted.</p>
+
+<h5>A <em>hash</em>, not a <code><a href="../../../language/Hash/index.html" title="Hash (class)">Hash</a></code></h5>
+
+<p>If you opt to receive an object, it is a plain JavaScript object with keys
+and values, <strong>not</strong> a <code><a href="../../../language/Hash/index.html" title="Hash (class)">Hash</a></code>. All JavaScript objects are hashes in the
+lower-case sense of the word, which is why the option has that
+somewhat-confusing name.</p>
+
+<h5>Examples</h5>
+
+<p>To serialize all input elements of type "text":</p>
+
+<div class="highlight"><pre><span class="nx">Form</span><span class="p">.</span><span class="nx">serializeElements</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myform&#39;</span><span class="p">).</span><span class="nx">getInputs</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="c1">// -&gt; serialized data</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/serializeElements/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:37 GMT -->
+</html>

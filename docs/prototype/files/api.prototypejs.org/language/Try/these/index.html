@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Try/these/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:22 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Try.these</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+  <div id="deprecated"><img src="../../../images/pdoc/deprecated.png" height="150" alt="Deprecated" width="150" /></div>
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Try.these
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Try.these(function...) &rarr; ?</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">function</code>
+          <span class="argument-types">(<code><a href="../../Function/index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; A function that may throw an exception.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Accepts an arbitrary number of functions and returns the result of the
+first one that doesn't throw an error.</p>
+
+<p><strong>This method is deprecated.</strong></p>
+
+<h5>More information</h5>
+
+
+<p><code><a href="index.html" title="Try.these (class method)">Try.these</a></code> provides a simple idiom for trying out blocks of code in
+sequence. Such a sequence of attempts usually represents a downgrading
+approach to obtaining a given feature.</p>
+
+<p>In this example from Prototype's <a href="../../../ajax/Ajax/index.html" title="Ajax (namespace)">Ajax</a> internals, we want to get an
+<code>XMLHttpRequest</code> object. Internet Explorer 6 and earlier, however, does not
+provide it as a vanilla JavaScript object, and will throw an error if we
+attempt a simple instantiation. Also, over time, its proprietary way
+evolved, changing COM interface names.</p>
+
+<p><code><a href="index.html" title="Try.these (class method)">Try.these</a></code> will try several ways in sequence, from the best (and,
+theoretically, most widespread) one to the oldest and rarest way, returning
+the result of the first successful function.</p>
+
+<p>If none of the blocks succeeded, <code><a href="index.html" title="Try.these (class method)">Try.these</a></code> will return <code>undefined</code>, which
+will cause the <code>Ajax.getTransport</code> method in the example below to return
+<code>false</code>, provided as a fallback result value.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Ajax</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">getTransport</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Try</span><span class="p">.</span><span class="nx">these</span><span class="p">(</span>
+      <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">()</span> <span class="p">},</span>
+      <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s1">&#39;Msxml2.XMLHTTP&#39;</span><span class="p">)</span> <span class="p">},</span>
+      <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="k">new</span> <span class="nx">ActiveXObject</span><span class="p">(</span><span class="s1">&#39;Microsoft.XMLHTTP&#39;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">)</span> <span class="o">||</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Try/these/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:22 GMT -->
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from prototypejs.org/learn/introduction-to-ajax by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Prototype JavaScript framework: Introduction to Ajax</title>
+	<link href="stylesheets/main.html" rel="stylesheet" type="text/css" charset="utf-8" />	
+	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 6]><link href="/stylesheets/ie-sucks-for-api.css" rel="stylesheet" type="text/css" media="screen"><![endif]-->
+  <link href="http://feeds.feedburner.com/prototype-blog" rel="alternate" type="application/atom+xml" />
+ <script src="../javascripts/prototype.js" type="text/javascript"></script>
+<script src="../javascripts/code_highlighter.js" type="text/javascript"></script>
+<script src="../javascripts/javascript.js" type="text/javascript"></script>
+<script src="../javascripts/html.js" type="text/javascript"></script>
+<script src="../javascripts/css.js" type="text/javascript"></script>
+<script src="../javascripts/ruby.js" type="text/javascript"></script>
+<script src="../javascripts/ebnf.js" type="text/javascript"></script>
+
+
+<link href="../images/fav.png" rel="shortcut icon" type="image/ico" />
+</head>
+
+<body id="main">
+            
+   <h2>Introduction to Ajax</h2>
+   <div id="lmeta">Last updated on February 24th, 2007</div>
+  <div id="learn-excerpt"><p>Prototype framework enables you to deal with Ajax calls in a very easy and fun way that is also safe (cross-browser). Besides simple requests, this module also deals in a smart way with JavaScript code returned from a server and provides helper classes for polling.</p></div>
+  <div id="abody"><p>Ajax functionality is contained in the global <code>Ajax</code> object. The transport
+for Ajax requests is <em>xmlHttpRequest</em>, with browser differences safely
+abstracted from the user. Actual requests are made by creating instances
+of the <a href="http://prototypejs.org/api/ajax/request"><code>Ajax.Request</code></a> object.</p>
+
+<pre><code class="javascript">new Ajax.Request('/some_url', { method:'get' });</code></pre>
+
+<p>The first parameter is the URL of the request; the second is the options
+hash. The <em>method</em> option refers to the HTTP method to
+be used; default method is POST.</p>
+
+<p class="notice">Remember that for security reasons (that is preventing cross-site scripting attacks) <em>Ajax requests can only be made to URLs of the same protocol, host and port of the page containing the Ajax request</em>. Some browsers might allow arbitrary URLs, but you shouldn't rely on support for this.</p>
+
+<h3>Ajax response callbacks</h3>
+
+<p>Ajax requests are by default <em>asynchronous</em>, which means you must have
+callbacks that will handle the data from a response. Callback methods are
+passed in the options hash when making a request:</p>
+
+<pre><code class="javascript">
+new Ajax.Request('/some_url',
+  {
+    method:'get',
+    onSuccess: function(transport){
+      var response = transport.responseText || "no response text";
+      alert("Success! \n\n" + response);
+    },
+    onFailure: function(){ alert('Something went wrong...') }
+  });
+</code></pre>
+
+<p>Here, two callbacks are passed in the hash that alert of either success or
+failure; <code>onSuccess</code> and <code>onFailure</code> are called accordingly based on the
+status of the response. The first parameter passed to both is the native
+<em>xmlHttpRequest</em> object from which you can use its <code>responseText</code> and
+<code>responseXML</code> properties, respectively.</p>
+
+<p>You can specify both callbacks, one or none - it's up to you. Other
+available callbacks are:</p>
+
+<ul>
+<li><code>onUninitialized</code>,</li>
+<li><code>onLoading</code>,</li>
+<li><code>onLoaded</code>,</li>
+<li><code>onInteractive</code>,</li>
+<li><code>onComplete</code> and</li>
+<li><code>onException</code>.</li>
+</ul>
+
+<p>They all match a certain state of the <em>xmlHttpRequest</em> transport, except for
+<code>onException</code> which fires when there was an exception while dispatching
+other callbacks.</p>
+
+<p>Also available are <code>onXXX</code> callbacks, where XXX is the HTTP response status
+like 200 or 404. Be aware that, when using those, your <code>onSuccess</code> and
+<code>onFailure</code> won't fire because <code>onXXX</code> takes precedence, therefore using these
+means you know what you're doing.</p>
+
+<p class="notice">The <code>onUninitialized</code>, <code>onLoading</code>, <code>onLoaded</code>, and <code>onInteractive</code> callbacks are not implemented consistently by all browsers. In general, it's best to avoid using these.</p>
+
+<h3>Parameters and the HTTP method</h3>
+
+<p>You can pass the parameters for the request as the <code>parameters</code> property in
+options:</p>
+
+<pre><code class="javascript">
+new Ajax.Request('/some_url', {
+  method: 'get',
+  parameters: {company: 'example', limit: 12}
+  });
+</code></pre>
+
+<p>Parameters are passed in as a hash (preferred) or a string of key-value pairs
+separated by ampersands (like <code>company=example&amp;limit=12</code>).</p>
+
+<p>You can use parameters with both GET and POST requests. Keep in mind,
+however, that GET requests to your application should never cause data
+to be changed. Also, browsers are less likely to cache a response to a POST
+request, but more likely to do so with GET.</p>
+
+<p>One of the primary applications for the parameters property is sending the contents
+of a FORM with an Ajax request, and Prototype gives you a helper method for this, called <a href="http://prototypejs.org/api/form/serialize"><code>Form.serialize</code></a>:</p>
+
+<pre><code class="javascript">
+new Ajax.Request('/some_url', {
+  parameters: $('id_of_form_element').serialize(true)
+  });
+</code></pre>
+
+<p>If you need to push custom HTTP request headers, you can do so with the
+<code>requestHeaders</code> option. Just pass name-value pairs as a hash or in a flattened
+array, like: <code>['X-Custom-1', 'value', 'X-Custom-2', 'other value']</code>.</p>
+
+<p>If, for some reason, you have to POST a request with a custom post body
+(not parameters from the <code>parameters</code> option), there is a <code>postBody</code> option
+exactly for that. Be aware that when using <code>postBody</code>, parameters passed
+will never be posted because <code>postBody</code> takes precedence as a body - using the
+option means you know what you're doing.</p>
+
+<h3>Evaluating a JavaScript response</h3>
+
+<p>Sometimes the application is designed to send JavaScript code as a response. If
+the content type of the response matches the MIME type of JavaScript then this
+is true and Prototype will automatically <code>eval()</code> returned code. You don't need
+to handle the response explicitly if you don't need to.</p>
+
+<p>Alternatively, if the response holds a X-JSON header, its content will be
+parsed, saved as an object and sent to the callbacks as the second argument:</p>
+
+<pre><code class="javascript">
+new Ajax.Request('/some_url', { method:'get',
+  onSuccess: function(transport, json){
+      alert(json ? Object.inspect(json) : "no JSON object");
+    }
+  });
+</code></pre>
+
+<p>Use this functionality when you want to fetch non-trivial data with Ajax but
+want to avoid the overhead of parsing XML responses. JSON is much faster
+(and lighter) than XML.</p>
+
+<h3>Global responders</h3>
+
+<p>There is an object that is informed about every Ajax request:
+<code>Ajax.Responders</code>. With it, you can register callbacks that will fire on a
+certain state of any <code>Ajax.Request</code> issued:</p>
+
+<pre><code class="javascript">
+Ajax.Responders.register({
+  onCreate: function(){
+    alert('a request has been initialized!');
+  }, 
+  onComplete: function(){
+    alert('a request completed');
+  }
+});
+</code></pre>
+
+<p>Every callback matching an <em>xmlHttpRequest</em> transport state is allowed here,
+with an addition of <code>onCreate</code>. Globally tracking requests like this can be
+useful in many ways: you can log them for debugging purposes using a
+JavaScript logger of your choice or make a global exception handler that
+informs the users of a possible connection problem.</p>
+
+<h3>Updating your page dynamically with <code>Ajax.Updater</code></h3>
+
+<p>Developers often want to make Ajax requests to receive HTML fragments that
+update parts of the document. With <code>Ajax.Request</code> with an <code>onComplete</code>
+callback this is fairly easy, but with <a href="http://prototypejs.org/api/ajax/updater"><code>Ajax.Updater</code></a> it's even easier!</p>
+
+<p>Suppose you have this code in your HTML document:</p>
+
+<pre><code class="html">
+&lt;h2&gt;Our fantastic products&lt;/h2&gt;
+&lt;div id=&quot;products&quot;&gt;(fetching product list ...)&lt;/div&gt;
+</code></pre>
+
+<p>The 'products' container is empty and you want to fill it with HTML returned
+from an Ajax response. No problem:</p>
+
+<pre><code class="javascript">new Ajax.Updater('products', '/some_url', { method: 'get' });</code></pre>
+
+<p>That's all, no more work. The arguments are the same of <code>Ajax.Request</code>,
+except there is the receiver element in the first place. Prototype
+will automagically update the container with the response using the
+<code>Element.update()</code> method.</p>
+
+<p>If your HTML comes with inline scripts, they will be stripped by default.
+You'll have to pass <code>true</code> as the <code>evalScripts</code> option in order to see
+your scripts being executed.</p>
+
+<p>But what if an error occurs, and the server returns an error message instead of
+HTML? Often you don't want insert errors in places where users expected content.
+Fortunately, Prototype provides a convenient solution: instead of the actual
+container as the first argument you can pass in a hash of 2 different
+containers in this form: <code>{ success:'products', failure:'errors' }</code>. Content
+will be injected in the <em>success</em> container if all went well, but errors will be
+written to the <em>failure</em> container. By using this feature your interfaces can
+become much more user-friendly.</p>
+
+<p>You might also choose not to overwrite the current container contents, but
+insert new HTML on top or bottom like you would do with <code>Insertion.Top</code> or
+<code>Insertion.Bottom</code>. Well, you can. Just pass the insertion object as the
+<code>insertion</code> parameter to Ajax:</p>
+
+<pre><code class="javascript">
+new Ajax.Updater('products', '/some_url', {
+  method: 'get',
+  insertion: Insertion.Top
+  });
+</code></pre>
+
+<p><code>Ajax.Updater</code> will use the given object to make the insertion of returned
+HTML in the container ('products') element. Nifty.</p>
+
+<h3>Automate requests with the <code>Ajax.PeriodicalUpdater</code></h3>
+
+<p>You find the <code>Ajax.Updater</code> cool, but want to run it in periodical intervals
+to repeatedly fetch content from the server? Prototype framework has that,
+too - it's called <a href="http://prototypejs.org/api/ajax/periodicalupdater"><code>Ajax.PeriodicalUpdater</code></a>, and basically it's running
+<code>Ajax.Updater</code> at regular intervals.</p>
+
+<pre><code class="javascript">
+new Ajax.PeriodicalUpdater('products', '/some_url',
+  {
+    method: 'get',
+    insertion: Insertion.Top,
+    frequency: 1,
+    decay: 2
+  });
+</code></pre>
+
+<p>Two new options here are <code>frequency</code> and <code>decay</code>. Frequency is the interval in
+seconds at which the requests are to be made. Here, it's 1 second, which means
+we have an Ajax request every second. The default frequency is 2 seconds. Our
+users might be happy because the responsiveness of the application, but our
+servers might be taking quite a load if enough people leave their browsers open
+on the page for quite some time. That's why we have <em>the decay option</em> - it is
+the factor by which the frequency is multiplied every time when current
+response body is the same as previous one. First Ajax request will then be made
+in 1 second, second in 2, third in 4 seconds, fourth in 8 and so on. Of course,
+if the server always returns different content, decay will never take effect;
+this factor only makes sense when your content doesn't change so rapidly and
+your application tends to return the same content over and over.</p>
+
+<p>Having frequency falloff can take the load off the servers considerably because
+the overall number of requests is reduced. You can experiment with this factor
+while monitoring server load, or you can turn it off completely by passing
+1 (which is default) or simply omitting it.</p>
+
+<h3>Move along</h3>
+
+<p>Learn more about <a href="http://prototypejs.org/api/ajax/request"><code>Ajax.Request</code></a>, <a href="http://prototypejs.org/api/ajax/updater"><code>Ajax.Updater</code></a> and <a href="http://prototypejs.org/api/ajax/options"><code>Ajax options</code></a>.</p></div>
+
+
+
+          </body>
+
+<!-- Mirrored from prototypejs.org/learn/introduction-to-ajax by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+</html>

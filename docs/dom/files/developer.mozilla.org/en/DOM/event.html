@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/event by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:07:36 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>event - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=3042">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=3042">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 3042;
+Deki.PageTitle = 'en/DOM/event';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMevent" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">event</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>1.1.</span> <a href="#Introduction" rel="internal">Introduction</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>1.1.1.</span> <a href="#DOM_Event_interface" rel="internal">DOM Event interface</a>
+</li>
+<li>
+<span>1.1.2.</span> <a href="#DOM_event_handler_List" rel="internal">DOM event handler List</a>
+</li>
+</ol>
+</li>
+<li>
+<span>1.2.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>1.3.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+</ol></li>
+<li>
+<span>2.</span> <a href="#See_also" rel="internal">See also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="Introduction"></span><h3 class="editable">Introduction</h3>
+<p>This chapter describes the DOM Level 2 Event Model as implemented by <a rel="internal" href="https://developer.mozilla.org/en/Gecko">Gecko</a>. The <a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Event" title="http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-Event" target="_blank">Event</a> interface itself is described, as well as the interfaces for event registration on nodes in the DOM, event handlers and <a rel="internal" href="element-7.html">event listeners</a>, and several longer examples that show how the various event interfaces relate to one another.</p>
+<p>There is an excellent diagram that clearly explains the three phases of event flow through the DOM in the <a class="external" title="http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-3-Events/#dom-event-architecture" target="_blank">DOM Level 3 Events draft</a>.</p>
+<div id="section_2">
+<span id="DOM_Event_interface"></span><h4 class="editable">DOM <code>Event</code> interface</h4>
+<p>Event handlers may be attached to various elements in the DOM. When an event occurs, an event object is created and passed sequentially to the event listeners that are allowed to handle the event.</p>
+<p>The DOM <code>Event</code> interface is accessible from within the handler function, via the event object passed as the first argument.</p>
+<p> The following simple example shows how an event object is passed to the event handler function, and can be used from within one such function.</p>
+<p>Note there is no "evt" parameter passed in the code below. The event object gets passed automatically to <em>foo</em>. All that is needed is to define a parameter in the event handler to receive the event object.</p>
+<pre>
+function foo(evt) {
+  // event handling functions like this one
+  // get an implicit reference to the event object they handle
+  // (in this case we chose to call it "evt").
+  alert(evt);
+}
+table_el.onclick = foo;
+</pre>
+<p>This example is simplistic, but it shows an important feature of events in the Gecko DOM, which is that event objects in the DOM are typically accessed in the event handler functions. Once you have a reference to the event object, you can access all of the properties and methods described in this chapter.</p>
+<p>Also see <a rel="internal" href="../Gecko_DOM_Reference/Examples.html#Example_5:_Event_Propagation">Example 5: Event Propagation</a> in the Examples chapter for a more detailed example of how events move through the DOM.</p>
+<div id="section_3">
+<span id="DOM_event_subclasses"></span><h5 class="editable">DOM event subclasses</h5>
+<ul>
+<li><a rel="internal" href="Event/UIEvent.html">DOM:Event:UIEvent</a></li> <li><a rel="internal" href="Event/UIEvent/KeyEvent.html">DOM:Event:UIEvent:KeyEvent</a></li> <li><a rel="internal" href="Event/UIEvent/MouseEvent.html">DOM:Event:UIEvent:MouseEvent</a></li>
+</ul>
+</div>
+</div>
+<div id="section_4">
+<span id="DOM_event_handler_List"></span><h4 class="editable">DOM event handler List</h4>
+<p>In addition to the <code>event</code> object described here, the Gecko DOM also provides methods for registering event listeners on nodes in the DOM, removing those event listeners, and dispatching events from the DOM. These and the various <a rel="internal" href="element.html#Event_Handlers">Event Handlers</a> on HTML or XML elements are the main entry points for events in the DOM. These three methods are described in the <a rel="internal" href="element.html">DOM Element Reference</a> list.</p>
+<p>The function that handles the event is passed the event object as the first argument. You can give this parameter any name you wish in the event handler, but 'e', 'evt' or 'event' are usually used.</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;event object parameter example&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+
+function showCoords(evt){
+  alert(
+    "clientX value: " + evt.clientX + "\n" +
+    "clientY value: " + evt.clientY + "\n"
+  );
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body onmousedown="showCoords(event)"&gt;
+&lt;p&gt;To display the mouse coordinates click anywhere on the page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>You can pass other parameters to the event handling function as well, if required:</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;event object &amp; extra parameters example&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+
+var par2 = 'hello';
+var par3 = 'world!';
+
+function showCoords(evt, p2, p3){
+  alert(
+    "clientX value: " + evt.clientX + "\n"
+    + "clientY value: " + evt.clientY + "\n"
+    + "p2: " + p2 + "\n"
+    + "p3: " + p3 + "\n"
+  );
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body onmousedown="showCoords(event, par2, par3)"&gt;
+&lt;p&gt;To display the mouse coordinates please click anywhere on the page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+</div>
+<div id="section_5">
+<span id="Properties"></span><h3 class="editable">Properties</h3>
+<dl>
+<dt>
+<a rel="internal" href="event-2.html">event.altKey</a> </dt> <dd>A boolean indicating whether the <code>&lt;alt&gt;</code> key was pressed when the event was raised.</dd> <dt>
+<a rel="internal" href="event-3.html">event.bubbles</a> </dt> <dd>A boolean indicating whether the event bubbles up through the DOM or not.</dd> <dt>
+<a rel="internal" href="event-4.html">event.button</a> </dt> <dd>A value indicating which, if any, mouse button(s) were pressed when the event was raised.</dd> <dt>
+<a rel="internal" href="event-5.html">event.cancelBubble</a> </dt> <dd>
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span> A boolean indicating whether the bubbling of the event has been canceled or not.</dd> <dt>
+<a rel="internal" href="event-6.html">event.cancelable</a> </dt> <dd>A boolean indicating whether the event is cancelable.</dd> <dt>
+<a rel="internal" href="event-7.html">event.charCode</a> </dt> <dd>The Unicode value of a character key that was pressed as part of a <a rel="internal" href="https://developer.mozilla.org/" class="new ">keypress</a> event. See also <a rel="internal" href="https://developer.mozilla.org/en/Gecko_Keypress_Event">Gecko Keypress Event</a>.</dd> <dt>
+<a rel="internal" href="event-8.html">event.clientX</a> </dt> <dd>The horizontal position of the event.</dd> <dt>
+<a rel="internal" href="event-9.html">event.clientY</a> </dt> <dd>The vertical position of the event.</dd> <dt>
+<a rel="internal" href="event-10.html">event.ctrlKey</a> </dt> <dd>A boolean indicating whether the <code>&lt;ctrl&gt;</code> key was pressed during the event.</dd> <dt>
+<a rel="internal" href="event-11.html">event.currentTarget</a> </dt> <dd>A reference to the currently registered target for the event.</dd> <dt>
+<a rel="internal" href="event-12.html">event.detail</a> </dt> <dd>Detail about the event, depending on the type of event.</dd> <dt>
+<a rel="internal" href="event-13.html">event.eventPhase</a> </dt> <dd>Indicates which phase of the event flow is being processed.</dd> <dt>
+<a rel="internal" href="event-14.html">event.explicitOriginalTarget</a> </dt> <dd>The explicit original target of the event (Mozilla-specific).</dd> <dt>
+<a rel="internal" href="event-15.html">event.isChar</a> </dt> <dd>A boolean indicating whether the event produced a key character or not.</dd> <dt>
+<a rel="internal" href="event-16.html">event.keyCode</a> </dt> <dd>The Unicode value of a non-character key in a <a rel="internal" href="https://developer.mozilla.org/" class="new ">keypress</a> event or any key in any other type of keyboard event.</dd> <dt>
+<a rel="internal" href="event-17.html">event.layerX</a> </dt> <dd>The horizontal coordinate of the event relative to the current layer.</dd> <dt>
+<a rel="internal" href="event-18.html">event.layerY</a> </dt> <dd>The vertical coordinate of the event relative to the current layer.</dd> <dt>
+<a rel="internal" href="event-19.html">event.metaKey</a> </dt> <dd>A boolean indicating whether the <code>meta</code> key was pressed during the event.</dd> <dt>
+<a rel="internal" href="event-20.html">event.mozInputSource</a> 
+<span title="
+(Firefox 4 - update this reference to Gecko 2!)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.3</span> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dt> <dd>The type of device that generated the event. This is a Gecko-specific value.</dd> <dt>
+<a rel="internal" href="event-21.html">event.originalTarget</a> </dt> <dd>The original target of the event, before any retargetings (Mozilla-specific).</dd> <dt>
+<a rel="internal" href="event-22.html">event.pageX</a> </dt> <dd>The horizontal coordinate of the event relative to the page.</dd> <dt>
+<a rel="internal" href="event-23.html">event.pageY</a> </dt> <dd>The vertical coordinate of the event relative to the page.</dd> <dt>
+<a rel="internal" href="event-24.html">event.relatedTarget</a> </dt> <dd>Identifies a secondary target for the event.</dd> <dt>
+<a rel="internal" href="event-25.html">event.screenX</a> </dt> <dd>The horizontal position of the event on the screen.</dd> <dt>
+<a rel="internal" href="event-26.html">event.screenY</a> </dt> <dd>The vertical position of the event on the screen.</dd> <dt>
+<a rel="internal" href="event-27.html">event.shiftKey</a> </dt> <dd>A boolean indicating whether the <code>&lt;shift&gt;</code> key was pressed when the event was fired.</dd> <dt>
+<a rel="internal" href="event-28.html">event.target</a> </dt> <dd>A reference to the target to which the event was originally dispatched.</dd> <dt>
+<a rel="internal" href="event-29.html">event.timeStamp</a> </dt> <dd>The time that the event was created.</dd> <dt>
+<a rel="internal" href="event-30.html">event.type</a> </dt> <dd>The name of the event (case-insensitive).</dd> <dt>
+<a rel="internal" href="event-31.html">event.view</a> </dt> <dd>The <code>AbstractView</code> from which the event was generated.</dd> <dt>
+<a rel="internal" href="event-32.html">event.which</a> </dt> <dd>The Unicode value of a key in a keyboard event, regardless of which type of key is pressed.</dd>
+</dl>
+</div>
+<div id="section_6">
+<span id="Methods"></span><h3 class="editable">Methods</h3>
+<dl>
+<dt>
+<a rel="internal" href="event-33.html">event.initEvent</a> </dt> <dd>Initializes the value of an Event created through the <code>DocumentEvent</code> interface.</dd> <dt>
+<a rel="internal" href="event-34.html">event.initKeyEvent</a> </dt> <dd>Initializes a keyboard event. Gecko-specific.</dd> <dt>
+<a rel="internal" href="event-35.html">event.initMouseEvent</a> </dt> <dd>Initializes a mouse event once it's been created</dd> <dt>
+<a rel="internal" href="event-36.html">event.initUIEvent</a> </dt> <dd>Initializes a UI event once it's been created.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">event.initMessageEvent</a> </dt> <dd>Initializes a message event once it's been created 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">event.preventBubble</a> </dt> <dd>
+<span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>       Prevents the event from bubbling. This method is deprecated in favor of standard <a rel="internal" href="event-37.html">stopPropagation</a> and is <a rel="internal" href="https://developer.mozilla.org/en/Gecko_1.9_Changes_affecting_websites">removed in Gecko 1.9</a>.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">event.preventCapture</a> </dt> <dd>
+<span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>       This method is deprecated in favor of standard <a rel="internal" href="event-37.html">stopPropagation</a> and is <a rel="internal" href="https://developer.mozilla.org/en/Gecko_1.9_Changes_affecting_websites">removed in Gecko 1.9</a>.</dd> <dt>
+<a rel="internal" href="event-38.html">event.preventDefault</a> </dt> <dd>Cancels the event (if it is cancelable).</dd> <dt>
+<a rel="internal" href="event-37.html">event.stopPropagation</a> </dt> <dd>Stops the propagation of events further along in the DOM.</dd>
+</dl>
+<div id="section_7">
+<span id="See_also"></span><h2 class="editable">See also</h2>
+<ul>
+<li><a class="internal" rel="internal" href="https://developer.mozilla.org/En/Listening_to_events">Listening to events</a></li> <li><a class="internal" rel="internal" href="https://developer.mozilla.org/En/Listening_to_events_on_all_tabs">Listening to events on all tabs</a></li> <li><a class="internal" rel="internal" href="Mouse_gesture_events.html">Mouse gesture events</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="event.html">https://developer.mozilla.org/en/DOM/event</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/event by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:08:22 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

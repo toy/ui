@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Abstract/TimedObserver/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:21 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Abstract.TimedObserver</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Abstract.TimedObserver
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>An abstract DOM element observer class, subclasses of which can be used to
+periodically check a value and trigger a callback when the value has changed.</p>
+
+<p>A <code>TimedObserver</code> object will try to check a value using the <code>getValue()</code>
+instance method which must be defined by the subclass. There are two
+out-of-the-box subclasses:
+<code><a href="../../Form/Observer/index.html" title="Form.Observer (class)">Form.Observer</a></code>, which serializes a form and triggers when the result has
+changed; and <code><a href="../../Form/Element/Observer/index.html" title="Form.Element.Observer (class)">Form.Element.Observer</a></code>, which triggers when the value of a
+given form field changes.</p>
+
+<p>Using <code>TimedObserver</code> implementations is straightforward; simply instantiate
+them with appropriate arguments. For example:</p>
+
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">Form</span><span class="p">.</span><span class="nx">Element</span><span class="p">.</span><span class="nx">Observer</span><span class="p">(</span>
+  <span class="s1">&#39;myelement&#39;</span><span class="p">,</span>
+  <span class="mf">0.2</span><span class="p">,</span>  <span class="c1">// 200 milliseconds</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">value</span><span class="p">){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;The form control has changed value to: &#39;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre>
+</div>
+
+
+<p>Now that we have instantiated an object, it will check the value of the form
+control every 0.2 seconds and alert us of any change. While it is useless to
+alert the user of his own input (like in the example), we could be doing
+something useful like updating a certain part of the UI or informing the
+application on server of stuff happening (over Ajax).</p>
+
+<p>The callback function is always called with 2 arguments: the element given
+when the observer instance was made and the actual value that has changed
+and caused the callback to be triggered in the first place.</p>
+
+<h5>Creating Your Own TimedObserver Implementations</h5>
+
+<p>It's easy to create your own <code>TimedObserver</code> implementations: Simply subclass
+<code>TimedObserver</code> and provide the <code>getValue()</code> method. For example, this is the
+complete source code for <code><a href="../../Form/Element/Observer/index.html" title="Form.Element.Observer (class)">Form.Element.Observer</a></code>:</p>
+
+<div class="highlight"><pre><span class="nx">Form</span><span class="p">.</span><span class="nx">Element</span><span class="p">.</span><span class="nx">Observer</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Abstract</span><span class="p">.</span><span class="nx">TimedObserver</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">getValue</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Form</span><span class="p">.</span><span class="nx">Element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+                  <div class="section section-subclasses">
+                <div class="section-title">
+                  <h3>Subclasses</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <p><code><a href="../../Form/Element/Observer/index.html" title="Form.Element.Observer (class)">Form.Element.Observer</a></code>, <code><a href="../../Form/Observer/index.html" title="Form.Observer (class)">Form.Observer</a></code></p>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Abstract.TimedObserver (constructor)">new Abstract.TimedObserver</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Abstract/TimedObserver/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:21 GMT -->
+</html>

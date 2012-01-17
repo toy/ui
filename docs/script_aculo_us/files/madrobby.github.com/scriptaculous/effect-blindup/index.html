@@ -1,0 +1,129 @@
+<!DOCTYPE html SYSTEM>
+<html>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/effect-blindup/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:14 GMT -->
+<head>
+  <title>Effect.BlindUp &mdash; Scriptaculous Documentation</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />  
+  <link href="../css/docs.css" rel="stylesheet" media="screen" />
+  <link href="https://github.com/madrobby/scriptaculous/commits/master.atom" title="Recent Commits to scriptaculous:master" rel="alternate" type="application/atom+xml" />
+  <meta name="description" content="script.aculo.us is an open-source JavaScript framework for visual effects and interface behaviours." />
+</head>
+<body>
+
+
+<div id="content">
+  <h1 id="page-title">Effect.BlindUp</h1>
+  <div id="wiki">
+    <div class="wikistyle">
+<link href="../../../script.aculo.us/github/styles/sunburst.css" title="Sunburst" rel="stylesheet" />
+<script src="../../../script.aculo.us/prototype.js" type="text/javascript"></script><script src="../../../script.aculo.us/scriptaculous.js" type="text/javascript"></script><p class="upper-chiclet"><a href="../combination-effects/index.html">Combination Effects</a> &gt; <strong>Effect.BlindUp</strong></p>
+<p>This effect simulates a window blind, where the contents of the affected elements stay in place.</p>
+<h2>Examples</h2>
+<pre><code class="javascript">
+Effect.BlindUp('id_of_element');
+Effect.BlindUp('id_of_element', { duration: 3.0 });
+</code></pre>
+<h2>Options</h2>
+<table>
+<tr>
+<th>Option </th>
+<th>Description </th>
+</tr>
+<tr>
+<td> scaleX </td>
+<td> boolean, defaults to <code>false</code> </td>
+</tr>
+<tr>
+<td> scaleY </td>
+<td> boolean, defaults to <code>true</code> </td>
+</tr>
+<tr>
+<td> scaleContent </td>
+<td> boolean, defaults to <code>true</code> </td>
+</tr>
+<tr>
+<td> scaleFromCenter </td>
+<td> boolean, defaults to <code>false</code> </td>
+</tr>
+<tr>
+<td> scaleMode </td>
+<td> string, defaults to <code>‘box'</code>, can also be <code>‘contents‘</code> </td>
+</tr>
+<tr>
+<td> scaleFrom </td>
+<td> integer value, percentage (0%–100%), defaults to <code>100</code> </td>
+</tr>
+<tr>
+<td> scaleTo </td>
+<td> integer value, percentage (0%–100%), defaults to <code>0</code> </td>
+</tr>
+<tr>
+<td> duration </td>
+<td> float value, in seconds, defaults to <code>1.0</code> </td>
+</tr>
+</table>
+<h2>Notes</h2>
+<p>Works safely with most Block Elements, except table rows, table bodies and table heads.</p>
+<p>The opposite of Effect.BlindUp is <a href="../effect-blinddown/index.html">Effect.BlindDown</a>.</p>
+<h2>Demo</h2>
+<div class="demo">
+<div id="blindup_demo" style="width:80px; height:80px; background:#ccc;">
+This is some test content. This is some test content.
+</div>
+<ul>
+<li><a href="#" onclick="Effect.BlindUp('blindup_demo'); return false;">Click here for a demo!</a></li>
+<li><a href="#" onclick="$('blindup_demo').show(); return false;">Reset</a></li>
+</ul>
+</div>
+<h3>Source code of this demo</h3>
+<pre><code class="html">
+&lt;div id="blindup_demo" style="width:80px; height:80px; background:#ccc;"&gt;
+  This is some test content. This is some test content.
+&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#" onclick="Effect.BlindUp('blindup_demo'); return false;"&gt;Click here for a demo!&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#" onclick="$('blindup_demo').show(); return false;"&gt;Reset&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2>Effect.BlindLeft</h2>
+<p>For horizontal scrolling action try this snippet:</p>
+<pre><code class="javascript">
+Effect.BlindLeft = function(element) {
+  element = $(element);
+  element.makeClipping();
+  return new Effect.Scale(element, 0,
+    Object.extend({ scaleContent: false,
+      scaleY: false,
+      scaleMode: 'box',
+      scaleContent: false,
+      restoreAfterFinish: true,
+      afterSetup: function(effect) {
+        effect.element.makeClipping().setStyle({
+          height: effect.dims[0] + 'px'
+        }).show();
+      },
+      afterFinishInternal: function(effect) {
+        effect.element.hide().undoClipping();
+      }
+    }, arguments[1] || { })
+  );
+};
+</code></pre>
+<script src="../../../script.aculo.us/github/highlight.js" type="text/javascript"></script><script type="text/javascript">
+  hljs.initHighlightingOnLoad.apply(null, hljs.ALL_LANGUAGES);
+</script>
+</div>
+  </div>
+
+    
+  
+</div>
+
+
+
+<noscript><p><img src="../../../in.getclicky.com/66350389ns.gif" height="1" alt="Clicky" width="1" /></p></noscript>
+</body>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/effect-blindup/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:14 GMT -->
+</html>

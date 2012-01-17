@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:56:18 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Math - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=28478">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=28478">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 28478;
+Deki.PageTitle = 'en/JavaScript/Reference/Global Objects/Math';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsMath" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Math</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Description" rel="internal">Description</a>
+</li>
+<li>
+<span>3.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>4.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<div id="section_1">
+<span id="Summary"></span><h2 class="editable">Summary</h2>
+<p>A built-in object that has properties and methods for mathematical constants and functions.</p>
+</div>
+<div id="section_2">
+<span id="Description"></span><h2 class="editable">Description</h2>
+<p>Unlike the other global objects, <code>Math</code> is not a constructor. All properties and methods of <code>Math</code> are static. You refer to the constant pi as <code>Math.PI</code> and you call the sine function as <code>Math.sin(x)</code>, where <code>x</code> is the method's argument. Constants are defined with the full precision of real numbers in JavaScript.</p>
+<p>It is often convenient to use the <a rel="internal" href="../Statements/with.html">with</a> statement when a section of code uses several <code>Math</code> constants and methods, so you don't have to type "Math" repeatedly. For example,</p>
+<pre class="eval">
+with (Math) {
+   a = PI * r*r;
+   y = r*sin(theta);
+   x = r*cos(theta);
+}
+</pre>
+</div>
+<div id="section_3">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<dl>
+<dt><a rel="internal" href="Math/E.html">E</a></dt> <dd>Euler's constant and the base of natural logarithms, approximately 2.718.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/LN2.html">LN2</a></dt> <dd>Natural logarithm of 2, approximately 0.693.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/LN10.html">LN10</a></dt> <dd>Natural logarithm of 10, approximately 2.302.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/LOG2E.html">LOG2E</a></dt> <dd>Base 2 logarithm of E, approximately 1.442.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/LOG10E.html">LOG10E</a></dt> <dd>Base 10 logarithm of E, approximately 0.434.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/PI.html">PI</a></dt> <dd>Ratio of the circumference of a circle to its diameter, approximately 3.14159.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/SQRT1_2.html">SQRT1_2</a></dt> <dd>Square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/SQRT2.html">SQRT2</a></dt> <dd>Square root of 2, approximately 1.414.</dd>
+</dl>
+<p>
+</p>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="Object.html"><code>Object</code></a></span>:<br><span style="font-size: smaller;"><a rel="internal" href="Object/Constructor-2.html"><code>constructor</code></a>, <a rel="internal" href="Object/Parent.html"><code>__parent__</code></a>, <a rel="internal" href="Object/Proto.html"><code>__proto__</code></a></span>
+</div>
+</div>
+<div id="section_4">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<dl>
+<dt></dt> <div class="note">Note that the trigonometric functions (sin, cos, tan, asin, acos, atan, atan2) expect or return angles in radians - to convert radians to degrees divide by (Math.PI / 180), and multiply by this to convert the other way.</div> <dt><a rel="internal" href="Math/abs.html">abs</a></dt> <dd>Returns the absolute value (modulus) of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/acos.html">acos</a></dt> <dd>Returns the arccosine of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/asin.html">asin</a></dt> <dd>Returns the arcsine of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/atan.html">atan</a></dt> <dd>Returns the arctangent of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/atan2.html">atan2</a></dt> <dd>Returns the arctangent of the quotient of its arguments.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/ceil.html">ceil</a></dt> <dd>Returns the smallest integer greater than or equal to a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/cos.html">cos</a></dt> <dd>Returns the cosine of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/exp.html">exp</a></dt> <dd>Returns E<sup>number</sup>, where <var>number</var> is the argument, and E is Euler's constant (2.718...), the base of the natural logarithm.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/floor.html">floor</a></dt> <dd>Returns the largest integer less than or equal to a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/log.html">log</a></dt> <dd>Returns the natural logarithm (log<sub>e</sub>, also ln) of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/max.html">max</a></dt> <dd>Returns the largest of zero or more numbers.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/min.html">min</a></dt> <dd>Returns the smallest of zero or more numbers.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/pow.html">pow</a></dt> <dd>Returns base to the exponent power, that is, base<sup>exponent</sup>.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/random.html">random</a></dt> <dd>Returns a pseudo-random number between 0 and 1.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/round.html">round</a></dt> <dd>Returns the value of a number rounded to the nearest integer.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/sin.html">sin</a></dt> <dd>Returns the sine of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/sqrt.html">sqrt</a></dt> <dd>Returns the positive square root of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="Math/tan.html">tan</a></dt> <dd>Returns the tangent of a number.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">toSource</a></dt> <dd>
+<span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dd> <dd>Returns the string <code>"Math"</code>.</dd>
+</dl>
+<p>
+</p>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="Object.html"><code>Object</code></a></span>:<br><span style="font-size: smaller;"><a rel="internal" href="Object/DefineGetter.html"><code>__defineGetter__</code></a>, <a rel="internal" href="Object/DefineSetter.html"><code>__defineSetter__</code></a>, <a rel="internal" href="Object/Eval.html"><code>eval</code></a>, <a rel="internal" href="Object/HasOwnProperty.html"><code>hasOwnProperty</code></a>, <a rel="internal" href="Object/IsPrototypeOf.html"><code>isPrototypeOf</code></a>, <a rel="internal" href="Object/LookupGetter.html"><code>__lookupGetter__</code></a>, <a rel="internal" href="Object/LookupSetter.html"><code>__lookupSetter__</code></a>, <a rel="internal" href="Object/NoSuchMethod.html"><code>__noSuchMethod__</code></a>, <a rel="internal" href="Object/PropertyIsEnumerable.html"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="Object/ToLocaleString.html"><code>toLocaleString</code></a>, <a rel="internal" href="Object/ToString-2.html"><code>toString</code></a>, <a rel="internal" href="Object/Unwatch.html"><code>unwatch</code></a>, <a rel="internal" href="Object/ValueOf-2.html"><code>valueOf</code></a>, <a rel="internal" href="Object/Watch.html"><code>watch</code></a></span>
+</div>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Math.html">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Math by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:56:45 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

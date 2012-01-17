@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Hash/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:41 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Hash</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Hash
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>A set of key/value pairs.</p>
+
+<p><code><a href="index.html" title="Hash (class)">Hash</a></code> can be thought of as an associative array, binding unique keys to
+values (which are not necessarily unique), though it can not guarantee
+consistent order its elements when iterating. Because of the nature of
+JavaScript, every object is in fact a hash; but <code><a href="index.html" title="Hash (class)">Hash</a></code> adds a number of
+methods that let you enumerate keys and values, iterate over key/value
+pairs, merge two hashes together, and much more.</p>
+
+<h5>Creating a hash</h5>
+
+<p>You can create a Hash either via <code>new Hash()</code> or the convenience alias
+<code>$H()</code>; there is <strong>no</strong> difference between them. In either case, you may
+optionally pass in an object to seed the <code><a href="index.html" title="Hash (class)">Hash</a></code>. If you pass in a <code><a href="index.html" title="Hash (class)">Hash</a></code>,
+it will be cloned.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+                  <div class="section section-subclasses">
+                <div class="section-title">
+                  <h3>Subclasses</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <p><code><a href="../../dom/Element/Layout/index.html" title="Element.Layout (class)">Element.Layout</a></code></p>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+                <div class="section section-mixins">
+                <div class="section-title">
+                  <h3>Includes</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Hash (constructor)">new Hash</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/clone/index.html" title="Hash#clone (instance method)" class="instance-method">clone</a></code></li>
+
+<li><code><a href="prototype/each/index.html" title="Hash#each (instance method)" class="instance-method">each</a></code></li>
+
+<li><code><a href="prototype/get/index.html" title="Hash#get (instance method)" class="instance-method">get</a></code></li>
+
+<li><code><a href="prototype/index/index.html" title="Hash#index (instance method)" class="instance-method">index</a></code></li>
+
+<li><code><a href="prototype/inspect/index.html" title="Hash#inspect (instance method)" class="instance-method">inspect</a></code></li>
+
+<li><code><a href="prototype/keys/index.html" title="Hash#keys (instance method)" class="instance-method">keys</a></code></li>
+
+<li><code><a href="prototype/merge/index.html" title="Hash#merge (instance method)" class="instance-method">merge</a></code></li>
+
+<li><code><a href="prototype/set/index.html" title="Hash#set (instance method)" class="instance-method">set</a></code></li>
+
+<li><code><a href="prototype/toJSON/index.html" title="Hash#toJSON (instance method)" class="instance-method">toJSON</a></code></li>
+
+<li><code><a href="prototype/toObject/index.html" title="Hash#toObject (instance method)" class="instance-method">toObject</a></code></li>
+
+<li><code><a href="prototype/toQueryString/index.html" title="Hash#toQueryString (instance method)" class="instance-method">toQueryString</a></code></li>
+
+<li><code><a href="prototype/toTemplateReplacements/index.html" title="Hash#toTemplateReplacements (instance method)" class="instance-method">toTemplateReplacements</a></code></li>
+
+<li><code><a href="prototype/unset/index.html" title="Hash#unset (instance method)" class="instance-method">unset</a></code></li>
+
+<li><code><a href="prototype/update/index.html" title="Hash#update (instance method)" class="instance-method">update</a></code></li>
+
+<li><code><a href="prototype/values/index.html" title="Hash#values (instance method)" class="instance-method">values</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Hash/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:41 GMT -->
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Operators/Special/typeof by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:57:19 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>typeof - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=32987">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=32987">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 32987;
+Deki.PageTitle = 'en/JavaScript/Reference/Operators/Special/typeof';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../../../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../../../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../../../../deki/scripts/res/syntax/shBrushJScript.js"></script><link href="../../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enJavaScriptReferenceOperatorsSpecialtypeof" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">typeof</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Parameters" rel="internal">Parameters</a>
+</li>
+<li>
+<span>4.</span> <a href="#Description" rel="internal">Description</a>
+</li>
+<li>
+<span>5.</span> <a href="#Examples" rel="internal">Examples</a>
+</li>
+<li>
+<span>6.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<div id="section_1">
+<span id="Summary"></span><h2 class="editable">Summary</h2>
+<p>The <code>typeof</code> operator returns a string indicating the type of the unevaluated operand.</p>
+<table class="standard-table">
+<thead><tr>
+<th scope="col" colspan="2">Operator</th> </tr></thead>
+<tbody>
+<tr>
+<td>Implemented in:</td> <td>JavaScript 1.1</td> </tr>
+<tr>
+<td>ECMA Version:</td> <td>ECMA-262 (and ECMA-357 for E4X objects)</td> </tr>
+</tbody>
+</table>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h2 class="editable">Syntax</h2>
+<p>The <code>typeof</code> operator is used in either of the following ways:</p>
+<ol>
+<li><code>typeof <em>operand</em></code></li> <li><code>typeof (<em>operand</em>)</code></li>
+</ol>
+</div>
+<div id="section_3">
+<span id="Parameters"></span><h2 class="editable">Parameters</h2>
+<p><code><em>operand</em></code> is the string, variable, keyword, or object for which the type is to be returned. The parentheses are optional.</p>
+</div>
+<div id="section_4">
+<span id="Description"></span><h2 class="editable">Description</h2>
+<p>This table summarizes the possible return values of <code>typeof</code>:</p>
+<table class="standard-table">
+<thead><tr>
+<th scope="col">Type</th> <th scope="col">Result</th> </tr></thead>
+<tbody>
+<tr>
+<td>Undefined</td> <td><code>"undefined"</code></td> </tr>
+<tr>
+<td>Null</td> <td><code>"object"</code></td> </tr>
+<tr>
+<td>Boolean</td> <td><code>"boolean"</code></td> </tr>
+<tr>
+<td>Number</td> <td><code>"number"</code></td> </tr>
+<tr>
+<td>String</td> <td><code>"string"</code></td> </tr>
+<tr>
+<td>Host object (provided by the JS environment)</td> <td><em>Implementation-dependent</em></td> </tr>
+<tr>
+<td>Function object (implements [[Call]] in ECMA-262 terms)</td> <td><code>"function"</code></td> </tr>
+<tr>
+<td>E4X XML object</td> <td>"xml"</td> </tr>
+<tr>
+<td>E4X XMLList object</td> <td>"xml"</td> </tr>
+<tr>
+<td>Any other object</td> <td><code>"object"</code></td> </tr>
+</tbody>
+</table>
+</div>
+<div id="section_5">
+<span id="Examples"></span><h2 class="editable">Examples</h2>
+<p>Suppose you define the following variables:</p>
+
+          <pre name="code" class="js">var myFun = new Function("5+2");
+var shape = "round";
+var size = 1;
+var today = new Date();</pre>
+        
+<p>The <code>typeof</code> operator returns the following results for these variables:</p>
+
+          <pre name="code" class="js">typeof myFun == 'function'
+typeof shape == 'string'
+typeof size == 'number'
+typeof today == 'object'
+typeof dontExist == 'undefined'</pre>
+        
+<p>For the keywords <code>true</code> and <code>null</code>, the <code>typeof</code> operator returns the following results:</p>
+
+          <pre name="code" class="js">typeof true == 'boolean'
+typeof null == 'object'</pre>
+        
+<p>For a number or string, the <code>typeof</code> operator returns the following results:</p>
+
+          <pre name="code" class="js">typeof 62 == 'number'
+typeof 'Hello world' == 'string'</pre>
+        
+<p>For property values, the <code>typeof</code> operator returns the type of value the property contains:</p>
+
+          <pre name="code" class="js">typeof document.lastModified == 'string'
+typeof window.length == 'number'
+typeof Math.LN2 == 'number'</pre>
+        
+<p>For methods and functions, the <code>typeof</code> operator returns results as follows:</p>
+
+          <pre name="code" class="js">typeof blur == 'function'
+typeof eval == 'function'
+typeof parseInt == 'function'
+typeof shape.split == 'function'</pre>
+        
+<p>For predefined objects, the <code>typeof</code> operator returns results as follows:</p>
+
+          <pre name="code" class="js">typeof Date == 'function'
+typeof Function == 'function'
+typeof Math == 'object'
+typeof Object == 'function'
+typeof String == 'function'</pre>
+        
+</div>
+<div id="section_6">
+<span id="Specification"></span><h2 class="editable">Specification</h2>
+<p><a class="external" rel="external nofollow" href="http://bclary.com/2004/11/07/#a-11.4.3" title="http://bclary.com/2004/11/07/#a-11.4.3" target="_blank">ECMA-262 section 11.4.3</a></p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="typeof.html">https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special/typeof</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Operators/Special/typeof by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:57:19 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

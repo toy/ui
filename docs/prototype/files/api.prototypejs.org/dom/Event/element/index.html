@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/element/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:15 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Event.element</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+  <div id="deprecated"><img src="../../../images/pdoc/deprecated.png" height="150" alt="Deprecated" width="150" /></div>
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Event.element
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Event.element(event) &rarr; <a href="../../Element/index.html" title="Element (class)">Element</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">event</code>
+          <span class="argument-types">(<code><a href="../index.html" title="Event (class)">Event</a></code>)</span>
+         &ndash; An Event object
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Returns the DOM element on which the event occurred. This method
+is deprecated, use <code><a href="../findElement/index.html" title="Event.findElement (class method)">Event.findElement</a></code> instead.</p>
+
+<h5>Example</h5>
+
+<p>Here's a simple bit of code which hides any paragraph when directly clicked.</p>
+
+<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">element</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;P&#39;</span> <span class="o">==</span> <span class="nx">element</span><span class="p">.</span><span class="nx">tagName</span><span class="p">)</span>
+    <span class="nx">element</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<h5>See also</h5>
+
+<p>There is a subtle distinction between this function and
+<code><a href="../findElement/index.html" title="Event.findElement (class method)">Event.findElement</a></code>.</p>
+
+<h5>Note for Prototype 1.5.0</h5>
+
+<p>Note that prior to version 1.5.1, if the browser does not support
+<em>native DOM extensions</em> (see the <code><a href="../../Element/index.html" title="Element (class)">Element</a></code> section for further details),
+the element returned by <code><a href="index.html" title="Event.element (class method)">Event.element</a></code> might very well
+<em>not be extended</em>. If you intend to use methods from <code><a href="../../Element/Methods/index.html" title="Element.Methods (mixin)">Element.Methods</a></code>
+on it, you need to wrap the call in the <code><a href="../../dollar/index.html" title="$ (utility)">$</a></code> function like so:</p>
+
+<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">Event</span><span class="p">.</span><span class="nx">element</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
+  <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/element/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/element/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:15 GMT -->
+</html>

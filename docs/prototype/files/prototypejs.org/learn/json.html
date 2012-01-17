@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from prototypejs.org/learn/json by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Prototype JavaScript framework: Introduction to JSON</title>
+	<link href="stylesheets/main.html" rel="stylesheet" type="text/css" charset="utf-8" />	
+	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 6]><link href="/stylesheets/ie-sucks-for-api.css" rel="stylesheet" type="text/css" media="screen"><![endif]-->
+  <link href="http://feeds.feedburner.com/prototype-blog" rel="alternate" type="application/atom+xml" />
+ <script src="../javascripts/prototype.js" type="text/javascript"></script>
+<script src="../javascripts/code_highlighter.js" type="text/javascript"></script>
+<script src="../javascripts/javascript.js" type="text/javascript"></script>
+<script src="../javascripts/html.js" type="text/javascript"></script>
+<script src="../javascripts/css.js" type="text/javascript"></script>
+<script src="../javascripts/ruby.js" type="text/javascript"></script>
+<script src="../javascripts/ebnf.js" type="text/javascript"></script>
+
+
+<link href="../images/fav.png" rel="shortcut icon" type="image/ico" />
+</head>
+
+<body id="main">
+            
+   <h2>Introduction to JSON</h2>
+   <div id="lmeta">Last updated on May 1st, 2007</div>
+  <div id="learn-excerpt"><p>JSON (JavaScript Object Notation) is a lightweight data-interchange format (if you are new to JSON, you can read more about it on the <a href="http://www.json.org/">JSON website</a>). It is notably used by APIs all over the web and is a fast alternative to XML in Ajax requests. Prototype 1.5.1 finally features JSON encoding and parsing support.</p></div>
+  <div id="abody"><p>Prototype&#8217;s JSON implementation is largely based on the work of <a href="http://www.crockford.com/">Douglas Crockford</a> which will most likely be natively included in future versions of the main browsers. <a href="http://json.org/json.as">Crockford&#8217;s implementation</a> is unfortunately unsuitable for use with Prototype because of the way it extends <code>Object.prototype</code>. (Note that this will no longer be an issue once it is natively implemented.)</p>
+
+<h3>Encoding</h3>
+
+<p>Prototype&#8217;s JSON encoding slightly differs from Crockford&#8217;s implementation as it does not extend <code>Object.prototype</code>. The following methods are available: <a href="http://prototypejs.org/api/number/toJSON"><code>Number#toJSON</code></a>, <a href="http://prototypejs.org/api/string/toJSON"><code>String#toJSON</code></a>, <a href="http://prototypejs.org/api/array/toJSON"><code>Array#toJSON</code></a>, <a href="http://prototypejs.org/api/hash/toJSON"><code>Hash#toJSON</code></a>, <a href="http://prototypejs.org/api/date/toJSON"><code>Date#toJSON</code></a> and <a href="http://prototypejs.org/api/object/toJSON"><code>Object.toJSON</code></a>.</p>
+
+<p>If you are unsure of what type the data you need to encode is, your best bet is to use <code>Object.toJSON</code> like so:</p>
+
+<pre><code class="javascript">
+var data = {name: 'Violet', occupation: 'character', age: 25 };
+Object.toJSON(data);
+//-> '{"name": "Violet", "occupation": "character", "age": 25}'
+</code></pre>
+
+<p>In other cases (i.e. if you know that your data is <em>not</em> an instance of <code>Object</code>), you can invoke the <code>toJSON</code> method instead: </p>
+
+<pre><code class="javascript">
+$H({name: 'Violet', occupation: 'character', age: 25 }).toJSON();
+//-> '{"name": "Violet", "occupation": "character", "age": 25}'
+</code></pre>
+
+<p>Furthermore, if you are using custom objects, you can set your own <code>toJSON</code> method which will be used by <code>Object.toJSON</code>. For example:</p>
+
+<pre><code class="javascript">
+var Person = Class.create();
+Person.prototype = {
+  initialize: function(name, age) {
+    this.name = name;
+    this.age = age;
+  },  
+  toJSON: function() {
+    return ('My name is ' + this.name + 
+      ' and I am ' + this.age + ' years old.').toJSON();
+  }
+};
+var john = new Person('John', 49);
+Object.toJSON(john);
+//-> '"My name is John and I am 49 years old."'
+</code></pre>
+
+<p>Finally, using <a href="http://prototypejs.org/api/element/addMethods"><code>Element.addMethods</code></a> you can create custom <code>toJSON</code> methods targeted at specific elements.</p>
+
+<pre><code class="html">
+&lt;input id="firstname" name="firstname" value="john" /&gt;
+</code></pre>
+
+<pre><code class="javascript">
+Element.addMethods('input', {
+  toJSON: function(element) {
+    element = $(element);
+    return element.name.toJSON() + ": " + element.getValue().toJSON();
+  }
+})
+
+Object.toJSON($('firstname'));
+//-> '"firstname": "john"'
+</code></pre>
+
+<h3>Parsing JSON</h3>
+
+<p>In JavaScript, parsing JSON is typically done by evaluating the content of a JSON string. Prototype introduces <a href="http://prototypejs.org/api/string/evalJSON"><code>String#evalJSON</code></a> to deal with this:</p>
+
+<pre><code class="javascript">
+var data = '{ "name": "Violet", "occupation": "character" }'.evalJSON();
+data.name;
+//-> "Violet"
+</code></pre>
+
+<p><a href="http://prototypejs.org/api/string/evalJSON"><code>String#evalJSON</code></a> takes an optional <code>sanitize</code> parameter, which, if set to <code>true</code>, checks the string for possible malicious attempts and prevents the evaluation and throws a <code>SyntaxError</code> if one is detected.</p>
+
+<pre><code class="javascript">
+var data = 'grabUserPassword()'.evalJSON(true)
+//-> SyntaxError: Badly formated JSON string: 'grabUserPassword()'
+</code></pre>
+
+<p class="notice">You should always set the <code>sanitize</code> parameter to <code>true</code> and an appropriate content-type header (<code>application/json</code>) for data coming from untrusted sources (external or user-created content) to prevent XSS attacks.</p>
+
+<p><a href="http://prototypejs.org/api/string/evalJSON"><code>String#evalJSON</code></a> internally calls <a href="http://prototypejs.org/api/string/unfilterJSON"><code>String#unfilterJSON</code></a> and automatically removes optional security comment delimiters (defined in <code>Prototype.JSONFilter</code>).</p>
+
+<pre><code class="javascript">
+person = '/*-secure-\n{"name": "Violet", "occupation": "character"}\n*/'.evalJSON()
+person.name;
+//-> "Violet"
+</code></pre>
+
+<p class="notice">You should always set security comment delimiters (<code>/*-secure-\n...*/</code>) around sensitive JSON or JavaScript data to prevent Hijacking. (See <a href="http://www.fortifysoftware.com/servlet/downloads/public/JavaScript_Hijacking.pdf">this PDF document</a> for more details.)</p>
+
+<h3>Using JSON with Ajax</h3>
+
+<p>Using JSON with Ajax is very straightforward, simply invoke <a href="http://prototypejs.org/api/string/evalJSON"><code>String#evalJSON</code></a> on the transport&#8217;s <code>responseText</code> property:</p>
+
+<pre><code class="javascript">
+new Ajax.Request('/some_url', {
+  method:'get',
+  onSuccess: function(transport){
+     var json = transport.responseText.evalJSON();
+   }
+});
+</code></pre>
+
+<p>If your data comes from an untrusted source, be sure to sanitize it:</p>
+
+<pre><code class="javascript">
+new Ajax.Request('/some_url', {
+  method:'get',
+  requestHeaders: {Accept: 'application/json'},
+  onSuccess: function(transport){
+    var json = transport.responseText.evalJSON(true);
+  }
+});
+</code></pre></div>
+
+
+
+          </body>
+
+<!-- Mirrored from prototypejs.org/learn/json by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:48 GMT -->
+</html>

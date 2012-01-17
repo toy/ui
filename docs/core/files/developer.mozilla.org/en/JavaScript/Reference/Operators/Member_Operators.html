@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Operators/Member_Operators by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:57:13 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Member Operators - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=30581">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=30581">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 30581;
+Deki.PageTitle = 'en/JavaScript/Reference/Operators/Member Operators';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enJavaScriptReferenceOperatorsMemberOperators" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Member Operators</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Dot_notation" rel="internal">Dot notation</a>
+</li>
+<li>
+<span>3.</span> <a href="#Bracket_notation" rel="internal">Bracket notation</a>
+</li>
+<li>
+<span>4.</span> <a href="#Property_names" rel="internal">Property names</a>
+</li>
+<li>
+<span>5.</span> <a href="#Method_binding" rel="internal">Method binding</a>
+</li>
+<li>
+<span>6.</span> <a href="#Note_on_eval" rel="internal">Note on eval</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p> </p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Member operators provide access to a property or method of an object.</p>
+<p>An object is actually an <em>associative array</em> (a.k.a. <em>map</em>, <em>dictionary</em>, <em>hash</em>, <em>lookup table</em>). The <em>keys</em> in this array are the names of properties and methods (properties that refer to functions). There are two ways to access these properties: dot notation and bracket notation (a.k.a. subscript operator).</p>
+<p>Note: the <a rel="internal" href="https://developer.mozilla.org/en/ECMAScript">ECMAScript</a> specification labels these operators as "property accessors" rather than "member operators".</p>
+</div>
+<div id="section_2">
+<span id="Dot_notation"></span><h3 class="editable">Dot notation</h3>
+<pre>
+get = object.property;
+object.property = set;
+</pre>
+<p><code>property</code> must be a valid JavaScript identifier, i.e. a sequence of alphanumerical characters, also including the underscore ("<code>_</code>") and dollar sign ("<code>$</code>"), that cannot start with a number. For example, <code>object.$1</code> is valid, while <code>object.1</code> is not.</p>
+<p>Example:</p>
+<pre>
+document.createElement('pre');
+</pre>
+<p>Here, the method named "createElement" is retrieved from <code>document</code> and is called.</p>
+</div>
+<div id="section_3">
+<span id="Bracket_notation"></span><h3 class="editable">Bracket notation</h3>
+<pre>
+get = object[property_name];
+object[property_name] = set;
+</pre>
+<p><code>property_name</code> is a string. The string does not have to be a valid identifier; it can have any value, e.g. "1foo", "!bar!", or even " " (a space).</p>
+<p>Example:</p>
+<pre>
+document['createElement']('pre');
+</pre>
+<p>This does the exact same thing as the previous example.</p>
+</div>
+<div id="section_4">
+<span id="Property_names"></span><h3 class="editable">Property names</h3>
+<p>Property names must be strings. This means that non-string objects cannot be used as keys in the object. Any non-string object, including a number, is typecasted into a string via the <a rel="internal" href="../Global_Objects/Object/toString.html">toString</a> method.</p>
+<p>Examples:</p>
+<pre>
+var object = {};
+object['1'] = 'value';
+alert(object[1]);
+</pre>
+<p>This outputs "value", since 1 is typecasted into '1'.</p>
+<pre>
+var foo = {unique_prop: 1}, bar = {unique_prop: 2}, object = {};
+object[foo] = 'value';
+alert(object[bar]);
+</pre>
+<p>This also outputs "value", since both foo and bar are converted to the same string. In the <a rel="internal" href="https://developer.mozilla.org/en/SpiderMonkey">SpiderMonkey</a> JavaScript engine, this string would be "[object Object]".</p>
+</div>
+<div id="section_5">
+<span id="Method_binding"></span><h3 class="editable">Method binding</h3>
+<p>A method is not bound to the object that it is a method of. Specifically, <code>this</code> is not fixed in a method, i.e. <code>this</code> does not necessarily refer to an object containing the method. <code>this</code> is instead "passed" by the function call.</p>
+<p>See <a rel="internal" href="Special/this.html#Method_binding">method binding</a>.</p>
+</div>
+<div id="section_6">
+<span id="Note_on_eval"></span><h3 class="editable">Note on <code>eval</code>
+</h3>
+<p>JavaScript novices often make the mistake of using <a rel="internal" href="http://developer.mozilla.org/en/JavaScript/Reference/Functions/eval" class="new ">eval</a> where the bracket notation can be used instead. For example, the following syntax is often seen in many scripts.</p>
+<pre>
+x = eval('document.form_name.' + strFormControl + '.value');
+</pre>
+<p><code>eval</code> is slow and should be avoided whenever possible. It is better to use the bracket notation instead:</p>
+<pre>
+x = document.form_name[strFormControl].value;
+</pre>
+<p> </p>
+<p> </p>
+
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Member_Operators.html">https://developer.mozilla.org/en/JavaScript/Reference/Operators/Member_Operators</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Operators/Member_Operators by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:57:14 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

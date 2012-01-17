@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/ajax/Ajax/Updater/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:17 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Ajax.Updater</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Ajax.Updater
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>A class that performs an Ajax request and updates a container's contents
+with the contents of the response.</p>
+
+<p><code><a href="index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code> is a subclass of <code><a href="../Request/index.html" title="Ajax.Request (class)">Ajax.Request</a></code> built for a common
+use-case.</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">Ajax</span><span class="p">.</span><span class="nx">Updater</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;/items&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">parameters</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="nx">$F</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>This example will make a request to the URL <code>/items</code> (with the given
+parameters); it will then replace the contents of the element with the ID
+of <code>items</code> with whatever response it receives.</p>
+
+<h5>Callbacks</h5>
+
+<p><code><a href="index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code> supports all the callbacks listed in the <a href="../index.html" title="Ajax (namespace)">Ajax</a>.
+Note that the <code>onComplete</code> callback will be invoked <strong>after</strong> the element
+is updated.</p>
+
+<h5>Additional options</h5>
+
+<p><code><a href="index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code> has some options of its own apart from the common options
+described in the <a href="../index.html" title="Ajax (namespace)">Ajax</a>:</p>
+
+<ul>
+<li><code>evalScripts</code> (Boolean; defaults to <code>false</code>): Whether <code>&lt;script&gt;</code>
+elements in the response text should be evaluated.</li>
+<li><code>insertion</code> (<code><a href="../../../language/String/index.html" title="String (class)">String</a></code>): By default, <code>Element.update</code> is used, meaning
+the contents of the response will replace the entire contents of the
+container. You may <em>instead</em> insert the response text without disrupting
+existing contents. The <code>insertion</code> option takes one of four strings &mdash;
+<code>top</code>, <code>bottom</code>, <code>before</code>, or <code>after</code> &mdash; and <em>inserts</em> the contents
+of the response in the manner described by <code><a href="../../../dom/Element/prototype/insert/index.html" title="Element#insert (instance method)">Element#insert</a></code>.</li>
+</ul>
+
+
+<h5>More About <code>evalScripts</code></h5>
+
+<p>If you use <code>evalScripts: true</code>, any <em>inline</em> <code>&lt;script&gt;</code> block will be
+evaluated. This <strong>does not</strong> mean it will be evaluated in the global scope;
+it won't, and that has important ramifications for your <code>var</code> and <code>function</code>
+statements.  Also note that only inline <code>&lt;script&gt;</code> blocks are supported;
+external scripts are ignored. See <code><a href="../../../language/String/prototype/evalScripts/index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code> for the details.</p>
+
+<h5>Single container, or success/failure split?</h5>
+
+<p>The examples above all assume you're going to update the same container
+whether your request succeeds or fails. Instead, you may want to update
+<em>only</em> for successful requests, or update a <em>different container</em> on failed
+requests.</p>
+
+<p>To achieve this, you can pass an object instead of a DOM element for the
+<code>container</code> parameter. This object <em>must</em> have a <code>success</code> property whose
+value identifies the container to be updated on successful requests.</p>
+
+<p>If you also provide it with a <code>failure</code> property, its value will be used as
+the container for failed requests.</p>
+
+<p>In the following code, only successful requests get an update:</p>
+
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">Ajax</span><span class="p">.</span><span class="nx">Updater</span><span class="p">({</span> <span class="nx">success</span><span class="o">:</span> <span class="s1">&#39;items&#39;</span> <span class="p">},</span> <span class="s1">&#39;/items&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">parameters</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="nx">$F</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span> <span class="p">},</span>
+  <span class="nx">insertion</span><span class="o">:</span> <span class="s1">&#39;bottom&#39;</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>This next example assumes failed requests will deliver an error message as
+response text &mdash; one that should be shown to the user in another area:</p>
+
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">Ajax</span><span class="p">.</span><span class="nx">Updater</span><span class="p">({</span> <span class="nx">success</span><span class="o">:</span> <span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="nx">failure</span><span class="o">:</span> <span class="s1">&#39;notice&#39;</span> <span class="p">},</span> <span class="s1">&#39;/items&#39;</span><span class="p">,</span>
+  <span class="nx">parameters</span><span class="o">:</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="nx">$F</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">)</span> <span class="p">},</span>
+  <span class="nx">insertion</span><span class="o">:</span> <span class="s1">&#39;bottom&#39;</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+                  <div class="section section-superclass">
+                <div class="section-title">
+                  <h3>Superclass</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <p><code><a href="../Request/index.html" title="Ajax.Request (class)">Ajax.Request</a></code></p>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Ajax.Updater (constructor)">new Ajax.Updater</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/ajax/Ajax/Updater/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:17 GMT -->
+</html>

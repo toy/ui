@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/document.getElementsByTagName by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:15:53 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>document.getElementsByTagName - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=24595">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=24595">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 24595;
+Deki.PageTitle = 'en/DOM/document.getElementsByTagName';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../deki/scripts/res/syntax/shBrushXml.js"></script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMdocumentgetElementsByTagName" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">document.getElementsByTagName</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Example" rel="internal">Example</a>
+</li>
+<li>
+<span>4.</span> <a href="#Notes" rel="internal">Notes</a>
+</li>
+<li>
+<span>5.</span> <a href="#Specifications" rel="internal">Specifications</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Returns a <a rel="internal" href="NodeList.html">list</a> of elements with the given tag name. The complete document is searched, including the root node.</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<pre class="eval"><em>var elements</em> = document.getElementsByTagName(<em>name</em>);
+</pre>
+<ul>
+<li>
+<code>elements</code> is a live <a rel="internal" href="NodeList.html"><code>NodeList</code></a> of found elements in the order they appear in the tree.</li> <li>
+<code>name</code> is a string representing the name of the elements. The special string "*" represents all elements.</li>
+</ul>
+</div>
+<div id="section_3">
+<span id="Example"></span><h3 class="editable">Example</h3>
+<p>In the following example <code>getElementsByTagName</code> starts from a particular parent element, and searches topdown recursively through the DOM from that parent element, looking for child elements matching the tag <code>name</code> parameter.</p>
+<p>Note that when the node on which <code>getElementsByTagName</code> is invoked is not the <code>document</code> node, in fact the <a rel="internal" href="element-2.html">element.getElementsByTagName</a> method is used.</p>
+
+          <pre name="code" class="xml">&lt;html&gt;
+
+&lt;head&gt;
+&lt;title&gt;getElementsByTagName example&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+
+function getAllParaElems()
+{
+  var allParas = document.getElementsByTagName("p");
+
+  var num = allParas.length;
+
+  alert("There are " + num + " &lt;p&gt; elements in this document");
+}
+
+
+function div1ParaElems()
+{
+  var div1 = document.getElementById("div1")
+  var div1Paras = div1.getElementsByTagName("p");
+
+  var num = div1Paras.length;
+
+  alert("There are " + num + " &lt;p&gt; elements in div1 element");
+}
+
+
+function div2ParaElems()
+{
+  var div2 = document.getElementById("div2")
+  var div2Paras = div2.getElementsByTagName("p");
+
+  var num = div2Paras.length;
+
+  alert("There are " + num + " &lt;p&gt; elements in div2 element");
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body style="border: solid green 3px"&gt;
+&lt;p&gt;Some outer text&lt;/p&gt;
+&lt;p&gt;Some outer text&lt;/p&gt;
+
+  &lt;div id="div1" style="border: solid blue 3px"&gt;
+    &lt;p&gt;Some div1 text&lt;/p&gt;
+    &lt;p&gt;Some div1 text&lt;/p&gt;
+    &lt;p&gt;Some div1 text&lt;/p&gt;
+
+    &lt;div id="div2" style="border: solid red 3px"&gt;
+    &lt;p&gt;Some div2 text&lt;/p&gt;
+    &lt;p&gt;Some div2 text&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;p&gt;Some outer text&lt;/p&gt;
+&lt;p&gt;Some outer text&lt;/p&gt;
+
+&lt;button onclick="getAllParaElems();"&gt;
+ show all p elements in document&lt;/button&gt;&lt;br /&gt;
+
+&lt;button onclick="div1ParaElems();"&gt;
+ show all p elements in div1 element&lt;/button&gt;&lt;br /&gt;
+
+&lt;button onclick="div2ParaElems();"&gt;
+ show all p elements in div2 element&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        </div>
+<div id="section_4">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<p>When called on an TML document, <code>getElementsByTagName()</code> lower-cases its argument before proceeding. This is undesirable when trying to match camelCase SVG elements in a subtree in an HTML document. 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3adocument.getElementsByTagNameNS">document.getElementsByTagNameNS()</a></code> works in that case. See also 
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=499656" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+499656</a>
+.</p>
+<p><code>document.getElementsByTagName()</code> is similar to 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3aelement.getElementsByTagName">element.getElementsByTagName()</a></code>, except that its search encompasses the whole document.</p>
+</div>
+<div id="section_5">
+<span id="Specifications"></span><h3 class="editable">Specifications</h3>
+<ul>
+<li><a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-A6C9094" title="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-A6C9094" target="_blank">DOM Level 2 Core: Document.getElementsByTagName</a></li> <li><a class="external" rel="external nofollow" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#apis-in-html-documents" title="http://www.whatwg.org/specs/web-apps/current-work/multipage/dom.html#apis-in-html-documents" target="_blank">HTML 5: APIs in HTML documents</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="document-71.html">https://developer.mozilla.org/en/DOM/document.getElementsByTagName</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/document.getElementsByTagName by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:15:53 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

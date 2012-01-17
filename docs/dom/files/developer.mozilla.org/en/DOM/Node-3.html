@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/En/DOM/Node.attributes by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:15:23 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Node.attributes - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=15033">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=15033">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 15033;
+Deki.PageTitle = 'En/DOM/Node.attributes';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-EnDOMNodeattributes" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Node.attributes</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Example" rel="internal">Example</a>
+</li>
+<li>
+<span>4.</span> <a href="#Notes" rel="internal">Notes</a>
+</li>
+<li>
+<span>5.</span> <a href="#External_links" rel="internal">External links</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p><code>.attributes</code> is a collection of all attribute nodes registered to the specified node. It is a <code>NamedNodeMap,</code>not an <code>Array</code>, so it has no <code>Array</code> methods and the <code>Attr</code> nodes' indexes may differ among browsers.<br><code>.attributes</code> is dynamically updated by the browser with all inline and JavaScript created attribute nodes.<code><br></code></p>
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<pre class="eval">
+x=<em>element</em>.attributeName                    //if attributeName is a W3C defined attribute and an Attribute Node for the element, (eg <em>id</em>)
+                                           //   x gets assigned the value of that Attribute Node
+                                           //if attributeName isn't a W3C defined attribute or an attribute node for the element,
+                                           //   x gets assigned the value of the attributeName property for <em>element</em> (JavaScript object)
+
+x=<em>element</em>.attributes.attributeName.value   // }if attributeName is an Attribute Node for the element, x gets assigned that node's value
+  element.attributes['attributeName'].value// }if attributeName isn't an Attribute Node, produce EXCEPTION
+  element.attributes[indexNumber].value    // }(same for indexing by indexNumber)
+
+x= <em>element</em>.getAttribute('attributeName')   // if attributeName is an Attribute Node for the element, x gets assigned its value
+                                           // if AttributeName isn't an Attribute Node for the element, x gets assigned the null value
+
+
+<em>element</em>.attributeName= x                   //if attributeName is a W3C defined attribute and an attribute node for the element, (eg <em>id</em>)
+                                           //   that Attribute Node gets assigned the value of x
+                                           //if attributeName isn't a W3C defined attribute or an attribute node for the element, 
+                                           //   the element's (JavaScript object) attributeName property is assigned the value of x
+
+element.attributes.attributeName.value   =x// }if attributeName is an Attribute Node for the element, it's assigned the value as x
+<em>element</em>.attributes['attributeName'].value  // }if attributeName isn't an Attribute Node, produce EXCEPTION
+element.attributes[indexNumber].value      // }(same for indexing by indexNumber)
+
+<em>element</em>.setAttribute('attributeName', x)   // Creates an attribute Node named attributeName for the element (if one doesn't exist),
+                                                  and assigns it value as x
+
+attributeMap= <em>element</em>.attributes           // Assigns to attributeMap a NameNodeMap collection of Attr nodes that are copies of the
+                                           // ones in the element's .attributes collection. Length is 0 if the element has no
+                                           // Attribute Nodes. The element.attributes syntax is read only
+</pre>
+<div class="note">style is mirrored in the .attributes collection.<br>
+Changes to style, whatever the method, update the .attributes collection, the element's attribute nodes and the CSSStyleDeclaration object in Firefox.<br>
+Consider quirksmode for compatibility issues in other browsers, or open the following example in your browser.</div>
+</div>
+<div id="section_3">
+<span id="Example"></span><h3 class="editable">Example</h3>
+<pre class="eval">
+&lt;html&gt;
+&lt;body style="white-space:nowrap"&gt;
+&lt;p id="0" onclick="checkAttributes(event)"      style="color: 000; text-indent: 10px" attrib0="value0"&gt;Click on this paragraph to show its .attributes collection and ways you can read/ modify it&lt;/p&gt;
+&lt;p id="1" onclick="alert('Paragraph1 onclick')" style="color: 000; text-indent: 10px"                 &gt;This paragraph is similar to the one above&lt;/p&gt;
+&lt;p id="2" onclick="alert('Paragraph2 onclick')" style="color: 000; text-indent: 10px"                 &gt;As is this paragraph&lt;/p&gt;
+&lt;div id="container" style="font-family: Courier New; font-size: 13px"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+/* This html file can be opened in all modern browsers, to help 
+   highlight implementation differences regarding .attributes   */
+
+function w(text){document.getElementById("container").innerHTML+=text}
+
+function checkAttributes(event){
+var t=[]; var ta=[]
+for (var i=0;i&lt;3;i++){t[i]=document.getElementById(i);ta[i]=t[i].attributes}
+var br="&lt;br/&gt;"
+var sp="&amp;nbsp"
+for (var i=0;i&lt;39;i++){sp+="&amp;nbsp"}
+var te=["Directly &amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp&amp;nbsp: ", "Via .attributes : ", "Via getAttribute: ", "Directly, color : ", "Directly, all &amp;nbsp&amp;nbsp: ", "This returns a ",  " ... gives the following results upon reading it: ", " (This syntax has signaled an error)", " (p#0's .attributes collection now contains ", " attribute nodes)", "&lt;b&gt;&lt;I&gt;(IE does not change the event handler through this syntax)&lt;/I&gt;&lt;/b&gt;", " &lt;b&gt;&lt;I&gt;(Safari and Chrome don't update .attributes through this syntax)&lt;/I&gt;&lt;/b&gt;", "&lt;b&gt;&lt;i&gt; (This syntax returns a function in IE, the function's string everywhere else)&lt;/i&gt;&lt;/b&gt;", "&lt;b&gt;&lt;i&gt; (This syntax returns null in IE, the function's string everywhere else)&lt;/i&gt;&lt;/b&gt;", "&lt;b&gt;&lt;i&gt; (this syntax returns the attributes' value in IE, undefined everywhere else)&lt;/i&gt;&lt;/b&gt;", "&lt;b&gt;&lt;i&gt; (This syntax creates an attribute node for the element in IE, but in no other browser)&lt;/i&gt;&lt;/b&gt;", "&lt;b&gt;&lt;i&gt; (This syntax returns the attribute's value in IE, but in no other browser)&lt;/i&gt;&lt;/b&gt;"]
+
+
+w(".attributes is an "+ ta[0]+ ", a dynamically updated collection of the element's Attr nodes."+br)
+w("Initially the paragraph you clicked on had 4 inline attributes (id, onclick, style, attrib0), and the"+br)
+w(".attributes collection consisted of "+ta[0].length+" nodes. These numbers are equal in FF, Safari, Chrome and Opera."+br)
+w("IE, on the other hand, populates .attributes with all possible attributes for the element."+br+br)
+
+
+w("&lt;h4&gt;"+"How to READ inline attributes, event handlers and style within .attributes"+"&lt;/h4&gt;") 
+w("p#0.id      ... "+br+te[0]+ t[0].id +br+te[1]+ ta[0].id.value +br+te[2]+ t[0].getAttribute('id') +br+br)
+w("p#0.onclick ... "+br+te[0]+te[5]+ typeof t[0].onclick+ " : " + t[0].onclick +br+te[1]+te[5]+ typeof ta[0].onclick.value +" : "+ ta[0].onclick.value +br+te[2]+te[5]+ typeof t[0].getAttribute('onclick') +" : "+ t[0].getAttribute('onclick') +te[12]+br+br)
+w("p#0.style   ... "+br+te[3]+ t[0].style.color +br+te[4]+ t[0].style.cssText +br+te[1]+ ta[0].style.value +br+te[2]+ t[0].getAttribute('style') +br+br)
+w("p#0.attrib0 ... "+br+te[0]+ t[0].attrib0 +te[14]+br+te[1]);try{t[0].attrib0.value}catch(err){w(te[7])};w(br+te[2]+ t[0].getAttribute('attrib0') +br+br)
+
+w("&lt;h4&gt;"+"How to CHANGE INLINE ATTRIBUTES within .attributes and READ JAVASCRIPT-DEFINED ATTRIBUTES"+"&lt;/h4&gt;")
+                   t[0].id="ChangedId0"
+w(                " p#0.id='ChangedId0'" +br+te[0]+ t[0].id +br+te[1]+ ta[0].id.value +br+te[2]+ t[0].getAttribute('id') +br+br)
+            ta[1].id.value='ChangedId1'
+w("p#1.attributes.id.value='ChangedId1'" +br+te[0]+ t[1].id +br+te[1]+ ta[1].id.value +br+te[2]+ t[1].getAttribute('id') +br+br)
+   t[2].setAttribute('id', 'ChangedId2')
+w( "p#2.setAttribute('id', 'ChangedId2')"+br+te[0]+ t[2].id +br+te[1]+ ta[2].id.value +br+te[2]+ t[2].getAttribute('id') +br+br)
+
+
+w("&lt;h4&gt;"+"How to CHANGE INLINE EVENT HANDLERS within .attributes and READ JAVASCRIPT-DEFINED EVENT HANDLERS"+"&lt;/h4&gt;")
+          t[0].onclick=function(){alert(null)}
+w(        "p#0.onclick=function(){alert(null)}"           +br+te[0]+te[5]+ typeof t[0].onclick +" : "+ t[0].onclick +br+te[1]+te[5]+ typeof ta[0].onclick.value +" : "+ ta[0].onclick.value +te[13]+br+te[2]+te[5]+ typeof t[0].getAttribute('onclick') +" : "+ t[0].getAttribute('onclick') +te[12]+br+br)
+            ta[1].onclick.value='alert(false)'
+w("p#1.attributes.onclick.value='alert(false)'" +br+te[10]+br+te[0]+te[5]+ typeof t[1].onclick +" : "+ t[1].onclick +br+te[1]+te[5]+ typeof ta[1].onclick.value +" : "+ ta[1].onclick.value +br+te[2]+te[5]       + typeof t[1].getAttribute('onclick') +" : "+ t[1].getAttribute('onclick') +br+br)
+    t[2].setAttribute('onclick', 'alert(true)')
+w(  "p#2.setAttribute('onclick', 'alert(true)')"+br+te[10]+br+te[0]+te[5]+ typeof t[2].onclick +" : "+ t[2].onclick +br+te[1]+te[5]+ typeof ta[2].onclick.value +" : "+ ta[2].onclick.value +br+te[2]+te[5]       + typeof t[2].getAttribute('onclick') +" : "+ t[2].getAttribute('onclick') +br+br)
+
+
+w("&lt;h4&gt;"+"How to CHANGE INLINE STYLE within .attributes and READ JAVASCRIPT-DEFINED STYLE"+"&lt;/h4&gt;")
+           t[0].style.cssText='color: CCC; text-indent: 0px'
+w(         "p#0.style.cssText='color: CCC; text-indent: 0px'" +br+te[11]+br+te[3]+ t[0].style.color +br+te[4]+ t[0].style.cssText +br+te[1]+ ta[0].style.value +br+te[2]+ t[0].getAttribute('style') +br+br)
+        try{ta[1].style.value='color: CCC; text-indent: 1px'
+w("p#1.attributes.style.value='color: CCC; text-indent: 1px'"           +br+te[3]+ t[1].style.color +br+te[4]+ t[1].style.cssText +br+te[1]+ ta[1].style.value +br+te[2]+ t[1].getAttribute('style') +br+br)}catch(er){w(te[7]+br+br+br+br+br+br)}
+   t[2].setAttribute('style', 'color: CCC; text-indent: 2px')
+w( "p#2.setAttribute('style', 'color: CCC; text-indent: 2px')"          +br+te[3]+ t[2].style.color +br+te[4]+ t[2].style.cssText +br+te[1]+ ta[2].style.value +br+te[2]+ t[2].getAttribute('style') +br+br)
+
+
+w("&lt;h4&gt;"+"How to READ AN UNDEFINED ATTRIBUTE within .attributes"+"&lt;/h4&gt;")
+w(te[0]+ t[0].newattribute +br+te[1]); try{ta[0].newattribute.value}catch(er){w(te[7])};w(br+te[2]+ t[0].getAttribute('newattribute') +br+br)
+
+w("&lt;h4&gt;"+"How to ADD AN ATTRIBUTE VIA JAVASCRIPT to .attributes"+"&lt;/h4&gt;")
+w(te[8]+ ta[0].length +te[9]+br)
+                                 t[0].setAttribute('attrib1', 'value1')
+w(                               "p#0.setAttribute('attrib1', 'value1')"                                                    +br+te[8]+ ta[0].length +te[9]+br+te[0]+ t[0].attrib1 +te[14]+br+te[1]+ ta[0].attrib1.value +br+te[2]+                        t[0].getAttribute('attrib1') +br+br)
+                     temp=document.createAttribute('attrib2');temp.nodeValue='value2';t[0].setAttributeNode(temp)
+w(                  "temp=document.createAttribute('attrib2');"+br+"temp.nodeValue='value2'"+br+"p#0.setAttributeNode(temp)"+br+te[8]+ ta[0].length +te[9]+br+te[0]+ t[0].attrib2 +te[14]+br+te[1]+ ta[0].attrib2.value +br+te[2]+                        t[0].getAttribute('attrib2') +br+br)
+        try{ta[0].attrib3=document.createAttribute('attrib3');ta[0].attrib3.value='value3'
+w("p#0.attributes.attrib3=document.createAttribute('attrib3');"+br+"p#0.attributes.attrib3.value='value3'"                  +br+te[8]+ ta[0].length +te[9]+br+te[0]+ t[0].attrib3 +br+te[1]+        ta[0].attrib3.value +br+te[2]+                        t[0].getAttribute('attrib3') +br+br)}catch(er){w(te[7]+br+br+br+br+br+br)}
+                                               t[0].attrib4='value4'
+w(                                             "p#0.attrib4='value4'"                                             +br+te[15]+br+te[8]+ ta[0].length +te[9]+br+te[0]+ t[0].attrib4 +br+te[1]); try{w(ta[0].attrib4.value)}catch(er){w(te[7])};w(te[16]+br+te[2]+ t[0].getAttribute('attrib4') +te[16]+br+br)
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<div id="section_4">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<p>Numerical indexing is useful for going through all of an element's attributes. <br>
+The following example runs through the attribute nodes for the element in the document with id "p1", and prints each attribute's value.</p>
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd"&gt;
+
+&lt;html&gt;
+
+ &lt;head&gt;
+  &lt;title&gt;Attributes example&lt;/title&gt;
+  &lt;script type="text/javascript"&gt;
+   function showFirstAttr() 
+   {
+    var firstPara = document.getElementById("p1");
+    var outputText = document.getElementById("result");
+
+    // First, let's verify that the paragraph has some attributes    
+    if (firstPara.hasAttributes()) 
+    {
+      var attrs = firstPara.attributes;
+      var text = ""; 
+      for(var i=attrs.length-1; i&gt;=0; i--) {
+        text += attrs[i].name + "-&gt;" + attrs[i].value;
+      }
+      outputText.value = text;
+    } else {
+      outputText.value = "No attributes to show"
+    };
+   }
+  &lt;/script&gt;
+ &lt;/head&gt;
+
+&lt;body&gt;
+ &lt;p id="p1" style="color: green;"&gt;Sample Paragraph&lt;/p&gt;
+ &lt;form action=""&gt;
+  &lt;p&gt;&lt;input type="button" value="Show first attribute name and value"
+      onclick="showFirstAttr();"&gt;
+  &lt;input id="result" type="text" value=""&gt;&lt;/p&gt;
+ &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</div>
+<div id="section_5">
+<span id="Specification"></span><span id="External_links"></span><h3 class="editable">External links</h3>
+<ul>
+<li><a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-84CF096" title="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-84CF096" target="_blank">W3C DOM Level 2 Core: attributes</a></li> <li><a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-84CF096" title="http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-84CF096" target="_blank">W3C DOM Level 3 Core: attributes</a></li> <li><a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-1780488922" title="http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-1780488922" target="_blank">W3C DOM Level 3 NamedNodeMap interface</a></li>
+</ul>
+<p>Cross-browser compatibility considerations: on <a title="http://www.quirksmode.org/dom/w3c_core.html#attributes" class="external" rel="external nofollow" href="http://www.quirksmode.org/dom/w3c_core.html#attributes" target="_blank">quirksmode</a></p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Node-3.html">https://developer.mozilla.org/En/DOM/Node.attributes</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/En/DOM/Node.attributes by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:15:23 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

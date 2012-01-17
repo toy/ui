@@ -1,0 +1,27 @@
+HTTrack3.43-9 launched on Fri, 17 Dec 2010 17:49:01 at https://developer.mozilla.org/en/JavaScript/Reference -* +https://developer.mozilla.org/en/JavaScript/Reference* +https://developer.mozilla.org/skins/* +https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur
+(httrack https://developer.mozilla.org/en/JavaScript/Reference -* +https://developer.mozilla.org/en/JavaScript/Reference* +https://developer.mozilla.org/skins/* +https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0 -s0 )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+17:49:06	Info: 	engine: warning: entry cleaned up, but no trace on heap: https://developer.mozilla.org/favicon.ico (developer.mozilla.org/favicon.ico)
+17:51:34	Info: 	engine: warning: entry cleaned up, but no trace on heap: https://developer.mozilla.org/skins/mdn/Transitional/img/nav-main-arrow.png (developer.mozilla.org/skins/mdn/Transitional/img/nav-main-arrow.png)
+17:51:39	Info: 	engine: warning: entry cleaned up, but no trace on heap: https://developer.mozilla.org/skins/mdn/Transitional/img/downarrow.png (developer.mozilla.org/skins/mdn/Transitional/img/downarrow.png)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/aifc-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/mpeg-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/smd-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/tiff-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/bg-sidebar.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/icons-sections.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/tip-bg.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/icons/comment_edit.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/icons/comment_delete.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/img/tip-bg.png (from https://developer.mozilla.org/skins/mdn/_editor.css)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/Transitional/img/bullet.png (from https://developer.mozilla.org/skins/mdn/Transitional/_content.css)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/Transitional/img/bullet-sub.png (from https://developer.mozilla.org/skins/mdn/Transitional/_content.css)
+17:57:28	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/img/toc-bg.png (from https://developer.mozilla.org/skins/common/custom_css.php)
+
+HTTrack Website Copier/3.43-9 mirror complete in 10 minutes 35 seconds : 505 links scanned, 492 files written (10057185 bytes overall) [3347380 bytes received at 5271 bytes/sec], 9928532 bytes transfered using HTTP compression in 380 files, ratio 28%, 76.8 requests per connection
+(13 errors, 0 warnings, 3 messages)

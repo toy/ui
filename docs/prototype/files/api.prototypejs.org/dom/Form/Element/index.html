@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/Element/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:30 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Form.Element</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">namespace</span> Form.Element
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>Utilities for dealing with form controls in the DOM.</p>
+
+<p>This is a collection of methods that assist in dealing with form controls.
+They provide ways to <a href="focus/index.html">focus</a>, <a href="serialize/index.html">serialize</a>, <a href="disable/index.html">disable</a>/<a href="enable/index.html">enable</a>
+or extract current value from a specific control.</p>
+
+<p>Note that nearly all these methods are available directly on <code>input</code>,
+<code>select</code>, and <code>textarea</code> elements. Therefore, these are equivalent:</p>
+
+<div class="highlight"><pre><span class="nx">Form</span><span class="p">.</span><span class="nx">Element</span><span class="p">.</span><span class="nx">activate</span><span class="p">(</span><span class="s1">&#39;myfield&#39;</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myfield&#39;</span><span class="p">).</span><span class="nx">activate</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<p>Naturally, you should always prefer the shortest form suitable in a
+situation. Most of these methods also return the element itself (as
+indicated by the return type) for chainability.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+                <div class="section section-classes">
+                <div class="section-title">
+                  <h3>Classes</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <ul class="method-details-list">
+      <li class="method-description">
+  <h4><a href="EventObserver/index.html">Form.Element.EventObserver</a></h4>
+
+</li>
+<li class="method-description">
+  <h4><a href="Observer/index.html">Form.Element.Observer</a></h4>
+
+    <p /><p>An <code><a href="../../Abstract/TimedObserver/index.html" title="Abstract.TimedObserver (class)">Abstract.TimedObserver</a></code> subclass that watches for changes to a form
+field's value. This triggers the callback when the form field's value
+(according to <code><a href="getValue/index.html" title="Form.Element.getValue (class method)">Form.Element.getValue</a></code>) changes. (Note that when the value
+actually changes can vary from browser to browser, particularly with
+<code>select</code> boxes.)</p>
+</li>
+    </ul>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+                  <div class="section section-class_methods">
+                <div class="section-title">
+                  <h3>Class methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="activate/index.html" title="Form.Element.activate (class method)" class="class-method">activate</a></code></li>
+
+<li><code><a href="clear/index.html" title="Form.Element.clear (class method)" class="class-method">clear</a></code></li>
+
+<li><code><a href="disable/index.html" title="Form.Element.disable (class method)" class="class-method">disable</a></code></li>
+
+<li><code><a href="enable/index.html" title="Form.Element.enable (class method)" class="class-method">enable</a></code></li>
+
+<li><code><a href="focus/index.html" title="Form.Element.focus (class method)" class="class-method">focus</a></code></li>
+
+<li><code><a href="getValue/index.html" title="Form.Element.getValue (class method)" class="class-method">getValue</a></code></li>
+
+<li><code><a href="present/index.html" title="Form.Element.present (class method)" class="class-method">present</a></code></li>
+
+<li><code><a href="select/index.html" title="Form.Element.select (class method)" class="class-method">select</a></code></li>
+
+<li><code><a href="serialize/index.html" title="Form.Element.serialize (class method)" class="class-method">serialize</a></code></li>
+
+<li><code><a href="setValue/index.html" title="Form.Element.setValue (class method)" class="class-method">setValue</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/activate/index.html" title="Form.Element#activate (instance method)" class="instance-method">activate</a></code></li>
+
+<li><code><a href="prototype/clear/index.html" title="Form.Element#clear (instance method)" class="instance-method">clear</a></code></li>
+
+<li><code><a href="prototype/disable/index.html" title="Form.Element#disable (instance method)" class="instance-method">disable</a></code></li>
+
+<li><code><a href="prototype/enable/index.html" title="Form.Element#enable (instance method)" class="instance-method">enable</a></code></li>
+
+<li><code><a href="prototype/getValue/index.html" title="Form.Element#getValue (instance method)" class="instance-method">getValue</a></code></li>
+
+<li><code><a href="prototype/present/index.html" title="Form.Element#present (instance method)" class="instance-method">present</a></code></li>
+
+<li><code><a href="prototype/serialize/index.html" title="Form.Element#serialize (instance method)" class="instance-method">serialize</a></code></li>
+
+<li><code><a href="prototype/setValue/index.html" title="Form.Element#setValue (instance method)" class="instance-method">setValue</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/Element/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:30 GMT -->
+</html>

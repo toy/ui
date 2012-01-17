@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/Event/UIEvent/KeyEvent by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:08:22 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>KeyEvent - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=19394">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=19394">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 19394;
+Deki.PageTitle = 'en/DOM/Event/UIEvent/KeyEvent';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMEventUIEventKeyEvent" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">KeyEvent</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Order_of_key_events" rel="internal">Order of key events</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>1.1.</span> <a href="#Order_of_key_events_during_auto-repeat_on_Firefox_4_or_later_version" rel="internal">Order of key events during auto-repeat on Firefox 4 or later version</a>
+</li>
+<li>
+<span>1.2.</span> <a href="#Order_of_key_events_during_auto-repeat_on_Firefox_3.6_or_earlier_version" rel="internal">Order of key events during auto-repeat on Firefox 3.6 or earlier version</a>
+</li>
+</ol>
+</li>
+<li>
+<span>2.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>The global <code>KeyEvent</code> object allows access to the numeric value of certain constants (as properties of the object) representing keys on a keyboard. These values may be compared to values returned when a (key) event object is triggered: <a rel="internal" href="../../event-16.html">event.keyCode</a> or <a rel="internal" href="../../event-7.html">event.charCode</a>. </p>
+<table class="standard-table"><tbody>
+<tr>
+<th>Key code</th> <th>Value</th> </tr>
+<tr>
+<td>DOM_VK_CANCEL</td> <td>3</td> </tr>
+<tr>
+<td>DOM_VK_HELP</td> <td>6</td> </tr>
+<tr>
+<td>DOM_VK_BACK_SPACE</td> <td>8</td> </tr>
+<tr>
+<td>DOM_VK_TAB</td> <td>9</td> </tr>
+<tr>
+<td>DOM_VK_CLEAR</td> <td>12</td> </tr>
+<tr>
+<td>DOM_VK_RETURN</td> <td>13</td> </tr>
+<tr>
+<td>DOM_VK_ENTER</td> <td>14</td> </tr>
+<tr>
+<td>DOM_VK_SHIFT</td> <td>16</td> </tr>
+<tr>
+<td>DOM_VK_CONTROL</td> <td>17</td> </tr>
+<tr>
+<td>DOM_VK_ALT</td> <td>18</td> </tr>
+<tr>
+<td>DOM_VK_PAUSE</td> <td>19</td> </tr>
+<tr>
+<td>DOM_VK_CAPS_LOCK</td> <td>20</td> </tr>
+<tr>
+<td>DOM_VK_ESCAPE</td> <td>27</td> </tr>
+<tr>
+<td>DOM_VK_SPACE</td> <td>32</td> </tr>
+<tr>
+<td>DOM_VK_PAGE_UP</td> <td>33</td> </tr>
+<tr>
+<td>DOM_VK_PAGE_DOWN</td> <td>34</td> </tr>
+<tr>
+<td>DOM_VK_END</td> <td>35</td> </tr>
+<tr>
+<td>DOM_VK_HOME</td> <td>36</td> </tr>
+<tr>
+<td>DOM_VK_LEFT</td> <td>37</td> </tr>
+<tr>
+<td>DOM_VK_UP</td> <td>38</td> </tr>
+<tr>
+<td>DOM_VK_RIGHT</td> <td>39</td> </tr>
+<tr>
+<td>DOM_VK_DOWN</td> <td>40</td> </tr>
+<tr>
+<td>DOM_VK_PRINTSCREEN</td> <td>44</td> </tr>
+<tr>
+<td>DOM_VK_INSERT</td> <td>45</td> </tr>
+<tr>
+<td>DOM_VK_DELETE</td> <td>46</td> </tr>
+<tr>
+<td>DOM_VK_0</td> <td>48</td> </tr>
+<tr>
+<td>DOM_VK_1</td> <td>49</td> </tr>
+<tr>
+<td>DOM_VK_2</td> <td>50</td> </tr>
+<tr>
+<td>DOM_VK_3</td> <td>51</td> </tr>
+<tr>
+<td>DOM_VK_4</td> <td>52</td> </tr>
+<tr>
+<td>DOM_VK_5</td> <td>53</td> </tr>
+<tr>
+<td>DOM_VK_6</td> <td>54</td> </tr>
+<tr>
+<td>DOM_VK_7</td> <td>55</td> </tr>
+<tr>
+<td>DOM_VK_8</td> <td>56</td> </tr>
+<tr>
+<td>DOM_VK_9</td> <td>57</td> </tr>
+<tr>
+<td>DOM_VK_SEMICOLON</td> <td>59</td> </tr>
+<tr>
+<td>DOM_VK_EQUALS</td> <td>61</td> </tr>
+<tr>
+<td>DOM_VK_A</td> <td>65</td> </tr>
+<tr>
+<td>DOM_VK_B</td> <td>66</td> </tr>
+<tr>
+<td>DOM_VK_C</td> <td>67</td> </tr>
+<tr>
+<td>DOM_VK_D</td> <td>68</td> </tr>
+<tr>
+<td>DOM_VK_E</td> <td>69</td> </tr>
+<tr>
+<td>DOM_VK_F</td> <td>70</td> </tr>
+<tr>
+<td>DOM_VK_G</td> <td>71</td> </tr>
+<tr>
+<td>DOM_VK_H</td> <td>72</td> </tr>
+<tr>
+<td>DOM_VK_I</td> <td>73</td> </tr>
+<tr>
+<td>DOM_VK_J</td> <td>74</td> </tr>
+<tr>
+<td>DOM_VK_K</td> <td>75</td> </tr>
+<tr>
+<td>DOM_VK_L</td> <td>76</td> </tr>
+<tr>
+<td>DOM_VK_M</td> <td>77</td> </tr>
+<tr>
+<td>DOM_VK_N</td> <td>78</td> </tr>
+<tr>
+<td>DOM_VK_O</td> <td>79</td> </tr>
+<tr>
+<td>DOM_VK_P</td> <td>80</td> </tr>
+<tr>
+<td>DOM_VK_Q</td> <td>81</td> </tr>
+<tr>
+<td>DOM_VK_R</td> <td>82</td> </tr>
+<tr>
+<td>DOM_VK_S</td> <td>83</td> </tr>
+<tr>
+<td>DOM_VK_T</td> <td>84</td> </tr>
+<tr>
+<td>DOM_VK_U</td> <td>85</td> </tr>
+<tr>
+<td>DOM_VK_V</td> <td>86</td> </tr>
+<tr>
+<td>DOM_VK_W</td> <td>87</td> </tr>
+<tr>
+<td>DOM_VK_X</td> <td>88</td> </tr>
+<tr>
+<td>DOM_VK_Y</td> <td>89</td> </tr>
+<tr>
+<td>DOM_VK_Z</td> <td>90</td> </tr>
+<tr>
+<td>DOM_VK_CONTEXT_MENU</td> <td>93</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD0</td> <td>96</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD1</td> <td>97</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD2</td> <td>98</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD3</td> <td>99</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD4</td> <td>100</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD5</td> <td>101</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD6</td> <td>102</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD7</td> <td>103</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD8</td> <td>104</td> </tr>
+<tr>
+<td>DOM_VK_NUMPAD9</td> <td>105</td> </tr>
+<tr>
+<td>DOM_VK_MULTIPLY</td> <td>106</td> </tr>
+<tr>
+<td>DOM_VK_ADD</td> <td>107</td> </tr>
+<tr>
+<td>DOM_VK_SEPARATOR</td> <td>108</td> </tr>
+<tr>
+<td>DOM_VK_SUBTRACT</td> <td>109</td> </tr>
+<tr>
+<td>DOM_VK_DECIMAL</td> <td>110</td> </tr>
+<tr>
+<td>DOM_VK_DIVIDE</td> <td>111</td> </tr>
+<tr>
+<td>DOM_VK_F1</td> <td>112</td> </tr>
+<tr>
+<td>DOM_VK_F2</td> <td>113</td> </tr>
+<tr>
+<td>DOM_VK_F3</td> <td>114</td> </tr>
+<tr>
+<td>DOM_VK_F4</td> <td>115</td> </tr>
+<tr>
+<td>DOM_VK_F5</td> <td>116</td> </tr>
+<tr>
+<td>DOM_VK_F6</td> <td>117</td> </tr>
+<tr>
+<td>DOM_VK_F7</td> <td>118</td> </tr>
+<tr>
+<td>DOM_VK_F8</td> <td>119</td> </tr>
+<tr>
+<td>DOM_VK_F9</td> <td>120</td> </tr>
+<tr>
+<td>DOM_VK_F10</td> <td>121</td> </tr>
+<tr>
+<td>DOM_VK_F11</td> <td>122</td> </tr>
+<tr>
+<td>DOM_VK_F12</td> <td>123</td> </tr>
+<tr>
+<td>DOM_VK_F13</td> <td>124</td> </tr>
+<tr>
+<td>DOM_VK_F14</td> <td>125</td> </tr>
+<tr>
+<td>DOM_VK_F15</td> <td>126</td> </tr>
+<tr>
+<td>DOM_VK_F16</td> <td>127</td> </tr>
+<tr>
+<td>DOM_VK_F17</td> <td>128</td> </tr>
+<tr>
+<td>DOM_VK_F18</td> <td>129</td> </tr>
+<tr>
+<td>DOM_VK_F19</td> <td>130</td> </tr>
+<tr>
+<td>DOM_VK_F20</td> <td>131</td> </tr>
+<tr>
+<td>DOM_VK_F21</td> <td>132</td> </tr>
+<tr>
+<td>DOM_VK_F22</td> <td>133</td> </tr>
+<tr>
+<td>DOM_VK_F23</td> <td>134</td> </tr>
+<tr>
+<td>DOM_VK_F24</td> <td>135</td> </tr>
+<tr>
+<td>DOM_VK_NUM_LOCK</td> <td>144</td> </tr>
+<tr>
+<td>DOM_VK_SCROLL_LOCK</td> <td>145</td> </tr>
+<tr>
+<td>DOM_VK_COMMA</td> <td>188</td> </tr>
+<tr>
+<td>DOM_VK_PERIOD</td> <td>190</td> </tr>
+<tr>
+<td>DOM_VK_SLASH</td> <td>191</td> </tr>
+<tr>
+<td>DOM_VK_BACK_QUOTE</td> <td>192</td> </tr>
+<tr>
+<td>DOM_VK_OPEN_BRACKET</td> <td>219</td> </tr>
+<tr>
+<td>DOM_VK_BACK_SLASH</td> <td>220</td> </tr>
+<tr>
+<td>DOM_VK_CLOSE_BRACKET</td> <td>221</td> </tr>
+<tr>
+<td>DOM_VK_QUOTE</td> <td>222</td> </tr>
+<tr>
+<td>DOM_VK_META</td> <td>224</td> </tr>
+</tbody></table>
+<p>Following values are defined on Firefox 4 or later.</p>
+<p>Note that Firefox for Linux fires these key events after Firefox 4. On the other hand, Firefox for Windows has fired them since older version.</p>
+<table class="standard-table"><tbody>
+<tr>
+<th>Key code</th> <th>Value</th> </tr>
+<tr>
+<td>DOM_VK_KANA</td> <td>21</td> </tr>
+<tr>
+<td>DOM_VK_HANGUL</td> <td>21</td> </tr>
+<tr>
+<td>DOM_VK_JUNJA</td> <td>23</td> </tr>
+<tr>
+<td>DOM_VK_FINAL</td> <td>24</td> </tr>
+<tr>
+<td>DOM_VK_HANJA</td> <td>25</td> </tr>
+<tr>
+<td>DOM_VK_KANJI</td> <td>25</td> </tr>
+<tr>
+<td>DOM_VK_CONVERT</td> <td>28</td> </tr>
+<tr>
+<td>DOM_VK_NONCONVERT</td> <td>29</td> </tr>
+<tr>
+<td>DOM_VK_ACEPT</td> <td>30</td> </tr>
+<tr>
+<td>DOM_VK_MODECHANGE</td> <td>31</td> </tr>
+<tr>
+<td>DOM_VK_SELECT</td> <td>41</td> </tr>
+<tr>
+<td>DOM_VK_PRINT</td> <td>42</td> </tr>
+<tr>
+<td>DOM_VK_EXECUTE</td> <td>43</td> </tr>
+<tr>
+<td>DOM_VK_SLEEP</td> <td>95</td> </tr>
+</tbody></table>
+<div id="section_1">
+<span id="Specification"></span><span id="Order_of_key_events"></span><h3 class="editable">Order of key events</h3>
+<p>There are <a rel="internal" href="https://developer.mozilla.org/" class="new ">keydown</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">keypress</a> and <a rel="internal" href="https://developer.mozilla.org/" class="new ">keyup</a> events. For most keys, Gecko dispatches a set of key events like:</p>
+<ol>
+<li>keydown</li> <li>keypress</li> <li>keyup</li>
+</ol>
+<p>If the pressed key is one of the following keys, the keypress event isn't dispatched:</p>
+<ul>
+<li>
+<code>Shift</code> key</li> <li>
+<code>Control</code> key</li> <li>
+<code>Alt</code> key (<code>Option</code> key on Mac)</li> <li>
+<code>Cmd</code> key on Mac</li> <li>
+<code>Meta</code> key on Linux</li>
+</ul>
+<p>And there are some keys which toggle LED state such as <code>CapsLock</code>, <code>NumLock</code> and <code>ScrollLock</code>. On Windows, these keys dispatch keydown and keyup events only. On Linux, they dispatch keydown, keypress and keyup events . On Mac, <code>CapsLock</code> dispatches only keydown event (cannot dispatches keyup event by the platform event model's limitation), <code>NumLock</code> on external keyboard (without <code>Fn</code>) dispatches keydown, keypress and keyup events. <code>NumLock</code> with <code>Fn</code> doesn't dispatch any events, and <code>ScrollLock</code> on external keyboard doesn't dispatch any events. The inconsistent behavior whether keypress event is dispatched or not is a bug, see 
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=602812" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+602812</a>
+.</p>
+<div id="section_2">
+<span id="Order_of_key_events_during_auto-repeat_on_Firefox_4_or_later_version"></span><h4 class="editable">Order of key events during auto-repeat on Firefox 4 or later version</h4>
+<p>When a key is held down for auto-repeat, the key events are dispatched by following order on Firefox 4 or later (Gecko 2.0 or later), this is according to DOM3 Events.</p>
+<ol>
+<li>keydown</li> <li>keypress</li> <li>keydown</li> <li>keypress</li> <li>...</li> <li>keyup</li>
+</ol>
+<p>However, on some GTK environments such as Ubuntu 9.4, auto-repeat dispatches native keyup event and Gecko cannot know the native key events are caused by auto-repeat or not. Therefore, on such platforms, the auto-repeat dispatches the key events by following order:</p>
+<ol>
+<li>keydown</li> <li>keypress</li> <li><em>keyup</em></li> <li>keydown</li> <li>keypress</li> <li>keyup</li> <li>...</li>
+</ol>
+<p>In this case, web applications cannot know whether each key event is dispatched by auto-repeat or not too.</p>
+</div>
+<div id="section_3">
+<span id="Order_of_key_events_during_auto-repeat_on_Firefox_3.6_or_earlier_version"></span><h4 class="editable">Order of key events during auto-repeat on Firefox 3.6 or earlier version</h4>
+<p>On Firefox 3.6 or earlier (Gecko 1.9.2 or earlier), the key event order depends on the platform.</p>
+<p>On Windows, same as Firefox 4.0 or later.</p>
+<p>On Mac, only keypress events are repeated during auto-repeat such as:</p>
+<ol>
+<li>keydown</li> <li>keypress</li> <li>keypress</li> <li>...</li> <li>keyup</li>
+</ol>
+<p>On Linux, depends on the platform. If a platform doesn't dispatch native key up events during auto-repeat, the order is same as Mac.</p>
+<p>Otherwise:</p>
+<ol>
+<li>keydown</li> <li>keypress</li> <li>keyup</li> <li>keydown</li> <li>keypress</li> <li>keyup</li> <li>...</li>
+</ol>
+</div>
+</div>
+<div id="section_4">
+<span id="Specification"></span><h3 class="editable">Specification</h3>
+<ul>
+<li><a class="external" rel="external nofollow" href="http://www.w3.org/TR/2001/WD-DOM-Level-3-Events-20010410/DOM3-Events.html#events-Events-KeyEvent" title="http://www.w3.org/TR/2001/WD-DOM-Level-3-Events-20010410/DOM3-Events.html#events-Events-KeyEvent" target="_blank">DOM3-Events</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="KeyEvent.html">https://developer.mozilla.org/en/DOM/Event/UIEvent/KeyEvent</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/Event/UIEvent/KeyEvent by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:08:23 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

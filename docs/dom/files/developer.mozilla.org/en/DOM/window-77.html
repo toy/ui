@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/window.open by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:24 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>window.open - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=7067">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=7067">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 7067;
+Deki.PageTitle = 'en/DOM/window.open';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../deki/scripts/res/syntax/shBrushJScript.js"></script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMwindowopen" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">window.open</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Definition" rel="internal">Definition</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Return_value_and_parameters" rel="internal">Return value and parameters</a>
+</li>
+<li>
+<span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>4.1.</span> <a href="#Examples" rel="internal">Examples</a>
+</li>
+<li>
+<span>4.2.</span> <a href="#Position_and_size_features" rel="internal">Position and size features</a>
+</li>
+<li>
+<span>4.3.</span> <a href="#Toolbar_and_chrome_features" rel="internal">Toolbar and chrome features</a>
+</li>
+<li>
+<span>4.4.</span> <a href="#Window_functionality_features" rel="internal">Window functionality features</a>
+</li>
+<li>
+<span>4.5.</span> <a href="#Features_requiring_privileges" rel="internal">Features requiring privileges</a>
+</li>
+</ol>
+</li>
+<li>
+<span>5.</span> <a href="#Best_practices" rel="internal">Best practices</a>
+</li>
+<li>
+<span>6.</span> <a href="#FAQ" rel="internal">FAQ</a>
+</li>
+<li>
+<span>7.</span> <a href="#Usability_issues" rel="internal">Usability issues</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>7.1.</span> <a href="#Avoid_resorting_to_window.open()" rel="internal">Avoid resorting to window.open()</a>
+</li>
+<li>
+<span>7.2.</span> <a href="#Offer_to_open_a_link_in_a_new_window.2c_using_these_guidelines" rel="internal">Offer to open a link in a new window, using these guidelines</a>
+</li>
+</ol>
+</li>
+<li>
+<span>8.</span> <a href="#Glossary" rel="internal">Glossary</a>
+</li>
+<li>
+<span>9.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+<li>
+<span>10.</span> <a href="#Notes" rel="internal">Notes</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>10.1.</span> <a href="#Note_on_precedence" rel="internal">Note on precedence</a>
+</li>
+<li>
+<span>10.2.</span> <a href="#Note_on_position_and_dimension_error_correction" rel="internal">Note on position and dimension error correction</a>
+</li>
+<li>
+<span>10.3.</span> <a href="#Note_on_scrollbars" rel="internal">Note on scrollbars</a>
+</li>
+<li>
+<span>10.4.</span> <a href="#Note_on_status_bar" rel="internal">Note on status bar</a>
+</li>
+<li>
+<span>10.5.</span> <a href="#Note_on_security_issues_of_the_status_bar_presence" rel="internal">Note on security issues of the status bar presence</a>
+</li>
+<li>
+<span>10.6.</span> <a href="#Note_on_fullscreen" rel="internal">Note on fullscreen</a>
+</li>
+<li>
+<span>10.7.</span> <a href="#Note_on_outerHeight_versus_height" rel="internal">Note on outerHeight versus height</a>
+</li>
+</ol>
+</li>
+<li>
+<span>11.</span> <a href="#Tutorials" rel="internal">Tutorials</a>
+</li>
+<li>
+<span>12.</span> <a href="#References" rel="internal">References</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="Definition"></span><h3 class="editable">Definition</h3>
+<p>Creates a new secondary browser <a rel="internal" href="window.html">window</a> and loads the referenced resource.</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<p>var <var>windowObjectReference</var> = window.open(<var>strUrl</var>, <var>strWindowName</var>[, <var>strWindowFeatures</var>]);</p>
+</div>
+<div id="section_3">
+<span id="Return_value_and_parameters"></span><h3 class="editable">Return value and parameters</h3>
+<dl>
+<dt><code>windowObjectReference</code></dt>
+</dl>
+<p>This is the reference pointing to the newly created browser window. This reference is the return value of the open() method; it will be <code>null</code> if for some reasons the execution did not succeed to open the window. A global variable is best used to store such reference. You can then, for example, use it to look for properties of the new window or access its methods, assuming that your main versus secondary window relationship complies with <a class="external" rel="external nofollow" href="http://www.mozilla.org/projects/security/components/same-origin.html" title="http://www.mozilla.org/projects/security/components/same-origin.html" target="_blank">Same origin policy</a> security requirements.</p>
+<dl>
+<dt><code>strUrl</code></dt>
+</dl>
+<p>This is the URL to be loaded in the newly opened window. <code>strUrl</code> can be an HTML document on the web, it can be an image file or any type of file which is supported by the browser.</p>
+<dl>
+<dt><code>strWindowName</code></dt>
+</dl>
+<p>This is the string that just names the new window. Such string can be used to be the target of links and forms when the target attribute of an <code style="font-size: 1em;">&lt;a&gt;</code> element or of a <code style="font-size: 1em;">&lt;form&gt;</code> is specified. This string parameter should not contain any blank space. <code>strWindowName</code> does not specify the title of the new window.</p>
+<dl>
+<dt><code>strWindowFeatures</code></dt>
+</dl>
+<p>Optional parameter. This parameter is the string which lists the requested window features (window functionalities and toolbars) of the new browser window. This string parameter must not contain any blank space. Each requested window feature must be separated by a comma inside the character string.</p>
+</div>
+<div id="section_4">
+<span id="Description"></span><h3 class="editable">Description</h3>
+<p>The <code>open()</code> method creates a new secondary browser window, similar to choosing New Window from the File menu. The <var>strUrl</var> parameter specifies the URL to be fetched and loaded in the new window. If <var>strUrl</var> is an empty string, then a new blank, empty window (URL <code>about:blank</code> loaded) is created with the default toolbars of the main window.</p>
+<p>Note that remote URLs won't load immediately. When <code>window.open()</code> returns, the window always contains <code>about:blank</code>. The actual fetching of the URL is deferred and starts after the current script block finishes executing. The window creation and the loading of the referenced resource are done asynchronously.</p>
+<div id="section_5">
+<span id="Examples"></span><h4 class="editable">Examples</h4>
+
+          <pre name="code" class="js">var windowObjectReference;
+var strWindowFeatures = "menubar=yes,location=yes,resizable=yes,scrollbars=yes,status=yes";</pre>
+        
+
+          <pre name="code" class="js">function openRequestedPopup()
+{
+  windowObjectReference = window.open("http://www.cnn.com/",
+"CNN_WindowName", strWindowFeatures);
+}</pre>
+        
+
+          <pre name="code" class="js">var windowObjectReference;
+
+function openRequestedPopup()
+{
+  windowObjectReference = window.open("http://www.domainname.ext/path/ImageFile.png",
+                  "DescriptiveWindowName",
+                  "resizable=yes,scrollbars=yes,status=yes");
+}</pre>
+        
+<p>If a window with the name <var>strWindowName</var> already exists, then, instead of opening a new window, <var>strUrl</var> is loaded into the existing window. In this case the return value of the method is the existing window and <var>strWindowFeatures</var> is ignored. Providing an empty string for <var>strUrl</var> is a way to get a reference to an open window by its name without changing the window's location. If you want to open a new window on every call of <code>window.open()</code>, you should use the special value <var>_blank</var> for <var>strWindowName</var>.</p>
+<p><var>strWindowFeatures</var> is an optional string containing a comma-separated list of requested features of the new window. After a window is opened, you can not use JavaScript to change the window functionalities and the window toolbars. If <var>strWindowName</var> does not specify an existing window and if you do not supply the <var>strWindowFeatures</var> parameter (or if the <var>strWindowFeatures</var> parameter is an empty string), then the new secondary window will render the default toolbars of the main window.</p>
+<p>If the <var>strWindowFeatures</var> parameter is used and if no size features are defined, then the new window dimensions will be the same as the dimensions of the most recently rendered window.</p>
+<p>If the <var>strWindowFeatures</var> parameter is used and if no position features are defined, then the left and top coordinates of the new window dimension will be 22 pixels off from where the most recently rendered window was. An offset is universally implemented by browser manufacturers (it is 29 pixels in MSIE 6 SP2 with the default theme) and its purpose is to help users to notice new windows opening. If the most recently used window was maximized, then there is no 22 pixels offset: the new, secondary window will be maximized as well.</p>
+<p><strong>If you define the <var>strWindowFeatures</var> parameter, then the features that are not listed, requested in the string will be disabled or removed</strong> (except <var>titlebar</var> and <var>close</var> which are by default <var>yes</var>).</p>
+<div class="tip">
+<p><strong>Tip</strong>: If you use the <var>strWindowFeatures</var> parameter, then only list the features you want to include in the new window, that you want to be enabled or rendered; the others (except <var>titlebar</var> and <var>close</var>) will be disabled, removed.</p>
+</div>
+<p style="border: 1px dotted green;"><img class="internal" alt="Firefox Chrome Toolbars Illustration" src="../../_api/deki/files/210/%3dFirefoxChromeToolbarsDescription7a.gif"></p>
+</div>
+<div id="section_6">
+<span id="Position_and_size_features"></span><h4 class="editable">Position and size features</h4>
+<p>
+
+</p>
+<div style="border: 0px none ; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); text-align: center;">
+<p style="margin: 4px 0px; font-weight: bold;">Gecko 1.9.2 note</p>
+<p style="margin: 4px 0px;">Starting in Gecko 1.9.2 (Firefox 3.6), overriding the position of a window using window features will not change the persisted values saved by the session store feature. That means the next time the window is opened, it will still open in the saved location.</p>
+</div>
+<p><a href="#Note_on_position_and_dimension_error_correction">Note on position and dimension error correction</a></p>
+<div class="bug"><span class="lang lang-en"><a rel="external nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=176320" title="https://bugzilla.mozilla.org/show_bug.cgi?id=176320" target="_blank" class=" link-https">Bug 176320: Minimal innerWidth/innerHeight values for popup windows</a>
+</span></div>
+<p><a href="#Note_on_precedence">Note on precedence</a></p>
+<dl>
+<dt>left </dt> <dd>
+<span id="left">Specifies the distance</span> the new window is placed from the left side of the work area for applications of the user's operating system to the leftmost border (resizing handle) of the browser window. The new window can not be initially positioned offscreen.</dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">, <img class="internal" alt="Opera 6+" src="../../_api/deki/files/288/%3dOpera6.gif">
+</dd>
+</dl>
+<dl>
+<dt>top </dt> <dd>
+<span id="topS">Specifies the distance</span> the new window is placed from the top side of the work area for applications of the user's operating system to the topmost border (resizing handle) of the browser window. The new window can not be initially positioned offscreen.</dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">, <img class="internal" alt="Opera 6+" src="../../_api/deki/files/288/%3dOpera6.gif">
+</dd>
+</dl>
+<dl>
+<dt>height </dt> <dd>
+<span id="height">Specifies the height</span> of the content area, viewing area of the new secondary window in pixels. The height value includes the height of the horizontal scrollbar if present. The minimum required value is 100.</dd> <dd><a href="#Note_on_outerHeight_versus_height">Note on outerHeight versus height (or innerHeight)</a></dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">, <img class="internal" alt="Opera 6+" src="../../_api/deki/files/288/%3dOpera6.gif">
+</dd>
+</dl>
+<dl>
+<dt>width </dt> <dd>
+<span id="width">Specifies the width</span> of the content area, viewing area of the new secondary window in pixels. The width value includes the width of the vertical scrollbar if present. The width value does not include the sidebar if it is expanded. The minimum required value is 100.</dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">, <img class="internal" alt="Opera 6+" src="../../_api/deki/files/288/%3dOpera6.gif">
+</dd>
+</dl>
+<dl>
+<dt>screenX </dt> <dd>Deprecated. Same as <a href="#left">left</a> but only supported by Netscape and Mozilla-based browsers.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>screenY </dt> <dd>Deprecated. Same as <a href="#topS">top</a> but only supported by Netscape and Mozilla-based browsers.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>centerscreen </dt> <dd>Centers the window in relation to its parent's size and position. Requires chrome=yes.</dd>
+</dl>
+<dl>
+<dt>outerHeight </dt> <dd>Specifies the height of the whole browser window in pixels. This outerHeight value includes any/all present toolbar, window horizontal scrollbar (if present) and top and bottom window resizing borders. Minimal required value is 100.</dd> <dd>
+<strong>Note</strong>: since titlebar is always rendered, then requesting outerHeight=100 will make the innerHeight of the browser window under the minimal 100 pixels.</dd> <dd><a href="#Note_on_outerHeight_versus_height">Note on outerHeight versus height (or innerHeight)</a></dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>outerWidth </dt> <dd>Specifies the width of the whole browser window in pixels. This outerWidth value includes the window vertical scrollbar (if present) and left and right window resizing borders.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>innerHeight </dt> <dd>Same as <a href="#height">height</a> but only supported by Netscape and Mozilla-based browsers. Specifies the height of the content area, viewing area of the new secondary window in pixels. The <var>innerHeight</var> value includes the height of the horizontal scrollbar if present. Minimal required value is 100.</dd> <dd><a href="#Note_on_outerHeight_versus_height">Note on outerHeight versus height (or innerHeight)</a></dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>innerWidth </dt> <dd>Same as <a href="#width">width</a> but only supported by Netscape and Mozilla-based browsers. Specifies the width of the content area, viewing area of the new secondary window in pixels. The innerWidth value includes the width of the vertical scrollbar if present. The innerWidth value does not include the sidebar if it is expanded. Minimal required value is 100.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+</div>
+<div id="section_7">
+<span id="Toolbar_and_chrome_features"></span><h4 class="editable">Toolbar and chrome features</h4>
+<dl>
+<dt>menubar </dt> <dd>If this feature is set to yes, then the new secondary window renders the menubar.</dd>
+</dl>
+<dl>
+<dd>Mozilla and Firefox users can force new windows to always render the menubar by setting <code>dom.disable_window_open_feature.menubar</code> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd> <dd>Supported in: <img alt="Internet Explorer 5+" class="internal" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img alt="Netscape 6.x" class="internal" src="../../_api/deki/files/785/%3dNs6.gif">, <img alt="Netscape 7.x" class="internal" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img alt="Mozilla 1.x" class="internal" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img alt="Firefox 1.x" class="internal" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>toolbar </dt> <dd>If this feature is set to <var>yes</var>, then the new secondary window renders the Navigation Toolbar (Back, Forward, Reload, Stop buttons). In addition to the Navigation Toolbar, Mozilla-based browsers will render the Tab Bar if it is visible, present in the parent window. (If this feature is set to <var>no</var> all toolbars in the window will be invisible, for example extension toolbars).</dd>
+</dl>
+<dl>
+<dd>Mozilla and Firefox users can force new windows to always render the Navigation Toolbar by setting <code>dom.disable_window_open_feature.toolbar</code> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd>
+</dl>
+<dl>
+<dd>Supported in: <img alt="Internet Explorer 5+" class="internal" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img alt="Netscape 6.x" class="internal" src="../../_api/deki/files/785/%3dNs6.gif">, <img alt="Netscape 7.x" class="internal" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img alt="Mozilla 1.x" class="internal" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img alt="Firefox 1.x" class="internal" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>location </dt> <dd>If this feature is set to <var>yes</var>, then the new secondary window renders the Location bar in Mozilla-based browsers. MSIE 5+ and Opera 7.x renders the Address Bar.</dd>
+</dl>
+<dl>
+<dd>Mozilla and Firefox users can force new windows to always render the location bar by setting <code>dom.disable_window_open_feature.location</code> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd>
+</dl>
+<p>
+</p>
+<div style="overflow:hidden; margin: 10px 0px; padding: 2px 10px; background-color: rgb(254, 244, 156); text-align: center;">
+<p style="margin: 4px 0px; font-weight: bold;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3 note</a></p>
+<p style="margin: 4px 0px;">In Firefox 3, <code>dom.disable_window_open_feature.location</code> now defaults to <var>true</var>, forcing the presence of the Location Bar much like in IE7. See 
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=337344" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+337344</a>
+ for more information.</p>
+</div>
+
+
+<dl>
+<dd>Supported in: <img alt="Internet Explorer 5+" class="internal" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img alt="Netscape 6.x" class="internal" src="../../_api/deki/files/785/%3dNs6.gif">, <img alt="Netscape 7.x" class="internal" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img alt="Mozilla 1.x" class="internal" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img alt="Firefox 1.x" class="internal" src="../../_api/deki/files/200/%3dFF1x.png">, <img alt="Opera 6+" class="internal" src="../../_api/deki/files/288/%3dOpera6.gif">
+</dd>
+</dl>
+<dl>
+<dt>personalbar</dt> <dd>If this feature is set to <var>yes</var>, then the new secondary window renders the Personal Toolbar in Netscape 6.x, Netscape 7.x and Mozilla browser. It renders the Bookmarks Toolbar in Firefox. In addition to the Personal Toolbar, Mozilla browser will render the Site Navigation Bar if such toolbar is visible, present in the parent window.</dd>
+</dl>
+<dl>
+<dd>Mozilla and Firefox users can force new windows to always render the Personal Toolbar/Bookmarks toolbar by setting <code>dom.disable_window_open_feature.personalbar</code> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd> <dd>Supported in: <img alt="Netscape 6.x" class="internal" src="../../_api/deki/files/785/%3dNs6.gif">, <img alt="Netscape 7.x" class="internal" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img alt="Mozilla 1.x" class="internal" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img alt="Firefox 1.x" class="internal" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd> <dt>directories</dt> <dd>
+<span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;" title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+">Obsolete in Gecko 2</span> </span>      <br> Obsolete synonym of personalbar. In IE, it rendered the Links bar. Supported in Gecko up to 1.9.2 and in IE up to 6.</dd>
+</dl>
+<dl>
+<dt>status </dt> <dd>If this feature is set to <var>yes</var>, then the new secondary window has a status bar. Users can force the rendering of status bar in all Mozilla-based browsers, in MSIE 6 SP2 (<a href="#Note_on_security_issues_of_the_status_bar_presence">Note on status bar in XP SP2</a>) and in Opera 6+. The default preference setting in recent Mozilla-based browser releases and in Firefox 1.0 is to force the presence of the status bar.</dd> <dd><a href="#Note_on_status_bar">Note on status bar</a></dd> <dd>Supported in: <img alt="Internet Explorer 5+" class="internal" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img alt="Netscape 6.x" class="internal" src="../../_api/deki/files/785/%3dNs6.gif">, <img alt="Netscape 7.x" class="internal" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img alt="Mozilla 1.x" class="internal" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img alt="Firefox 1.x" class="internal" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+</div>
+<div id="section_8">
+<span id="Window_functionality_features"></span><h4 class="editable">Window functionality features</h4>
+<dl>
+<dt>resizable </dt> <dd>If this feature is set to <var>yes</var>, the new secondary window will be resizable.</dd> <dd>
+<strong>Note</strong>: Starting with version 1.4, Mozilla-based browsers have a window resizing grippy at the right end of the status bar, this ensures that users can resize the browser window even if the web author requested this secondary window to be non-resizable. In such case, the maximize/restore icon in the window's titlebar will be disabled and the window's borders won't allow resizing but the window will still be resizable via that grippy in the status bar.</dd>
+</dl>
+<p>Starting with Firefox 3, secondary windows are always resizable (
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=177838" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+177838</a>
+)</p>
+<div class="tip">
+<p><strong>Tip</strong>: For accessibility reasons, it is strongly recommended to set this feature always to <var>yes</var>.</p>
+</div>
+<dl>
+<dd>Mozilla and Firefox users can force new windows to be easily resizable by setting <br><code>dom.disable_window_open_feature.resizable</code><br> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>scrollbars </dt> <dd>If this feature is set to <var>yes</var>, the new secondary window will show horizontal and/or vertical scrollbar(s) if the document doesn't fit into the window's viewport.</dd>
+</dl>
+<div class="tip">
+<p><strong>Tip</strong>: For accessibility reasons, it is strongly encouraged to set this feature always to <var>yes</var>.</p>
+</div>
+<dl>
+<dd>Mozilla and Firefox users can force this option to be always enabled for new windows by setting <br><code>dom.disable_window_open_feature.scrollbars</code><br> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd> <dd><a href="#Note_on_scrollbars">Note on scrollbars</a></dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">, <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>dependent </dt> <dd>If set to <var>yes</var>, the new window is said to be dependent of its parent window. A dependent window closes when its parent window closes. A dependent window is minimized on the Windows task bar only when its parent window is minimized. On Windows platforms, a dependent window does not show on the task bar. A dependent window also stays in front of the parent window.</dd> <dd>Dependent windows are not implemented on MacOS X, this option will be ignored.</dd> <dd>The dependent feature is currently under revision to be removed (
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=214867" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+214867</a>
+)</dd>
+</dl>
+<dl>
+<dd>In MSIE 6, the nearest equivalent to this feature is the <code>showModelessDialog()</code> method.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>dialog </dt> <dd>
+<span class="float-right"><a rel="internal" href="../../_api/deki/files/268/%3dMenuSystemCommands.png"><img align="left" class="internal lwrap" alt="MenuSystemCommands.png" style="width: 170px; height: 170px;" src="../../_api/deki/files/268/%3dMenuSystemCommands7902.png?size=webview"></a></span>The <code>dialog</code> feature removes all icons (restore, minimize, maximize) from the window's titlebar, leaving only the close button. Mozilla 1.2+ and Netscape 7.1 will render the other menu system commands (in FF 1.0 and in NS 7.0x, the command system menu is not identified with the Firefox/NS 7.0x icon on the left end of the titlebar: that's probably a bug. You can access the command system menu with a right-click on the titlebar). Dialog windows are windows which have no minimize system command icon and no maximize/restore down system command icon on the titlebar nor in correspondent menu item in the command system menu. They are said to be dialog because their normal, usual purpose is to only notify info and to be dismissed, closed. On Mac systems, dialog windows have a different window border and they may get turned into a sheet.</dd> <dt></dt> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>minimizable </dt> <dd>This setting can only apply to dialog windows; "minimizable" requires <code>dialog=yes</code>. If <code>minimizable</code> is set to <var>yes</var>, the new dialog window will have a minimize system command icon in the titlebar and it will be minimizable. Any non-dialog window is always minimizable and <code>minimizable=no</code> will be ignored.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>fullscreen </dt> <dd>Do not use. Not implemented in Mozilla. There are no plans to implement this feature in Mozilla.</dd> <dd>This feature no longer works in MSIE 6 SP2 the way it worked in MSIE 5.x. The Windows taskbar, as well as the titlebar and the status bar of the window are not visible, nor accessible when fullscreen is enabled in MSIE 5.x.</dd> <dd>
+<code>fullscreen</code> always upsets users with large monitor screen or with dual monitor screen. Forcing <code>fullscreen</code> onto other users is also extremely unpopular and is considered an outright rude attempt to impose web author's viewing preferences onto users.</dd> <dd><a href="#Note_on_fullscreen">Note on fullscreen</a></dd> <dd>Supported in: <img class="internal" alt="Internet Explorer 5+" src="../../_api/deki/files/260/%3dMSIE_ico.png">
+</dd> <dd>
+<code>fullscreen</code> does not really work in MSIE 6 SP2.</dd>
+</dl>
+</div>
+<div id="section_9">
+<span id="Features_requiring_privileges"></span><h4 class="editable">Features requiring privileges</h4>
+<p>The following features require the <code>UniversalBrowserWrite</code> privilege, otherwise they will be ignored. Chrome scripts have this privilege automatically, others have to request it from the <a rel="internal" href="https://developer.mozilla.org/en/PrivilegeManager" class="new ">PrivilegeManager</a>.</p>
+<dl>
+<dt>chrome </dt> <dd>
+<strong>Note</strong>: Starting with Mozilla 1.7/Firefox 0.9, this feature requires the <code>UniversalBrowserWrite</code> privilege (
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=244965" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+244965</a>
+). Without this privilege, it is ignored.</dd> <dd>If set to <var>yes</var>, the page is loaded as window's only content, without any of the browser's interface elements. There will be no context menu defined by default and none of the standard keyboard shortcuts will work. The page is supposed to provide a user interface of its own, usually this feature is used to open XUL documents (standard dialogs like the JavaScript Console are opened this way).</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>modal </dt> <dd>
+<strong>Note</strong>: Starting with Mozilla 1.2.1, this feature requires the <code>UniversalBrowserWrite</code> privilege (
+<a rel="external" href="https://bugzilla.mozilla.org/show_bug.cgi?id=180048" class="external" title="Unable to access bug's page. Try reloading this page to see bug's status and summary in this tooltip.">
+bug 
+180048</a>
+). Without this privilege, it is ignored.</dd> <dd>If set to <var>yes</var>, the new window is said to be modal. The user cannot return to the main window until the modal window is closed. A typical modal window is created by the <a rel="internal" href="window-3.html">alert() function</a>.</dd> <dd>The exact behavior of modal windows depends on the platform and on the Mozilla release version.</dd>
+</dl>
+<p>
+</p>
+<div style="overflow:hidden; margin: 10px 0px; padding: 2px 10px; background-color: rgb(254, 244, 156); text-align: center;">
+<p style="margin: 4px 0px; font-weight: bold;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3 note</a></p>
+<p style="margin: 4px 0px;">The MSIE 6 equivalent to this feature is the <code><a rel="internal" href="window-15.html">showModalDialog()</a></code> method. For compatibility reasons, it is now also supported in Firefox 3.</p>
+</div>
+
+
+<dl>
+<dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>titlebar </dt> <dd>By default, all new secondary windows have a titlebar. If set to <var>no</var>, this feature removes the titlebar from the new secondary window.</dd> <dd>Mozilla and Firefox users can force new windows to always render the titlebar by setting <br><code>dom.disable_window_open_feature.titlebar</code><br> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>alwaysRaised </dt> <dd>If set to <var>yes</var>, the new window will always be displayed on top of other browser windows, regardless of whether it is active or not.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>alwaysLowered </dt> <dd>If set to <var>yes</var>, the new created window floats below, under its own parent when the parent window is not minimized. alwaysLowered windows are often referred as pop-under windows. The alwaysLowered window can not be on top of the parent but the parent window can be minimized. In NS 6.x, the alwaysLowered window has no minimize system command icon and no restore/maximize system command.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<dl>
+<dt>z-lock </dt> <dd>Same as <code>alwaysLowered</code>.</dd>
+</dl>
+<dl>
+<dt>close </dt> <dd>When set to <var>no</var>, this feature removes the system close command icon and system close menu item. It will only work for dialog windows (<code>dialog</code> feature set). <code>close=no</code> will override <code>minimizable=yes</code>.</dd> <dd>Mozilla and Firefox users can force new windows to always have a close button by setting <br><code>dom.disable_window_open_feature.close</code><br> to <var>true</var> in <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#about_config" target="_blank">about:config</a> or in their <a class="external" rel="external nofollow" href="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" title="http://support.mozilla.com/en-US/kb/Editing+configuration+files#user_js" target="_blank">user.js file</a>.</dd> <dd>Supported in: <img class="internal" alt="Netscape 6.x" src="../../_api/deki/files/785/%3dNs6.gif">, <img class="internal" alt="Netscape 7.x" src="../../_api/deki/files/281/%3dNS7_ico4.gif">, <img class="internal" alt="Mozilla 1.x" src="../../_api/deki/files/277/%3dMozilla1_ico.png">, <img class="internal" alt="Firefox 1.x" src="../../_api/deki/files/200/%3dFF1x.png">
+</dd>
+</dl>
+<p>The position and size feature elements require a number to be set. The toolbars and window functionalities can be set with a <var>yes</var> or <var>no</var>; you can use <var>1</var> instead of <var>yes</var> and <var>0</var> instead of <var>no</var>. The toolbar and functionality feature elements also accept the shorthand form: you can turn a feature on by simply listing the feature name in the <var>features</var> string. If you supply the <var>features</var> parameter, then the <code>titlebar</code> and <code>close</code> are still <var>yes</var> by default, but the other features which have a <var>yes</var>/<var>no</var> choice will be <var>no</var> by default and will be turned off.</p>
+<p>Example:</p>
+
+          <pre name="code" class="js">&lt;script type="text/javascript"&gt;
+var windowObjectReference; // global variable
+
+function openRequestedPopup()
+{
+windowObjectReference = 
+window.open("http://www.domainname.ext/path/ImgFile.png",
+   "DescriptiveWindowName",
+   "width=420,height=230,resizable,scrollbars=yes,status=1");
+}
+&lt;/script&gt;</pre>
+        
+<p>In this example, the window will be resizable, it will render scrollbar(s) if needed, if the content overflows requested window dimensions and it will render the status bar. It will not render the menubar nor the location bar. Since the author knew about the size of the image (400 pixels wide and 200 pixels high), he added the margins applied to the root element in MSIE 6 which is 15 pixels for top margin, 15 pixels for the bottom margin, 10 pixels for the left margin and 10 pixels for the right margin.</p>
+</div>
+</div>
+<div id="section_10">
+<span id="Best_practices"></span><h3 class="editable">Best practices</h3>
+
+          <pre name="code" class="js">&lt;script type="text/javascript"&gt;
+var windowObjectReference = null; // global variable
+
+function openFFPromotionPopup()
+{
+  if(windowObjectReference == null || windowObjectReference.closed)
+  /* if the pointer to the window object in memory does not exist
+     or if such pointer exists but the window was closed */
+
+  {
+    windowObjectReference = window.open("http://www.spreadfirefox.com/",
+   "PromoteFirefoxWindowName", "resizable=yes,scrollbars=yes,status=yes");
+    /* then create it. The new window will be created and
+       will be brought on top of any other window. */
+  }
+  else
+  {
+    windowObjectReference.focus();
+    /* else the window reference must exist and the window
+       is not closed; therefore, we can bring it back on top of any other
+       window with the focus() method. There would be no need to re-create
+       the window or to reload the referenced resource. */
+  };
+}
+&lt;/script&gt;
+
+(...)
+
+&lt;p&gt;&lt;a href="http://www.spreadfirefox.com/"
+target="PromoteFirefoxWindowName"
+onclick="openFFPromotionPopup(); return false;" 
+title="This link will create a new window or will re-use 
+an already opened one"&gt;Promote Firefox adoption&lt;/a&gt;&lt;/p&gt;</pre>
+        
+<p>The above code solves a few usability problems related to links opening secondary window. The purpose of the <code>return false</code> in the code is to cancel default action of the link: if the onclick event handler is executed, then there is no need to execute the default action of the link. But if javascript support is disabled or non-existent on the user's browser, then the onclick event handler is ignored and the browser loads the referenced resource in the target frame or window that has the name "PromoteFirefoxWindowName". If no frame nor window has the name "PromoteFirefoxWindowName", then the browser will create a new window and will name it "PromoteFirefoxWindowName".</p>
+<p>More reading on the use of the target attribute:</p>
+<p><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/frames.html#h-16.3.2" title="http://www.w3.org/TR/html401/present/frames.html#h-16.3.2" target="_blank">HTML 4.01 Target attribute specifications</a></p>
+<p><a class="external" rel="external nofollow" href="http://www.htmlhelp.com/faq/html/links.html#new-window" title="http://www.htmlhelp.com/faq/html/links.html#new-window" target="_blank">How do I create a link that opens a new window?</a></p>
+<p>You can also parameterize the function to make it versatile, functional in more situations, therefore re-usable in scripts and webpages:</p>
+
+          <pre name="code" class="js">&lt;script type="text/javascript"&gt;
+ var windowObjectReference = null; // global variable
+
+ function openRequestedPopup(strUrl, strWindowName)
+ {
+  if(windowObjectReference == null || windowObjectReference.closed)
+  {
+    windowObjectReference = window.open(strUrl, strWindowName,
+           "resizable=yes,scrollbars=yes,status=yes");
+  }
+  else
+  {
+    windowObjectReference.focus();
+  };
+ }
+ &lt;/script&gt;
+ (...)
+
+ &lt;p&gt;&lt;a href="http://www.spreadfirefox.com/" target="PromoteFirefoxWindow"
+ onclick="openRequestedPopup(this.href, this.target); return false;"
+ title="This link will create a new window or will re-use 
+ an already opened one"&gt;Promote
+ Firefox adoption&lt;/a&gt;&lt;/p&gt;</pre>
+        
+<p>You can also make such function able to open only 1 secondary window and to reuse such single secondary window for other links in this manner:</p>
+
+          <pre name="code" class="js">&lt;script type="text/javascript"&gt;
+var windowObjectReference = null; // global variable
+var PreviousUrl; /* global variable which will store the
+                    url currently in the secondary window */
+
+function openRequestedSinglePopup(strUrl)
+{
+  if(windowObjectReference == null || windowObjectReference.closed)
+  {
+   windowObjectReference = window.open(strUrl, "SingleSecondaryWindowName",
+         "resizable=yes,scrollbars=yes,status=yes");
+  }
+  else if(PreviousUrl != strUrl)
+  {
+   windowObjectReference = window.open(strUrl, "SingleSecondaryWindowName",
+      "resizable=yes,scrollbars=yes,status=yes");
+    /* if the resource to load is different,
+       then we load it in the already opened secondary window and then
+       we bring such window back on top/in front of its parent window. */
+   windowObjectReference.focus();
+  }
+  else
+  {
+    windowObjectReference.focus();
+  };
+  PreviousUrl = strUrl;
+  /* explanation: we store the current url in order to compare url
+     in the event of another call of this function. */
+}
+&lt;/script&gt;
+
+(...)
+
+&lt;p&gt;&lt;a href="http://www.spreadfirefox.com/"
+target="SingleSecondaryWindowName"
+onclick="openRequestedSinglePopup(this.href); return false;"
+title="This link will create a new window or will re-use 
+an already opened one"&gt;Promote Firefox
+adoption&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.mozilla.org/support/firefox/faq"
+target="SingleSecondaryWindowName"
+onclick="openRequestedSinglePopup(this.href); return false;"
+title="This link will create a new window or will re-use 
+an already opened one"&gt;Firefox FAQ&lt;/a&gt;&lt;/p&gt;</pre>
+        
+</div>
+<div id="section_11">
+<span id="FAQ"></span><h3 class="editable">FAQ</h3>
+<dl>
+<dt>How can I prevent the confirmation message asking the user whether he wants to close the window?</dt> <dd>You can not. <strong>New windows not opened by javascript can not as a rule be closed by JavaScript.</strong> The JavaScript Console in Mozilla-based browsers will report the warning message: <code>"Scripts may not close windows that were not opened by script."</code> Otherwise the history of URLs visited during the browser session would be lost.</dd> <dd>
+<a rel="internal" href="window-62.html">More on the window.close()</a> method</dd>
+</dl>
+<dl>
+<dt>How can I bring back the window if it is minimized or behind another window?</dt> <dd>First check for the existence of the window object reference of such window and if it exists and if it has not been closed, then use the <a rel="internal" href="window-67.html">focus()</a> method. There is no other reliable way. You can examine an <a href="#Best_practices">example explaining how to use the focus() method</a>.</dd>
+</dl>
+<dl>
+<dt>How do I force a maximized window?</dt> <dd>You cannot. All browser manufacturers try to make the opening of new secondary windows noticed by users and noticeable by users to avoid confusion, to avoid disorienting users.</dd>
+</dl>
+<dl>
+<dt>How do I turn off window resizability or remove toolbars?</dt> <dd>You cannot force this. Users with Mozilla-based browsers have absolute control over window functionalities like resizability, scrollability and toolbars presence via user preferences in <code>about:config</code>. Since your users are the ones who are supposed to use such windows (and not you, being the web author), the best is to avoid interfering with their habits and preferences. We recommend to always set the resizability and scrollbars presence (if needed) to yes to insure accessibility to content and usability of windows. This is in the best interests of both the web author and the users.</dd>
+</dl>
+<dl>
+<dt>How do I resize a window to fit its content?</dt> <dd>You can not reliably because the users can prevent the window from being resized by unchecking the</dd>
+</dl>
+<p><code style="white-space: normal;">Edit/Preferences/Advanced/Scripts &amp; Plug-ins/Allow Scripts to/ Move or resize existing windows</code><br>
+checkbox in Mozilla or <br><code style="white-space: normal;">Tools/Options.../Content tab/Enable Javascript/Advanced button/Move or resize existing windows</code><br>
+checkbox in Firefox or by setting <br><code>dom.disable_window_move_resize</code><br>
+to <var>true</var> in the <code>about:config</code> or by editing accordingly their <a class="external" rel="external nofollow" href="http://www.mozilla.org/support/firefox/edit#user" title="http://www.mozilla.org/support/firefox/edit#user" target="_blank">user.js file</a>.</p>
+<dl>
+<dd>In general, users usually disable moving and resizing of existing windows because allowing authors' scripts to do so has been abused overwhelmingly in the past and the rare scripts that do not abuse such feature are often wrong, inaccurate when resizing the window. 99% of all those scripts disable window resizability and disable scrollbars when in fact they should enable both of these features to allow a cautious and sane fallback mechanism if their calculations are wrong.</dd>
+</dl>
+<dl>
+<dd>The window method <a rel="internal" href="window-94.html">sizeToContent()</a> is also disabled if the user unchecks the preference <code>Move or resize existing windows</code> checkbox. Moving and resizing a window remotely on the user's screen via script will very often annoy the users, will disorient the user, and will be wrong at best. The web author expects to have full control of (and can decide about) every position and size aspects of the users' browser window ... which is simply not true.</dd>
+</dl>
+<dl>
+<dt>How do I open a referenced resource of a link in a new tab? or in a specific tab?</dt> <dd>Currently, you can not. Only the user can set his advanced preferences to do that. <a class="external" rel="external nofollow" href="http://kmeleon.sourceforge.net/" title="http://kmeleon.sourceforge.net/" target="_blank">K-meleon 1.1</a>, a Mozilla-based browser, gives complete control and power to the user regarding how links are opened. Some advanced extensions also give Mozilla and Firefox a lot of power over how referenced resources are loaded.</dd>
+</dl>
+<dl>
+<dd>In a few years, the <a class="external" rel="external nofollow" href="http://www.w3.org/TR/2004/WD-css3-hyperlinks-20040224/#target0" title="http://www.w3.org/TR/2004/WD-css3-hyperlinks-20040224/#target0" target="_blank">target property of the CSS3 hyperlink module</a> may be implemented (if CSS3 Hyperlink module as it is right now is approved). And even if and when this happens, you can expect developers of browsers with tab-browsing to give the user entire veto power and full control over how links can open web pages. How to open a link should always be entirely under the control of the user.</dd>
+</dl>
+<dl>
+<dt>How do I know whether a window I opened is still open?</dt> <dd>You can test for the existence of the window object reference which is the returned value in case of success of the window.open() call and then verify that <span style="font-style: italic;">w</span><var>indowObjectReference</var>.closed return value is <var>false</var>.</dd>
+</dl>
+<dl>
+<dt>How can I tell when my window was blocked by a popup blocker?</dt> <dd>With the built-in popup blockers of Mozilla/Firefox and Internet Explorer 6 SP2, you have to check the return value of <code>window.open()</code>: it will be <var>null</var> if the window wasn't allowed to open. However, for most other popup blockers, there is no reliable way.</dd>
+</dl>
+<dl>
+<dt>What is the JavaScript relationship between the main window and the secondary window?</dt> <dd>The return value of the window.open() method and the <a rel="internal" href="window-33.html">opener</a> property. The <span style="font-style: italic;">w</span><var>indowObjectReference</var> links the main (opener) window to the secondary (sub-window) window while the opener keyword will link the secondary window to its main (opener) window.</dd>
+</dl>
+<dl>
+<dt>I can not access the properties of the new secondary window. I always get an error in the javascript console saying "Error: uncaught exception: Permission denied to get property &lt;property_name or method_name&gt;. Why is that?</dt> <dd>It is because of the cross-domain script security restriction (also referred as the "Same Origin Policy"). A script loaded in a window (or frame) from a distinct origin (domain name) <strong>cannot get nor set</strong> properties of another window (or frame) or the properties of any of its HTML objects coming from another distinct origin (domain name). Therefore, before executing a script targeting a secondary window, the browser in the main window will verify that the secondary window has the same domain name.</dd> <dd>More reading on the cross-domain script security restriction: <a class=" external" rel="external nofollow" href="http://www.mozilla.org/projects/security/components/same-origin.html" title="http://www.mozilla.org/projects/security/components/same-origin.html" target="_blank">http://www.mozilla.org/projects/secu...me-origin.html</a>
+</dd>
+</dl>
+</div>
+<div id="section_12">
+<span id="Usability_issues"></span><h3 class="editable">Usability issues</h3>
+<div id="section_13">
+<span id="Avoid_resorting_to_window.open.28.29"></span><span id="Avoid_resorting_to_window.open()"></span><h4 class="editable">Avoid resorting to <code>window.open()</code>
+</h4>
+<p>Generally speaking, it is preferable to avoid resorting to window.open() for several reasons:</p>
+<ul>
+<li>All Mozilla-based browsers offer tab-browsing and this is the preferred mode of opening referenced resources... not just in Mozilla-based browsers but in all other browsers offering tab-browsing. In other words, tab-capable browser users overall prefer opening new tabs than opening new windows in a majority of webpage situations. Tab-capable browsers have rapidly gained support and enthusiasm on internet in the last 3 years; this trend will not revert back. MSIE 7, released in October 2006, has full support for tab browsing.</li>
+</ul>
+<ul>
+<li>There are now <a class="link-https" rel="external nofollow" href="https://addons.mozilla.org/seamonkey/browse/type:1/cat:48/sort:updated" title="https://addons.mozilla.org/seamonkey/browse/type:1/cat:48/sort:updated" target="_blank">several Mozilla extensions</a> (like Multizilla) and <a class="link-https" rel="external nofollow" href="https://addons.update.mozilla.org/firefox/browse/type:1/cat:14/sort:updated" title="https://addons.update.mozilla.org/firefox/browse/type:1/cat:14/sort:updated" target="_blank">Firefox extensions</a> (like <a class="link-https" rel="external nofollow" href="https://addons.mozilla.org/firefox/addon/158" title="https://addons.mozilla.org/firefox/addon/158" target="_blank">Tabbrowser preferences</a>), features, settings and advanced preferences based on tab-browsing and based on converting window.open() calls into opening tabs, based on neutralizing window.open() calls, in particular in neutralizing unrequested openings of new windows (often referred as blocking unrequested popups or as blocking script-initiated windows opening automatically). Such features found in extensions include opening a link in a new window or not, in the same window, in a new tab or not, in "background" or not. Coding carelessly to open new windows can no longer be assured of success, can not succeed by force and, if it does, it will annoy a majority of users.</li>
+</ul>
+<ul>
+<li>New windows can have menubar missing, scrollbars missing, status bar missing, window resizability disabled, etc.; new tabs can not be missing those functionalities or toolbars (or at least, the toolbars which are present by default). Therefore, tab-browsing is preferred by a lot of users because the normal user-interface of the browser window they prefer is kept intact, remains stable.</li>
+</ul>
+<ul>
+<li>Opening new windows, even with reduced features, uses considerably a lot of the user's system resources (cpu, RAM) and involves considerably a lot of coding in the source code (security management, memory management, various code branchings sometimes quite complex, window frame/chrome/toolbars building, window positioning and sizing, etc.). Opening new tabs is less demanding on the user's system resources (and faster to achieve) than opening new windows.</li>
+</ul>
+</div>
+<div id="section_14">
+<span id="Offer_to_open_a_link_in_a_new_window.2C_using_these_guidelines"></span><span id="Offer_to_open_a_link_in_a_new_window.2c_using_these_guidelines"></span><h4 class="editable">Offer to open a link in a new window, using these guidelines</h4>
+<p>If you want to offer to open a link in a new window, then follow tested and recommendable usability and accessibility guidelines:</p>
+<div id="section_15">
+<span id="Never_use_this_form_of_code_for_links:.3Ca_href.3D.22javascript:window.open.28....29.22_....3E"></span><span id="Never_use_this_form_of_code_for_links.3a.0a.3ca_href.3d.22javascript.3awindow.open(...).22_....3e"></span><h5 class="editable">
+<em>Never</em> use this form of code for links:<br><code>&lt;a href="javascript:window.open(...)" ...&gt;</code>
+</h5>
+<p>"javascript:" links break accessibility and usability of webpages in every browser.</p>
+<ul>
+<li>"javascript:" pseudo-links become dysfunctional when javascript support is disabled or inexistent. Several corporations allow their employees to surf on the web but under strict security policies: no javascript enabled, no java, no activeX, no Flash. For various reasons (security, public access, text browsers, etc..), about 5% to 10% of users on the web surf with javascript disabled.</li> <li>"javascript:" links will interfere with advanced features in tab-capable browsers: eg. middle-click on links, Ctrl+click on links, tab-browsing features in extensions, etc.</li> <li>"javascript:" links will interfere with the process of indexing webpages by search engines.</li> <li>"javascript:" links interfere with assistive technologies (e.g. voice browsers) and several web-aware applications (e.g. <abbr title="Personal Digital Assistant">PDAs</abbr> and mobile browsers).</li> <li>"javascript:" links also interfere with "mouse gestures" features implemented in browsers.</li> <li>Protocol scheme "javascript:" will be reported as an error by link validators and link checkers.</li>
+</ul>
+<p><strong>Further reading:</strong></p>
+<ul>
+<li>
+<a class="external" rel="external nofollow" href="http://www.useit.com/alertbox/20021223.html" title="http://www.useit.com/alertbox/20021223.html" target="_blank">Top Ten Web-Design Mistakes of 2002</a>, 6. JavaScript in Links, Jakob Nielsen, December 2002</li> <li>
+<a class="external" rel="external nofollow" href="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/" title="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/" target="_blank">Links &amp; JavaScript Living Together in Harmony</a>, Jeff Howden, February 2002</li> <li><a class="external" rel="external nofollow" href="http://jibbering.com/faq/#FAQ4_24" title="http://jibbering.com/faq/#FAQ4_24" target="_blank">comp.lang.javascript newsgroup discussion FAQ on "javascript:" links</a></li>
+</ul>
+</div>
+<div id="section_16">
+<span id="Never_use_.3Ca_href.3D.22.23.22_onclick.3D.22window.open.28....29.3B.22.3E"></span><span id="Never_use_.3ca_href.3d.22.23.22_onclick.3d.22window.open(...).3b.22.3e"></span><h5 class="editable">Never use <code>&lt;a href="#" onclick="window.open(...);"&gt;</code>
+</h5>
+<p>Such pseudo-link also breaks accessibility of links. <strong>Always use a real URL for the href attribute value</strong> so that if javascript support is disabled or inexistent or if the user agent does not support opening of secondary window (like MS-Web TV, text browsers, etc), then such user agents will still be able to load the referenced resource according to its default mode of opening/handling a referenced resource. This form of code also interferes with advanced features in tab-capable browsers: eg. middle-click on links, Ctrl+click on links, Ctrl+Enter on links, "mouse gestures" features.</p>
+</div>
+<div id="section_17">
+<span id="Always_identify_links_which_will_create_.28or_will_re-use.29_a_new.2C_secondary_window"></span><span id="Always_identify_links_which_will_create_(or_will_re-use)_a_new.2c_secondary_window"></span><h5 class="editable">Always identify links which will create (or will re-use) a new, secondary window</h5>
+<p>Identify links that will open new windows in a way that helps navigation for users by coding the title attribute of the link, by adding an icon at the end of the link or by coding the cursor accordingly.</p>
+<p>The purpose is to warn users in advance of context changes to minimize confusion on the user's part: changing the current window or popping up new windows can be very disorienting to users (Back toolbar button is disabled).</p>
+<blockquote>
+<p>"Users often don't notice that a new window has opened, especially if they are using a small monitor where the windows are maximized to fill up the screen. So a user who tries to return to the origin will be confused by a grayed out <em>Back</em> button."<br>
+quote from <a class="external" rel="external nofollow" href="http://www.useit.com/alertbox/990530.html" title="http://www.useit.com/alertbox/990530.html" target="_blank">The Top Ten <em>New</em> Mistakes of Web Design</a>: 2. Opening New Browser Windows, Jakob Nielsen, May 1999</p>
+</blockquote>
+<p>When extreme changes in context are explicitly identified before they occur, then the users can determine if they wish to proceed or so they can be prepared for the change: not only they will not be confused or feel disoriented, but more experienced users can better decide how to open such links (in a new window or not, in the same window, in a new tab or not, in "background" or not).</p>
+<p><strong>References</strong></p>
+<ul>
+<li>"If your link spawns a new window, or causes another windows to 'pop up' on your display, or move the focus of the system to a new FRAME or Window, then the nice thing to do is to tell the user that something like that will happen." <a class="external" rel="external nofollow" href="http://www.w3.org/WAI/wcag-curric/sam77-0.htm" title="http://www.w3.org/WAI/wcag-curric/sam77-0.htm" target="_blank">World Wide Web Consortium Accessibility Initiative regarding popups</a>
+</li> <li>"Use link titles to provide users with a preview of where each link will take them, before they have clicked on it." <a class="external" rel="external nofollow" href="http://www.useit.com/alertbox/991003.html" title="http://www.useit.com/alertbox/991003.html" target="_blank">Ten Good Deeds in Web Design</a>, Jakob Nielsen, October 1999</li> <li>
+<a class="external" rel="external nofollow" href="http://www.useit.com/alertbox/980111.html" title="http://www.useit.com/alertbox/980111.html" target="_blank">Using Link Titles to Help Users Predict Where They Are Going</a>, Jakob Nielsen, January 1998</li>
+</ul>
+<table summary="First 3 rows: 12 image icons identifying links opening new window; 4th and last row: 2 cursors identifying links opening new window" class="standard-table"><tbody>
+<tr>
+<td colspan="4" class="header">Example "New Window" Icons &amp; Cursors</td> </tr>
+<tr>
+<td style="width: 25%;"><img class="internal" alt="New window icon from yahoo.com" src="../../_api/deki/files/782/%3dNewwindowYahoo.png"></td> <td style="width: 25%;"><img class="internal" alt="New window icon from microsoft.com" src="../../_api/deki/files/780/%3dNewwinMSIE.gif"></td> <td style="width: 25%;"><img class="internal" alt="New window icon from webaim.org" src="../../_api/deki/files/296/%3dPopup_requested_new_window.gif"></td> <td style="width: 25%;"><img class="internal" alt="New window icon from sun.com" src="../../_api/deki/files/811/%3dPopupImageSun.gif"></td> </tr>
+<tr>
+<td><img class="internal" alt="New window icon from bbc.co.uk" src="../../_api/deki/files/795/%3dOpennews_rb.gif"></td> <td><img class="internal" alt="New window icon from Accessible Internet Solutions" src="../../_api/deki/files/15/%3dAIS_NewWindowIcon.png"></td> <td><img class="internal" alt="New window icon from accessify.com" src="../../_api/deki/files/809/%3dPop-up-launcher.gif"></td> <td><img class="internal" alt="New window icon from webstyleguide.com" src="../../_api/deki/files/417/%3dWebstyleguide_com_newwind.gif"></td> </tr>
+<tr>
+<td><img class="internal" alt="New window icon from an unknown source" src="../../_api/deki/files/810/%3dPopicon_1.gif"></td> <td><img class="internal" alt="New window icon from an unknown source" src="../../_api/deki/files/779/%3dNew.gif"></td> <td><img class="internal" alt="New window icon from an unknown source" src="../../_api/deki/files/419/%3dWillCreateOrRecycleNewWindow.gif"></td> <td><img class="internal" alt="New window icon from gtalbot.org" src="../../_api/deki/files/287/%3dOpenRequestedPopup.png"></td> </tr>
+<tr>
+<td colspan="2"><img class="internal" alt="New window cursor from draig.de" src="../../_api/deki/files/169/%3dCursor_LinkNewWindowTargetBlank.png"></td> <td colspan="2"><img class="internal" alt="New window cursor from mithgol.ru" src="../../_api/deki/files/170/%3dCursor_newwindowSergeySokoloff.png"></td> </tr>
+</tbody></table>
+</div>
+<div id="section_18">
+<span id="Always_use_the_target_attribute"></span><h5 class="editable">Always use the target attribute</h5>
+<p>If javascript support is disabled or non-existent, then the user agent will create a secondary window accordingly or will render the referenced resource according to its handling of the target attribute: e.g. some user agents which can not create new windows, like MS Web TV, will fetch the referenced resource and append it at the end of the current document. The goal and the idea is to try to provide - <strong>not impose</strong> - to the user a way to open the referenced resource, a mode of opening the link. Your code should not interfere with the features of the browser at the disposal of the user and your code should not interfere with the final decision resting with the user.</p>
+</div>
+<div id="section_19">
+<span id="Do_not_use_target.3D.22_blank.22"></span><span id="Do_not_use_target.3d.22_blank.22"></span><h5 class="editable">Do not use <code>target="_blank"</code>
+</h5>
+<p>Always provide a meaningful name to your target attribute and try to reuse such target attribute in your page so that a click on another link may load the referenced resource in an already created and rendered window (therefore speeding up the process for the user) and therefore justifying the reason (and user system resources, time spent) for creating a secondary window in the first place. Using a single target attribute value and reusing it in links is much more user resources friendly as it only creates one single secondary window which is recycled. On the other hand, using "_blank" as the target attribute value will create several new and unnamed windows on the user's desktop which can not be recycled, reused. In any case, if your code is well done, it should not interfere with the user's final choice but rather merely offer him more choices, more ways to open links and more power to the tool he's using (a browser).</p>
+</div>
+</div>
+</div>
+<div id="section_20">
+<span id="Glossary"></span><h3 class="editable">Glossary</h3>
+<dl>
+<dt>Opener window, parent window, main window, first window </dt> <dd>Terms often used to describe or to identify the same window. It is the window from which a new window will be created. It is the window on which the user clicked a link which lead to the creation of another, new window.</dd>
+</dl>
+<dl>
+<dt>Sub-window, child window, secondary window, second window </dt> <dd>Terms often used to describe or to identify the same window. It is the new window which was created.</dd>
+</dl>
+<dl>
+<dt>Unrequested popup windows</dt> <dd>Script-initiated windows opening automatically without the user's consent.</dd>
+</dl>
+</div>
+<div id="section_21">
+<span id="Specification"></span><h3 class="editable">Specification</h3>
+<p>DOM Level 0. window.open() is not part of any <abbr title="World Wide Web Consortium">W3C</abbr> specification or technical recommendation.</p>
+</div>
+<div id="section_22">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<div id="section_23">
+<span id="Note_on_precedence"></span><h4 class="editable">Note on precedence</h4>
+<p>In cases where <code>left</code> and <code>screenX</code> (and/or <code>top</code> and <code>screenY</code>) have conflicting values, then <code>left</code> and <code>top</code> have precedence over <code>screenX</code> and <code>screenY</code> respectively. If <code>left</code> and <code>screenX</code> (and/or <code>top</code> and <code>screenY</code>) are defined in the <var>features</var> list, then <code>left</code> (and/or <code>top</code>) will be honored and rendered. In the following example the new window will be positioned at 100 pixels from the left side of the work area for applications of the user's operating system, not at 200 pixels.</p>
+
+          <pre name="code" class="js">&lt;script type="text/javascript"&gt;
+windowObjectReference = window.open("http://news.bbc.co.uk/", 
+       "BBCWorldNewsWindowName", 
+       "left=100,screenX=200,resizable,scrollbars,status");
+&lt;/script&gt;</pre>
+        
+<p>If left is set but top has no value and screenY has a value, then left and screenY will be the coordinate positioning values of the secondary window.</p>
+<p>outerWidth has precedence over width and width has precedence over innerWidth. outerHeight has precedence over height and height has precedence over innerHeight. In the following example, Mozilla-browsers will create a new window with an outerWidth of 600 pixels wide and will ignore the request of a width of 500 pixels and will also ignore the request of an innerWidth of 400 pixels.</p>
+
+          <pre name="code" class="js">&lt;script type="text/javascript"&gt;
+windowObjectReference = window.open("http://www.wwf.org/",
+     "WWildlifeOrgWindowName",
+   "outerWidth=600,width=500,innerWidth=400,resizable,scrollbars,status");
+&lt;/script&gt;</pre>
+        
+</div>
+<div id="section_24">
+<span id="Note_on_position_and_dimension_error_correction"></span><h4 class="editable">Note on position and dimension error correction</h4>
+<p>Requested position and requested dimension values in the <var>features</var> list will not be honored and <strong>will be corrected</strong> if any of such requested value does not allow the entire browser window to be rendered within the work area for applications of the user's operating system. <strong>No part of the new window can be initially positioned offscreen. This is by default in all Mozilla-based browser releases.</strong></p>
+<p><a class="external" rel="external nofollow" href="http://msdn2.microsoft.com/en-us/library/ms997645.aspx#xpsp_topic5" title="http://msdn2.microsoft.com/en-us/library/ms997645.aspx#xpsp_topic5" target="_blank">MSIE 6 SP2 has a similar error correction mechanism</a> but it is not activated by default in all security levels: a security setting can disable such error correction mechanism.</p>
+</div>
+<div id="section_25">
+<span id="Note_on_scrollbars"></span><h4 class="editable">Note on scrollbars</h4>
+<p>When content overflows window viewport dimensions, then scrollbar(s) (or some scrolling mechanism) are necessary to ensure that content can be accessed by users. Content can overflow window dimensions for several reasons which are outside the control of web authors:</p>
+<ul>
+<li>user resizes the window</li> <li>user increases the text size of fonts via View/Text Zoom (%) menuitem in Mozilla or View/Text Size/Increase or Decrease in Firefox</li> <li>user sets a minimum font size for pages which is bigger than the font-size the web author requested. People over 40 years old or with particular viewing habit or reading preference often set a minimal font size in Mozilla-based browsers.</li> <li>web author is not aware of default margin (and/or border and/or padding) values applying to root element or body node in various browsers and various browser versions</li> <li>user uses an user stylesheet (<a class="external" rel="external nofollow" href="http://www.mozilla.org/support/firefox/edit#content" title="http://www.mozilla.org/support/firefox/edit#content" target="_blank">userContent.css in Mozilla-based browsers</a>) for his viewing habits which increases document box dimensions (margin, padding, default font size)</li> <li>user can customize individually the size (height or width) of most toolbars via operating system settings. E.g. window resizing borders, height of browser titlebar, menubar, scrollbars, font size are entirely customizable by the user in Windows XP operating system. These toolbars dimensions can also be set via browser themes and skins or by operating system themes</li> <li>web author is unaware that the user default browser window has custom toolbar(s) for specific purpose(s); e.g.: prefs bar, web developer bar, accessibility toolbar, popup blocking and search toolbar, multi-feature toolbar, etc.</li> <li>user uses assistive technologies or add-on features which modify the operating system's work area for applications: e.g. MS-Magnifier</li> <li>user repositions and/or resizes directly or indirectly the operating system's work area for applications: e.g. user resizes the Windows taskbar, user positions the Windows taskbar on the left side (arabic language based) or right side (Hebrew language), user has a permanent MS-Office quick launch toolbar, etc.</li> <li>some operating system (Mac OS X) forces presence of toolbars which can then fool the web author's anticipations, calculations of the effective dimensions of the browser window</li>
+</ul>
+</div>
+<div id="section_26">
+<span id="Note_on_status_bar"></span><h4 class="editable">Note on status bar</h4>
+<p>You should assume that a large majority of users' browsers will have the status bar or that a large majority of users will want to force the status bar presence: best is to always set this feature to yes. Also, if you specifically request to remove the status bar, then Firefox users will not be able to view the Site Navigation toolbar if it is installed. In Mozilla and in Firefox, all windows with a status bar have a window resizing grippy at its right-most side. The status bar also provides info on http connection, hypertext resource location, download progress bar, encryption/secure connection info with <abbr title="Secure Socket Layer">SSL</abbr> connection (displaying a yellow padlock icon), internet/security zone icons, privacy policy/cookie icon, etc. <strong>Removing the status bar usually removes a lot of functionality, features and information considered useful (and sometimes vital) by the users.</strong></p>
+</div>
+<div id="section_27">
+<span id="Note_on_security_issues_of_the_status_bar_presence"></span><h4 class="editable">Note on security issues of the status bar presence</h4>
+<p>In MSIE 6 for XP SP2: For windows opened using window.open():</p>
+<blockquote>
+<p>"For windows opened using window.open():<br>
+Expect the status bar to be present, and code for it. <strong>The status bar will be on by default</strong> and is 20-25 pixels in height. (...)"<br>
+quote from <a class="external" rel="external nofollow" href="http://msdn2.microsoft.com/en-us/library/ms997645.aspx#xpsp_topic5" title="http://msdn2.microsoft.com/en-us/library/ms997645.aspx#xpsp_topic5" target="_blank">Fine-Tune Your Web Site for Windows XP Service Pack 2, Browser Window Restrictions in XP SP2</a></p>
+</blockquote> <blockquote>
+<p>"(...) windows that are created using the window.open() method can be called by scripts and used to spoof a user interface or desktop or to hide malicious information or activity by sizing the window so that the status bar is not visible.<br>
+Internet Explorer windows provide visible security information to the user to help them ascertain the source of the Web page and the security of the communication with that page. When these elements are not in view, the user might think they are on a more trusted page or interacting with a system process when they are actually interacting with a malicious host. (...)<br><strong>Script-initiated windows will be displayed fully, with the Internet Explorer title bar and status bar.</strong> (...)<br>
+Script management of Internet Explorer status bar<br>
+Detailed description<br><strong>Internet Explorer has been modified to not turn off the status bar for any windows. The status bar is always visible for all Internet Explorer windows.</strong> (...) Without this change, windows that are created using the window.open() method can be called by scripts and spoof a user interface or desktop or hide malicious information or activity by hiding important elements of the user interface from the user.<br>
+The status bar is a security feature of Internet Explorer windows that provides Internet Explorer security zone information to the user. This zone cannot be spoofed (...)"<br>
+quote from <a class="external" rel="external nofollow" href="http://technet.microsoft.com/en-us/library/bb457150.aspx#ECAA" title="http://technet.microsoft.com/en-us/library/bb457150.aspx#ECAA" target="_blank">Changes to Functionality in Microsoft Windows XP Service Pack 2, Internet Explorer Window Restrictions</a></p>
+</blockquote>
+</div>
+<div id="section_28">
+<span id="Note_on_fullscreen"></span><h4 class="editable">Note on fullscreen</h4>
+<p>In MSIE 6 for XP SP2:</p>
+<ul>
+<li>"window.open() with fullscreen=yes will now result in a maximized window, not a kiosk mode window."</li>
+</ul>
+<ul>
+<li>"The definition of the fullscreen=yes specification is changed to mean 'show the window as maximized,' which will keep the title bar, address bar, and status bar visible."</li>
+</ul>
+<p><em>References:</em></p>
+<ul>
+<li><a class="external" rel="external nofollow" href="http://msdn2.microsoft.com/en-us/library/ms997645.aspx#xpsp_topic5" title="http://msdn2.microsoft.com/en-us/library/ms997645.aspx#xpsp_topic5" target="_blank">Fine-Tune Your Web Site for Windows XP Service Pack 2</a></li>
+</ul>
+<ul>
+<li><a class="external" rel="external nofollow" href="http://technet.microsoft.com/en-us/library/bb457150.aspx#ECAA" title="http://technet.microsoft.com/en-us/library/bb457150.aspx#ECAA" target="_blank">Changes to Functionality in Microsoft Windows XP Service Pack 2, Script sizing of Internet Explorer windows</a></li>
+</ul>
+</div>
+<div id="section_29">
+<span id="Note_on_outerHeight_versus_height"></span><h4 class="editable">Note on outerHeight versus height</h4>
+<p><img class="internal" alt="innerHeight vs outerHeight illustration" src="../../_api/deki/files/212/%3dFirefoxInnerVsOuterHeight.png"></p>
+</div>
+</div>
+<div id="section_30">
+<span id="Tutorials"></span><h3 class="editable">Tutorials</h3>
+<p><a class="external" rel="external nofollow" href="http://www.infimum.dk/HTML/JSwindows.html" title="http://www.infimum.dk/HTML/JSwindows.html" target="_blank">JavaScript windows (tutorial)</a> by Lasse Reichstein Nielsen</p>
+<p><a title="http://accessify.com/features/tutorials/the-perfect-popup/" class="external" rel="external nofollow" href="http://accessify.com/features/tutorials/the-perfect-popup/" target="_blank">The perfect pop-up (tutorial)</a> by Ian Lloyd</p>
+<p><a class="external" rel="external nofollow" href="http://www.gtalbot.org/FirefoxSection/Popup/PopupAndFirefox.html" title="http://www.gtalbot.org/FirefoxSection/Popup/PopupAndFirefox.html" target="_blank">Popup windows and Firefox (interactive demos)</a> by Gérard Talbot</p>
+</div>
+<div id="section_31">
+<span id="References"></span><h3 class="editable">References</h3>
+<p><a class="external" rel="external nofollow" href="http://www.cs.tut.fi/~jkorpela/www/links.html" title="http://www.cs.tut.fi/~jkorpela/www/links.html" target="_blank">Links Want To Be Links</a> by Jukka K. Korpela</p>
+<p><a class="external" rel="external nofollow" href="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/" title="http://www.evolt.org/article/Links_and_JavaScript_Living_Together_in_Harmony/17/20938/" target="_blank">Links &amp; JavaScript Living Together in Harmony</a> by Jeff Howden</p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="window-77.html">https://developer.mozilla.org/en/DOM/window.open</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/window.open by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:41 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

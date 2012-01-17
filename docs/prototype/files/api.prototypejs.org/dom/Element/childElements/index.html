@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/childElements/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:23 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.childElements</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Element.childElements
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.childElements(element) &rarr; [<a href="../index.html" title="Element (class)">Element</a>…]</code></pre>
+
+
+      <p>Collects all of the element's children and returns them as an array of
+Element.extended elements, in document order. The first
+entry in the array is the topmost child of <code>element</code>, the next is the
+child after that, etc.</p>
+
+<p>Like all of Prototype's DOM traversal methods, <code><a href="index.html" title="Element.childElements (class method)">Element.childElements</a></code>
+ignores text nodes and returns element nodes only.</p>
+
+<h5>Example</h5>
+
+<p>Assuming:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;australopithecus&quot;</span><span class="nt">&gt;</span>
+  Some text in a text node
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;homo-erectus&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;homo-neanderthalensis&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;homo-sapiens&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>Then:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;australopithecus&#39;</span><span class="p">).</span><span class="nx">childElements</span><span class="p">();</span>
+<span class="c1">// -&gt; [div#homo-erectus]</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;homo-erectus&#39;</span><span class="p">).</span><span class="nx">childElements</span><span class="p">();</span>
+<span class="c1">// -&gt; [div#homo-neanderthalensis, div#homo-sapiens]</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;homo-sapiens&#39;</span><span class="p">).</span><span class="nx">childElements</span><span class="p">();</span>
+<span class="c1">// -&gt; []</span>
+</pre>
+</div>
+
+      
+        <p class="alias aliases">Aliased as: <code><a href="../immediateDescendants/index.html" title="Element.immediateDescendants (class method)">Element.immediateDescendants</a></code></p>
+
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/childElements/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/childElements/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:23 GMT -->
+</html>

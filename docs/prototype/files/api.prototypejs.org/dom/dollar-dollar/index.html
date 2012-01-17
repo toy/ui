@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/dollar-dollar/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:19 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | $$</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">utility</span> $$
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">$$(cssRule...) &rarr; [<a href="../Element/index.html" title="Element (class)">Element</a>…]</code></pre>
+
+
+      <p>Takes an arbitrary number of CSS selectors (strings) and returns a document-order
+array of extended DOM elements that match any of them.</p>
+
+<p>Sometimes the usual tools from your DOM arsenal -- <code>document.getElementById</code> encapsulated
+by <code><a href="../dollar/index.html" title="$ (utility)">$</a></code>, <code>getElementsByTagName</code> and even Prototype's very own <code>getElementsByClassName</code>
+extensions -- just aren't enough to quickly find elements or collections of elements.
+If you know the DOM tree structure, you can simply resort to CSS selectors to get
+the job done.</p>
+
+<h5>Quick examples</h5>
+
+<div class="highlight"><pre><span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all DIVs in the document. Same as document.getElementsByTagName(&#39;div&#39;).</span>
+<span class="c1">// Nice addition, the elements you&#39;re getting back are already extended!</span>
+ <span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;#contents&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; same as $(&#39;contents&#39;), only it returns an array anyway (even though IDs must</span>
+<span class="c1">// be unique within a document).</span>
+ <span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;li.faux&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all LI elements with class &#39;faux&#39;</span>
+</pre>
+</div>
+
+
+<p>The <code><a href="index.html" title="$$ (utility)">$$</a></code> function searches the entire document. For selector queries on more specific
+sections of a document, use <code><a href="../Element/select/index.html" title="Element.select (class method)">Element.select</a></code>.</p>
+
+<h5>Supported CSS syntax</h5>
+
+<p>The <code><a href="index.html" title="$$ (utility)">$$</a></code> function does not rely on the browser's internal CSS parsing capabilities
+(otherwise, we'd be in cross-browser trouble...), and therefore offers a consistent
+set of selectors across all supported browsers.</p>
+
+<h6>Supported in v1.5.0</h6>
+
+<ul>
+<li>Type selector: tag names, as in <code>div</code>.</li>
+<li>Descendant selector: the space(s) between other selectors, as in <code>#a li</code>.</li>
+<li>Attribute selectors: the full CSS 2.1 set of <code>[attr]</code>, <code>[attr=value]</code>, <code>[attr~=value]</code>
+and <code>[attr|=value]</code>. It also supports <code>[attr!=value]</code>. If the value you're matching
+against includes a space, be sure to enclose the value in quotation marks (<code>[title="Hello World!"]</code>).</li>
+<li>Class selector: CSS class names, as in <code>.highlighted</code> or <code>.example.wrong</code>.</li>
+<li>ID selector: as in <code>#item1</code>.</li>
+</ul>
+
+
+<h6>Supported from v1.5.1</h6>
+
+<p>Virtually all of <a href="http://www.w3.org/TR/2001/CR-css3-selectors-20011113/#selectors">CSS3</a>
+is supported, with the exception of pseudo-elements (like <code>::first-letter</code>) and some
+pseudo-classes (like <code>:hover</code>). Some examples of new selectors that can be used in 1.5.1:</p>
+
+<ul>
+<li>Child selector: selects immediate descendants, as in <code>#a &gt; li</code>.</li>
+<li>Attribute selectors: all attribute operators are supported, including <code>~=</code> (matches
+part of a space-delimited attribute value, like <code>rel</code> or <code>class</code>); <code>^=</code> (matches the
+beginning of a value); <code>$=</code> (matches the end of a value); and <code>*=</code> (matches any part
+of the value).</li>
+<li>The <code>:not</code> pseudo-class, as in <code>#a *:not(li)</code> (matches all descendants of <code>#a</code> that
+aren't LIs).</li>
+<li>All the <code>:nth</code>, <code>:first</code>, and <code>:last</code> pseudo-classes. Examples include <code>tr:nth-child(even)</code>
+(all even table rows), <code>li:first-child</code> (the first item in any list), or <code>p:nth-last-of-type(3)</code>
+(the third-to-last paragraph on the page).</li>
+<li>The <code>:empty</code> pseudo-class (for selecting elements without children or text content).</li>
+<li>The <code>:enabled</code>, <code>:disabled</code>, and <code>:checked</code> pseudo-classes (for use with form controls).</li>
+</ul>
+
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;#contents a[rel]&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all links inside the element of ID &quot;contents&quot; with a rel attribute</span>
+ <span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;a[href=&quot;#&quot;]&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all links with a href attribute of value &quot;#&quot; (eyeew!)</span>
+ <span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;#navbar a&#39;</span><span class="p">,</span> <span class="s1">&#39;#sidebar a&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all links within the elements of ID &quot;navbar&quot; or &quot;sidebar&quot;</span>
+</pre>
+</div>
+
+
+<p><strong>With version 1.5.1 and above</strong> you can do various types of advanced selectors:</p>
+
+<div class="highlight"><pre><span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;a:not([rel~=nofollow])&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all links, excluding those whose rel attribute contains the word &quot;nofollow&quot;</span>
+ <span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;table tbody &gt; tr:nth-child(even)&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all even rows within all table bodies</span>
+ <span class="nx">$$</span><span class="p">(</span><span class="s1">&#39;div:empty&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; all DIVs without content (i.e., whitespace-only)</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/dollar-dollar/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:19 GMT -->
+</html>

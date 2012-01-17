@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/update/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:02 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#update</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#update
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#update([newContent]) &rarr; <a href="../../index.html" title="Element (class)">Element</a></code></pre>
+
+
+      <p>Replaces <em>the content</em> of <code>element</code> with the <code>newContent</code> argument and
+returns <code>element</code>.</p>
+
+<p><code>newContent</code> may be in any of these forms:
+- <code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>: A string of HTML to be parsed and rendered
+- <code><a href="../../index.html" title="Element (class)">Element</a></code>: An Element instance to insert
+- ...any object with a <code>toElement</code> method: The method is called and the resulting element used
+- ...any object with a <code>toHTML</code> method: The method is called and the resulting HTML string
+  is parsed and rendered</p>
+
+<p>If <code>newContent</code> is omitted, the element's content is blanked out (i.e.,
+replaced with an empty string).</p>
+
+<p>If <code>newContent</code> is a string and contains one or more inline <code>&lt;script&gt;</code>
+tags, the scripts are scheduled to be evaluated after a very brief pause
+(using <code><a href="../../../../language/Function/prototype/defer/index.html" title="Function#defer (instance method)">Function#defer</a></code>) to allow the browser to finish updating the
+DOM. Note that the scripts are evaluated in the scope of
+<code><a href="../../../../language/String/prototype/evalScripts/index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code>, not in the global scope, which has important
+ramifications for your <code>var</code>s and <code>function</code>s.
+See <code><a href="../../../../language/String/prototype/evalScripts/index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code> for details.</p>
+
+<p>Note that this method allows seamless content update of table related
+elements in Internet Explorer 6 and beyond.</p>
+
+<p>Any nodes replaced with <code>Element.update</code> will first have event
+listeners unregistered and storage keys removed. This frees up memory
+and prevents leaks in certain versions of Internet Explorer. (See
+<code><a href="../../purge/index.html" title="Element.purge (class method)">Element.purge</a></code>).</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;fruits&quot;</span><span class="nt">&gt;</span>carrot, eggplant and cucumber<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>Passing a regular string:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;kiwi, banana and apple&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; Element</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;kiwi, banana and apple&#39;</span>
+</pre>
+</div>
+
+
+<p>Clearing the element's content:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">();</span>
+<span class="c1">// -&gt; Element</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;&#39; (an empty string)</span>
+</pre>
+</div>
+
+
+<p>And now inserting an HTML snippet:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Kiwi, banana &lt;em&gt;and&lt;/em&gt; apple.&lt;/p&gt;&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; Element</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;&lt;p&gt;Kiwi, banana &lt;em&gt;and&lt;/em&gt; apple.&lt;/p&gt;&#39;</span>
+</pre>
+</div>
+
+
+<p>... with a <code>&lt;script&gt;</code> tag thrown in:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;Kiwi, banana &lt;em&gt;and&lt;/em&gt; apple.&lt;/p&gt;&lt;script&gt;alert(&quot;updated!&quot;)&lt;/script&gt;&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; Element (and prints &quot;updated!&quot; in an alert dialog).</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;&lt;p&gt;Kiwi, banana &lt;em&gt;and&lt;/em&gt; apple.&lt;/p&gt;&#39;</span>
+</pre>
+</div>
+
+
+<p>Relying on the <code>toString()</code> method:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="c1">// -&gt; Element</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;123&#39;</span>
+</pre>
+</div>
+
+
+<p>Finally, you can do some pretty funky stuff by defining your own
+<code>toString()</code> method on your custom objects:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">Fruit</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fruit</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">fruit</span> <span class="o">=</span> <span class="nx">fruit</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">toString</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s1">&#39;I am a fruit and my name is &quot;&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">fruit</span> <span class="o">+</span> <span class="s1">&#39;&quot;.&#39;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+<span class="kd">var</span> <span class="nx">apple</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fruit</span><span class="p">(</span><span class="s1">&#39;apple&#39;</span><span class="p">);</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">apple</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;I am a fruit and my name is &quot;apple&quot;.&#39;</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../update/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/update/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:02 GMT -->
+</html>

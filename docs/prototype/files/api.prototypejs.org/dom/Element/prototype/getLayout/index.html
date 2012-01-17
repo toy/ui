@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/getLayout/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:09 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#getLayout</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#getLayout
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#getLayout([preCompute = false]) &rarr; <a href="../../Layout/index.html" title="Element.Layout (class)">Element.Layout</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">element</code>
+          <span class="argument-types">(<code><a href="../../index.html" title="Element (class)">Element</a></code>)</span>
+         &ndash; The element to be measured.
+      </li>
+      <li>
+        <code class="argument-name">preCompute</code>
+          <span class="argument-types">(<code>Boolean</code>)</span>
+         &ndash; Whether to compute all values at once. Default is <code>false</code>.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Returns an instance of <code><a href="../../Layout/index.html" title="Element.Layout (class)">Element.Layout</a></code> for measuring an element's
+dimensions.</p>
+
+<p>Note that this method returns a <em>new</em> <code>Element.Layout</code> object each time
+it's called. If you want to take advantage of measurement caching,
+retain a reference to one <code>Element.Layout</code> object, rather than calling
+<code>Element.getLayout</code> whenever you need a measurement. You should call
+<code>Element.getLayout</code> again only when the values in an existing
+<code>Element.Layout</code> object have become outdated.</p>
+
+<p>Remember that instances of <code>Element.Layout</code> compute values the first
+time they're asked for and remember those values for later retrieval.
+If you want to compute all an element's measurements at once, pass</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">layout</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;troz&#39;</span><span class="p">).</span><span class="nx">getLayout</span><span class="p">();</span>
+ <span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">);</span>  <span class="c1">//-&gt; 150</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 500</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;padding-left&#39;</span><span class="p">);</span>  <span class="c1">//-&gt; 10</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;margin-left&#39;</span><span class="p">);</span>   <span class="c1">//-&gt; 25</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;border-top&#39;</span><span class="p">);</span>    <span class="c1">//-&gt; 5</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;border-bottom&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 5</span>
+ <span class="c1">// Won&#39;t re-compute width; remembers value from first time.</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">);</span>  <span class="c1">//-&gt; 150</span>
+ <span class="c1">// Composite values obtained by adding together other properties;</span>
+<span class="c1">// will re-use any values we&#39;ve already looked up above.</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;padding-box-width&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 170</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;border-box-height&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 510</span>
+</pre>
+</div>
+
+
+<h5>Caveats</h5>
+
+<ul>
+<li>Instances of <code>Element.Layout</code> can measure the dimensions of an
+element hidden with CSS (<code>display: none</code>), but <em>only</em> if its parent
+element is visible.</li>
+</ul>
+
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../getLayout/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/getLayout/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:09 GMT -->
+</html>

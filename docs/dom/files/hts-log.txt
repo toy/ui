@@ -1,0 +1,26 @@
+HTTrack3.43-9 launched on Fri, 17 Dec 2010 14:58:16 at https://developer.mozilla.org/en/Gecko_DOM_Reference -* +https://developer.mozilla.org/en/Gecko_DOM_Reference* +https://developer.mozilla.org/skins/* +https://developer.mozilla.org/en/DOM/* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur
+(httrack https://developer.mozilla.org/en/Gecko_DOM_Reference -* +https://developer.mozilla.org/en/Gecko_DOM_Reference* +https://developer.mozilla.org/skins/* +https://developer.mozilla.org/en/DOM/* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0 -s0 )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/aifc-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/mpeg-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/smd-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/images/icons/tiff-16.gif (from https://developer.mozilla.org/skins/common/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/bg-sidebar.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/icons-sections.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/tip-bg.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/icons/comment_edit.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+15:15:21	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/img/icons/comment_delete.png (from https://developer.mozilla.org/skins/mdn/Transitional/css.php)
+15:15:22	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/img/tip-bg.png (from https://developer.mozilla.org/skins/mdn/_editor.css)
+15:15:22	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/Transitional/img/bullet.png (from https://developer.mozilla.org/skins/mdn/Transitional/_content.css)
+15:15:22	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/mdn/Transitional/Transitional/img/bullet-sub.png (from https://developer.mozilla.org/skins/mdn/Transitional/_content.css)
+15:15:22	Error: 	"Not Found" (404) at link https://developer.mozilla.org/skins/common/img/toc-bg.png (from https://developer.mozilla.org/skins/common/custom_css.php)
+15:17:54	Warning: 	file not stored in cache due to bogus state (incomplete type): pagead2.googlesyndication.com/pagead/show_ads.js
+15:18:00	Warning: 	File has moved from https://developer.mozilla.org/en/DOM/textContent to https://developer.mozilla.org/
+
+HTTrack Website Copier/3.43-9 mirror complete in 19 minutes 44 seconds : 888 links scanned, 872 files written (18154411 bytes overall) [6306148 bytes received at 5326 bytes/sec], 17360221 bytes transfered using HTTP compression in 707 files, ratio 28%, 48.7 requests per connection
+(13 errors, 2 warnings, 0 messages)

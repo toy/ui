@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/HTMLMediaElement by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:46 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>HTMLMediaElement - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=61015">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=61015">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 61015;
+Deki.PageTitle = 'en/DOM/HTMLMediaElement';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMHTMLMediaElement" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">HTMLMediaElement</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#HTML.c2.a0Media_Element" rel="internal">HTML Media Element</a>
+</li>
+<li>
+<span>2.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>3.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 1.9.1</p>
+
+(Firefox 3.5 / Thunderbird 3 / SeaMonkey 2)
+</div>
+</span> </p>
+<div id="section_1">
+<span id="HTML.c2.a0Media_Element"></span><h2 class="editable">HTML Media Element</h2>
+<p>DOM media elements (such as <a rel="internal" href="HTMLAudioElement.html">audio</a> and <a rel="internal" href="HTMLVideoElement.html" class="new ">video</a>) expose the <a class=" external" title="http://www.w3.org/TR/html5/video.html#htmlmediaelement" rel="external nofollow" href="http://www.w3.org/TR/html5/video.html#htmlmediaelement" target="_blank">HTMLMediaElement</a> interface which provides special properties and methods (beyond the regular <a rel="internal" href="element.html">element</a> object interface they also have available to them by inheritance) for manipulating the layout and presentation of media elements.</p>
+</div>
+<div id="section_2">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<table class="standard-table">
+<thead><tr>
+<th scope="col">Name</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr></thead>
+<tbody>
+<tr>
+<td><code>autoplay</code></td> <td><code>Boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/video#attr-autoplay">autoplay</a></code>
+ HTML attribute, indicating whether to begin playing as soon as enough media is available.</td> </tr>
+<tr>
+<td>
+<code>buffered</code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</td> <td><code><a rel="internal" href="TimeRanges.html">TimeRanges</a></code></td> <td>The ranges of the media source that the browser has buffered, if any.</td> </tr>
+<tr>
+<td><code>controls</code></td> <td><code>Boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/video#attr-controls">controls</a></code>
+ HTML attribute, indicating whether user interface items for controlling the resource should be displayed.</td> </tr>
+<tr>
+<td><code>currentSrc</code></td> <td><code>readonly <a rel="internal" href="DOMString.html">DOMString</a></code></td> <td>The absolute URL of the chosen media resource (if, for example, the server selects a media file based on the resolution of the user's display), or an empty string if the <code>networkState</code> is <code>EMPTY</code>.</td> </tr>
+<tr>
+<td><code>currentTime</code></td> <td><code>float</code></td> <td>The current playback time, in seconds.  Setting this value seeks the media to the new time.</td> </tr>
+<tr>
+<td><code>defaultPlaybackRate</code></td> <td><code>float</code></td> <td>The default playback rate for the media.  The Ogg backend does not support this.  1.0 is "normal speed," values lower than 1.0 make the media play slower than normal, higher values make it play faster.  The value 0.0 is invalid and throws a <code>NOT_SUPPORTED_ERR</code> exception.</td> </tr>
+<tr>
+<td><code>duration</code></td> <td><code>readonly float</code></td> <td>The length of the media in seconds, or zero if no media data is available.  If the media data is available but the length is unknown, this value is <code>NaN</code>.  If the media is streamed and has no predefined length, the value is <code>Inf</code>.</td> </tr>
+<tr>
+<td><code>ended</code></td> <td><code>readonly Boolean</code></td> <td>Indicates whether the media element has ended playback.</td> </tr>
+<tr>
+<td><code>error</code></td> <td><code>readonly MediaError</code></td> <td>The media error object for the most recent error, or null if there has not been an error.</td> </tr>
+<tr>
+<td><code>loop</code></td> <td><code>Boolean</code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/video#attr-loop">loop</a></code>
+ HTML attribute, indicating whether the media element should start over when it reaches the end.</td> </tr>
+<tr>
+<td><code>mozChannels</code></td> <td><code>readonly long<br></code></td> <td>The number of channels in the audio resource (e.g., 2 for stereo). <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> </tr>
+<tr>
+<td><code>mozFrameBufferLength</code></td> <td><code>readonly long</code></td> <td>Indicates the number of samples that will be returned in the framebuffer of each <strong>MozAudioAvailable</strong> event. This number is a total for all channels, and by default is set to be the number of channels * 1024 (e.g., 2 channels * 1024 samples = 2048 total).<span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> </tr>
+<tr>
+<td><code>mozFrameBufferLength</code></td> <td><code>long<br></code></td> <td>The <strong>mozFrameBufferLength</strong> property can be set to a new value, for lower latency, or larger amounts of data, etc. The size given <em>must</em> be a number between 512 and 16384. Using any other size results in an exception being thrown. The best time to set a new length is after the <strong>loadedmetadata</strong> event fires, when the audio info is known, but before the audio has started or <strong>MozAudioAvailable</strong> events have begun firing.<span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> </tr>
+<tr>
+<td><code>mozSampleRate</code></td> <td><code>readonly long</code></td> <td>The number of samples per second that will be played, for example 44100. <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> </tr>
+<tr>
+<td><code>muted</code></td> <td><code>Boolean</code></td> <td>True if the audio is muted, and false otherwise.</td> </tr>
+<tr>
+<td><code>networkState</code></td> <td><code>unsigned short</code></td> <td> <p>The current state of fetching the media over the network.</p> <table class="standard-table"><tbody>
+<tr>
+<td class="header">Constant</td> <td class="header">Value</td> <td class="header">Description</td> </tr>
+<tr>
+<td><code>EMPTY</code></td> <td>0</td> <td>There is no data yet.  The <code>readyState</code> is also <code>HAVE_NOTHING</code>.</td> </tr>
+<tr>
+<td><code>LOADING</code></td> <td>1</td> <td>The media is loading.</td> </tr>
+<tr>
+<td><code>LOADED_METADATA</code></td> <td>2</td> <td>The media's metadata has been loaded.</td> </tr>
+<tr>
+<td><code>LOADED_FIRST_FRAME</code></td> <td>3</td> <td>The media's first frame has been loaded.</td> </tr>
+<tr>
+<td><code>LOADED</code></td> <td>4</td> <td>The media has been fully loaded.</td> </tr>
+</tbody></table>
+</td> </tr>
+<tr>
+<td><code>paused</code></td> <td><code>Boolean</code></td> <td>Indicates whether the media element is paused.</td> </tr>
+<tr>
+<td><code>playbackRate</code></td> <td><code>float</code></td> <td>The current rate at which the media is being played back. This is used to implement user controls for fast forward, slow motion, and so forth. The normal playback rate is multiplied by this value to obtain the current rate, so a value of 1.0 indicates normal speed.  Not supported by the Ogg backend.</td> </tr>
+<tr>
+<td><code>played</code></td> <td><code>readonly <a rel="internal" href="TimeRanges.html">TimeRanges</a></code></td> <td>The ranges of the media source that the browser has played, if any.</td> </tr>
+<tr>
+<td><code>preload 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span></code></td> <td><code><a rel="internal" href="DOMString.html">DOMString</a></code></td> <td>Reflects the {{htmlattrxref("preload", "video") HTML attribute, indicating what data should be preloaded at page-load time, if any.</td> </tr>
+<tr>
+<td><code>readyState</code></td> <td><code>readonly unsigned short</code></td> <td> <p>The readiness state of the media:</p> <table class="standard-table"><tbody>
+<tr>
+<td class="header">Constant</td> <td class="header">Value</td> <td class="header">Description</td> </tr>
+<tr>
+<td><code>HAVE_NOTHING</code></td> <td>0</td> <td>No information is available about the media resource.</td> </tr>
+<tr>
+<td><code>HAVE_METADATA</code></td> <td>1</td> <td>Enough of the media resource has been retrieved that the metadata attributes are initialized.  Seeking will no longer raise an exception.</td> </tr>
+<tr>
+<td><code>HAVE_CURRENT_DATA</code></td> <td>2</td> <td>Data is available for the current playback position, but not enough to actually play more than one frame.</td> </tr>
+<tr>
+<td><code>HAVE_FUTURE_DATA</code></td> <td>3</td> <td>Data for the current playback position as well as for at least a little bit of time into the future is available (in other words, at least two frames of video, for example).</td> </tr>
+<tr>
+<td><code>HAVE_ENOUGH_DATA</code></td> <td>4</td> <td>Enough data is available—and the download rate is high enough—that the media can be played through to the end without interruption.</td> </tr>
+</tbody></table>
+</td> </tr>
+<tr>
+<td><code>seekable</code></td> <td><code>readonly <a rel="internal" href="TimeRanges.html">TimeRanges</a></code></td> <td>The time ranges that the user is able to seek to, if any.</td> </tr>
+<tr>
+<td><code>seeking</code></td> <td><code>readonly Boolean</code></td> <td>Indicates whether the media is in the process of seeking to a new position.</td> </tr>
+<tr>
+<td><code>src</code></td> <td><code><a rel="internal" href="DOMString.html">DOMString</a></code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/video#attr-src">src</a></code>
+ HTML attribute, containing the URL of a media resource to use.</td> </tr>
+<tr>
+<td><code>startTime</code></td> <td><code>readonly float</code></td> <td>The earliest possible position in the media, in seconds.</td> </tr>
+<tr>
+<td><code>volume</code></td> <td><code>float</code></td> <td>The audio volume, from 0.0 (silent) to 1.0 (loudest).</td> </tr>
+</tbody>
+</table>
+<p> </p>
+</div>
+<div id="section_3">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<table class="standard-table">
+<thead><tr>
+<th scope="col">Name &amp; Arguments</th> <th scope="col">Return</th> <th scope="col">Description</th> </tr></thead>
+<tbody>
+<tr>
+<td><code>canPlayType(in <a rel="internal" href="DOMString.html">DOMString</a> type)<br></code></td> <td> <p><code><a rel="internal" href="DOMString.html">DOMString</a><br></code></p> <ul>
+<li>
+<code>probably</code>: if the specified type appears to be playable.</li> <li>
+<code>maybe</code>: if it's impossible to tell whether the type is playable without playing it.</li> <li>The <em>empty string</em>: if the specified type definitely cannot be played.</li> </ul>
+</td> <td>Determines whether the specified media type can be played back.</td> </tr>
+<tr>
+<td><code>load()<br></code></td> <td><code>void<br></code></td> <td>Begins loading the media content from the server.</td> </tr>
+<tr>
+<td><code>pause()<br></code></td> <td><code>void<br></code></td> <td>Pauses the media playback.</td> </tr>
+<tr>
+<td><code>play()<br></code></td> <td><code>void<br></code></td> <td>Begins playback of the media. If you have changed the <strong>src</strong> attribute of the media element since the page was loaded, you must call load() before play(), otherwise the original media plays again.</td> </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="HTMLMediaElement.html">https://developer.mozilla.org/en/DOM/HTMLMediaElement</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/HTMLMediaElement by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:46 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

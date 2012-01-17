@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/previousSiblings/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:27:11 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.previousSiblings</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Element.previousSiblings
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.previousSiblings(element) &rarr; [<a href="../index.html" title="Element (class)">Element</a>…]</code></pre>
+
+
+      <p>Collects all of <code>element</code>'s previous siblings and returns them as an
+<code><a href="../../../language/Array/index.html" title="Array (class)">Array</a></code> of elements.</p>
+
+<p>Two elements are siblings if they have the same parent. So for example,
+the <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> elements are siblings (their parent is the
+<code>&lt;html&gt;</code> element). Previous-siblings are simply the ones which precede
+<code>element</code> in the document.</p>
+
+<p>The returned <code><a href="../../../language/Array/index.html" title="Array (class)">Array</a></code> reflects the siblings <em>inversed</em> order in the
+document (e.g. an index of 0 refers to the lowest sibling i.e., the one
+closest to <code>element</code>).</p>
+
+<p>Note that all of Prototype's DOM traversal methods ignore text nodes and
+return element nodes only.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">&quot;golden-delicious&quot;</span><span class="nt">&gt;</span>Golden Delicious<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">&quot;mutsu&quot;</span><span class="nt">&gt;</span>Mutsu<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">&quot;mcintosh&quot;</span><span class="nt">&gt;</span>McIntosh<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">id=</span><span class="s">&quot;ida-red&quot;</span><span class="nt">&gt;</span>Ida Red<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre>
+</div>
+
+
+<p>Then:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;mcintosh&#39;</span><span class="p">).</span><span class="nx">previousSiblings</span><span class="p">();</span>
+<span class="c1">// -&gt; [li#mutsu, li#golden-delicious]</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;golden-delicious&#39;</span><span class="p">).</span><span class="nx">previousSiblings</span><span class="p">();</span>
+<span class="c1">// -&gt; []</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/previousSiblings/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/previousSiblings/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:27:11 GMT -->
+</html>

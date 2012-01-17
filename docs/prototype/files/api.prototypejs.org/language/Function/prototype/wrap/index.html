@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/wrap/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:35 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Function#wrap</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Function#wrap
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Function#wrap(wrapper) &rarr; <a href="../../index.html" title="Function (class)">Function</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">wrapper</code>
+          <span class="argument-types">(<code><a href="../../index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; The function to use as a wrapper.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Returns a function "wrapped" around the original function.</p>
+
+<p><code><a href="index.html" title="Function#wrap (instance method)">Function#wrap</a></code> distills the essence of aspect-oriented programming into
+a single method, letting you easily build on existing functions by
+specifying before and after behavior, transforming the return value, or
+even preventing the original function from being called.</p>
+
+<p>The wraper function is called with this signature:</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">wrapper</span><span class="p">(</span><span class="nx">callOriginal</span><span class="p">[,</span> <span class="nx">args</span><span class="p">...])</span>
+</pre>
+</div>
+
+
+<p>...where <code>callOriginal</code> is a function that can be used to call the
+original (wrapped) function (or not, as appropriate). (<code>callOriginal</code> is
+not a direct reference to the original function, there's a layer of
+indirection in-between that sets up the proper context [<code>this</code> value] for
+it.)</p>
+
+<h5>Example</h5>
+
+<div class="highlight"><pre><span class="c1">// Wrap String#capitalize so it accepts an additional argument</span>
+<span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">capitalize</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">.</span><span class="nx">wrap</span><span class="p">(</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">callOriginal</span><span class="p">,</span> <span class="nx">eachWord</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">eachWord</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span> <span class="p">{</span>
+      <span class="c1">// capitalize each word in the string</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">).</span><span class="nx">invoke</span><span class="p">(</span><span class="s2">&quot;capitalize&quot;</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="c1">// proceed using the original function</span>
+      <span class="k">return</span> <span class="nx">callOriginal</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+ <span class="s2">&quot;hello world&quot;</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">();</span>
+<span class="c1">// -&gt; &quot;Hello world&quot; (only the &#39;H&#39; is capitalized)</span>
+<span class="s2">&quot;hello world&quot;</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">// -&gt; &quot;Hello World&quot; (both &#39;H&#39; and &#39;W&#39; are capitalized)</span>
+</pre>
+</div>
+
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/wrap/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:35 GMT -->
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/File by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:46 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>File - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=49705">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=49705">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 49705;
+Deki.PageTitle = 'en/DOM/File';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMFile" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">File</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Method_overview" rel="internal">Method overview</a>
+</li>
+<li>
+<span>2.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>3.</span> <a href="#Methods" rel="internal">Methods</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>3.1.</span> <a href="#getAsBinary()" rel="internal">getAsBinary()</a>
+</li>
+<li>
+<span>3.2.</span> <a href="#getAsDataURL()" rel="internal">getAsDataURL()</a>
+</li>
+<li>
+<span>3.3.</span> <a href="#getAsText()" rel="internal">getAsText()</a>
+</li>
+</ol>
+</li>
+<li>
+<span>4.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+<li>
+<span>5.</span> <a href="#See_Also" rel="internal">See Also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 1.9</p>
+
+(Firefox 3)
+</div>
+</span> </p>
+<p>The <code>File</code> object provides information about -- and access to the contents of -- files. These are generally retrieved from a <a class="internal" rel="internal" href="FileList.html"><code>FileList</code></a> object returned as a result of a user selecting files using the <code>input</code> element, or from a drag and drop operation's <a rel="internal" href="https://developer.mozilla.org/En/DragDrop/DataTransfer"><code>DataTransfer</code></a> object.</p>
+<div class="geckoVersionNote">
+<p>
+</p>
+<div class="geckoVersionHeading">Gecko 2.0 note<div style="font-size:9px; position:relative; top:-5px; font-style:italic;">
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+</div>
+</div>
+
+<p>Starting in Gecko 2.0 
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+, the File object inherits from the 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> interface, which provides methods and properties providing further information about the file.</p>
+</div>
+<p>The file reference can be saved when the form is submitted while the user is offline, so that the data can be retrieved and uploaded when the Internet connection is restored.</p>
+<div class="note">
+<strong>Note:</strong> The <code>File</code> object as implemented by Gecko offers several non-standard methods for reading the contents of the file. These should <em>not</em> be used, as they will prevent your web application from being used in other browsers, as well as in future versions of Gecko, which will likely remove these methods.</div>
+<div id="section_1">
+<span id="Method_overview"></span><h2 class="editable">Method overview</h2>
+<table class="standard-table"><tbody>
+<tr>
+<td>
+<code>DOMString <a href="#getAsBinary.28.29">getAsBinary</a>();</code> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>      
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> </tr>
+<tr>
+<td>
+<code>DOMString <a href="#getAsDataURL.28.29">getAsDataURL</a>();</code> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>      
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> </tr>
+<tr>
+<td>
+<code>DOMString <a href="#getAsText.28.29">getAsText</a>(in DOMString encoding);</code> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>      
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> </tr>
+</tbody></table>
+</div>
+<div id="section_2">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<table class="standard-table"><tbody>
+<tr>
+<td class="header">Property</td> <td class="header">Type</td> <td class="header">Description</td> </tr>
+<tr>
+<td><code>fileName</code></td> <td><code>DOMString</code></td> <td>A read-only attribute containing the name of the file referenced by the <code>File</code> object. 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> </tr>
+<tr>
+<td><code>fileSize</code></td> <td><code>unsigned long long</code></td> <td>The size of the referenced file in bytes. 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> </tr>
+<tr>
+<td><code>mozFullPath<br></code></td> <td><code>DOMString<br></code></td> <td>The full path of the referenced file; available only to code with UniversalFileRead privileges in chrome. 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> </tr>
+<tr>
+<td>
+<code>mozFullPathInternal</code> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); color: white; background-color: red; font-size: x-small; font-weight: bold; vertical-align: middle; white-space: nowrap; padding: 2px;" title="This method may only be called from C++; don't use it from JavaScript.">Native code only!</span></span>
+</td> <td><code>DOMString</code></td> <td>This is an internal-use-only property that doesn't do security checks. It can only be used from native code, and is used to optimize performance in special cases in which security isn't a concern. 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> </tr>
+<tr>
+<td><code>name</code></td> <td><code>DOMString</code></td> <td>The name of the file referenced by the <code>File</code> object. <strong>Read only.</strong> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</td> </tr>
+</tbody></table>
+</div>
+<div id="section_3">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<p>These methods are all non-standard. To read the contents of a file, you should use the <a rel="internal" href="FileReader.html"><code>FileReader</code></a> object. See <a rel="internal" href="https://developer.mozilla.org/en/Using_files_from_web_applications">Using files from web applications</a> for examples.</p>
+<dl></dl>
+<p><span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); padding: 2px; font-size: small; font-weight: bold; float: right; vertical-align: middle; white-space: nowrap;" title="This method may only be called from C++; don't use it from JavaScript.">Non-standard</span>
+<span id="getAsBinary()"></span><h3>getAsBinary()</h3>
+</span> 
+
+</p>
+<div class="deprecatedHeaderTemplate" style="overflow:hidden; border: 1px solid #5151FF; background-color: #B9B9FF; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Deprecated</p></div> <p>Returns a string containing the file's data in raw binary format.</p> <pre class="eval">
+ String getAsBinary();
+</pre> <div id="section_4">
+<span id="Parameters"></span><h6 class="editable">Parameters</h6> <p>None.</p> </div>
+<div id="section_5">
+<span id="Return_value"></span><h6 class="editable">Return value</h6> <p>A string containing the raw binary contents of the file.</p> <p><span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); padding: 2px; font-size: small; font-weight: bold; float: right; vertical-align: middle; white-space: nowrap;" title="This method may only be called from C++; don't use it from JavaScript.">Non-standard</span>
+<span id="getAsDataURL()"></span><h3>getAsDataURL()</h3>
+</span> 
+
+</p>
+<div class="deprecatedHeaderTemplate" style="overflow:hidden; border: 1px solid #5151FF; background-color: #B9B9FF; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Deprecated</p></div> <p>Returns a string containing a <code>data:</code> URL that encodes the entire contents of the referenced file.</p> <pre class="eval">
+ String getAsDataURL();
+</pre> </div>
+<div id="section_6">
+<span id="Parameters_2"></span><span id="Parameters_2"></span><h6 class="editable">Parameters</h6> <p>None.</p> </div>
+<div id="section_7">
+<span id="Return_value_2"></span><span id="Return_value_2"></span><h6 class="editable">Return value</h6> <p>A string containing the file's data encoded as a <code>data:</code> URL.</p> <p><span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); padding: 2px; font-size: small; font-weight: bold; float: right; vertical-align: middle; white-space: nowrap;" title="This method may only be called from C++; don't use it from JavaScript.">Non-standard</span>
+<span id="getAsText()"></span><h3>getAsText()</h3>
+</span> 
+
+</p>
+<div class="deprecatedHeaderTemplate" style="overflow:hidden; border: 1px solid #5151FF; background-color: #B9B9FF; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Deprecated</p></div> <p>Returns the file's contents as a string in which the file's data is interpreted as text using a given encoding.</p> <pre class="eval">
+ String getAsText(
+   String encoding
+ );
+</pre> </div>
+<div id="section_8">
+<span id="Parameters_3"></span><span id="Parameters_3"></span><h6 class="editable">Parameters</h6> <dl>
+<dt><code>encoding</code></dt> <dd>A string indicating the encoding to use for the returned data. If this string is empty, UTF-8 is assumed.</dd> </dl>
+</div>
+<div id="section_9">
+<span id="Return_value_3"></span><span id="Return_value_3"></span><h6 class="editable">Return value</h6> <p>A string containing the file's data interpreted as text in the specified <code>encoding</code>.</p> </div>
+</div>
+<div id="section_10">
+<span id="Specification"></span><h2 class="editable">Specification</h2> <ul>
+<li>
+<a title="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#concept-input-type-file-selected" class=" external" rel="external nofollow" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/number-state.html#concept-input-type-file-selected" target="_blank">File upload state</a> (HTML 5 working draft)</li> </ul>
+</div>
+<div id="section_11">
+<span id="See_Also"></span><h2 class="editable">See Also</h2> <ul>
+<li><a rel="internal" href="https://developer.mozilla.org/en/Using_files_from_web_applications">Using files from web applications</a></li> <li><a rel="internal" href="FileReader.html"><code>FileReader</code></a></li> <li>
+<a title="https://bugzilla.mozilla.org/show_bug.cgi?id=523771" class="link-https" rel="external nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=523771" target="_blank">Bug 523771</a> - <span class="bz_default_hidden" id="summary_alias_container" style="display: inline;"> <span id="short_desc_nonedit_display">Support &lt;input type=file multiple&gt;</span> </span>
+</li> </ul>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="File.html">https://developer.mozilla.org/en/DOM/File</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/File by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:49 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,28 @@
+HTTrack3.43-9 launched on Fri, 17 Dec 2010 05:41:50 at http://madrobby.github.com/scriptaculous/ +http://madrobby.github.com/scriptaculous/* -www.joshwoodward.com/* +*.js +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur
+(httrack http://madrobby.github.com/scriptaculous/ +http://madrobby.github.com/scriptaculous/* -www.joshwoodward.com/* +*.js +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0 )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+05:41:51	Warning: 	File not parsed, looks like binary: madrobby.github.com/robots.txt
+05:42:20	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/effectscrollto (from madrobby.github.com/scriptaculous/)
+05:42:25	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/formelementdelayedobserver (from madrobby.github.com/scriptaculous/)
+05:42:31	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/porting (from madrobby.github.com/scriptaculous/)
+05:42:39	Info: 	engine: warning: entry cleaned up, but no trace on heap: script.aculo.us/images/puzzle7.jpg (script.aculo.us/images/puzzle7.jpg)
+05:42:40	Info: 	engine: warning: entry cleaned up, but no trace on heap: script.aculo.us/images/puzzle6.jpg (script.aculo.us/images/puzzle6.jpg)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/effecttween (from madrobby.github.com/scriptaculous/core-effects/)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/giving-elements-layout (from madrobby.github.com/scriptaculous/effect-appear/)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/autocompleterbase (from madrobby.github.com/scriptaculous/ajax-autocompleter/)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/testunit (from madrobby.github.com/scriptaculous/unit-testing/)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/testunitlogger (from madrobby.github.com/scriptaculous/unit-testing/)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/testunittestcase (from madrobby.github.com/scriptaculous/unit-testing/)
+05:42:47	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/testunitassertions (from madrobby.github.com/scriptaculous/unit-testing/)
+05:42:48	Error: 	"Not Found" (404) at link brianflove.com/public/js/tabs.js (from madrobby.github.com/scriptaculous/tabs/)
+05:42:48	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/tabs/img/tabs_left.gif (from madrobby.github.com/scriptaculous/tabs/)
+05:42:48	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/tabs/img/tabs_right.gif (from madrobby.github.com/scriptaculous/tabs/)
+05:42:48	Error: 	"Not Found" (404) at link madrobby.github.com/scriptaculous/core-effects/AppleWebKit/ (from script.aculo.us/prototype.js)
+
+HTTrack Website Copier/3.43-9 mirror complete in 58 seconds : 105 links scanned, 92 files written (1248034 bytes overall) [482840 bytes received at 8324 bytes/sec], 1242104 bytes transfered using HTTP compression in 92 files, ratio 25%, 2.0 requests per connection
+(14 errors, 1 warnings, 2 messages)

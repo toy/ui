@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/dollar-A/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:35 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | $A</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">utility</span> $A
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">$A(iterable) &rarr; <a href="../Array/index.html" title="Array (class)">Array</a></code></pre>
+
+
+      <p>Accepts an array-like collection (anything with numeric indices) and returns
+its equivalent as an actual <code><a href="../Array/index.html" title="Array (class)">Array</a></code> object. This method is a convenience
+alias of <code><a href="../Array/from/index.html" title="Array.from (class method)">Array.from</a></code>, but is the preferred way of casting to an <code><a href="../Array/index.html" title="Array (class)">Array</a></code>.</p>
+
+<p>The primary use of <code><a href="index.html" title="$A (utility)">$A</a></code> is to obtain an actual <code><a href="../Array/index.html" title="Array (class)">Array</a></code> object based on
+anything that could pass as an array (e.g. the <code>NodeList</code> or
+<code>HTMLCollection</code> objects returned by numerous DOM methods, or the predefined
+<code>arguments</code> reference within your functions).</p>
+
+<p>The reason you would want an actual <code><a href="../Array/index.html" title="Array (class)">Array</a></code> is simple:
+<a href="../Array/index.html">Prototype extends Array</a> to equip it with numerous extra methods,
+and also mixes in the <code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code> module, which brings in another
+boatload of nifty methods. Therefore, in Prototype, actual <code><a href="../Array/index.html" title="Array (class)">Array</a></code>s trump
+any other collection type you might otherwise get.</p>
+
+<p>The conversion performed is rather simple: <code>null</code>, <code>undefined</code> and <code>false</code> become
+an empty array; any object featuring an explicit <code>toArray</code> method (as many Prototype
+objects do) has it invoked; otherwise, we assume the argument "looks like an array"
+(e.g. features a <code>length</code> property and the <code>[]</code> operator), and iterate over its components
+in the usual way.</p>
+
+<p>When passed an array, <code><a href="index.html" title="$A (utility)">$A</a></code> <em>makes a copy</em> of that array and returns it.</p>
+
+<h5>Examples</h5>
+
+<p>The well-known DOM method <a href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-A6C9094"><code>document.getElementsByTagName()</code></a>
+doesn't return an <code><a href="../Array/index.html" title="Array (class)">Array</a></code>, but a <code>NodeList</code> object that implements the basic array
+"interface." Internet Explorer does not allow us to extend <code>Enumerable</code> onto <code>NodeList.prototype</code>,
+so instead we cast the returned <code>NodeList</code> to an <code><a href="../Array/index.html" title="Array (class)">Array</a></code>:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">paras</span> <span class="o">=</span> <span class="nx">$A</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">));</span>
+<span class="nx">paras</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">Element</span><span class="p">.</span><span class="nx">hide</span><span class="p">);</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">paras</span><span class="p">.</span><span class="nx">last</span><span class="p">()).</span><span class="nx">show</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<p>Notice we had to use <a href="../Enumerable/prototype/each/index.html">each</a> and <code><a href="../../dom/Element/hide/index.html" title="Element.hide (class method)">Element.hide</a></code> because
+<code><a href="index.html" title="$A (utility)">$A</a></code> doesn't perform DOM extensions, since the array could contain
+anything (not just DOM elements). To use the <code><a href="../../dom/Element/prototype/hide/index.html" title="Element#hide (instance method)">Element#hide</a></code> instance
+method we first must make sure all the target elements are extended:</p>
+
+<div class="highlight"><pre><span class="nx">$A</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)).</span><span class="nx">map</span><span class="p">(</span><span class="nx">Element</span><span class="p">.</span><span class="nx">extend</span><span class="p">).</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>Want to display your arguments easily? <code><a href="../Array/index.html" title="Array (class)">Array</a></code> features a <code>join</code> method, but the <code>arguments</code>
+value that exists in all functions <em>does not</em> inherit from <code><a href="../Array/index.html" title="Array (class)">Array</a></code>. So, the tough
+way, or the easy way?</p>
+
+<div class="highlight"><pre><span class="c1">// The hard way...</span>
+<span class="kd">function</span> <span class="nx">showArgs</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">join</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">));</span>
+<span class="p">}</span>
+ <span class="c1">// The easy way...</span>
+<span class="kd">function</span> <span class="nx">showArgs</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">$A</span><span class="p">(</span><span class="nx">arguments</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">));</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+      
+        <p class="alias aliases">Aliased as: <code><a href="../Array/from/index.html" title="Array.from (class method)">Array.from</a></code></p>
+
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/dollar-A/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:35 GMT -->
+</html>

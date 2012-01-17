@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/curry/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:33 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Function#curry</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Function#curry
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Function#curry(args...) &rarr; <a href="../../index.html" title="Function (class)">Function</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">args</code>
+          <span class="argument-types">(<code>?</code>)</span>
+         &ndash; The arguments to curry.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p><em>Curries</em> (burns in) arguments to a function, returning a new function
+that when called with call the original passing in the curried arguments
+(along with any new ones):</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">showArguments</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">$A</span><span class="p">(</span><span class="nx">arguments</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="nx">showArguments</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="c1">// -&gt; alerts &quot;1, 2, 3&quot;</span>
+ <span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">showArguments</span><span class="p">.</span><span class="nx">curry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="nx">f</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; alerts &quot;1, 2, 3, a, b&quot;</span>
+</pre>
+</div>
+
+
+<p><code><a href="index.html" title="Function#curry (instance method)">Function#curry</a></code> works just like <code><a href="../bind/index.html" title="Function#bind (instance method)">Function#bind</a></code> without the initial
+context argument. Use <code>bind</code> if you need to curry arguments <em>and</em> set
+context at the same time.</p>
+
+<p>The name "curry" comes from <a href="http://en.wikipedia.org/wiki/Currying">mathematics</a>.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Function/prototype/curry/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:30:33 GMT -->
+</html>

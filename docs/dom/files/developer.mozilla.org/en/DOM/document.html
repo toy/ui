@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/document by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:02:20 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>document - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=5187">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=5187">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 5187;
+Deki.PageTitle = 'en/DOM/document';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMdocument" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">document</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>2.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+<li>
+<span>3.</span> <a href="#Event_handlers" rel="internal">Event handlers</a>
+</li>
+<li>
+<span>4.</span> <a href="#Security_notes" rel="internal">Security notes</a>
+</li>
+<li>
+<span>5.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<p>In the <a rel="internal" href="https://developer.mozilla.org/en/DOM">DOM</a>, the <strong>document object</strong> provides a general way to represent <a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, <a rel="internal" href="https://developer.mozilla.org/en/XHTML">XHTML</a>, and <a rel="internal" href="https://developer.mozilla.org/en/XML">XML</a> documents. Document objects implement the general <a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#i-Document" title="http://www.w3.org/TR/DOM-Level-2-Core/core.html#i-Document" target="_blank">DOM Core Document</a> interface (which itself implements the <a rel="internal" href="Node.html">Node</a> interface).</p>
+<p>In addition to the generalized DOM Core document interface, HTML documents also implement the <a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-26809268" title="http://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-26809268" target="_blank">DOM HTMLDocument</a> interface, which is a more specialized interface for dealing with HTML documents (e.g., <a rel="internal" href="document-4.html">document.cookie</a>, <a rel="internal" href="document-5.html">document.alinkColor</a>). Methods or properties listed here that are part of this more specialized interface have an asterisk (*) next to them.</p>
+<p>The document is contained by the <a rel="internal" href="window.html">window</a> object and may contain any number of <a rel="internal" href="element.html">elements</a>.</p>
+<p>The document interface provides access to things such as the document type, its color and formatting, plugins and applets, as well providing methods for creating and manipulating all of the document's child nodes, or elements, such as 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/body">&lt;body&gt;</a></code> and 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/table">&lt;table&gt;</a></code> elements.</p>
+<div id="section_1">
+<span id="Properties"></span><h3 class="editable">Properties</h3>
+<table class="standard-table"><tbody>
+<tr>
+<th>Name</th> <th>Description</th> <th>Return Type</th> <th>Availability</th> </tr>
+<tr>
+<td><code><a rel="internal" href="document-6.html">document.activeElement</a></code></td> <td>Returns the currently focused element</td> <td><a rel="internal" href="element.html">Element</a></td> <td>HTML 5</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-5.html">document.alinkColor</a></code>*
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Returns or sets the color of active links in the document body.</td> <td><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></td> <td><a rel="internal" href="https://developer.mozilla.org/Special:Tags?tag=DOM_0&amp;language=en">DOM 0</a></td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.all</a></code> 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td> </td> <td> </td> <td> HTML 5</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-7.html">document.anchors</a></code>*</td> <td>Returns a list of all of the anchors in the document.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>HTML</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-8.html">document.applets</a></code>*
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Returns an ordered list of the applets within a document.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>HTML</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-9.html">document.async</a></code></td> <td>
+<strong>async</strong> is used with <a rel="internal" href="document-10.html">document.load</a> to indicate an asynchronous request.</td> <td>n/a</td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-3.html">Node.attributes</a></code></td> <td>Returns a collection of attributes of the given element</td> <td><a rel="internal" href="NamedNodeMap.html">NamedNodeMap</a></td> <td> </td> </tr>
+<tr>
+<td>document.background*
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Is supposed to return the URI of the image that tiles the background (though not apparently working in Mozilla); deprecated in favor of document.body.background (though HTML 4.01 deprecated this too)</td> <td><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">Node.baseURI</a></code></td> <td>
+<strong>baseURI</strong> gets the base URI for the document</td> <td><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String">String</a></td> <td>DOM 3</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-11.html">document.baseURIObject</a></code> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</td> <td>
+<strong>baseURIObject</strong> returns an 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIURI">nsIURI</a></code> object representing the base URI for the document.</td> <td>
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIURI">nsIURI</a></code>
+</td> <td>All</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-12.html">document.bgColor</a></code>*
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Gets/sets the background color of the current document.</td> <td>String</td> <td>DOM 0</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-13.html">document.body</a></code>*</td> <td>Returns the BODY node of the current document.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/body">HTMLBodyElement</a></td> <td>HTML</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-14.html">document.characterSet</a></code></td> <td>Returns the character set being used by the document.</td> <td>String</td> <td>DOM 0</td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-4.html">Node.childNodes</a></code></td> <td>returns a <em>collection</em> of child nodes of the given node</td> <td><a rel="internal" href="NodeList.html">NodeList</a></td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-15.html">document.compatMode</a></code></td> <td>Indicates whether the document is rendered in Quirks or Strict mode.</td> <td>String</td> <td>HTML, XHTML</td> </tr>
+<tr>
+<td> <p><code><a rel="internal" href="document-16.html">document.contentType</a></code> <span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span></p> </td> <td>Returns the Content-Type from the MIME Header of the current document.</td> <td>String</td> <td> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-4.html">document.cookie</a></code>*</td> <td>Returns a semicolon-separated list of the cookies for that document or sets a single cookie.</td> <td>String</td> <td>HTML</td> </tr>
+<tr>
+<td>
+<code><a rel="custom nofollow" href="document-17.html">document.currentScript</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</td> <td>Returns the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/script">&lt;script&gt;</a></code> element that is currently executing.</td> <td>
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3aElement">Element</a></code>
+</td> <td>HTML, XUL</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-18.html">document.defaultView</a></code></td> <td>Returns a reference to the window object.</td> <td><a rel="internal" href="window.html">Window</a></td> <td>DOM 2 View</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-19.html">document.designMode</a></code></td> <td>Gets/sets WYSYWIG editing capability of <a rel="internal" href="https://developer.mozilla.org/en/Midas">Midas</a>. It can only be used for HTML documents.</td> <td>String</td> <td>HTML</td> </tr>
+<tr>
+<td>
+<a class="internal" rel="internal" href="Document-20.html"><code>document.dir</code></a> </td> <td>Gets/sets directionality (rtl/ltr) of the document</td> <td>String</td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-21.html">document.doctype</a></code></td> <td>Returns the Document Type Definition (DTD) of the current document.</td> <td><a rel="internal" href="DocumentType.html">DocumentType</a></td> <td>DOM 2 Core</td> </tr>
+<tr>
+<th>Name</th> <th class="header">Description</th> <th class="header">Return Type</th> <th class="header">Availability</th> </tr>
+<tr>
+<td><code><a rel="internal" href="document-22.html">document.documentElement</a></code></td> <td>Returns the Element that is a direct child of document. For HTML documents, this is normally the HTML element.</td> <td><a rel="internal" href="element.html">Element</a></td> <td>All</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-23.html">document.documentURI</a></code></td> <td>Returns the document location.</td> <td>String</td> <td>DOM 3</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-24.html">document.documentURIObject</a></code> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</td> <td>Returns the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIURI">nsIURI</a></code> object representing the URI of the document. This property only has special meaning in privileged JavaScript code (with UniversalXPConnect privileges).</td> <td><a rel="internal" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIURI">nsIURI</a></td> <td> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-25.html">document.domain</a></code>*</td> <td>Returns the domain of the current document.</td> <td>String</td> <td>HTML</td> </tr>
+<tr>
+<td><code><a rel="internal" href="Document-26.html">document.domConfig</a></code></td> <td>Should return a DOMConfiguration object</td> <td>DOMConfiguration</td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-27.html">document.embeds</a></code></td> <td>Returns a list of the embedded OBJECTS within the current document.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>DOM 0</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-28.html">document.fgColor</a></code>*
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Gets/sets the foreground color, or text color, of the current document.</td> <td>String</td> <td>DOM 0</td> </tr>
+<tr>
+<td><code>document.fileSize</code></td> <td>Returns size of the document or &lt;img&gt; element.</td> <td>Number</td> <td>IE ext.</td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-5.html">Node.firstChild</a></code></td> <td>Returns the first node in the list of direct children of the document.</td> <td>DocumentType</td> <td>DOM 2 Core</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-29.html">document.forms</a></code>*</td> <td>Returns a list of the FORM elements within the current document.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>HTML</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-30.html">document.height</a></code> 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Gets/sets the height of the current document.</td> <td><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/Number">Number</a></td> <td>DOM 0</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-31.html">document.images</a></code>*</td> <td>Returns a list of the images in the current document.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>HTML</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-32.html">document.implementation</a></code></td> <td>Returns the DOM implementation associated with the current document.</td> <td><a rel="internal" href="DOMImplementation.html">DOMImplementation</a></td> <td>DOM 2 Core</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-33.html">document.inputEncoding</a></code></td> <td>Returns the encoding used when the document was parsed.</td> <td>String</td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-6.html">Node.lastChild</a></code></td> <td>Returns the last child of a node</td> <td><a rel="internal" href="Node.html">Node</a></td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-34.html">document.lastModified</a></code></td> <td>Returns the date on which the document was last modified.</td> <td>String</td> <td>DOM 0</td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.lastStyleSheetSet</a></code></td> <td> </td> <td> </td> <td> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-35.html">document.linkColor</a></code>*
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Gets/sets the color of hyperlinks in the document.</td> <td>String</td> <td>DOM 0</td> </tr>
+<tr>
+<th>Name</th> <th class="header">Description</th> <th class="header">Return Type</th> <th class="header">Availability</th> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-36.html">document.links</a></code>*</td> <td>Returns a list of all the hyperlinks in the document.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>HTML</td> </tr>
+<tr>
+<td><a class="internal" rel="internal" href="Node-7.html"><code>Node.localName</code></a></td> <td>Returns the local part of the qualified name of this node (null for a document)</td> <td>String</td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-37.html">document.location</a></code></td> <td>Returns the URI of the current document.</td> <td><a rel="internal" href="https://developer.mozilla.org/" class="new ">Location</a></td> <td>DOM 0</td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-8.html">Node.namespaceURI</a></code></td> <td>Returns the XML namespace of the current document.</td> <td> </td> <td>All</td> </tr>
+<tr>
+<td><a class="internal" rel="internal" href="Node-9.html"><code>Node.nextSibling</code></a></td> <td>Returns the node immediately following the specified one in its parent's childNodes list, or null if the specified node is the last node in that list (null for documents)</td> <td> </td> <td> </td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-10.html">Node.nodeName</a></code></td> <td>Returns the node's name (#document for document)</td> <td>String</td> <td> </td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-11.html">Node.nodeType</a></code></td> <td>Returns a node type constant (9 for document)</td> <td>Number</td> <td> </td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-12.html">Node.nodeValue</a></code></td> <td>Returns the node's value (null for document)</td> <td> </td> <td> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="Node-13.html">Node.nodePrincipal</a></code> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</td> <td>Returns the <code>nsIPrincipal</code> object representing current security context of the document.</td> <td>
+<code><a rel="internal" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIPrincipal" class="new">nsIPrincipal</a></code>
+</td> <td>All</td> </tr>
+<tr>
+<td><a class="internal" rel="internal" href="Node-14.html"><code>Node.ownerDocument</code></a></td> <td>Returns the top-level document object for this node (null if already is the document).</td> <td> </td> <td> </td> </tr>
+<tr>
+<td><a class="internal" rel="internal" href="Node-15.html"><code>Node.parentNode</code></a></td> <td>Returns the parent of the specified node in the DOM tree (null for document)</td> <td> </td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-38.html">document.plugins</a></code></td> <td>Returns a list of the available plugins.</td> <td><a rel="internal" href="HTMLCollection.html">HTMLCollection</a></td> <td>DOM 0</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-39.html">document.popupNode</a></code></td> <td>Returns the node upon which a popup was invoked (XUL documents only).</td> <td><a rel="internal" href="Node.html">Node</a></td> <td>XUL</td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.preferredStyleSheetSet</a></code></td> <td> </td> <td> </td> <td> </td> </tr>
+<tr>
+<td><a class="internal" rel="internal" href="Node-16.html"><code>Node.prefix</code></a></td> <td>Returns the namespace prefix of the specified node, or <code>null</code> if no prefix is specified</td> <td> </td> <td> </td> </tr>
+<tr>
+<td><code><a class="internal" rel="internal" href="Node-17.html">Node.previousSibling</a></code></td> <td>Returns the node immediately preceding the specified one in its parent's <a rel="internal" href="element-8.html">childNodes</a> list, <code>null</code> if the specified node is the first in that list (null for document)</td> <td> </td> <td> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-40.html">document.readyState</a></code> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</td> <td>Returns loading status of the document</td> <td>String</td> <td>HTML5</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-41.html">document.referrer</a></code>*</td> <td>Returns the URI of the page that linked to this page.</td> <td>String</td> <td>HTML</td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.selectedStyleSheetSet</a></code></td> <td> </td> <td> </td> <td> </td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.strictErrorChecking</a></code></td> <td>Returns <code>true</code> if error checking is enforced or <code>false</code> if it is not.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-42.html">document.styleSheets</a></code></td> <td>Returns a list of the stylesheet objects on the current document.</td> <td><a rel="internal" href="https://developer.mozilla.org/" class="new ">StyleSheetList</a></td> <td>DOM 2 Style</td> </tr>
+<tr>
+<td><code><a rel="internal" href="Node-18.html">Node.textContent</a></code></td> <td>Returns null (returns other values for other nodes).</td> <td>Null</td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.styleSheetSets</a></code></td> <td> </td> <td> </td> <td> </td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-43.html">document.title</a></code>*</td> <td>Returns the title of the current document.</td> <td>String</td> <td>HTML</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-44.html">document.tooltipNode</a></code></td> <td>Returns the node which is the target of the current tooltip.</td> <td>Node Object</td> <td>XUL</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-45.html">document.URL</a></code>*</td> <td>Returns a string containing the URL of the current document.</td> <td>String</td> <td>HTML</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-46.html">document.vlinkColor</a></code>* 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Gets/sets the color of visited hyperlinks.</td> <td>String</td> <td>DOM 0</td> </tr>
+<tr>
+<td>
+<code><a rel="internal" href="document-47.html">document.width</a></code> 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</td> <td>Returns the width of the current document.</td> <td>Number</td> <td>DOM 0</td> </tr>
+<tr>
+<td><code><a rel="internal" href="Document-48.html">document.xmlEncoding</a></code></td> <td>Returns the encoding as determined by the XML declaration.</td> <td>String</td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.xmlStandalone</a></code></td> <td>Returns <code>true</code> if the XML declaration specifies the document is standalone (<em>e.g.,</em> An external part of the DTD affects the document's content), else <code>false</code>.</td> <td><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></td> <td>DOM 3</td> </tr>
+<tr>
+<td><code><a rel="internal" href="document-49.html">document.xmlVersion</a></code></td> <td>Returns the version number as specified in the XML declaration or <code>"1.0"</code> if the declaration is absent.</td> <td>String</td> <td>DOM 3</td> </tr>
+</tbody></table>
+</div>
+<div id="section_2">
+<span id="Methods"></span><h3 class="editable">Methods</h3>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">document.addEventListener</a></dt> <dd>Adds an event listener to the document.</dd> <dt>
+<a rel="internal" href="document-50.html">document.adoptNode</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Adopt node from an external document</dd> <dt><a class="internal" rel="internal" href="Node-2.html">Node.appendChild</a></dt> <dd>Adds a node to the end of the list of children of a specified parent node.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.captureEvents</a></dt> <dt>
+<a rel="internal" href="document-51.html">document.clear</a>* 
+
+<span class="deprecatedInlineTemplate" style="border: 1px solid rgb(152, 152, 240); background-color: rgb(221, 221, 255); font-size: x-small; white-space: nowrap; padding: 2px;">Deprecated</span>
+</dt> <dd>In majority of modern browsers, including recent versions of Firefox and Internet Explorer, this method does nothing.</dd> <dt><a class="internal" rel="internal" href="Node-19.html">Node.cloneNode</a></dt> <dd>Makes a copy of a node or document</dd> <dt>
+<a rel="internal" href="document-52.html">document.close</a>*</dt> <dd>Closes a document stream for writing.</dd> <dt><a class="internal" rel="internal" href="Node-20.html">Node.compareDocumentPosition</a></dt> <dd>Compares the position of the current node against another node in any other document.</dd> <dt><a rel="internal" href="document-53.html">document.createAttribute</a></dt> <dd>Creates a new attribute node and returns it.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.createAttributeNS</a></dt> <dd>Creates a new attribute node in a given namespace and returns it.</dd> <dt><a rel="internal" href="document-54.html">document.createCDATASection</a></dt> <dd>Creates a new CDATA node and returns it.</dd> <dt><a rel="internal" href="document-55.html">document.createComment</a></dt> <dd>Creates a new comment node and returns it.</dd> <dt><a rel="internal" href="document-56.html">document.createDocumentFragment</a></dt> <dd>Creates a new document fragment.</dd> <dt><a rel="internal" href="document-3.html">document.createElement</a></dt> <dd>Creates a new element with the given tag name.</dd> <dt><a rel="internal" href="document-57.html">document.createElementNS</a></dt> <dd>Creates a new element with the given tag name and namespace URI.</dd> <dt><a rel="internal" href="document-58.html">document.createEntityReference</a></dt> <dd>Creates a new entity reference object and returns it.</dd> <dt><a rel="internal" href="document-59.html">document.createEvent</a></dt> <dd>Creates an event.</dd> <dt>
+<a rel="internal" href="document-60.html">document.createExpression</a> </dt> <dd>Compiles an <code><a rel="internal" href="https://developer.mozilla.org/en/XPathExpression">XPathExpression</a></code> which can then be used for (repeated) evaluations. </dd> <dt><a rel="internal" href="document-61.html">document.createNSResolver</a></dt> <dd>Creates an XPathNSResolver.</dd> <dt><a rel="internal" href="document-62.html">document.createProcessingInstruction</a></dt> <dd>Creates a new processing instruction element and returns it.</dd> <dt><a rel="internal" href="document-63.html">document.createRange</a></dt> <dd>Creates a Range object.</dd> <dt><a rel="internal" href="document-64.html">document.createTextNode</a></dt> <dd>Creates a text node.</dd> <dt><a rel="internal" href="document-65.html">document.createTreeWalker</a></dt> <dd>Creates a <code><a rel="internal" href="treeWalker.html">TreeWalker</a></code> object.</dd> <dt>
+<a rel="internal" href="document-66.html">document.elementFromPoint</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns the element visible at the specified coordinates.<span style="display: none;" id="1242430431242S"> </span> <span style="display: none;" id="1242430431242S"><a rel="internal" href="https://developer.mozilla.org/" class="new "><strong>document.enableStyleSheetsForSet<span style="display: none" id="1251127366726E"> </span></strong></a>   </span>
+</dd> <dt><a rel="internal" href="document-67.html">document.evaluate</a></dt> <dd>Evaluates an XPath expression.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/en/Rich-Text_Editing_in_Mozilla#Executing_Commands">document.execCommand</a>*</dt> <dd>Executes a <a rel="internal" href="https://developer.mozilla.org/en/Midas">Midas</a> command.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.execCommandShowHelp</a></dt> <dt><a rel="internal" href="document-68.html">document.getBoxObjectFor</a></dt> <dt><a rel="internal" href="document-2.html">document.getElementById</a></dt> <dd>Returns an object reference to the identified element.</dd> <dt>
+<a rel="internal" href="document-69.html">document.getElementsByClassName</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns a list of elements with the given class name.</dd> <dt>
+<a rel="internal" href="document-70.html">document.getElementsByName</a>*</dt> <dd>Returns a list of elements with the given name.</dd> <dt><a rel="internal" href="document-71.html">document.getElementsByTagName</a></dt> <dd>Returns a list of elements with the given tag name.</dd> <dt>
+<a rel="internal" href="document-72.html">document.getElementsByTagNameNS</a> <span style="display: none" id="1251129601219E"> </span>
+</dt> <dd>Returns a list of elements with the given tag name and namespace.  </dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">Node.getFeature</a></dt> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.getSelection</a></dt> <dt><a class="internal" rel="internal" href="Node-21.html">Node.getUserData</a></dt> <dd>Returns any data previously set on the node via setUserData() by key</dd> <dt><a class="internal" rel="internal" href="Node-22.html">Node.hasAttributes</a></dt> <dd>Indicates whether the node possesses attributes</dd> <dt><a class="internal" rel="internal" href="Node-23.html">Node.hasChildNodes</a></dt> <dd>Returns a Boolean value indicating whether the current element has child nodes or not.</dd> <dt><a rel="internal" href="document-73.html">document.hasFocus</a></dt> <dd>Returns <code>true</code> if the focus is currently located anywhere inside the specified document.  </dd> <dt><a rel="internal" href="document-74.html">document.importNode</a></dt> <dd>Returns a clone of a node from an external document</dd> <dt><a class="internal" rel="internal" href="Node-24.html">Node.insertBefore</a></dt> <dd>Inserts the specified node before a reference node as a child of the current node.</dd> <dt><a class="internal" rel="internal" href="Node-25.html">Node.isDefaultNamespace</a></dt> <dd>Returns true if the namespace is the default namespace on the given node</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">Node.isEqualNode</a></dt> <dd>Indicates whether the node is equal to the given node</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">Node.isSameNode</a></dt> <dd>Indicates whether the node is the same as the given node</dd> <dt><a class="internal" rel="internal" href="Node-26.html">Node.isSupported</a></dt> <dd>Tests whether the DOM implementation implements a specific feature and that feature is supported by this node or document</dd> <dt><a rel="internal" href="document-10.html">document.load</a></dt> <dd>Load an XML document</dd> <dt>
+<a rel="internal" href="document-75.html">document.loadOverlay</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_1.5_for_developers">Firefox 1.5</a></span>
+</dt> <dd>Loads a <a rel="internal" href="https://developer.mozilla.org/en/XUL_Overlays">XUL overlay</a> dynamically. This only works in XUL documents.</dd> <dt><a class="internal" rel="internal" href="Node-27.html">Node.lookupNamespaceURI</a></dt> <dd>Returns the namespaceURI associated with a given prefix on the given node object  </dd> <dt><a class="internal" rel="internal" href="Node-28.html">Node.lookupPrefix</a></dt> <dd>Returns the prefix for a given namespaceURI on the given node if present</dd> <dt><a class="internal" rel="internal" href="Node-29.html">Node.normalize</a></dt> <dd>Normalizes the node or document</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.normalizeDocument</a></dt> <dd>Replaces entities, normalizes text nodes, etc.</dd> <dt>
+<a rel="internal" href="document-76.html">document.open</a>*</dt> <dd>Opens a document stream for writing.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">document.queryCommandEnabled</a>*</dt> <dd>Returns true if the <a rel="internal" href="https://developer.mozilla.org/en/Midas">Midas</a> command can be executed on the current range.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">document.queryCommandIndeterm</a>*</dt> <dd>Returns true if the <a rel="internal" href="https://developer.mozilla.org/en/Midas">Midas</a> command is in a indeterminate state on the current range.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">document.queryCommandState</a>*</dt> <dd>Returns true if the <a rel="internal" href="https://developer.mozilla.org/en/Midas">Midas</a> command has been executed on the current range.</dd> <dt></dt> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.queryCommandSupported</a></dt> <dt></dt> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.queryCommandText</a></dt> <dt></dt> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">document.queryCommandValue</a>*</dt> <dd>Returns the current value of the current range for <a rel="internal" href="https://developer.mozilla.org/en/Midas">Midas</a> command. As of Firefox 2.0.0.2, queryCommandValue will return an empty string when a command value has not been explicitly set.</dd> <dt>
+<a class="internal" rel="internal" href="Document-77.html">document.querySelector</a> 
+<span title="
+(Firefox 3.5 / Thunderbird 3 / SeaMonkey 2)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.1</span>
+</dt> <dd>Returns the first Element node within the document, in document order, that matches the specified selectors.</dd> <dt>
+<a class="internal" rel="internal" href="Document-78.html">document.querySelectorAll</a> 
+<span title="
+(Firefox 3.5 / Thunderbird 3 / SeaMonkey 2)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.1</span>
+</dt> <dd>Returns a list of all the Element nodes within the document that match the specified selectors.</dd> <dt>
+<code><a rel="custom nofollow" href="document-79.html">document.releaseCapture()</a></code> 
+<span title="
+
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 4.0</span>
+</dt> <dd>Releases the current mouse capture if it's on an element in this document.</dd> <dt></dt> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.releaseEvents</a></dt> <dt></dt> <dt><a class="internal" rel="internal" href="Node-30.html">Node.removeChild</a></dt> <dd>Removes a child node from the DOM</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">document.removeEventListener</a></dt> <dd>Removes an event listener from the document</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.renameNode</a></dt> <dd>Change the name of an element or attribute node</dd> <dt><a class="internal" rel="internal" href="Node-31.html">Node.replaceChild</a></dt> <dd>Replaces one child node of the specified node with another</dd> <dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">document.routeEvent</a></dt> <dt></dt> <dt>
+<code><a rel="custom nofollow" href="document-80.html">document.mozSetImageElement</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Allows you to change the element being used as the background image for a specified element ID.</dd> <dt><a class="internal" rel="internal" href="Node-32.html">Node.setUserData</a></dt> <dd>Attaches arbitrary data to a node, along with a user-defined key and an optional handler to be triggered upon events such as cloning of the node upon which the data was attached</dd> <dt>
+<a rel="internal" href="document-81.html">document.write</a>*</dt> <dd>Writes text to a document.</dd> <dt>
+<a rel="internal" href="document-82.html">document.writeln</a>* </dt> <dd>Write a line of text to a document.</dd>
+</dl>
+</div>
+<div id="section_3">
+<span id="Event_handlers"></span><h3 class="editable">Event handlers</h3>
+<p>Firefox 3 introduces two new events: "online" and "offline". These two events are fired on the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/body">&lt;body&gt;</a></code> of each page when the browser switches between online and offline mode. Additionally, the events bubble up from 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3adocument.body">document.body</a></code>, to 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3aDocument">Document</a></code>|, ending at 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3aWindow">Window</a></code>. Both events are non-cancelable (you can't prevent the user from coming online, or going offline). For more info see <a rel="internal" href="https://developer.mozilla.org/en/Online_and_offline_events">Online and offline events</a>.</p>
+<dl>
+<dt>
+<code><a rel="custom nofollow" href="document-83.html">document.onafterscriptexecute</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Returns the event handling code for the <code>afterscriptexecute</code> event.</dd> <dt>
+<code><a rel="custom nofollow" href="document-84.html">document.onbeforescriptexecute</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Returns the event handling code for the <code>beforescriptexecute</code> event.</dd> <dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">document.ononline</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns the event handling code for the <code>online</code> event.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">document.onoffline</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Returns the event handling code for the <code>offline</code> event.</dd>
+</dl>
+<dl>
+<dt>
+<a class="internal" rel="internal" href="document-85.html">document.onreadystatechange</a> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</dt> <dd>Returns the event handling code for the <code>readystatechange</code> event.</dd>
+</dl>
+</div>
+<div id="section_4">
+<span id="Security_notes"></span><h3 class="editable">Security notes</h3>
+<p>
+</p>
+<div style="overflow:hidden; margin: 10px 0px; padding: 2px 10px; background-color: rgb(254, 244, 156); text-align: center;">
+<p style="margin: 4px 0px; font-weight: bold;"><a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3 note</a></p>
+<p style="margin: 4px 0px;">This section covers security improvements made in Firefox 3/Gecko 1.9.</p>
+</div>
+
+
+<p>When a new document is created, it initially gets "about:blank" loaded into it. In versions of Firefox prior to Firefox 3, "about:blank" documents didn't get the parent principal. This means that access to their contents was not restricted. While this doesn't seem like a significant issue, it can be if code proceeds to add content to the document using DOM methods and properties such as <code><a rel="internal" href="Node-2.html">appendChild()</a></code> and so forth, because that content would not be protected from unauthorized access.</p>
+<p>Firefox 3 updates Gecko so that new documents inherit the parent principal. This improves security both for <code>iframe</code>s and documents that are in the process of being loaded, as well as for documents constructed programmatically.</p>
+</div>
+<div id="section_5">
+<span id="Specification"></span><h3 class="editable">Specification</h3>
+<ul>
+<li><a class=" external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-3-Core/core.html#i-Document" title="http://www.w3.org/TR/DOM-Level-3-Core/core.html#i-Document" target="_blank">http://www.w3.org/TR/DOM-Level-3-Cor...tml#i-Document</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="document.html">https://developer.mozilla.org/en/DOM/document</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/document by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:05:15 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

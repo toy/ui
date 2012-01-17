@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/En/DOM/Mouse_gesture_events by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:33 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Mouse gesture events - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=43033">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=43033">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 43033;
+Deki.PageTitle = 'En/DOM/Mouse gesture events';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-EnDOMMousegestureevents" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Mouse gesture events</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Event_fields" rel="internal">Event fields</a>
+</li>
+<li>
+<span>2.</span> <a href="#Direction_constants" rel="internal">Direction constants</a>
+</li>
+<li>
+<span>3.</span> <a href="#Types_of_gesture_events" rel="internal">Types of gesture events</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>3.1.</span> <a href="#MozSwipeGesture" rel="internal">MozSwipeGesture</a>
+</li>
+<li>
+<span>3.2.</span> <a href="#MozMagnifyGestureStart" rel="internal">MozMagnifyGestureStart</a>
+</li>
+<li>
+<span>3.3.</span> <a href="#MozMagnifyGestureUpdate" rel="internal">MozMagnifyGestureUpdate</a>
+</li>
+<li>
+<span>3.4.</span> <a href="#MozMagnifyGesture" rel="internal">MozMagnifyGesture</a>
+</li>
+<li>
+<span>3.5.</span> <a href="#MozRotateGestureStart" rel="internal">MozRotateGestureStart</a>
+</li>
+<li>
+<span>3.6.</span> <a href="#MozRotateGestureUpdate" rel="internal">MozRotateGestureUpdate</a>
+</li>
+<li>
+<span>3.7.</span> <a href="#MozRotateGesture" rel="internal">MozRotateGesture</a>
+</li>
+</ol>
+</li>
+<li>
+<span>4.</span> <a href="#See_also" rel="internal">See also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 1.9.1</p>
+
+(Firefox 3.5 / Thunderbird 3 / SeaMonkey 2)
+</div>
+</span> </p>
+<p>
+
+</p>
+<div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;"><p style="margin: 4px 0px 4px 0px;">Non-standard</p></div>
+<p>Gecko 1.9.1 added support for several Mozilla-specific DOM events used to handle mouse gestures. These are special movements that can be made with a mouse or trackpad and can be interpreted to perform specific tasks.</p>
+<div class="note">
+<strong>Note:</strong> Some operating systems, including Mac OS X and Windows 7, provide default actions when gesture events occur. If you handle a gesture event and wish to prevent the default action from taking place as well, be sure to call the event's <a class="internal" rel="internal" href="event-38.html"><code>preventDefault()</code></a> method.</div>
+<div id="section_1">
+<span id="Event_fields"></span><h2 class="editable">Event fields</h2>
+<p>Mouse gesture events have additional fields providing information about the gesture. These are:</p>
+<dl>
+<dt><code>direction</code></dt>
+<dd>The direction in which the swipe moved.</dd>
+<dt><code>delta</code></dt>
+<dd>The amount by which the gesture moved; for rotation, this value is in degrees. Positive values are clockwise and negative values are counterclockwise. For magnification, this value is implementation-specific, but the value is positive for zooming in and negative for zooming out.<br>
+</dd>
+</dl>
+</div>
+<div id="section_2">
+<span id="Direction_constants"></span><h2 class="editable">Direction constants</h2>
+<p>The direction field in the gesture events can take one of the following values:</p>
+<dl>
+<dt><code>SimpleGestureEvent.DIRECTION_LEFT</code></dt>
+<dd>Leftward swipe.<br>
+</dd>
+<dt><code>SimpleGestureEvent.DIRECTION_RIGHT</code></dt>
+<dd>Rightward swipe.</dd>
+<dt><code>SimpleGestureEvent.DIRECTION_UP</code></dt>
+<dd>Upward swipe.</dd>
+<dt><code>SimpleGestureEvent.DIRECTION_DOWN</code></dt>
+<dd>Downward swipe.</dd>
+<dt><code>SimpleGestureEvent.ROTATION_COUNTERCLOCKWISE</code></dt>
+<dd>Counter-clockwise rotation.</dd>
+<dt><code>SimpleGestureEvent.ROTATION_CLOCKWISE</code></dt>
+<dd>Clockwise rotation.</dd>
+</dl>
+</div>
+<div id="section_3">
+<span id="Types_of_gesture_events"></span><h2 class="editable">Types of gesture events</h2>
+<div id="section_4">
+<span id="MozSwipeGesture"></span><h3 class="editable">MozSwipeGesture</h3>
+<p>The <code>MozSwipeGesture</code> event is sent when the user uses three fingers to "swipe" the trackpad.</p>
+</div>
+<div id="section_5">
+<span id="MozMagnifyGestureStart"></span><h3 class="editable">MozMagnifyGestureStart</h3>
+<p>The <code>MozMagnifyGestureStart</code> event is sent when the user begins performing a "pinch" gesture, by using two fingers as the corners of a rectangle and moving them either closer together or farther apart. This is typically used to zoom in and out on content (this is the default behavior in Firefox, for example).</p>
+</div>
+<div id="section_6">
+<span id="MozMagnifyGestureUpdate"></span><h3 class="editable">MozMagnifyGestureUpdate</h3>
+<p>The <code>MozMagnifyGestureUpdate</code> event is sent periodically while processing a magnify gesture, to provide updated status information.  The event's <code>delta</code> value represents the amount by which the gesture has moved since the <code>MozMagnifyGestureStart</code> or <code>MozMagnifyGestureUpdate</code> event.</p>
+<div class="note">
+<strong>Note:</strong> This event is sent whenever the movement of the user's fingers exceeds the number of pixels indicated by the <code>browser.gesture.pinch.threshold</code> preference.</div>
+</div>
+<div id="section_7">
+<span id="MozMagnifyGesture"></span><h3 class="editable">MozMagnifyGesture</h3>
+<p>The <code>MozMagnifyGesture</code> event is sent when the user completes a "pinch" gesture. If you only care about the end results of the pinch gesture, you can simply watch for this event; however, if you want to provide feedback during the handling of the gesture, you should also watch the <code>MozMagnifyGestureStart</code> and <code>MozMagnifyGestureUpdate</code> events.</p>
+<p>The <code>delta</code> value is the cumulative change over the course of handling the entire sequence of magnify gesture events.</p>
+</div>
+<div id="section_8">
+<span id="MozRotateGestureStart"></span><h3 class="editable">MozRotateGestureStart</h3>
+<p>The <code>MozRotateGestureStart</code> event is sent when the user begins performing a rotate gesture, by placing two fingers on the trackpad and rotating them around the center of the trackpad. Firefox uses this gesture to move backward and forward through the tabs in the current window.</p>
+</div>
+<div id="section_9">
+<span id="MozRotateGestureUpdate"></span><h3 class="editable">MozRotateGestureUpdate</h3>
+<p>The <code>MozRotateGestureUpdate</code> event is sent periodically while processing a rotate gesture, to provide updated status information.  The event's <code>delta</code> value represents the amount by which the gesture has moved since the <code>MozRotateGestureStart</code> or <code>MozRotateGestureUpdate</code> event.</p>
+<div class="note">
+<strong>Note:</strong> This event is sent whenever the movement of the user's fingers exceeds the number of pixels indicated by the <code>browser.gesture.pinch.threshold</code> preference.</div>
+</div>
+<div id="section_10">
+<span id="MozRotateGesture"></span><h3 class="editable">MozRotateGesture</h3>
+<p>The <code>MozRotateGesture</code> event is sent when the user completes a rotate gesture. If you only care about the end results of the rotate gesture, you can simply watch for this event; however, if you want to provide feedback during the handling of the gesture, you should also watch the <code>MozRotateGestureStart</code> and <code>MozRotateGestureUpdate</code> events.</p>
+<p>The <code>delta</code> value is the cumulative change over the course of handling the entire sequence of rotate gesture events.</p>
+</div>
+</div>
+<div id="section_11">
+<span id="See_also"></span><h2 class="editable">See also</h2>
+<ul>
+<li><a class="internal" rel="internal" href="event.html"><code>event</code></a></li> <li><a class="internal" rel="internal" href="https://developer.mozilla.org/En/Listening_to_events">Listening to events</a></li> <li>
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIDOMSimpleGestureEvent">nsIDOMSimpleGestureEvent</a></code>
+</li>
+</ul>
+<p> </p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Mouse_gesture_events.html">https://developer.mozilla.org/En/DOM/Mouse_gesture_events</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/En/DOM/Mouse_gesture_events by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:33 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

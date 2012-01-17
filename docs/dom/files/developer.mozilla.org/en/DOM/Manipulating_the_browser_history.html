@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/Manipulating_the_browser_history by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:56 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Manipulating the browser history - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=52456">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=52456">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 52456;
+Deki.PageTitle = 'en/DOM/Manipulating the browser history';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMManipulatingthebrowserhistory" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Manipulating the browser history</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Traveling_through_history" rel="internal">Traveling through history</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>1.1.</span> <a href="#Moving_forward_and_backward" rel="internal">Moving forward and backward</a>
+</li>
+<li>
+<span>1.2.</span> <a href="#Moving_to_a_specific_point_in_history" rel="internal">Moving to a specific point in history</a>
+</li>
+</ol>
+</li>
+<li>
+<span>2.</span> <a href="#Adding_and_modifying_history_entries" rel="internal">Adding and modifying history entries</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>2.1.</span> <a href="#Example" rel="internal">Example</a>
+</li>
+<li>
+<span>2.2.</span> <a href="#The_pushState().c2.a0method" rel="internal">The pushState() method</a>
+</li>
+<li>
+<span>2.3.</span> <a href="#The_replaceState().c2.a0method" rel="internal">The replaceState() method</a>
+</li>
+<li>
+<span>2.4.</span> <a href="#The_popstate_event" rel="internal">The popstate event</a>
+</li>
+</ol>
+</li>
+<li>
+<span>3.</span> <a href="#See_also" rel="internal">See also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>The DOM 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow">window</a></code> object provides access to the browser's history through the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.history">window.history</a></code> object. It exposes useful methods and properties that let you move back and forth through the user's history, as well as -- starting with HTML5 -- manipulate the contents of the history stack.</p>
+<div id="section_1">
+<span id="Traveling_through_history"></span><h2 class="editable">Traveling through history</h2>
+<p>Moving backward and forward through the user's history is done using the <code>back()</code>, <code>forward()</code>, and <code>go()</code> methods.</p>
+<div id="section_2">
+<span id="Moving_forward_and_backward"></span><h3 class="editable">Moving forward and backward</h3>
+<p>To move backward through history, just do:</p>
+<pre>
+window.history.back();
+</pre>
+<p>This will act exactly like the user clicked on the Back button in their browser toolbar.</p>
+<p>Similarly, you can move forward (as if the user clicked the Forward button), like this:</p>
+<pre>
+window.history.forward();
+</pre>
+</div>
+<div id="section_3">
+<span id="Moving_to_a_specific_point_in_history"></span><h3 class="editable">Moving to a specific point in history</h3>
+<p>You can use the <code>go()</code> method to load a specific page from session history, identified by its relative position to the current page (with the current page being, of course, relative index 0).</p>
+<p>To move back one page (the equivalent of calling <code>back()</code>):</p>
+<pre><code>window.history.go(-1);</code>
+</pre>
+<p>To move forward a page, just like calling <code>forward()</code>:</p>
+<pre><code>window.history.go(1);</code>
+</pre>
+<p>Similarly, you can move forward 2 pages by passing 2, and so forth.</p>
+<p>You can determine the number of pages in the history stack by looking at the value of the length property:</p>
+<pre>
+var numberOfEntries = window.history.length;
+</pre>
+<div class="note">
+<strong>Note:</strong> Internet Explorer supports passing string URLs as a parameter to <code>go()</code>; this is non-standard and not supported by Gecko.</div>
+</div>
+</div>
+<div id="section_4">
+<span id="Adding_and_modifying_history_entries"></span><h2 class="editable">Adding and modifying history entries</h2>
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 2</p>
+
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+</div>
+</span> </p>
+<p>HTML5 introduced the <code>history.pushState()</code> and <code>history.replaceState()</code> methods, which allow you to add and modify history entries, respectively. These methods work in conjunction with the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.onpopstate">window.onpopstate</a></code> event.</p>
+<div id="section_5">
+<span id="Example"></span><h3 class="editable">Example</h3>
+<p>Suppose http://mozilla.org/foo.html executes the following JavaScript:</p>
+<pre>
+var stateObj = { foo: "bar" };
+history.pushState(stateObj, "page 2", "bar.html");
+</pre>
+<p>This will cause the URL bar to display http://mozilla.org/bar.html, but won't cause the browser to load <code>bar.html</code> or even check that <code>bar.html</code> exists.</p>
+<p>Suppose now that the user now navigates to http://google.com, then clicks back. At this point, the URL bar will display http://mozilla.org/bar.html, and the page will get a <code>popstate</code> event whose <em>state object</em> contains a copy of <code>stateObj</code>. The page itself will look like <code>foo.html</code>, although the page might modify its contents during the <code>popstate</code> event.</p>
+<p>If we click back again, the URL will change to http://mozilla.org/foo.html, and the document will get another <code>popstate</code> event, this time with a null state object. Here too, going back doesn't change the document's contents from what they were in the previous step, although the document might update its contents manually upon receiving the <code>popstate</code> event.</p>
+</div>
+<div id="section_6">
+<span id="The_pushState().c2.a0method"></span><h3 class="editable">The pushState() method</h3>
+<p><code>pushState()</code> takes three parameters: a state object, a title (which is currently ignored), and (optionally) a URL. Let's examine each of these three parameters in more detail:</p>
+<ul>
+<li> <p><strong>state object</strong> — The state object is a JavaScript object which is associated with the new history entry created by <code>pushState()</code>. Whenever the user navigates to the new state, a <code>popstate</code> event is fired, and the <code>state</code> property of the event contains a copy of the history entry's state object.</p> <p>The state object can be anything that you can pass to <code>JSON.stringify</code>. Because Firefox saves state objects to the user's disk so they can be restored after the user restarts her browser, we impose a size limit of 640k characters on the JSON representation of a state object. If you pass a state object whose JSON representation is larger than this to <code>pushState()</code>, the method will throw an exception. If you need more space than this, you're encouraged to use <code>sessionStorage</code> and/or <code>localStorage</code>.</p> </li> <li> <p><strong>title</strong> — Firefox currently ignores this parameter, although it may use it in the future. Passing the empty string here should be safe against future changes to the method. Alternatively, you could pass a short title for the state to which you're moving.</p> </li> <li> <p><strong>URL</strong> — The new history entry's URL is given by this parameter. Note that the browser won't attempt to load this URL after a call to <code>pushState()</code>, but it might attempt to load the URL later, for instance after the user restarts her browser. The new URL does not need to be absolute; if it's relative, it's resolved relative to the current URL. The new URL must be of the same origin as the current URL; otherwise, <code>pushState()</code> will throw an exception. This parameter is optional; if it isn't specified, it's set to the document's current URL.</p> </li>
+</ul>
+<p>In a sense, calling <code>pushState()</code> is similar to setting <code>window.location = "#foo"</code>, in that both will also create and activate another history entry associated with the current document. But <code>pushState()</code> has a few advantages:</p>
+<ul>
+<li>The new URL can be any URL in the same origin as the current URL. In contrast, setting <code>window.location</code> keeps you at the same 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3adocument">document</a></code> only if you modify only the hash.</li> <li>You don't have to change the URL if you don't want to. In contrast, setting <code>window.location = "#foo";</code> only creates a new history entry if the current hash isn't <code>#foo</code>.</li> <li>You can associate arbitrary data with your new history entry. With the hash-based approach, you need to encode all of the relevant data into a short string.</li>
+</ul>
+<p>Note that <code>pushState()</code> never causes a <code>hashchange</code> event to be fired, even if the new URL differs from the old URL only in its hash.</p>
+</div>
+<div id="section_7">
+<span id="The_replaceState().c2.a0method"></span><h3 class="editable">The replaceState() method</h3>
+<p><code>history.replaceState()</code> operates exactly like <code>history.pushState()</code> except that <code>replaceState()</code> modifies the current history entry instead of creating a new one.</p>
+<p><code>replaceState()</code> is particularly useful when you want to update the state object or URL of the current history entry in response to some user action.</p>
+</div>
+<div id="section_8">
+<span id="The_popstate_event"></span><h3 class="editable">The popstate event</h3>
+<p>A <code>popstate</code> event is dispatched to the window every time the active history entry changes. If the history entry being activated was created by a call to <code>pushState</code> or affected by a call to <code>replaceState</code>, the <code>popstate</code> event's <code>state</code> property contains a copy of the history entry's state object.</p>
+<p>See 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.onpopstate">window.onpopstate</a></code> for sample usage.</p>
+</div>
+</div>
+<div id="section_9">
+<span id="See_also"></span><h2 class="editable">See also</h2>
+<ul>
+<li>
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.history">window.history</a></code>
+</li> <li>
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.onpopstate">window.onpopstate</a></code>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Manipulating_the_browser_history.html">https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/Manipulating_the_browser_history by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:56 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/wrap/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:06 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#wrap</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#wrap
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#wrap(wrapper[, attributes]) &rarr; <a href="../../index.html" title="Element (class)">Element</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">wrapper</code>
+          <span class="argument-types">(<code><a href="../../index.html" title="Element (class)">Element</a></code> | <code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; An element to wrap <code>element</code> inside, or else a string representing the tag name of an element to be created.
+      </li>
+      <li>
+        <code class="argument-name">attributes</code>
+          <span class="argument-types">(<code><a href="../../../../language/Object/index.html" title="Object (class)">Object</a></code>)</span>
+         &ndash; A set of attributes to apply to the wrapper element. Refer to the <code><a href="../../index.html" title="Element (class)">Element</a></code> constructor for usage.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Wraps an element inside another, then returns the wrapper.</p>
+
+<p>If the given element exists on the page, <code><a href="../../wrap/index.html" title="Element.wrap (class method)">Element.wrap</a></code> will wrap it in
+place — its position will remain the same.</p>
+
+<p>The <code>wrapper</code> argument can be <em>either</em> an existing <code><a href="../../index.html" title="Element (class)">Element</a></code> <em>or</em> a
+string representing the tag name of an element to be created. The optional
+<code>attributes</code> argument can contain a list of attribute/value pairs that
+will be set on the wrapper using <code><a href="../../writeAttribute/index.html" title="Element.writeAttribute (class method)">Element.writeAttribute</a></code>.</p>
+
+<h5>Examples</h5>
+
+<p>Original HTML:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;table</span> <span class="na">id=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Foo<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;th&gt;</span>Bar<span class="nt">&lt;/th&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span>
+</pre>
+</div>
+
+
+<p>JavaScript:</p>
+
+<div class="highlight"><pre><span class="c1">// approach 1:</span>
+<span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Element</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;table-wrapper&#39;</span> <span class="p">});</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">).</span><span class="nx">wrap</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+ <span class="c1">// approach 2:</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">).</span><span class="nx">wrap</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;class&#39;</span><span class="o">:</span> <span class="s1">&#39;table-wrapper&#39;</span> <span class="p">});</span>
+ <span class="c1">// Both examples are equivalent &amp;mdash; they return the DIV.</span>
+</pre>
+</div>
+
+
+<p>Resulting HTML:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;table-wrapper&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">id=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Foo<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Bar<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<h5>Warning</h5>
+
+<p>Using <code><a href="../../wrap/index.html" title="Element.wrap (class method)">Element.wrap</a></code> as an instance method (e.g., <code>$('foo').wrap('p')</code>)
+causes errors in Internet Explorer when used on <code>textarea</code> elements. The
+<code>wrap</code> property is reserved on <code>textarea</code>'s as a proprietary extension to
+HTML. As a workaround, use the generic version instead
+(<code>Element.wrap('foo', 'p')</code>).</p>
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../wrap/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/wrap/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:06 GMT -->
+</html>

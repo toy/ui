@@ -1,0 +1,12 @@
+HTTrack3.43-9 launched on Fri, 17 Dec 2010 04:43:10 at http://raphaeljs.com/reference.html -* +http://raphaeljs.com/reference.html* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur
+(httrack http://raphaeljs.com/reference.html -* +http://raphaeljs.com/reference.html* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0 )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+04:43:11	Warning: 	File not parsed, looks like binary: raphaeljs.com/robots.txt
+
+HTTrack Website Copier/3.43-9 mirror complete in 9 seconds : 11 links scanned, 10 files written (270337 bytes overall) [220825 bytes received at 24536 bytes/sec], 64045 bytes transfered using HTTP compression in 2 files, ratio 17%, 2.7 requests per connection
+(No errors, 1 warnings, 0 messages)

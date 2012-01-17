@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/HTMLCanvasElement by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:13:57 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>HTMLCanvasElement - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=56988">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=56988">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 56988;
+Deki.PageTitle = 'en/DOM/HTMLCanvasElement';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../deki/scripts/res/syntax/shBrushJScript.js"></script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMHTMLCanvasElement" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">HTMLCanvasElement</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#HTML_Canvas_Element_Interface" rel="internal">HTML Canvas Element Interface</a>
+</li>
+<li>
+<span>2.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>3.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+<li>
+<span>4.</span> <a href="#Example.3a_Getting_a_file_representing_the_canvas" rel="internal">Example: Getting a file representing the canvas</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<p>
+</p>
+<div class="htmlVersionHeaderTemplate" style="overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(174, 218, 229); font-weight: bold; text-align: center;"><p style="margin: 4px 0px;">Introduced in <a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/HTML5">HTML 5</a></p></div>
+
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 1.8</p>
+
+(Firefox 1.5 / Thunderbird 1.5)
+</div>
+</span> </p>
+<div id="section_1">
+<span id="HTML_Canvas_Element_Interface"></span><h2 class="editable">HTML Canvas Element Interface</h2>
+<p>DOM canvas elements expose the <a class=" external" title="http://www.w3.org/TR/html5/the-canvas-element.html#htmlcanvaselement" rel="external nofollow" href="http://www.w3.org/TR/html5/the-canvas-element.html#htmlcanvaselement" target="_blank">HTMLCanvasElement</a> interface, which provides properties and methods (beyond the <a href="element.html" rel="internal">element</a> object interface they also have available to them by inheritance) for manipulating the layout and presentation of canvas elements.</p>
+</div>
+<div id="section_2">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<table class="standard-table">
+<thead><tr>
+<th scope="col">Name</th> <th scope="col">Type</th> <th scope="col">Description</th> </tr></thead>
+<tbody>
+<tr>
+<td><code>height<br></code></td> <td><code>unsigned long<br></code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/canvas#attr-height">height</a></code>
+ HTML attribute, specifying the height of the coordinate space in CSS pixels.</td> </tr>
+<tr>
+<td><code>width<br></code></td> <td><code>unsigned long<br></code></td> <td>Reflects the 
+
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/canvas#attr-width">width</a></code>
+ HTML attribute, specifying the width of the coordinate space in CSS pixels.</td> </tr>
+</tbody>
+</table>
+</div>
+<div id="section_3">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<table class="standard-table">
+<thead><tr>
+<th scope="col">Name &amp; Arguments</th> <th scope="col">Return</th> <th scope="col">Description</th> </tr></thead>
+<tbody>
+<tr>
+<td><code>getContext(in <a rel="internal" href="DOMString.html">DOMString</a> contextId)<br></code></td> <td><code>object<br></code></td> <td>Returns an object that exposes an API for drawing on the canvas, or null if the context ID is not supported. The only accepted value currently is '2d', which returns a <a href="CanvasRenderingContext2D.html" rel="internal">CanvasRenderingContext2D</a> Object</td> </tr>
+<tr>
+<td>
+<code>mozGetAsFile(in </code><code><a rel="internal" href="DOMString.html">DOMString</a></code><code> name, [optional] in </code><code><a rel="internal" href="DOMString.html">DOMString</a></code><code> type)</code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </td> <td>
+<code><a rel="custom nofollow" href="File.html">File</a></code>
+</td> <td>Returns a DOM 
+<code><a rel="custom nofollow" href="File.html">File</a></code> object representing the image contained in the canvas; this file is a memory-based file, with the specified <code>name</code> and whose image data is of the type indicated by the optional <code>type</code> parameter. If <code>type</code> is not specified, the image type is <code>image/png</code>.</td> </tr>
+<tr>
+<td>
+<code>toDataUrl(in optional </code><code><a rel="internal" href="DOMString.html">DOMString</a></code><code> type, in any... args)<br></code>
+</td> <td><code><a rel="internal" href="DOMString.html">DOMString</a></code></td> <td> <p>Returns a <code>data:</code> URL containing a representation of the image in the format specified by <code>type</code> (defaults to PNG).</p> <ul>
+<li>If the height or width of the canvas is 0, <code>"data:,</code>" representing the empty string, is returned.</li> <li>If the type requested is not <code>image/png</code>, and the returned value starts with <code>data:image/png</code>, then the requested type is not supported.</li> <li>If the requested type is <code>image/jpeg</code>, then the second argument, if it is between 0.0 and 1.0, is treated as indicating image quality; if the second argument is anything else, the default value for image quality is used. Other arguments are ignored.</li> </ul>
+</td> </tr>
+</tbody>
+</table>
+<p>
+</p>
+<p><span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); padding: 1px; background-color: rgb(255, 255, 225); font-size: small; font-weight: bold; float: right; text-align: right; vertical-align: middle; white-space: nowrap;">Requires Gecko 2.0 
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+</span> </span></p>
+<span id="Example.3a_Getting_a_file_representing_the_canvas"></span><h2>Example: Getting a file representing the canvas</h2>
+<p>Once you've drawn content into a canvas, you can convert it into a file of any supported image format. The code snippet below, for example, takes the image in the canvas element whose ID is "canvas", obtains a copy of it as a PNG image, then appends a new 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/img">&lt;img&gt;</a></code> element to the document, whose source image is the one created using the canvas.</p>
+
+          <pre name="code" class="js">function test() {
+ var canvas = document.getElementById("canvas");
+ var f = canvas.mozGetAsFile("test.png");
+ 
+ var newImg = document.createElement("img");
+ newImg.src = f.getAsDataURL();
+ document.body.appendChild(newImg);
+}</pre>
+        
+<p>Note that here we're creating a PNG image; if you add a second parameter to the <code>mozGetAsFile()</code> call, you can specify the image type. For example, to get the image in JPEG format:</p>
+<pre class="deki-transform">
+ var f = canvas.mozGetAsFile("test.jpg", "image/jpeg");</pre>
+<p>
+<a rel="internal" href="https://developer.mozilla.org/samples/domref/mozGetAsFile.html" class=" new"><span style="cursor:pointer; padding: 2px; border: solid 2px #333333; color: black; -moz-box-shadow:2px 2px 2px #191919; -webkit-box-shadow:2px 2px 2px #191919; -o-box-shadow:2px 2px 2px #191919; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; -o-border-radius: 5px; background:-moz-linear-gradient(76% 26% 142deg, #DCE3FF, #FFFFFF 47%);">View the live example</span></a></p>
+<div class="note">
+<strong>Note:</strong> The returned file is a memory-based file, rather than one on disk.</div>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="HTMLCanvasElement.html">https://developer.mozilla.org/en/DOM/HTMLCanvasElement</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/HTMLCanvasElement by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:14:00 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

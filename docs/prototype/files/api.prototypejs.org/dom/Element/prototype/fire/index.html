@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/fire/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:02 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#fire</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#fire
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#fire(eventName[, memo[, bubble = true]]) &rarr; <a href="../../../Event/index.html" title="Event (class)">Event</a></code></pre>
+
+
+      <p>See <code><a href="../../../Event/fire/index.html" title="Event.fire (class method)">Event.fire</a></code>.</p>
+
+<p>Fires a custom event with the current element as its target.</p>
+
+<p><code><a href="../../fire/index.html" title="Element.fire (class method)">Element.fire</a></code> creates a custom event with the given name, then triggers
+it on the given element. The custom event has all the same properties
+and methods of native events. Like a native event, it will bubble up
+through the DOM unless its propagation is explicitly stopped.</p>
+
+<p>The optional second argument will be assigned to the <code>memo</code> property of
+the event object so that it can be read by event handlers.</p>
+
+<p>Custom events are dispatched synchronously: <code><a href="../../fire/index.html" title="Element.fire (class method)">Element.fire</a></code> waits until
+the event finishes its life cycle, then returns the event itself.</p>
+
+<h5>Note</h5>
+
+<p><code><a href="../../fire/index.html" title="Element.fire (class method)">Element.fire</a></code> does not support firing native events. All custom event
+names <em>must</em> be namespaced (using a colon). This is to avoid custom
+event names conflicting with non-standard native DOM events such as
+<code>mousewheel</code> and <code>DOMMouseScroll</code>.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="s2">&quot;widget:frobbed&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Element with ID (&quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span>
+   <span class="s2">&quot;) frobbed widget #&quot;</span> <span class="o">+</span> <span class="nx">event</span><span class="p">.</span><span class="nx">memo</span><span class="p">.</span><span class="nx">widgetNumber</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="p">});</span>
+ <span class="kd">var</span> <span class="nx">someNode</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="nx">someNode</span><span class="p">.</span><span class="nx">fire</span><span class="p">(</span><span class="s2">&quot;widget:frobbed&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">widgetNumber</span><span class="o">:</span> <span class="mi">19</span> <span class="p">});</span>
+ <span class="c1">//-&gt; &quot;Element with ID (foo) frobbed widget #19.&quot;</span>
+</pre>
+</div>
+
+
+<h5>Tip</h5>
+
+<p>Events that have been stopped with <code><a href="../../../Event/stop/index.html" title="Event.stop (class method)">Event.stop</a></code> will have a boolean
+<code>stopped</code> property set to true. Since <code><a href="../../fire/index.html" title="Element.fire (class method)">Element.fire</a></code> returns the custom
+event, you can inspect this property to determine whether the event was
+stopped.</p>
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../fire/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/fire/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:02 GMT -->
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/replace/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:43 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#replace</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#replace
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#replace([newContent]) &rarr; <a href="../../index.html" title="Element (class)">Element</a></code></pre>
+
+
+      <p>Replaces <code>element</code> <em>itself</em> with <code>newContent</code> and returns <code>element</code>.</p>
+
+<p>Keep in mind that this method returns the element that has just been
+removed &mdash; not the element that took its place.</p>
+
+<p><code>newContent</code> can be either plain text, an HTML snippet or any JavaScript
+object which has a <code>toString()</code> method.</p>
+
+<p>If <code>newContent</code> contains any <code>&lt;script&gt;</code> tags, these will be evaluated
+after <code>element</code> has been replaced (<code><a href="../../replace/index.html" title="Element.replace (class method)">Element.replace</a></code> internally calls
+<code><a href="../../../../language/String/prototype/evalScripts/index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code>).</p>
+
+<p>Note that if no argument is provided, <code><a href="../../replace/index.html" title="Element.replace (class method)">Element.replace</a></code> will simply
+clear <code>element</code> of its content. However, using <code><a href="../../remove/index.html" title="Element.remove (class method)">Element.remove</a></code> to do so
+is both faster and more standard compliant.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;food&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;fruits&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">&quot;first&quot;</span><span class="nt">&gt;</span>Kiwi, banana <span class="nt">&lt;em&gt;</span>and<span class="nt">&lt;/em&gt;</span> apple.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>Passing an HTML snippet:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;&lt;ul id=&quot;favorite&quot;&gt;&lt;li&gt;kiwi&lt;/li&gt;&lt;li&gt;banana&lt;/li&gt;&lt;li&gt;apple&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; Element (p#first)</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;&lt;ul id=&quot;favorite&quot;&gt;&lt;li&gt;kiwi&lt;/li&gt;&lt;li&gt;banana&lt;/li&gt;&lt;li&gt;apple&lt;/li&gt;&lt;/ul&gt;&#39;</span>
+</pre>
+</div>
+
+
+<p>Again, with a <code>&lt;script&gt;</code> tag thrown in:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;favorite&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;&lt;p id=&quot;still-first&quot;&gt;Melon, oranges &lt;em&gt;and&lt;/em&gt; grapes.&lt;/p&gt;&lt;script&gt;alert(&quot;removed!&quot;)&lt;/script&gt;&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; Element (ul#favorite) and prints &quot;removed!&quot; in an alert dialog.</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;&lt;p id=&quot;still-first&quot;&gt;Melon, oranges &lt;em&gt;and&lt;/em&gt; grapes.&lt;/p&gt;&#39;</span>
+</pre>
+</div>
+
+
+<p>With plain text:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;still-first&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;Melon, oranges and grapes.&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; Element (p#still-first)</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;Melon, oranges and grapes.&#39;</span>
+</pre>
+</div>
+
+
+<p>Finally, relying on the <code>toString()</code> method:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;fruits&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="mi">123</span><span class="p">);</span>
+<span class="c1">// -&gt; Element</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;food&#39;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// -&gt; &#39;123&#39;</span>
+</pre>
+</div>
+
+
+<h5>Warning</h5>
+
+<p>Using <code><a href="../../replace/index.html" title="Element.replace (class method)">Element.replace</a></code> as an instance method (e.g.,
+<code>$('foo').replace('&lt;p&gt;Bar&lt;/p&gt;')</code>) causes errors in Opera 9 when used on
+<code>input</code> elements. The <code>replace</code> property is reserved on <code>input</code> elements
+as part of <a href="http://www.whatwg.org/specs/web-forms/current-work/">Web Forms 2</a>.
+As a workaround, use the generic version instead
+(<code>Element.replace('foo', '&lt;p&gt;Bar&lt;/p&gt;')</code>).</p>
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../replace/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/replace/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:43 GMT -->
+</html>

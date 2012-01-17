@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/visible/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:04 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#visible</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#visible
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#visible() &rarr; Boolean</code></pre>
+
+
+      <p>Tells whether <code>element</code> is visible (i.e., whether its inline <code>display</code>
+CSS property is set to <code>none</code>.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;visible&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;hidden&quot;</span> <span class="na">style=</span><span class="s">&quot;display: none;&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>And the associated JavaScript:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;visible&#39;</span><span class="p">).</span><span class="nx">visible</span><span class="p">();</span>
+<span class="c1">// -&gt; true</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;hidden&#39;</span><span class="p">).</span><span class="nx">visible</span><span class="p">();</span>
+<span class="c1">// -&gt; false</span>
+</pre>
+</div>
+
+
+<h5>Notes</h5>
+
+<p>Styles applied via a CSS stylesheet are <em>not</em> taken into consideration.
+Note that this is not a Prototype limitation, it is a CSS limitation.</p>
+
+<div class="highlight"><pre><span class="nt">&lt;style&gt;</span>
+  <span class="nf">#hidden-by-css</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+ [...]
+ <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;hidden-by-css&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>And the associated JavaScript:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;hidden-by-css&#39;</span><span class="p">).</span><span class="nx">visible</span><span class="p">();</span>
+<span class="c1">// -&gt; true</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../visible/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/visible/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:04 GMT -->
+</html>

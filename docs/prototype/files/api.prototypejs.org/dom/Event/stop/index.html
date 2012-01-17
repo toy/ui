@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/stop/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:22 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Event.stop</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Event.stop
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Event.stop(event) &rarr; undefined</code></pre>
+
+
+      <p>Stops the event's propagation and prevents its eventual default action
+from being triggered.</p>
+
+<p>Stopping an event also sets a <code>stopped</code> property on that event for
+future inspection.</p>
+
+<p>There are two aspects to how your browser handles an event once it fires up:</p>
+
+<ol>
+<li><p>The browser usually triggers event handlers on the actual element the
+event occurred on, then on its parent element, and so on and so forth,
+until the document's root element is reached. This is called
+<em>event bubbling</em>, and is the most common form of event propagation. You
+may very well want to stop this propagation when you just handled an event,
+and don't want it to keep bubbling up (or see no need for it).</p></li>
+<li><p>Once your code had a chance to process the event, the browser handles
+it as well, if that event has a <em>default behavior</em>. For instance, clicking
+on links navigates to them; submitting forms sends them over to the server
+side; hitting the Return key in a single-line form field submits it; etc.
+You may very well want to prevent this default behavior if you do your own
+handling.</p></li>
+</ol>
+
+
+<p>Because stopping one of those aspects means, in 99.9% of the cases,
+preventing the other one as well, Prototype bundles both in this <code>stop</code>
+function. Calling it on an event object, stops propagation <em>and</em> prevents
+the default behavior.</p>
+
+<h5>Example</h5>
+
+<p>Here's a simple script that prevents a form from being sent to the server
+side if certain field is empty.</p>
+
+<div class="highlight"><pre><span class="nx">Event</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;signinForm&#39;</span><span class="p">,</span> <span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">login</span> <span class="o">=</span> <span class="nx">$F</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">).</span><span class="nx">strip</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">==</span> <span class="nx">login</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Event</span><span class="p">.</span><span class="nx">stop</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+    <span class="c1">// Display the issue one way or another</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/stop/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/stop/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:22 GMT -->
+</html>

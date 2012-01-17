@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Template/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:45 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Template</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Template
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>A class for sophisticated string interpolation.</p>
+
+<p>Any time you have a group of similar objects and you need to produce
+formatted output for these objects, maybe inside a loop, you typically
+resort to concatenating string literals with the object's fields:</p>
+
+<div class="highlight"><pre><span class="s2">&quot;The TV show &quot;</span> <span class="o">+</span> <span class="nx">title</span> <span class="o">+</span> <span class="s2">&quot; was created by &quot;</span> <span class="o">+</span> <span class="nx">author</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<p>There's nothing wrong with this approach, except that it is hard to
+visualize the output immediately just by glancing at the concatenation
+expression. The <code><a href="index.html" title="Template (class)">Template</a></code> class provides a much nicer and clearer way of
+achieving this formatting.</p>
+
+<h5>Straightforward templates</h5>
+
+<p>The <code><a href="index.html" title="Template (class)">Template</a></code> class uses a basic formatting syntax, similar to what is
+used in Ruby. The templates are created from strings that have embedded
+symbols in the form (e.g., <code>#{fieldName}</code>) that will be replaced by
+actual values when the template is applied (evaluated) to an object.</p>
+
+<div class="highlight"><pre><span class="c1">// the template (our formatting expression)</span>
+<span class="kd">var</span> <span class="nx">myTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Template</span><span class="p">(</span>
+ <span class="s1">&#39;The TV show #{title} was created by #{author}.&#39;</span><span class="p">);</span>
+ <span class="c1">// our data to be formatted by the template</span>
+<span class="kd">var</span> <span class="nx">show</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;The Simpsons&#39;</span><span class="p">,</span>
+  <span class="nx">author</span><span class="o">:</span> <span class="s1">&#39;Matt Groening&#39;</span><span class="p">,</span>
+  <span class="nx">network</span><span class="o">:</span> <span class="s1">&#39;FOX&#39;</span>
+<span class="p">};</span>
+ <span class="c1">// let&#39;s format our data</span>
+<span class="nx">myTemplate</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">show</span><span class="p">);</span>
+<span class="c1">// -&gt; &quot;The TV show The Simpsons was created by Matt Groening.&quot;</span>
+</pre>
+</div>
+
+
+<h5>Templates are meant to be reused</h5>
+
+<p>As the example illustrates, <code><a href="index.html" title="Template (class)">Template</a></code> objects are not tied to specific
+data. The data is bound to the template only during the evaluation of the
+template, without affecting the template itself. The next example shows the
+same template being used with a handful of distinct objects.</p>
+
+<div class="highlight"><pre><span class="c1">// creating a few similar objects</span>
+<span class="kd">var</span> <span class="nx">conversion1</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">from</span><span class="o">:</span> <span class="s1">&#39;meters&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;feet&#39;</span><span class="p">,</span> <span class="nx">factor</span><span class="o">:</span> <span class="mf">3.28</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">conversion2</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">from</span><span class="o">:</span> <span class="s1">&#39;kilojoules&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;BTUs&#39;</span><span class="p">,</span> <span class="nx">factor</span><span class="o">:</span> <span class="mf">0.9478</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">conversion3</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">from</span><span class="o">:</span> <span class="s1">&#39;megabytes&#39;</span><span class="p">,</span> <span class="nx">to</span><span class="o">:</span> <span class="s1">&#39;gigabytes&#39;</span><span class="p">,</span> <span class="nx">factor</span><span class="o">:</span> <span class="mi">1024</span> <span class="p">};</span>
+ <span class="c1">// the template</span>
+<span class="kd">var</span> <span class="nx">templ</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Template</span><span class="p">(</span>
+ <span class="s1">&#39;Multiply by #{factor} to convert from #{from} to #{to}.&#39;</span><span class="p">);</span>
+ <span class="c1">// let&#39;s format each object</span>
+<span class="p">[</span><span class="nx">conversion1</span><span class="p">,</span> <span class="nx">conversion2</span><span class="p">,</span> <span class="nx">conversion3</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span> <span class="kd">function</span><span class="p">(</span><span class="nx">conv</span><span class="p">){</span>
+    <span class="nx">templ</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">conv</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="c1">// -&gt; Multiply by 3.28 to convert from meters to feet.</span>
+<span class="c1">// -&gt; Multiply by 0.9478 to convert from kilojoules to BTUs.</span>
+<span class="c1">// -&gt; Multiply by 1024 to convert from megabytes to gigabytes.</span>
+</pre>
+</div>
+
+
+<h5>Escape sequence</h5>
+
+<p>There's always the chance that one day you'll need to have a literal in your
+template that looks like a symbol, but is not supposed to be replaced. For
+these situations there's an escape character: the backslash (<code>\\</code>).</p>
+
+<div class="highlight"><pre><span class="c1">// NOTE: you&#39;re seeing two backslashes here because the backslash</span>
+<span class="c1">// is also an escape character in JavaScript strings, so a literal</span>
+<span class="c1">// backslash is represented by two backslashes.</span>
+<span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Template</span><span class="p">(</span>
+ <span class="s1">&#39;in #{lang} we also use the \\#{variable} syntax for templates.&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">lang</span><span class="o">:</span><span class="s1">&#39;Ruby&#39;</span><span class="p">,</span> <span class="nx">variable</span><span class="o">:</span> <span class="s1">&#39;(not used)&#39;</span> <span class="p">};</span>
+<span class="nx">t</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<span class="c1">// -&gt; in Ruby we also use the #{variable} syntax for templates.</span>
+</pre>
+</div>
+
+
+<h5>Custom syntaxes</h5>
+
+<p>The default syntax of the template strings will probably be enough for most
+scenarios. In the rare occasion where the default Ruby-like syntax is
+inadequate, there's a provision for customization. <code><a href="index.html" title="Template (class)">Template</a></code>'s
+constructor accepts an optional second argument that is a regular expression
+object to match the replaceable symbols in the template string. Let's put
+together a template that uses a syntax similar to the now ubiquitous <code>{{ }}</code>
+constructs:</p>
+
+<div class="highlight"><pre><span class="c1">// matches symbols like &#39;{{ field }}&#39;</span>
+<span class="kd">var</span> <span class="nx">syntax</span> <span class="o">=</span> <span class="sr">/(^|.|\r|\n)(\{{\s*(\w+)\s*}})/</span><span class="p">;</span>
+ <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Template</span><span class="p">(</span>
+ <span class="s1">&#39;&lt;div&gt;Name: &lt;b&gt;{{ name }}&lt;/b&gt;, Age: &lt;b&gt;{{ age }}&lt;/b&gt;&lt;/div&gt;&#39;</span><span class="p">,</span>
+ <span class="nx">syntax</span><span class="p">);</span>
+<span class="nx">t</span><span class="p">.</span><span class="nx">evaluate</span><span class="p">(</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;John Smith&#39;</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">26</span><span class="p">}</span> <span class="p">);</span>
+<span class="c1">// -&gt; &lt;div&gt;Name: &lt;b&gt;John Smith&lt;/b&gt;, Age: &lt;b&gt;26&lt;/b&gt;&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>There are important constraints to any custom syntax. Any syntax must
+provide at least three groupings in the regular expression. The first
+grouping is to capture what comes before the symbol, to detect the backslash
+escape character (no, you cannot use a different character). The second
+grouping captures the entire symbol and will be completely replaced upon
+evaluation. Lastly, the third required grouping captures the name of the
+field inside the symbol.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Template (constructor)">new Template</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/evaluate/index.html" title="Template#evaluate (instance method)" class="instance-method">evaluate</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Template/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:45 GMT -->
+</html>

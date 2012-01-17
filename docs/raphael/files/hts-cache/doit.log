@@ -1,0 +1,8 @@
+http://raphaeljs.com/reference.html -* +http://raphaeljs.com/reference.html* +*.jpg +*.png +*.gif +*.css +*.js +*.ico +*.cur -n -N0
+File generated automatically on Fri, 17 Dec 2010 04:43:10, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/getStyle/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:47 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.getStyle</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Element.getStyle
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.getStyle(element, style) &rarr; <a href="../../../language/String/index.html" title="String (class)">String</a> | null</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">style</code>
+          <span class="argument-types">(<code><a href="../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; The property name to be retrieved.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Returns the given CSS property value of <code>element</code>. The property can be
+specified in either its CSS form (<code>font-size</code>) or its camelized form
+(<code>fontSize</code>).</p>
+
+<p>This method looks up the CSS property of an element whether it was
+applied inline or in a stylesheet. It works around browser inconsistencies
+regarding <code>float</code>, <code>opacity</code>, which returns a value between <code>0</code>
+(fully transparent) and <code>1</code> (fully opaque), position properties
+(<code>left</code>, <code>top</code>, <code>right</code> and <code>bottom</code>) and when getting the dimensions
+(<code>width</code> or <code>height</code>) of hidden elements.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;font-size&#39;</span><span class="p">);</span>
+<span class="c1">// equivalent:</span>
+ <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;fontSize&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; &#39;12px&#39;</span>
+</pre>
+</div>
+
+
+<h5>Notes</h5>
+
+<p>Internet Explorer returns literal values while other browsers return
+computed values.</p>
+
+<p>Consider the following HTML snippet:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;style&gt;</span>
+  <span class="nf">#test</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">12px</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="m">1em</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;test&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre>
+</div>
+
+
+<p>Then:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">).</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;margin-left&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; &#39;1em&#39; in Internet Explorer,</span>
+<span class="c1">// -&gt; &#39;12px&#39; elsewhere.</span>
+</pre>
+</div>
+
+
+<p>Safari returns <code>null</code> for <em>any</em> non-inline property if the element is
+hidden (has <code>display</code> set to <code>'none'</code>).</p>
+
+<p>Not all CSS shorthand properties are supported. You may only use the CSS
+properties described in the
+<a href="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-ElementCSSInlineStyle">Document Object Model (DOM) Level 2 Style Specification</a>.</p>
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/getStyle/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/getStyle/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:47 GMT -->
+</html>

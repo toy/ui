@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/Using_dynamic_styling_information by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:34 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Using dynamic styling information - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=54446">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=54446">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 54446;
+Deki.PageTitle = 'en/DOM/Using dynamic styling information';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../deki/scripts/res/syntax/shBrushJScript.js"></script><script type="text/javascript" src="../../deki/scripts/res/syntax/shBrushXml.js"></script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMUsingdynamicstylinginformation" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Using dynamic styling information</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li>
+<span>1.</span> <a href="#DOM_Style_Object" rel="internal">DOM Style Object</a>
+</li></ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>The DOM interfaces for CSS expose and allow manipulation of a wide amount of information (as described below). However, in many cases, and where possible, it really is best practice to dynamically manipulate classes via the <code><code><a rel="internal" href="element-13.html">className</a></code></code> property since the ultimate appearance of all of the styling hooks can be controlled in a single stylesheet. One's JavaScript code also becomes cleaner since instead of being dedicated to styling details, it can focus on the overall semantics of each section it is creating or manipulating, leaving the precise style details to the stylesheet. However, there are cases where actually obtaining or manipulating the rules can be useful (whether for whole stylesheets or individual elements), and that is described in further detail below. Note also that, as with individual element's DOM styles, when speaking of manipulating the stylesheets, this is not actually manipulating the physical document(s), but merely the internal representation of the document.</p>
+<p>The basic <code>style</code> object exposes the <a rel="internal" href="stylesheet.html">Stylesheet and the CSSStylesheet</a> interfaces from the <em>DOM Level 2 Style</em> specification. Those interfaces contain members like <code>insertRule</code>, <code>selectorText</code>, and <code>parentStyleSheet</code> for accessing and manipulating the individual style rules that make up a CSS stylesheet.</p>
+<p>To get to the <code>style</code> objects from the <code>document</code>, you can use the <a rel="internal" href="document-42.html"><code>document.styleSheets</code></a> property and access the individual objects by index (e.g., <code>document.styleSheets[0]</code> is the first stylesheet defined for the document, etc.). Though there are various syntaxes for expressing stylesheets for a document, Netscape supports CSS exclusively, so the <code>style</code> object retrieved from this array implements both the StyleSheet and CSSStyleSheet interfaces.</p>
+
+          <pre name="code" class="js">var ss = document.styleSheets[1];
+ss.cssRules[0].style.backgroundColor="blue";</pre>
+        
+<p>The list of properties available in the DOM from the style property is given on the <a rel="internal" href="CSS.html">DOM CSS Properties List</a> page.</p>
+<p>The element <a rel="internal" href="element-4.html">style</a> property (see also the section "DOM Style Object below") can also be used to get and set the styles on an element. However, this property only returns style attributes that have been set <em>in-line</em> (e.g, <code>&lt;td style="background-color: _fckstyle="background-color: lightblue"&gt;</code> returns the string "background-color:lightblue", or directly for that element using <code>element.style.propertyName</code>, even though there may be other styles on the element from a stylesheet).</p>
+<p>Also, when you set this property on an element, you override and erase any styles that have been set elsewhere for that element's particular property you are setting. Setting the border property, for example, will override settings made elsewhere for that element's border property in the head section, or external style sheets. However, this will not affect any other property declarations for that element's styles, such as padding or margin or font, for example.</p>
+<p>To change a particular element's style, you can adapt the following example for the element(s) you want to style.</p>
+
+          <pre name="code" class="xml">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;simple style example&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+
+function alterStyle(elem) {
+  elem.style.background = 'green';
+}
+
+function resetStyle(elemId) {
+  elem = document.getElementById(elemId);
+  elem.style.background = 'white';
+}
+&lt;/script&gt;
+
+&lt;style type="text/css"&gt;
+#p1 {
+ border: solid blue 2px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;!-- passes a reference to the element's object as parameter 'this'. --&gt;
+&lt;p id="p1" onclick="alterStyle(this)";&gt;
+ Click here to change background color. &lt;/p&gt;
+
+&lt;!-- passes the 'p1' id of another element's style to modify. --&gt;
+&lt;button onclick="resetStyle('p1');"&gt;Reset background color&lt;/button&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+        
+<p>The <a rel="internal" href="window-71.html"><code>getComputedStyle()</code></a> method on the <code>document.defaultView</code> object returns all styles that have actually been computed for an element. See <a rel="internal" href="../Gecko_DOM_Reference/Examples.html#Example_6:_getComputedStyle">Example 6: getComputedStyle</a> in the examples chapter for more information on how to use this method.</p>
+<div id="section_1">
+<span id="DOM_Style_Object"></span><h3 class="editable">DOM Style Object</h3>
+<p>The <code>style</code> object represents an individual style statement. Unlike the individual rules available from the <code><a rel="internal" href="document-42.html">document.styleSheets</a></code> collection, the style object is accessed from the <code>document</code> or from the elements to which that style is applied. It represents the <em>in-line</em> styles on a particular element.</p>
+<p>More important than the two properties noted here is the use of the <code>style</code> object to set individual style properties on an element:</p>
+
+          <pre name="code" class="xml">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;html&gt;
+ &lt;head&gt;
+  &lt;title&gt;style Property Example&lt;/title&gt;
+  &lt;link rel="StyleSheet" href="example.css" type="text/css"&gt;
+  &lt;script type="text/javascript"&gt;
+    function stilo()
+    {
+      document.getElementById("d").style.color = "orange";
+    }
+  &lt;/script&gt;
+ &lt;/head&gt;
+
+ &lt;body&gt;
+  &lt;div id="d" class="thunder"&gt;Thunder&lt;/div&gt;
+  &lt;button onclick="stilo()"&gt;ss&lt;/button&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</pre>
+        
+<p>The <strong>media</strong> and <strong>type</strong> of the style may or may not be given. Note that you can also change style of an element by getting a reference to it and then use its <code><a rel="internal" href="element-5.html">setAttribute</a></code> method to specify the CSS property and its value.</p>
+
+          <pre name="code" class="js">var el = document.getElementById("some-element");
+el.setAttribute("style", "background-color:darkblue;");</pre>
+        
+<p>Be aware, however, that <code>setAttribute</code> will remove all other style properties that may already have been defined in the element's style object. If the <var>some-element</var> element above had an in–line style attribute of say <code>style="font-size: 18px"</code>, that value would have been removed by the use of <code>setAttribute</code>.</p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Using_dynamic_styling_information.html">https://developer.mozilla.org/en/DOM/Using_dynamic_styling_information</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/Using_dynamic_styling_information by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:34 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

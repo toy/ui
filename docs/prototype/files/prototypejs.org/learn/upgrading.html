@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from prototypejs.org/learn/upgrading by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:48 GMT -->
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Prototype JavaScript framework: Upgrading to the latest stable release</title>
+	<link href="stylesheets/main.html" rel="stylesheet" type="text/css" charset="utf-8" />	
+	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 6]><link href="/stylesheets/ie-sucks-for-api.css" rel="stylesheet" type="text/css" media="screen"><![endif]-->
+  <link href="http://feeds.feedburner.com/prototype-blog" rel="alternate" type="application/atom+xml" />
+ <script src="../javascripts/prototype.js" type="text/javascript"></script>
+<script src="../javascripts/code_highlighter.js" type="text/javascript"></script>
+<script src="../javascripts/javascript.js" type="text/javascript"></script>
+<script src="../javascripts/html.js" type="text/javascript"></script>
+<script src="../javascripts/css.js" type="text/javascript"></script>
+<script src="../javascripts/ruby.js" type="text/javascript"></script>
+<script src="../javascripts/ebnf.js" type="text/javascript"></script>
+
+
+<link href="../images/fav.png" rel="shortcut icon" type="image/ico" />
+</head>
+
+<body id="main">
+            
+   <h2>Upgrading to the latest stable release</h2>
+   <div id="lmeta">Last updated on April 22nd, 2008</div>
+  <div id="learn-excerpt"><p>If you&#8217;ve put off the task of upgrading your old code to the latest stable release of Prototype, now you&#8217;re out of excuses. Since version 1.6, Prototype comes with with an <a href="../assets/2008/4/22/prototype_update_helper.js">update helper</a> that will warn you of any deprecations or API changes.</p></div>
+  <div id="abody"><p>The script is meant to be used with Firebug, so it&#8217;s Firefox-only for the moment — but when you&#8217;re done, your code will be ready for use alongside the latest version of Prototype <em>in all browsers</em>.</p>
+
+<p><img src="../assets/2008/2/12/console1_1.png" alt="deprecation.js screenshot" /></p>
+
+<p>Using the script is easy. To migrate a page to the current version of Prototype:</p>
+
+<ol>
+<li>Find the <code>script</code> tag that references <code>prototype.js</code>. Change the path to point to the latest version of Prototype (or else overwrite the existing <code>prototype.js</code> with the new version).</li>
+<li><em>On the very next line</em>, add a <code>script</code> tag that references <code>prototype_update_helper.js</code>. </li>
+<li>Develop your app as normal.</li>
+</ol>
+
+<p>When your code calls a method that&#8217;s been deprecated, replaced, or modified, the script will log a warning or error to your Firebug console. Clicking its hyperlink will take you to the update helper script itself, which isn&#8217;t all that helpful; but the message <em>itself</em> will contain a stack trace that points to the source of the error.</p>
+
+<p>Naturally, the console errors are the most important to address, since they represent things that will <em>no longer work</em> in the latest version of Prototype. The warnings represent deprecations — things that still work in the latest version, but are not guarateed to work in <em>future</em> versions of Prototype. If you&#8217;d like to see only removal notices, you can set a property in your code to turn off deprecations:</p>
+
+<pre><code class="javascript">prototypeUpdateHelper.logLevel = UpdateHelper.Warn;</code></pre>
+
+<p>As you address these errors and warnings, they&#8217;ll go away. When there are no more errors, your code is compatible with the current version of Prototype. When there are no more warnings, your code is nimble and future-proof.</p>
+
+<p><a href="../assets/2008/4/22/prototype_update_helper.js">Download the deprecation script</a>.</p></div>
+
+
+
+          </body>
+
+<!-- Mirrored from prototypejs.org/learn/upgrading by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:48 GMT -->
+</html>

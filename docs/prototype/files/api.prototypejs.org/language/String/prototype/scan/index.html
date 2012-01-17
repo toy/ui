@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/scan/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:13 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | String#scan</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> String#scan
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">String#scan(pattern, iterator) &rarr; <a href="../../index.html" title="String (class)">String</a></code></pre>
+
+
+      <p>Allows iterating over every occurrence of the given pattern (which can be a
+string or a regular expression).
+Returns the original string.</p>
+
+<p>Internally just calls <code><a href="../gsub/index.html" title="String#gsub (instance method)">String#gsub</a></code> passing it <code>pattern</code> and <code>iterator</code> as arguments.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="s1">&#39;apple, pear &amp; orange&#39;</span><span class="p">.</span><span class="nx">scan</span><span class="p">(</span><span class="sr">/\w+/</span><span class="p">,</span> <span class="nx">alert</span><span class="p">);</span>
+<span class="c1">// -&gt; &#39;apple pear orange&#39; (and displays &#39;apple&#39;, &#39;pear&#39; and &#39;orange&#39; in three successive alert dialogs)</span>
+</pre>
+</div>
+
+
+<p>Can be used to populate an array:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="s1">&#39;apple, pear &amp; orange&#39;</span><span class="p">.</span><span class="nx">scan</span><span class="p">(</span><span class="sr">/\w+/</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">match</span><span class="p">)</span> <span class="p">{</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">match</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">});</span>
+<span class="nx">fruits</span><span class="p">.</span><span class="nx">inspect</span><span class="p">()</span>
+<span class="c1">// -&gt; [&#39;apple&#39;, &#39;pear&#39;, &#39;orange&#39;]</span>
+</pre>
+</div>
+
+
+<p>or even to work on the DOM:</p>
+
+<div class="highlight"><pre><span class="s1">&#39;failure-message, success-message &amp; spinner&#39;</span><span class="p">.</span><span class="nx">scan</span><span class="p">(</span><span class="sr">/(\w|-)+/</span><span class="p">,</span> <span class="nx">Element</span><span class="p">.</span><span class="nx">toggle</span><span class="p">)</span>
+<span class="c1">// -&gt; &#39;failure-message, success-message &amp; spinner&#39; (and toggles the visibility of each DOM element)</span>
+</pre>
+</div>
+
+
+<h5>Note</h5>
+
+<p>Do <em>not</em> use the <code>"g"</code> flag on the regex as this will create an infinite loop.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/scan/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:31:13 GMT -->
+</html>

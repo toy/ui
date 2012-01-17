@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/FileReader by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:58 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>FileReader - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=50014">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=50014">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 50014;
+Deki.PageTitle = 'en/DOM/FileReader';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMFileReader" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">FileReader</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Important_note_about_input_parameters" rel="internal">Important note about input parameters</a>
+</li>
+<li>
+<span>2.</span> <a href="#Method_overview" rel="internal">Method overview</a>
+</li>
+<li>
+<span>3.</span> <a href="#State_constants" rel="internal">State constants</a>
+</li>
+<li>
+<span>4.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>5.</span> <a href="#Methods" rel="internal">Methods</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>5.1.</span> <a href="#abort()" rel="internal">abort()</a>
+</li>
+<li>
+<span>5.2.</span> <a href="#readAsBinaryString()" rel="internal">readAsBinaryString()</a>
+</li>
+<li>
+<span>5.3.</span> <a href="#readAsDataURL()" rel="internal">readAsDataURL()</a>
+</li>
+<li>
+<span>5.4.</span> <a href="#readAsText()" rel="internal">readAsText()</a>
+</li>
+</ol>
+</li>
+<li>
+<span>6.</span> <a href="#Event_handlers" rel="internal">Event handlers</a>
+</li>
+<li>
+<span>7.</span> <a href="#See_also" rel="internal">See also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">
+<div class="geckoMinversionHeaderTemplate" style="border:solid 1px maroon; overflow:hidden; margin: 10px 0px; padding: 0px 10px; background-color: rgb(254, 244, 156); font-weight: bold; text-align: center;">
+<p style="margin: 4px 0px;">Introduced in Gecko 1.9.2</p>
+
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+</div>
+</span> </p>
+<p>The <code>FileReader</code> object lets web applications asynchronously read the contents of files (or raw data buffers) stored on the user's computer, using 
+<code><a rel="custom nofollow" href="File.html">File</a></code> or 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> objects to specify the file or data to read. File objects may be obtained in one of two ways: from a 
+<code><a rel="custom nofollow" href="FileList.html">FileList</a></code> object returned as a result of a user selecting files using the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/input">&lt;input&gt;</a></code> element, or from a drag and drop operation's <a rel="internal" href="https://developer.mozilla.org/En/DragDrop/DataTransfer"><code>DataTransfer</code></a> object.</p>
+<p>To create a <code>FileReader</code>, simply do the following:</p>
+<pre>
+reader = new FileReader();
+</pre>
+<p>See <a rel="internal" href="https://developer.mozilla.org/en/Using_files_from_web_applications">Using files from web applications</a> for details and examples.</p>
+<div id="section_1">
+<span id="Important_note_about_input_parameters"></span><h2 class="editable">Important note about input parameters</h2>
+<p>Note that in Gecko 1.9.2 
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+ and early builds of Firefox 4, this interface used 
+<code><a rel="custom nofollow" href="File.html">File</a></code> objects to specify files; the specification uses <code>Blob</code> objects. Starting in Gecko 2.0 (beta 7) 
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+, the implementation matches the specification. This may result in some changes being needed to your code, especially if you used the non-standard Mozilla-specific methods that have been deprecated on the <code>File</code> object.</p>
+</div>
+<div id="section_2">
+<span id="Method_overview"></span><h2 class="editable">Method overview</h2>
+<div class="geckoVersionNote">
+<p>
+</p>
+<div class="geckoVersionHeading">Gecko 1.9.2 note<div style="font-size:9px; position:relative; top:-5px; font-style:italic;">
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+</div>
+</div>
+
+<p>Prior to Gecko 2.0 beta 7 (Firefox 4.0 beta 7), all 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> parameters below were 
+<code><a rel="custom nofollow" href="File.html">File</a></code> parameters; this has since been updated to match the specification correctly.</p>
+</div>
+<table class="standard-table"><tbody>
+<tr>
+<td><code>void <a rel="internal" href="FileReader.html#abort()">abort</a>();</code></td> </tr>
+<tr>
+<td>
+<code>void <a rel="internal" href="FileReader.html#readAsArrayBuffer()">readAsArrayBuffer</a>(in Blob blob);</code> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</td> </tr>
+<tr>
+<td>
+<code>void <a rel="internal" href="FileReader.html#readAsBinaryString()">readAsBinaryString</a>(</code><code>in Blob blob</code><code>);<br></code>
+</td> </tr>
+<tr>
+<td>
+<code>void <a rel="internal" href="FileReader.html#readAsDataURL()">readAsDataURL</a>(</code><code>in Blob blob</code><code>);<br></code>
+</td> </tr>
+<tr>
+<td>
+<code>void <a rel="internal" href="FileReader.html#readAsText()">readAsText</a>(</code><code>in Blob blob</code><code>, [optional] in DOMString encoding</code><code>);<br></code>
+</td> </tr>
+</tbody></table>
+</div>
+<div id="section_3">
+<span id="Attributes"></span><span id="State_constants"></span><h2 class="editable">State constants</h2>
+<table class="standard-table"><tbody>
+<tr>
+<td class="header">Constant</td> <td class="header">Value</td> <td class="header">Description</td> </tr>
+<tr>
+<td><code>EMPTY</code></td> <td>0</td> <td>No data has been loaded yet.</td> </tr>
+<tr>
+<td><code>LOADING</code></td> <td>1</td> <td>Data is currently being loaded.</td> </tr>
+<tr>
+<td><code>DONE</code></td> <td>2</td> <td>The entire read request has been completed.</td> </tr>
+</tbody></table>
+</div>
+<div id="section_4">
+<span id="Attributes"></span><span id="Properties"></span><h2 class="editable">Properties</h2>
+<table class="standard-table"><tbody>
+<tr>
+<td class="header">Property</td> <td class="header">Type</td> <td class="header">Description</td> </tr>
+<tr>
+<td><code>error</code></td> <td><a rel="internal" href="FileError.html"><code>FileError</code></a></td> <td>The error that occurred while reading the file. <strong>Read only</strong>.</td> </tr>
+<tr>
+<td><code>readyState</code></td> <td><code>integer<br></code></td> <td>Indicates the state of the <code>FileReader</code>. This will be one of the <a rel="custom nofollow" href="FileReader.html#State_constants">State constants</a>. <strong>Read only</strong>.</td> </tr>
+<tr>
+<td><code>result</code></td> <td><code>string</code></td> <td>The file's contents. This property is only valid after the read operation is complete, and the format of the data depends on which of the methods was used to initiate the read operation. <strong>Read only</strong>.</td> </tr>
+</tbody></table>
+</div>
+<div id="section_5">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<div id="section_6">
+<span id="getAsBinary.28.29"></span><span id="abort()"></span><h3 class="editable">abort()</h3>
+<p>Aborts the read operation. Upon return, the <code>readyState</code> will be <code>DONE</code>.</p>
+<pre>
+void abort();
+</pre>
+<div id="section_7">
+<span id="Parameters"></span><h6 class="editable">Parameters</h6>
+<p>None.</p>
+</div>
+</div>
+<div id="section_8">
+<span id="getAsBinary.28.29"></span><span id="readAsBinaryString()"></span><h3 class="editable">readAsBinaryString()</h3>
+<p>Starts reading the contents of the specified 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code>, which may be a 
+<code><a rel="custom nofollow" href="File.html">File</a></code>. When the read operation is finished, the <code>readyState</code> will become <code>DONE</code>, and the <code>onloadend</code> callback, if any, will be called. At that time, the <code>result</code> attribute contains the raw binary data from the file.</p>
+<pre class="eval">
+void readAsBinaryString(
+  in Blob blob
+);
+</pre>
+<div id="section_9">
+<span id="Parameters_2"></span><h6 class="editable">Parameters</h6>
+<dl>
+<dt><code>blob</code></dt> <dd>The DOM 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> or 
+<code><a rel="custom nofollow" href="File.html">File</a></code> from which to read.</dd>
+</dl>
+</div>
+</div>
+<div id="section_10">
+<span id="getAsDataURL.28.29"></span><span id="readAsDataURL()"></span><h3 class="editable">readAsDataURL()</h3>
+<p>Starts reading the contents of the specified 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> or 
+<code><a rel="custom nofollow" href="File.html">File</a></code>. When the read operation is finished, the <code>readyState</code> will become <code>DONE</code>, and the <code>onloadend</code> callback, if any, will be called. At that time, the <code>result</code> attribute contains a <code>data:</code> URL representing the file's data.</p>
+<pre class="eval">
+void readAsDataURL(
+  in Blob blob
+);</pre>
+<div id="section_11">
+<span id="Parameters_2"></span><span id="Parameters_3"></span><h6 class="editable">Parameters</h6>
+<dl>
+<dt><code>blob<br></code></dt> <dd>The DOM 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> or 
+<code><a rel="custom nofollow" href="File.html">File</a></code> from which to read.</dd>
+</dl>
+</div>
+</div>
+<div id="section_12">
+<span id="getAsText.28.29"></span><span id="readAsText()"></span><h3 class="editable">readAsText()</h3>
+<p>Starts reading the specified blob's contents. When the read operation is finished, the <code>readyState</code> will become <code>DONE</code>, and the <code>onloadend</code> callback, if any, will be called. At that time, the <code>result</code> attribute contains the contents of the file as a text string.</p>
+<pre class="eval">
+void readAsText(
+  in Blob blob,
+  [optiona] in DOMString encoding
+);
+</pre>
+<div id="section_13">
+<span id="Parameters_3"></span><span id="Parameters_4"></span><h6 class="editable">Parameters</h6>
+<dl>
+<dt></dt> <dt><code>blob<br></code></dt> <dd>The DOM 
+<code><a rel="custom nofollow" href="Blob.html">Blob</a></code> or 
+<code><a rel="custom nofollow" href="File.html">File</a></code> from which to read.</dd> <dt>
+<code>encoding</code> <span class="lang lang-en"><span style="border: 1px solid #9ED2A4; background-color: #C0FFC7; font-size: x-small; white-space: nowrap; padding: 2px;">Optional</span></span> </dt> <dd>A string indicating the encoding to use for the returned data. By default, UTF-8 is assumed if this parameter isn't specified.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div id="section_14">
+<span id="Event_handlers"></span><h2 class="editable">Event handlers</h2>
+<dl>
+<dt><code>onabort</code></dt> <dd>Called when the read operation is aborted.</dd> <dt><code>onerror</code></dt> <dd>Called when an error occurs.</dd> <dt><code>onload</code></dt> <dd>Called when the read operation is successfully completed.</dd> <dt><code>onloadend</code></dt> <dd>Called when the read is completed, whether successful or not. This is called after either <code>onload</code> or <code>onerror</code>.</dd> <dt><code>onloadstart</code></dt> <dd>Called when reading the data is about to begin.</dd> <dt><code>onprogress</code></dt> <dd>Called periodically while the data is being read.</dd>
+</dl>
+</div>
+<div id="section_15">
+<span id="See_also"></span><h2 class="editable">See also</h2>
+<ul>
+<li><a rel="internal" href="https://developer.mozilla.org/en/Using_files_from_web_applications">Using files from web applications</a></li> <li><a rel="internal" href="File.html"><code>File</code></a></li> <li>
+<a rel="custom nofollow" href="http://www.w3.org/TR/FileAPI/#FileReader-interface">Specification: File API: FileReader</a><span title="Working Draft" style="background-color:#ff0; font-size: x-small; margin-left:6px; white-space: nowrap; padding: 2px;">WD</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="FileReader.html">https://developer.mozilla.org/en/DOM/FileReader</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/FileReader by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:59 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

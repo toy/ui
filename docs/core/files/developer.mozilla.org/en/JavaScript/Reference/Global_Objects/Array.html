@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:53:20 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Array - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=28782">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=28782">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 28782;
+Deki.PageTitle = 'en/JavaScript/Reference/Global Objects/Array';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enJavaScriptReferenceGlobalObjectsArray" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Array</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Parameters" rel="internal">Parameters</a>
+</li>
+<li>
+<span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>4.1.</span> <a href="#Indexing_an_array" rel="internal">Indexing an array</a>
+</li>
+<li>
+<span>4.2.</span> <a href="#Specifying_a_single_parameter" rel="internal">Specifying a single parameter</a>
+</li>
+<li>
+<span>4.3.</span> <a href="#Increasing_the_array_length_indirectly" rel="internal">Increasing the array length indirectly</a>
+</li>
+<li>
+<span>4.4.</span> <a href="#Creating_an_array_using_the_result_of_a_match" rel="internal">Creating an array using the result of a match</a>
+</li>
+</ol>
+</li>
+<li>
+<span>5.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>6.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+<li>
+<span>7.</span> <a href="#Array_instances" rel="internal">Array instances</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>7.1.1.</span> <a href="#Properties_2" rel="internal">Properties</a>
+</li>
+<li>
+<span>7.1.2.</span> <a href="#Methods_2" rel="internal">Methods</a>
+</li>
+</ol></li></ol>
+</li>
+<li>
+<span>8.</span> <a href="#Examples" rel="internal">Examples</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>8.1.</span> <a href="#Example.3a_Creating_an_Array" rel="internal">Example: Creating an Array</a>
+</li>
+<li>
+<span>8.2.</span> <a href="#Example.3a_Creating_a_Two-dimensional_Array" rel="internal">Example: Creating a Two-dimensional Array</a>
+</li>
+<li>
+<span>8.3.</span> <a href="#See_Also" rel="internal">See Also</a>
+</li>
+</ol>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<div id="section_1">
+<span id="Summary"></span><h2 class="editable">Summary</h2>
+<p>Lets you work with arrays.</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h2 class="editable">Syntax</h2>
+<pre class="eval">
+var arr1 = new Array(<em>arrayLength</em>);
+var arr2 = new Array(<em>element0</em>, <em>element1</em>, ..., <em>elementN</em>);
+</pre>
+<p>Array literals use the form:</p>
+<pre class="eval">
+var lit = [<em>element0</em>, <em>element1</em>, ..., <em>elementN</em>];
+</pre>
+</div>
+<div id="section_3">
+<span id="Parameters"></span><h2 class="editable">Parameters</h2>
+<dl>
+<dt><code>arrayLength</code></dt> <dd>The initial length of the array. You can access this value using the length property. If the value specified is not a number, an array of length 1 is created, with the first element having the specified value. The maximum length allowed for an array is 4,294,967,295.</dd>
+</dl>
+<dl>
+<dt><code>element<em>N</em></code></dt> <dd>A value for the element in that position in the array. When this form is used, the array is initialized with the specified values as its elements, and the array's length property is set to the number of arguments.</dd>
+</dl>
+</div>
+<div id="section_4">
+<span id="Description"></span><h2 class="editable">Description</h2>
+<p>An array is an ordered set of values associated with a single variable name. Note that you <a class="external" rel="external nofollow" href="http://www.andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/" title="http://www.andrewdupont.net/2006/05/18/javascript-associative-arrays-considered-harmful/" target="_blank">shouldn't use it as an associative array</a>, use <a rel="internal" href="Object.html">Object</a> instead.</p>
+<p>The following example creates an Array object with an array literal; the coffees array contains three elements and has a length of three:</p>
+<pre class="eval">
+var coffees = ["Kenyan", "Columbian", "Kona"];
+</pre>
+<p>You can construct a dense array of two or more elements starting with index 0 if you define initial values for all elements. A dense array is one in which each element has a value. The following code creates a dense array with three elements:</p>
+<pre class="eval">
+var myArray = new Array("Hello", myVar, 3.14159);
+</pre>
+<div id="section_5">
+<span id="Indexing_an_array"></span><h3 class="editable">Indexing an array</h3>
+<p>You index an array by its ordinal number. For example, assume you define the following array:</p>
+<pre class="eval">
+var myArray = new Array("Wind", "Rain", "Fire");
+</pre>
+<p>You can then refer to the elements as thus:</p>
+<ul>
+<li>
+<code>myArray[0]</code> is the first element</li> <li>
+<code>myArray[1]</code> is the second element</li> <li>
+<code>myArray[2]</code> is the third element</li>
+</ul>
+</div>
+<div id="section_6">
+<span id="Specifying_a_single_parameter"></span><h3 class="editable">Specifying a single parameter</h3>
+<p>When you specify a single numeric parameter with the <code>Array</code> constructor, you specify the initial length of the array. The following code creates an array of five elements:</p>
+<pre class="eval">
+var billingMethod = new Array(5);
+</pre>
+<p>The behavior of the <code>Array</code> constructor depends on whether the single parameter is a number.</p>
+<ul>
+<li>If the value specified is a literal number, the constructor converts the number to an unsigned, 32-bit integer and generates an array with the length property (size of the array) set to the integer. The array initially contains no elements, even though it might have a non-zero length.</li>
+</ul>
+<ul>
+<li>If the value specified is not a literal number, an array of length 1 is created, with the first element having the specified value.</li> <li>If the value specified is a <a rel="internal" href="Number.html">number object</a> (e.g., created with "new Number(123)"), then it will, unlike literal numbers, be treated as an array of length 1 with the first element being the number object.</li>
+</ul>
+<p>The following code creates an array of length 25, then assigns values to the first three elements:</p>
+<pre class="eval">
+var musicTypes = new Array(25);
+musicTypes[0] = "R&amp;B";
+musicTypes[1] = "Blues";
+musicTypes[2] = "Jazz";
+</pre>
+</div>
+<div id="section_7">
+<span id="Increasing_the_array_length_indirectly"></span><h3 class="editable">Increasing the array length indirectly</h3>
+<p>An array's length increases if you assign a value to an element higher than the current length of the array. The following code creates an array of length 0, then assigns a value to element 99. This changes the length of the array to 100.</p>
+<pre class="eval">
+var colors = new Array();
+colors[99] = "midnightblue";
+</pre>
+</div>
+<div id="section_8">
+<span id="Creating_an_array_using_the_result_of_a_match"></span><h3 class="editable">Creating an array using the result of a match</h3>
+<p>The result of a match between a regular expression and a string can create an array. This array has properties and elements that provide information about the match. An array is the return value of RegExp.exec, String.match, and String.replace. To help explain these properties and elements, look at the following example and then refer to the table below:</p>
+<pre class="eval">
+// Match one d followed by one or more b's followed by one d
+// Remember matched b's and the following d
+// Ignore case
+
+var myRe = /d(b+)(d)/i;
+var myArray = myRe.exec("cdbBdbsbz");
+</pre>
+<p>The properties and elements returned from this match are as follows:</p>
+<table class="fullwidth-table"><tbody>
+<tr>
+<td class="header">Property/Element</td> <td class="header">Description</td> <td class="header">Example</td> </tr>
+<tr>
+<td><code>input</code></td> <td>A read-only property that reflects the original string against which the regular expression was matched.</td> <td>cdbBdbsbz</td> </tr>
+<tr>
+<td><code>index</code></td> <td>A read-only property that is the zero-based index of the match in the string.</td> <td>1</td> </tr>
+<tr>
+<td><code>[0]</code></td> <td>A read-only element that specifies the last matched characters.</td> <td>dbBd</td> </tr>
+<tr>
+<td><code>[1], ...[n]</code></td> <td>Read-only elements that specify the parenthesized substring matches, if included in the regular expression. The number of possible parenthesized substrings is unlimited.</td> <td>[1]: bB<br> [2]: d</td> </tr>
+</tbody></table>
+</div>
+</div>
+<div id="section_9">
+<span id="Properties"></span><h2 class="editable">Properties</h2>
+<p><span class="lang lang-en"> <small style="margin-left: 1em;"><em>For properties inherited by <code>Array</code> instances, see <a rel="custom nofollow" href="Array.html#Properties_2">Properties of Array instances</a>.</em></small>
+
+</span> </p>
+<dl>
+<dd> <dl>
+<dt><a rel="internal" href="Array/prototype.html">prototype</a></dt> <dd>Allows the addition of properties to all objects.</dd> </dl>
+</dd>
+</dl>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="Function.html"><code>Function</code></a></span>:<br><span style="font-size: smaller;"><a rel="internal" href="Function/Arity.html"><code>arity</code></a>, <a rel="internal" href="Function/Caller.html"><code>caller</code></a>, <a rel="internal" href="Function/Constructor.html"><code>constructor</code></a>, <a rel="internal" href="Function/Length.html"><code>length</code></a>, <a rel="internal" href="Function/Name.html"><code>name</code></a></span>
+</div>
+</div>
+</div>
+<div id="section_10">
+<span id="Methods"></span><h2 class="editable">Methods</h2>
+<p><span class="lang lang-en"> <small style="margin-left: 1em;"><em>For methods inherited by <code>Array</code> instances, see <a rel="custom nofollow" href="Array.html#Methods_2">Methods of Array instances</a>.</em></small>
+
+</span> </p>
+<dl>
+<dt><a rel="internal" href="Array/isArray.html">isArray</a></dt> <dd> <p><span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.8.5</span></span>    <br> Return true if an variable is an array, if not false.</p> </dd>
+</dl>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="Function.html"><code>Function</code></a></span>:<br><span style="font-size: smaller;"><a rel="internal" href="Function/Apply.html"><code>apply</code></a>, <a rel="internal" href="Function/Call.html"><code>call</code></a>, <a rel="internal" href="Function/ToSource.html"><code>toSource</code></a>, <a rel="internal" href="Function/ToString.html"><code>toString</code></a></span>
+</div>
+</div>
+</div>
+<div id="section_11">
+<span id="Array_instances"></span><h2 class="editable">
+<code>Array</code> instances</h2>
+<p><code>Array</code> instances inherit from<span style="font-family: monospace;"> <a rel="internal" href="Array/prototype.html">Array.prototype</a></span>. As with all constructors, you can change the constructor's prototype object to make changes to all <code>Array</code> instances.</p>
+<div id="section_12">
+<span id="Properties_2"></span><h4 class="editable"><span>Properties</span></h4>
+<p>
+</p>
+<dl>
+<dt><a rel="internal" href="Array/constructor.html">constructor</a></dt> <dd>Specifies the function that creates an object's prototype.</dd> <dt><a rel="internal" href="Array/index.html">index</a></dt> <dd>This is pseudo-property of <code>Array</code> prototypes because it is not inherited by default. It is, in fact, only present in arrays created by regular expression matches. The property represents the zero-based index of the match in the string.</dd> <dt><a rel="internal" href="Array/input.html">input</a></dt> <dd>This property is only present in arrays created by regular expression matches. It reflects the original string against which the regular expression was matched.</dd> <dt><a rel="internal" href="Array/length.html">length</a></dt> <dd>Reflects the number of elements in an array.</dd>
+</dl>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="Object.html"><code>Object</code></a></span>:<br><span style="font-size: smaller;"><a rel="internal" href="Object/DefineGetter.html"><code>__defineGetter__</code></a>, <a rel="internal" href="Object/DefineSetter.html"><code>__defineSetter__</code></a>, <a rel="internal" href="Object/Eval.html"><code>eval</code></a>, <a rel="internal" href="Object/HasOwnProperty.html"><code>hasOwnProperty</code></a>, <a rel="internal" href="Object/IsPrototypeOf.html"><code>isPrototypeOf</code></a>, <a rel="internal" href="Object/LookupGetter.html"><code>__lookupGetter__</code></a>, <a rel="internal" href="Object/LookupSetter.html"><code>__lookupSetter__</code></a>, <a rel="internal" href="Object/NoSuchMethod.html"><code>__noSuchMethod__</code></a>, <a rel="internal" href="Object/PropertyIsEnumerable.html"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="Object/ToSource-2.html"><code>toSource</code></a>, <a rel="internal" href="Object/ToLocaleString.html"><code>toLocaleString</code></a>, <a rel="internal" href="Object/ToString-2.html"><code>toString</code></a>, <a rel="internal" href="Object/Unwatch.html"><code>unwatch</code></a>, <a rel="internal" href="Object/ValueOf-2.html"><code>valueOf</code></a>, <a rel="internal" href="Object/Watch.html"><code>watch</code></a></span>
+</div>
+</div>
+
+</div>
+<div id="section_13">
+<span id="Methods_2"></span><h4 class="editable"><span>Methods</span></h4>
+<div id="section_14">
+<span id="Mutator_methods"></span><h5 class="editable"><span>Mutator methods</span></h5>
+<p>
+</p>
+<p>These methods modify the array:</p>
+<dl>
+<dt><a rel="internal" href="Array/pop.html">pop</a></dt> <dd>Removes the last element from an array and returns that element.</dd> <dt><a rel="internal" href="Array/push.html">push</a></dt> <dd>Adds one or more elements to the end of an array and returns the new length of the array.</dd> <dt><a rel="internal" href="Array/reverse.html">reverse</a></dt> <dd>Reverses the order of the elements of an array -- the first becomes the last, and the last becomes the first.</dd> <dt><a rel="internal" href="Array/shift.html">shift</a></dt> <dd>Removes the first element from an array and returns that element.</dd> <dt><a rel="internal" href="Array/sort.html">sort</a></dt> <dd>Sorts the elements of an array.</dd> <dt><a rel="internal" href="Array/splice.html">splice</a></dt> <dd>Adds and/or removes elements from an array.</dd> <dt><a rel="internal" href="Array/unshift.html">unshift</a></dt> <dd>Adds one or more elements to the front of an array and returns the new length of the array.</dd>
+</dl>
+</div>
+<div id="section_15">
+<span id="Accessor_methods"></span><h5 class="editable"><span>Accessor methods</span></h5>
+<p>
+</p>
+<p></p>
+<p>These methods do not modify the array and return some representation of the array.</p>
+<dl>
+<dt><a rel="internal" href="Array/concat.html">concat</a></dt> <dd>Returns a new array comprised of this array joined with other array(s) and/or value(s).</dd> <dt><a rel="internal" href="Array/join.html">join</a></dt> <dd>Joins all elements of an array into a string.</dd> <dt><a rel="internal" href="Array/slice.html">slice</a></dt> <dd>Extracts a section of an array and returns a new array.</dd> <dt>
+<a rel="internal" href="Array/toSource.html">toSource</a> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dt> <dd>Returns an array literal representing the specified array; you can use this value to create a new array. Overrides the <a rel="internal" href="Object/toSource.html">Object.prototype.toSource</a> method.</dd> <dt><a rel="internal" href="Array/toString.html">toString</a></dt> <dd>Returns a string representing the array and its elements. Overrides the <a rel="internal" href="Object/toString.html">Object.prototype.toString</a> method.</dd> <dt>
+<a rel="internal" href="Array/indexOf.html">indexOf</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Returns the first (least) index of an element within the array equal to the specified value, or -1 if none is found.</dd> <dt>
+<a rel="internal" href="Array/lastIndexOf.html">lastIndexOf</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Returns the last (greatest) index of an element within the array equal to the specified value, or -1 if none is found.</dd>
+</dl>
+</div>
+<div id="section_16">
+<span id="Iteration_methods"></span><h5 class="editable"><span>Iteration methods</span></h5>
+<p>
+</p>
+<p>Several methods take as arguments functions to be called back while processing the array. When these methods are called, the <code>length</code> of the array is sampled, and any element added beyond this length from within the callback is not visited. Other changes to the array (setting the value of or deleting an element) may affect the results of the operation if the method visits the changed element afterwards. While the specific behavior of these methods in such cases is well-defined, you should not rely upon it so as not to confuse others who might read your code. If you must mutate the array, copy into a new array instead.</p>
+<dl>
+<dt>
+<a rel="internal" href="Array/filter.html">filter</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Creates a new array with all of the elements of this array for which the provided filtering function returns true.</dd> <dt>
+<a rel="internal" href="Array/forEach.html">forEach</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Calls a function for each element in the array.</dd> <dt>
+<a rel="internal" href="Array/every.html">every</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Returns true if every element in this array satisfies the provided testing function.</dd> <dt>
+<a rel="internal" href="Array/map.html">map</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Creates a new array with the results of calling a provided function on every element in this array.</dd> <dt>
+<a rel="internal" href="Array/some.html">some</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.6</span></span>    </dt> <dd>Returns true if at least one element in this array satisfies the provided testing function.</dd> <dt>
+<a rel="internal" href="Array/Reduce.html">reduce</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.8</span></span>    </dt> <dd>Apply a function simultaneously against two values of the array (from left-to-right) as to reduce it to a single value.</dd> <dt>
+<a rel="internal" href="Array/ReduceRight.html">reduceRight</a> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 2px;">Requires JavaScript 1.8</span></span>    </dt> <dd>Apply a function simultaneously against two values of the array (from right-to-left) as to reduce it to a single value.</dd>
+</dl>
+</div>
+<div id="section_17">
+<span id="Generic_methods"></span><h5 class="editable">Generic methods</h5>
+<p>
+</p>
+<p>Many methods on the JavaScript Array object are designed to be generally applied to all objects which "look like" Arrays. That is, they can be used on any object which has a <code>length</code> property, and which can usefully be accessed using numeric property names (as with <code>array[5]</code> indexing).  Some methods, such as <code><a rel="internal" href="Array/join.html">join</a></code>, only read the <code>length</code> and numeric properties of the object they are called on. Others, like <code><a rel="internal" href="Array/reverse.html">reverse</a></code>, require that the object's numeric properties and <code>length</code> be mutable; these methods can therefore not be called on objects like <a rel="internal" href="String.html">S</a><code><a rel="internal" href="String.html">tring</a></code>, which does not permit its <code>length</code> property or synthesized numeric properties to be set. </p>
+<ul>
+<li><a rel="internal" href="Array/concat.html">concat</a></li> <li><a rel="internal" href="Array/join.html">join</a></li> <li><a rel="internal" href="Array/pop.html">pop</a></li> <li><a rel="internal" href="Array/push.html">push</a></li> <li><a rel="internal" href="Array/reverse.html">reverse</a></li> <li><a rel="internal" href="Array/shift.html">shift</a></li> <li><a rel="internal" href="Array/slice.html">slice</a></li> <li><a rel="internal" href="Array/sort.html">sort</a></li> <li><a rel="internal" href="Array/splice.html">splice</a></li> <li><a rel="internal" href="Array/toSource.html">toSource</a></li> <li><a rel="internal" href="Array/toString.html">toString</a></li> <li><a rel="internal" href="Array/unshift.html">unshift</a></li>
+</ul>
+<p><span class="lang lang-en">
+<div style="border: 1px solid #818151; background-color: #FFFFE1; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p style="margin: 4px 0px 4px 0px;">Introduced in <a rel="custom nofollow" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.6">JavaScript 1.6</a></p>
+</div>
+
+</span></p>
+<ul>
+<li><a rel="internal" href="Array/every.html">every</a></li> <li><a rel="internal" href="Array/filter.html">filter</a></li> <li><a rel="internal" href="Array/forEach.html">forEach</a></li> <li><a rel="internal" href="Array/indexOf.html">indexOf</a></li> <li><a rel="internal" href="Array/lastIndexOf.html">lastIndexOf</a></li> <li><a rel="internal" href="Array/map.html">map</a></li> <li><a rel="internal" href="Array/some.html">some</a></li>
+</ul>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="Object.html"><code>Object</code></a></span>:<br><span style="font-size: smaller;"><a rel="internal" href="Object/DefineGetter.html"><code>__defineGetter__</code></a>, <a rel="internal" href="Object/DefineSetter.html"><code>__defineSetter__</code></a>, <a rel="internal" href="Object/Eval.html"><code>eval</code></a>, <a rel="internal" href="Object/HasOwnProperty.html"><code>hasOwnProperty</code></a>, <a rel="internal" href="Object/IsPrototypeOf.html"><code>isPrototypeOf</code></a>, <a rel="internal" href="Object/LookupGetter.html"><code>__lookupGetter__</code></a>, <a rel="internal" href="Object/LookupSetter.html"><code>__lookupSetter__</code></a>, <a rel="internal" href="Object/NoSuchMethod.html"><code>__noSuchMethod__</code></a>, <a rel="internal" href="Object/PropertyIsEnumerable.html"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="Object/ToLocaleString.html"><code>toLocaleString</code></a>, <a rel="internal" href="Object/Unwatch.html"><code>unwatch</code></a>, <a rel="internal" href="Object/ValueOf-2.html"><code>valueOf</code></a>, <a rel="internal" href="Object/Watch.html"><code>watch</code></a></span>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<div id="section_18">
+<span id="Examples"></span><h2 class="editable">Examples</h2>
+<div id="section_19">
+<span id="Example.3a_Creating_an_Array"></span><h3 class="editable">Example: Creating an Array</h3>
+<p>The following example creates an array, <code>msgArray</code>, with a length of 0, then assigns values to <code>msgArray[0]</code> and <code>msgArray[99]</code>, changing the length of the array to 100.</p>
+<pre class="eval">
+var msgArray = new Array();
+msgArray[0] = "Hello";
+msgArray[99] = "world";
+
+if (msgArray.length == 100)
+   print("The length is 100.");
+</pre>
+</div>
+<div id="section_20">
+<span id="Example.3a_Creating_a_Two-dimensional_Array"></span><h3 class="editable">Example: Creating a Two-dimensional Array</h3>
+<p>The following creates chess board as a two dimensional array of strings. The first move is made by copying the 'P' in 6,4 to 4,4. The position 4,4 is left blank.</p>
+<pre class="eval">
+var board = 
+[ ['R','N','B','Q','K','B','N','R'],
+  ['P','P','P','P','P','P','P','P'],
+  [' ',' ',' ',' ',' ',' ',' ',' '],
+  [' ',' ',' ',' ',' ',' ',' ',' '],
+  [' ',' ',' ',' ',' ',' ',' ',' '],
+  [' ',' ',' ',' ',' ',' ',' ',' '],
+  ['p','p','p','p','p','p','p','p'],
+  ['r','n','b','q','k','b','n','r']];
+print(board.join('\n') + '\n\n');
+
+// Move King's Pawn forward 2
+board[4][4] = board[6][4];
+board[6][4] = ' ';
+print(board.join('\n'));
+</pre>
+<p>Here is the output:</p>
+<pre class="eval">
+R,N,B,Q,K,B,N,R
+P,P,P,P,P,P,P,P
+ , , , , , , , 
+ , , , , , , , 
+ , , , , , , , 
+ , , , , , , , 
+p,p,p,p,p,p,p,p
+r,n,b,q,k,b,n,r
+
+R,N,B,Q,K,B,N,R
+P,P,P,P,P,P,P,P
+ , , , , , , , 
+ , , , , , , , 
+ , , , ,p, , , 
+ , , , , , , , 
+p,p,p,p, ,p,p,p
+r,n,b,q,k,b,n,r
+</pre>
+</div>
+<div id="section_21">
+<span id="See_Also"></span><h3 class="editable">See Also</h3>
+<ul>
+<li><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide/Obsolete_Pages/Predefined_Core_Objects/Array_Object">Core JavaScript 1.5 Guide:Predefined Core Objects:Array Object</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.7#Array_comprehensions">New in JavaScript 1.7: Array comprehensions</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/New_in_JavaScript/1.6#Array_extras">New in JavaScript 1.6: Array extras</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/JavaScript_typed_arrays">Draft: Typed Arrays</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Array.html">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 14:53:52 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

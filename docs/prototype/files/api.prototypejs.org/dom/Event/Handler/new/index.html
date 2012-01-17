@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/Handler/new/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:30 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | new Event.Handler</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">constructor</span> new Event.Handler
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">new Event.Handler(element, eventName[, selector], callback)</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">element</code>
+          <span class="argument-types">(<code><a href="../../../Element/index.html" title="Element (class)">Element</a></code>)</span>
+         &ndash; The element to listen on.
+      </li>
+      <li>
+        <code class="argument-name">eventName</code>
+          <span class="argument-types">(<code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; An event to listen for. Can be a standard browser event or a custom event.
+      </li>
+      <li>
+        <code class="argument-name">selector</code>
+          <span class="argument-types">(<code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; A CSS selector. If specified, will call <code>callback</code> <em>only</em> when it can find an element that matches <code>selector</code> somewhere in the ancestor chain between the event's target element and the given <code>element</code>.
+      </li>
+      <li>
+        <code class="argument-name">callback</code>
+          <span class="argument-types">(<code><a href="../../../../language/Function/index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; The event handler function. Should expect two arguments: the event object <em>and</em> the element that received the event. (If <code>selector</code> was given, this element will be the one that satisfies the criteria described just above; if not, it will be the one specified in the <code>element</code> argument).
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Instantiates an <code>Event.Handler</code>. <strong>Will not</strong> begin observing until
+<code><a href="../prototype/start/index.html" title="Event.Handler#start (instance property)">Event.Handler#start</a></code> is called.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/Handler/new/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:30 GMT -->
+</html>

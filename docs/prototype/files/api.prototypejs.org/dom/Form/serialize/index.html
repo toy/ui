@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/serialize/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:36 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Form.serialize</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Form.serialize
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Form.serialize(form[, options]) &rarr; <a href="../../../language/String/index.html" title="String (class)">String</a> | <a href="../../../language/Object/index.html" title="Object (class)">Object</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">options</code>
+          <span class="argument-types">(<code><a href="../../../language/Object/index.html" title="Object (class)">Object</a></code>)</span>
+         &ndash; A list of options that affect the return value of the method.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Serializes form data to a string suitable for <code><a href="../../../ajax/Ajax/index.html" title="Ajax (namespace)">Ajax</a></code> requests (default
+behavior) or, if the <code>hash</code> option evaluates to <code>true</code>, an object hash
+where keys are form control names and values are data.</p>
+
+<p>Depending of whether or not the <code>hash</code> option evaluates to <code>true</code>, the
+result is either an object of the form <code>{name: "johnny", color: "blue"}</code>
+or a <code><a href="../../../language/String/index.html" title="String (class)">String</a></code> of the form <code>"name=johnny&amp;color=blue"</code>, suitable for
+parameters in an <code><a href="../../../ajax/Ajax/index.html" title="Ajax (namespace)">Ajax</a></code> request. This method mimics the way browsers
+serialize forms natively so that form data can be sent without refreshing
+the page.</p>
+
+<p>See <code><a href="../serializeElements/index.html" title="Form.serializeElements (class method)">Form.serializeElements</a></code> for more details on the options.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;person-example&#39;</span><span class="p">).</span><span class="nx">serialize</span><span class="p">()</span>
+<span class="c1">// -&gt; &#39;username=sulien&amp;age=22&amp;hobbies=coding&amp;hobbies=hiking&#39;</span>
+ <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;person-example&#39;</span><span class="p">).</span><span class="nx">serialize</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="c1">// -&gt; {username: &#39;sulien&#39;, age: &#39;22&#39;, hobbies: [&#39;coding&#39;, &#39;hiking&#39;]}</span>
+</pre>
+</div>
+
+
+<h5>Notes</h5>
+
+<p>Disabled form elements are not serialized (as per W3C HTML recommendation).
+Also, file inputs are skipped as they cannot be serialized and sent using
+only JavaScript.</p>
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/serialize/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/serialize/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:36 GMT -->
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/Prototype/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:12 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Prototype</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">namespace</span> Prototype
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>The <code><a href="index.html" title="Prototype (namespace)">Prototype</a></code> namespace provides fundamental information about the
+Prototype library you're using, as well as a central repository for default
+iterators or functions.</p>
+
+<p>We say "namespace," because the <code><a href="index.html" title="Prototype (namespace)">Prototype</a></code> object is not intended for
+instantiation, nor for mixing in other objects. It's really just... a
+namespace.</p>
+
+<h5>Your version of Prototype</h5>
+
+<p>Your scripts can check against a particular version of Prototype by
+examining <code><a href="Version/index.html" title="Prototype.Version (class property)">Prototype.Version</a></code>, which is a version <code><a href="../language/String/index.html" title="String (class)">String</a></code> (e.g.
+"&lt;%= PROTOTYPE_VERSION %>"). The famous
+<a href="http://script.aculo.us/">script.aculo.us</a> library does this at load time to
+ensure it's being used with a reasonably recent version of Prototype, for
+instance.</p>
+
+<h5>Browser features</h5>
+
+<p>Prototype also provides a (nascent) repository of
+<a href="BrowserFeatures/index.html">browser feature information</a>, which it then
+uses here and there in its source code. The idea is, first, to make
+Prototype's source code more readable; and second, to centralize whatever
+scripting trickery might be necessary to detect the browser feature, in
+order to ease maintenance.</p>
+
+<h5>Default iterators and functions</h5>
+
+<p>Numerous methods in Prototype objects (most notably the <code><a href="../language/Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code>
+module) let the user pass in a custom iterator, but make it optional by
+defaulting to an "identity function" (an iterator that just returns its
+argument, untouched). This is the <code><a href="K/index.html" title="Prototype.K (class method)">Prototype.K</a></code> function, which you'll
+see referred to in many places.</p>
+
+<p>Many methods also take it easy by protecting themselves against missing
+methods here and there, reverting to empty functions when a supposedly
+available method is missing. Such a function simply ignores its potential
+arguments, and does nothing whatsoever (which is, oddly enough,
+blazing fast). The quintessential empty function sits, unsurprisingly,
+at <code><a href="emptyFunction/index.html" title="Prototype.emptyFunction (class method)">Prototype.emptyFunction</a></code> (note the lowercase first letter).</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                <div class="section section-namespaces">
+                <div class="section-title">
+                  <h3>Namespaces</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <ul class="method-details-list">
+      <li class="method-description">
+  <h4><a href="Selector/index.html">Prototype.Selector</a></h4>
+
+    <p /><p>A namespace that acts as a wrapper around
+the choosen selector engine (Sizzle by default).</p>
+</li>
+<li class="method-description">
+  <h4><a href="Browser/index.html">Prototype.Browser</a></h4>
+
+    <p /><p>A collection of Boolean values indicating the browser which is
+currently in use. Available properties are <code>IE</code>, <code>Opera</code>, <code>WebKit</code>,
+<code>MobileSafari</code> and <code>Gecko</code>.</p>
+</li>
+<li class="method-description">
+  <h4><a href="BrowserFeatures/index.html">Prototype.BrowserFeatures</a></h4>
+
+    <p /><p>A collection of Boolean values indicating the presence of specific
+browser features.</p>
+</li>
+    </ul>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+                  <div class="section section-class_methods">
+                <div class="section-title">
+                  <h3>Class methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="emptyFunction/index.html" title="Prototype.emptyFunction (class method)" class="class-method">emptyFunction</a></code></li>
+
+<li><code><a href="K/index.html" title="Prototype.K (class method)" class="class-method">K</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-class_properties">
+                <div class="section-title">
+                  <h3>Class properties</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="Version/index.html" title="Prototype.Version (class property)" class="class-property">Version</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/Prototype/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:12 GMT -->
+</html>

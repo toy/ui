@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from prototypejs.org/learn/class-inheritance by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Prototype JavaScript framework: Defining classes and inheritance</title>
+	<link href="stylesheets/main.html" rel="stylesheet" type="text/css" charset="utf-8" />	
+	<link href="../stylesheets/main.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 6]><link href="/stylesheets/ie-sucks-for-api.css" rel="stylesheet" type="text/css" media="screen"><![endif]-->
+  <link href="http://feeds.feedburner.com/prototype-blog" rel="alternate" type="application/atom+xml" />
+ <script src="../javascripts/prototype.js" type="text/javascript"></script>
+<script src="../javascripts/code_highlighter.js" type="text/javascript"></script>
+<script src="../javascripts/javascript.js" type="text/javascript"></script>
+<script src="../javascripts/html.js" type="text/javascript"></script>
+<script src="../javascripts/css.js" type="text/javascript"></script>
+<script src="../javascripts/ruby.js" type="text/javascript"></script>
+<script src="../javascripts/ebnf.js" type="text/javascript"></script>
+
+
+<link href="../images/fav.png" rel="shortcut icon" type="image/ico" />
+</head>
+
+<body id="main">
+            
+   <h2>Defining classes and inheritance</h2>
+   <div id="lmeta">Last updated on October 16th, 2007</div>
+  <div id="learn-excerpt"><p>In the early versions of Prototype, the framework came with basic support for
+class creation: the <a href="http://prototypejs.org/api/class/create"><code>Class.create()</code></a> method. Until now the
+<em>only</em> feature of classes defined this way was that the constructor called a
+method called <code>initialize</code> automatically. <strong>Prototype 1.6.0</strong> now comes with
+inheritance support through the <code>Class</code> module, which has taken several steps
+further since the last version; you can make richer classes in your code with
+more ease than before.</p></div>
+  <div id="abody"><p>The cornerstone of class creation in Prototype is still
+the <a href="http://prototypejs.org/api/class/create"><code>Class.create()</code></a> method. With the new version of the
+framework, your class-based code will continue to work as before; only now you
+don't have to work with object prototypes directly or use
+<a href="http://prototypejs.org/api/object/extend"><code>Object.extend()</code></a> to copy properties around.</p>
+
+<h3>Example</h3>
+
+<p>Let's compare the old way and a new way of defining classes and inheritance in
+Prototype:</p>
+
+<pre><code class="javascript">/** obsolete syntax **/
+
+var Person = Class.create();
+Person.prototype = {
+  initialize: function(name) {
+    this.name = name;
+  },
+  say: function(message) {
+    return this.name + ': ' + message;
+  }
+};
+
+var guy = new Person('Miro');
+guy.say('hi');
+// -> "Miro: hi"
+
+var Pirate = Class.create();
+// inherit from Person class:
+Pirate.prototype = Object.extend(new Person(), {
+  // redefine the speak method
+  say: function(message) {
+    return this.name + ': ' + message + ', yarr!';
+  }
+});
+
+var john = new Pirate('Long John');
+john.say('ahoy matey');
+// -> "Long John: ahoy matey, yarr!"
+</code></pre>
+
+<p>Observe the direct interaction with class prototypes and the clumsy inheritance
+technique using <code>Object.extend</code>. Also, with <code>Pirate</code> redefining the <code>say()</code>
+method of <code>Person</code>, there is no way of calling the overridden method like you can
+do in programming languages that support class-based inheritance.</p>
+
+<p>This has changed for the better. Compare the above with:</p>
+
+<pre><code class="javascript">/** new, preferred syntax **/
+
+// properties are directly passed to `create` method
+var Person = Class.create({
+  initialize: function(name) {
+    this.name = name;
+  },
+  say: function(message) {
+    return this.name + ': ' + message;
+  }
+});
+
+// when subclassing, specify the class you want to inherit from
+var Pirate = Class.create(Person, {
+  // redefine the speak method
+  say: function($super, message) {
+    return $super(message) + ', yarr!';
+  }
+});
+
+var john = new Pirate('Long John');
+john.say('ahoy matey');
+// -> "Long John: ahoy matey, yarr!"
+</code></pre>
+
+<p>You can see how both class and subclass definitions are shorter because you
+don't need to hack their prototypes directly anymore. We have also demonstrated
+another new feature: the "supercall", or calling the overridden method (done with
+special keyword <code>super</code> in the Ruby language) in <code>Pirate#say</code>.</p>
+
+<h3>How to mix-in modules</h3>
+
+<p>So far you have seen the general way of calling <code>Class.create</code>.</p>
+
+<pre><code class="javascript">var Pirate = Class.create(Person, { /* instance methods */ });
+</code></pre>
+
+<p>But in fact, <code>Class.create</code> takes in an arbitrary number of arguments. The first&mdash;if it is another class&mdash;defines that the new class should inherit from it. All other arguments are added as instance methods; internally they are subsequent calls to <code>addMethods</code> (see below). This can conveniently be used for mixing in modules:</p>
+
+<pre><code class="javascript">// define a module
+var Vulnerable = {
+  wound: function(hp) {
+    this.health -= hp;
+    if (this.health < 0) this.kill();
+  },
+  kill: function() {
+    this.dead = true;
+  }
+};
+
+// the first argument isn't a class object, so there is no inheritance ...
+// simply mix in all the arguments as methods:
+var Person = Class.create(Vulnerable, {
+  initialize: function() {
+    this.health = 100;
+    this.dead = false;
+  }
+});
+
+var bruce = new Person;
+bruce.wound(55);
+bruce.health; //-> 45
+</code></pre>
+
+<h3>The <code>$super</code> argument in method definitions</h3>
+
+<p>When you override a method in a subclass, but still want to be able to call the
+original method, you will need a <em>reference</em> to it. You can obtain that
+reference by defining those methods with an extra argument in the front:
+<code>$super</code>.  Prototype will detect this and make the overridden method available to
+you through that argument. But, from outside world the <code>Pirate#say</code> method still
+expects a single argument; this implementation detail doesn't affect how your
+code interacts with the objects.</p>
+
+<h3>Types of inheritance in programming languages</h3>
+
+<p>Generally we distinguish between class-based and prototypal inheritance, the
+latter being specific to JavaScript. While upcoming JavaScript 2.0 will support true
+class definitions, current versions of the JavaScript language implemented in
+modern browsers are restricted to prototypal inheritance.</p>
+
+<p>Prototypal inheritance, of course, is a very useful feature of the language, but
+is often too verbose when you are actually creating your objects. This is why we
+are emulating class-based inheritance (like in the Ruby language) through
+prototypal inheritance internally. This has certain implications. For instance,
+in PHP you can define the inital values for instance variables:</p>
+
+<pre><code class="php">class Logger {
+  public $log = array();
+
+  function write($message) {
+    $this->log[] = $message;
+  }
+}
+
+$logger = new Logger;
+$logger->write('foo');
+$logger->write('bar');
+$logger->log; // -> ['foo', 'bar']
+</code></pre>
+
+<p>We can try to do the same in Prototype:</p>
+
+<pre><code class="javascript">var Logger = Class.create({
+  initialize: function() { },
+  log: [],
+  write: function(message) {
+    this.log.push(message);
+  }
+});
+
+var logger = new Logger;
+logger.log; // -> []
+logger.write('foo');
+logger.write('bar');
+logger.log; // -> ['foo', 'bar']
+</code></pre>
+
+<p>It works. But what if we make <strong>another</strong> instance of Logger?</p>
+
+<pre><code class="javascript">var logger2 = new Logger;
+logger2.log; // -> ['foo', 'bar']
+
+// ... hey, the log should have been empty!
+</code></pre>
+
+<p>You can see that, although some of you expected an empty array in the new
+instance, we have the same array as the previous logger. In fact, <em>all</em> logger
+objects will share the same array object because it is copied by reference, not
+by value. <strong>The correct way is to initialize your instances to default values:</strong></p>
+
+<pre><code class="javascript">var Logger = Class.create({
+  initialize: function() {
+    // this is the right way to do it:
+    this.log = [];
+  },
+  write: function(message) {
+    this.log.push(message);
+  }
+});
+</code></pre>
+
+<h3>Defining class methods</h3>
+
+<p>There is no special support for class methods in Prototype 1.6.0. Simply define
+them on your existing classes:</p>
+
+<pre><code class="javascript">Pirate.allHandsOnDeck = function(n) {
+  var voices = [];
+  n.times(function(i) {
+    voices.push(new Pirate('Sea dog').say(i + 1));
+  });
+  return voices;
+}
+
+Pirate.allHandsOnDeck(3);
+// -> ["Sea dog: 1, yarr!", "Sea dog: 2, yarr!", "Sea dog: 3, yarr!"]
+</code></pre>
+
+<p>If you need to define several at once, simply use <code>Object.extend</code> as before:</p>
+
+<pre><code class="javascript">Object.extend(Pirate, {
+  song: function(pirates) { ... },
+  sail: function(crew) { ... },
+  booze: ['grog', 'rum']
+});
+</code></pre>
+
+<p>When you inherit from Pirate, the class methods are <em>not</em> inherited. This feature may be added in future versions of Prototype. Until then, copy the methods manually,
+but <em>not</em> like this:</p>
+
+<pre><code class="javascript">var Captain = Class.create(Pirate, {});
+// this is wrong!
+Object.extend(Captain, Pirate);
+</code></pre>
+
+<p>Class constructors are Function objects and it will mess them up if you just
+copy everything from one to another. In the best case you will still end up
+overriding <code>subclasses</code> and <code>superclass</code> properties on <code>Captain</code>, which is not
+good.</p>
+
+<h3>Special class properties</h3>
+
+<p>Prototype 1.6.0 defines two special class properties: <code>subclasses</code> and
+<code>superclass</code>. Their names are self-descriptive: they hold references to
+subclasses or superclass of the current class, respectively.</p>
+
+<pre><code class="javascript">Person.superclass
+// -> null
+Person.subclasses.length
+// -> 1
+Person.subclasses.first() == Pirate
+// -> true
+Pirate.superclass == Person
+// -> true
+Captain.superclass == Pirate
+// -> true
+Captain.superclass == Person
+// -> false
+</code></pre>
+
+<p>These properties are here for easy class introspection.</p>
+
+<h3>Adding methods on-the-fly with <code>Class#addMethods()</code></h3>
+
+<div class="deprecated" style="margin-bottom:1em"><code>Class#addMethods</code> was named <code>Class.extend</code> in Prototype 1.6 RC0.<br />Please update your code accordingly.</div>
+
+<p>Imagine you have an already defined class you want to add extra methods to.
+Naturally, you want those methods to be instantly available on subclasses and
+every existing instance in the memory! This is accomplished by injecting a
+property in the prototype chain, and the safest way to do it with Prototype is
+to use <code>Class#addMethods</code>:</p>
+
+<pre><code class="javascript">var john = new Pirate('Long John');
+john.sleep();
+// -> ERROR: sleep is not a method
+
+// every person should be able to sleep, not just pirates!
+Person.addMethods({
+  sleep: function() {
+    return this.say('ZzZ');
+  }
+});
+
+john.sleep();
+// -> "Long John: ZzZ, yarr!"
+</code></pre>
+
+<p>The <code>sleep</code> method was instantly available not only on new Person instances, but
+on its subclasses and existing instances currently in memory.</p></div>
+
+
+
+          </body>
+
+<!-- Mirrored from prototypejs.org/learn/class-inheritance by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:47 GMT -->
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/evalScripts/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:07 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | String#evalScripts</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> String#evalScripts
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">String#evalScripts() &rarr; <a href="../../../Array/index.html" title="Array (class)">Array</a></code></pre>
+
+
+      <p>Evaluates the content of any inline <code>&lt;script&gt;</code> block present in the string.
+Returns an array containing the value returned by each script.
+<code>&lt;script&gt;</code>  blocks referencing external files will be treated as though
+they were empty (the result for that position in the array will be <code>undefined</code>);
+external files are <em>not</em> loaded and processed by <code><a href="index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code>.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="s1">&#39;lorem... &lt;script&gt;2 + 2&lt;/script&gt;&#39;</span><span class="p">.</span><span class="nx">evalScripts</span><span class="p">();</span>
+<span class="c1">// -&gt; [4]</span>
+ <span class="s1">&#39;&lt;script&gt;2 + 2&lt;script&gt;&lt;script&gt;alert(&quot;hello world!&quot;)&lt;/script&gt;&#39;</span><span class="p">.</span><span class="nx">evalScripts</span><span class="p">();</span>
+<span class="c1">// -&gt; [4, undefined] (and displays &#39;hello world!&#39; in the alert dialog)</span>
+</pre>
+</div>
+
+
+<h5>About <code>evalScripts</code>, <code>var</code>s, and defining functions</h5>
+
+<p><code><a href="index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code> evaluates script blocks, but this <strong>does not</strong> mean
+they are evaluated in the global scope. They aren't, they're evaluated in
+the scope of the <code><a href="index.html" title="String#evalScripts (instance method)">String#evalScripts</a></code> method. This has important
+ramifications for your scripts:</p>
+
+<ul>
+<li>Anything in your script declared with the <code>var</code> keyword will be
+discarded momentarily after evaluation, and will be invisible to any
+other scope.</li>
+<li>If any <code>&lt;script&gt;</code> blocks <em>define functions</em>, they will need to be
+assigned to properties of the <code>window</code> object.</li>
+</ul>
+
+
+<p>For example, this won't work:</p>
+
+<div class="highlight"><pre><span class="c1">// This kind of script won&#39;t work if processed by evalScripts:</span>
+<span class="kd">function</span> <span class="nx">coolFunc</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Amazing stuff!</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>Instead, use the following syntax:</p>
+
+<div class="highlight"><pre><span class="c1">// This kind of script WILL work if processed by evalScripts:</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">coolFunc</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// Amazing stuff!</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>(You can leave off the <code>window.</code> part of that, but it's bad form.)
+Evaluates the content of any <code>script</code> block present in the string. Returns
+an array containing the value returned by each script.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/String/prototype/evalScripts/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:07 GMT -->
+</html>

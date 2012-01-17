@@ -1,0 +1,84 @@
+<!DOCTYPE html SYSTEM>
+<html>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/puzzle-demo/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:37 GMT -->
+<head>
+  <title>Puzzle Demo &mdash; Scriptaculous Documentation</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />  
+  <link href="../css/docs.css" rel="stylesheet" media="screen" />
+  <link href="https://github.com/madrobby/scriptaculous/commits/master.atom" title="Recent Commits to scriptaculous:master" rel="alternate" type="application/atom+xml" />
+  <meta name="description" content="script.aculo.us is an open-source JavaScript framework for visual effects and interface behaviours." />
+</head>
+<body>
+
+
+<div id="content">
+  <h1 id="page-title">Puzzle Demo</h1>
+  <div id="wiki">
+    <div class="wikistyle">
+<link href="../../../script.aculo.us/github/styles/sunburst.css" title="Sunburst" rel="stylesheet" />
+<script src="../../../script.aculo.us/prototype.js" type="text/javascript"></script><script src="../../../script.aculo.us/scriptaculous.js" type="text/javascript"></script><p class="upper-chiclet"><a href="../demos/index.html">Demos</a> &gt; <strong>Puzzle Demo</strong></p>
+<p>This is an example showing how to implement a simple puzzle game with <a href="../sortables/index.html">Sortables</a>.</p>
+<style>
+#puzzle { width:450px; }
+.congrats { color: #fff; background: #080 }
+</style>
+<div id="puzzle" style="width: 450px">
+<img src="../../../script.aculo.us/images/puzzle5.jpg" id="image_5" alt="" />
+<img src="../../../script.aculo.us/images/puzzle1.jpg" id="image_1" alt="" />
+<img src="../../../script.aculo.us/images/puzzle9.jpg" id="image_9" alt="" />
+<img src="../../../script.aculo.us/images/puzzle7.jpg" id="image_7" alt="" />
+<img src="../../../script.aculo.us/images/puzzle4.jpg" id="image_4" alt="" />
+<img src="../../../script.aculo.us/images/puzzle8.jpg" id="image_8" alt="" />
+<img src="../../../script.aculo.us/images/puzzle3.jpg" id="image_3" alt="" />
+<img src="../../../script.aculo.us/images/puzzle6.jpg" id="image_6" alt="" />
+<img src="../../../script.aculo.us/images/puzzle2.jpg" id="image_2" alt="" />
+</div>
+<p>
+<span id="puzzleinfo">(no move made yet)</span>
+</p>
+<script type="text/javascript">
+(function(){ 
+  var p = $('puzzle'), info = $('puzzleinfo'), moves = 0;
+  
+  Sortable.create('puzzle', {
+    tag:'img',overlap:'horizontal',constraint: false,
+    onUpdate:function(){
+      info.update('You\'ve made ' + (++moves) + ' move' + (moves>1 ? 's' : ''));
+      if(Sortable.sequence('puzzle').join('')=='123456789')
+         info.update('You\'ve solved the puzzle in ' + moves + ' moves!').morph('congrats');
+    }
+  });
+})();
+</script><h2>Source code</h2>
+<pre><code class="javascript">
+(function() { 
+  var p = $('puzzle'), info = $('puzzleinfo'), moves = 0;
+  
+  Sortable.create('puzzle', {
+    tag: 'img', overlap: 'horizontal', constraint: false,
+    onUpdate: function() {
+      info.update('You\'ve made ' + (++moves) + ' move' + (moves &gt; 1 ? 's' : ''));
+      if (Sortable.sequence('puzzle').join('') == '123456789')
+         info.update('You\'ve solved the puzzle in ' + moves + ' moves!').morph('congrats');
+    }
+  });
+})();
+</code></pre>
+<script src="../../../script.aculo.us/github/highlight.js" type="text/javascript"></script><script type="text/javascript">
+  hljs.initHighlightingOnLoad.apply(null, hljs.ALL_LANGUAGES);
+</script>
+</div>
+  </div>
+
+    
+  
+</div>
+
+
+
+<noscript><p><img src="../../../in.getclicky.com/66350389ns.gif" height="1" alt="Clicky" width="1" /></p></noscript>
+</body>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/puzzle-demo/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:40 GMT -->
+</html>

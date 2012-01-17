@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/on/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:20 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Event.on</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Event.on
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Event.on(element, eventName[, selector], callback) &rarr; <a href="../Handler/index.html" title="Event.Handler (class)">Event.Handler</a></code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">element</code>
+          <span class="argument-types">(<code><a href="../../Element/index.html" title="Element (class)">Element</a></code> | <code><a href="../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; The DOM element to observe, or its ID.
+      </li>
+      <li>
+        <code class="argument-name">eventName</code>
+          <span class="argument-types">(<code><a href="../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; The name of the event, in all lower case, without the "on" prefix&nbsp;&mdash; e.g., "click" (not "onclick").
+      </li>
+      <li>
+        <code class="argument-name">selector</code>
+          <span class="argument-types">(<code><a href="../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; A CSS selector. If specified, will call <code>callback</code> <em>only</em> when it can find an element that matches <code>selector</code> somewhere in the ancestor chain between the event's target element and the given <code>element</code>.
+      </li>
+      <li>
+        <code class="argument-name">callback</code>
+          <span class="argument-types">(<code><a href="../../../language/Function/index.html" title="Function (class)">Function</a></code>)</span>
+         &ndash; The event handler function. Should expect two arguments: the event object <em>and</em> the element that received the event. (If <code>selector</code> was given, this element will be the one that satisfies the criteria described just above; if not, it will be the one specified in the <code>element</code> argument). This function is <strong>always</strong> bound to <code>element</code>.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Listens for events on an element's descendants, optionally filtering
+to match a given CSS selector.</p>
+
+<p>Creates an instance of <code><a href="../Handler/index.html" title="Event.Handler (class)">Event.Handler</a></code>, calls <code><a href="../Handler/prototype/start/index.html" title="Event.Handler#start (instance property)">Event.Handler#start</a></code>,
+then returns that instance. Keep a reference to this returned instance if
+you later want to unregister the observer.</p>
+
+<h5>Usage</h5>
+
+<p><code>Event.on</code> can be used to set up event handlers with or without event
+delegation. In its simplest form, it works just like <code><a href="../observe/index.html" title="Event.observe (class method)">Event.observe</a></code>:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;messages&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>An optional second argument lets you specify a CSS selector for event
+delegation. This encapsulates the pattern of using <code><a href="../prototype/findElement/index.html" title="Event#findElement (instance method)">Event#findElement</a></code>
+to retrieve the first ancestor element matching a specific selector.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;messages&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;a.comment&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+   <span class="c1">// ...</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>Note the second argument in the handler above: it references the
+element matched by the selector (in this case, an <code>a</code> tag with a class
+of <code>comment</code>). This argument is important to use because within the
+callback, the <code>this</code> keyword <strong>will always refer to the original
+element</strong> (in this case, the element with the id of <code>messages</code>).</p>
+
+<p><code>Event.on</code> differs from <code>Event.observe</code> in one other important way:
+its return value is an instance of <code><a href="../Handler/index.html" title="Event.Handler (class)">Event.Handler</a></code>. This instance
+has a <code>stop</code> method that will remove the event handler when invoked
+(and a <code>start</code> method that will attach the event handler again after
+it's been removed).</p>
+
+<div class="highlight"><pre><span class="c1">// Register the handler:</span>
+<span class="kd">var</span> <span class="nx">handler</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;messages&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="s2">&quot;a.comment&quot;</span><span class="p">,</span>
+ <span class="k">this</span><span class="p">.</span><span class="nx">click</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+ <span class="c1">// Unregister the handler:</span>
+<span class="nx">handler</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
+ <span class="c1">// Re-register the handler:</span>
+<span class="nx">handler</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<p>This means that, unlike <code>Event.stopObserving</code>, there's no need to
+retain a reference to the handler function.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/on/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:29:20 GMT -->
+</html>

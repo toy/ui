@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/CSS by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:50 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>DOM CSS Properties - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=2248">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=2248">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 2248;
+Deki.PageTitle = 'en/DOM/CSS';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link type="text/css" rel="stylesheet" href="../../deki/scripts/res/syntax/SyntaxHighlighter.css">
+<script type="text/javascript" src="../../deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="../../deki/scripts/res/syntax/shBrushXml.js"></script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMCSS" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">DOM CSS Properties</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Example" rel="internal">Example</a>
+</li>
+<li>
+<span>2.</span> <a href="#Notes" rel="internal">Notes</a>
+</li>
+<li>
+<span>3.</span> <a href="#Properties_List" rel="internal">Properties List</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>The following is a list of the CSS properties that are supported in the Gecko 1.8+ DOM and accessible by means of the <code><a rel="internal" href="style-3.html">style</a></code> property on elements. These include <a class="external" title="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSS2Properties" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSS2Properties" target="_blank">CSS2Properties</a> , a few CSS 3 ones, and Mozilla-specific properties.</p>
+<div id="section_1">
+<span id="Example"></span><h3 class="editable">Example</h3>
+<p>The following example shows the typical use of the <code><a rel="internal" href="element-4.html">element.style</a></code> property to set a CSS property:</p>
+
+          <pre name="code" class="xml">&lt;script&gt;
+  function changeStyle()  {
+    var c = document.getElementById("sp");
+    c.style.paddingRight = "20px";
+  }
+&lt;/script&gt;
+
+&lt;span id="sp" style="border:solid"&gt; Example span &lt;/span&gt;
+&lt;br&gt;
+&lt;button onclick="changeStyle();"&gt; add padding &lt;/button&gt;</pre>
+        
+</div>
+<div id="section_2">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<p>CSS styles can be returned or set with the <code>style</code> property and its attributes. However, you cannot set values directly using constructions such as<code> element.style= "background:blue"</code>, where the string contains both the attribute ("background") and the value ("blue"). Use instead<code> element.style.cssText= "background:blue"</code></p>
+<p>By itself, the style property should only be used as a "getter" to read values and not a "setter" to change values. In other words, the first of the following two constructions is bad, and the latter is better practice in the DOM:</p>
+<dl>
+<dt>wrong </dt> <dd> <pre><strike>element.style = "background: blue";</strike>   /* error, doesn't work */</pre> </dd> <dt>better<br>
+</dt> <dd> <pre>
+element.style.cssText = "background: blue"    /* adds the new style and overwrites the previous ones */
+element.style.cssText += ";background: blue"  /* adds the new style and keeps the previous ones */ </pre> </dd> <dt>good</dt> <dd> <pre>
+element.style.background = "blue";</pre> </dd>
+</dl>
+<p>The "good" example allows to "manage" the style of elements in a safer and more organized way.</p>
+</div>
+<div id="section_3">
+<span id="Properties_List"></span><h3 class="editable">Properties List</h3>
+<p>The following are either a CSS3 property (noted as such), from the <a class="external" title="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSS2Properties" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Style/css.html#CSS-CSS2Properties" target="_blank">CSS2Properties</a> interface, or are Mozilla-specific (the latter begin with "Moz").</p>
+<p>See also: the Element <a rel="internal" href="element-4.html">style</a> property or its implementation of <a rel="internal" href="CSSStyleDeclaration-2.html">CSSStyleDeclaration</a> (e.g., for its properties, <a rel="internal" href="https://developer.mozilla.org/" class="new ">length</a>, <a rel="internal" href="https://developer.mozilla.org/" class="new ">parentRule</a>, <a rel="internal" href="cssRule-3.html">cssText</a>).</p>
+<p>You can check the syntax for the values of these attributes by consulting the DOM CSS specification.</p>
+<div class="note">
+<strong>Note:</strong>  This list is incomplete. For more CSS properties see <a class="internal" rel="internal" href="https://developer.mozilla.org/en/CSS_Reference">/en/CSS_Reference</a> and <a class="internal" rel="internal" href="https://developer.mozilla.org/en/CSS_Reference/Mozilla_Extensions">/en/CSS_Reference/Mozilla_Extensions</a>
+</div>
+<ul>
+<li><a rel="internal" href="https://developer.mozilla.org/en/CSS/azimuth">azimuth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/background">background</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/background-attachment">backgroundAttachment</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/background-color">backgroundColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/background-image">backgroundImage</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/background-position">backgroundPosition</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/background-repeat">backgroundRepeat</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border">border</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-bottom">borderBottom</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-bottom-color">borderBottomColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-bottom-style">borderBottomStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-bottom-width">borderBottomWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-collapse">borderCollapse</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-color">borderColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-left">borderLeft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-left-color">borderLeftColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-left-style">borderLeftStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-left-width">borderLeftWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-right">borderRight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-right-color">borderRightColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-right-style">borderRightStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-right-width">borderRightWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-spacing">borderSpacing</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-style">borderStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-top">borderTop</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-top-color">borderTopColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-top-style">borderTopStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-top-width">borderTopWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/border-width">borderWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/bottom">bottom</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/caption-side">captionSide</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/clear">clear</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/clip">clip</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/color">color</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/content">content</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/counter-increment">counterIncrement</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/counter-reset">counterReset</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/float">cssFloat</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/cue" class="new ">cue</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/cue-after" class="new ">cueAfter</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/cue-before" class="new ">cueBefore</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/cursor">cursor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/direction">direction</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/display">display</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/elevation" class="new ">elevation</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/emptyCells" class="new ">emptyCells</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font">font</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-family">fontFamily</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-size">fontSize</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-size-adjust">fontSizeAdjust</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-stretch">fontStretch</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-style">fontStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-variant">fontVariant</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/font-weight">fontWeight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/height">height</a></li> <li>
+<a rel="internal" href="https://developer.mozilla.org/en/CSS/ime-mode">imeMode</a> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/left">left</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/letter-spacing">letterSpacing</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/line-height">lineHeight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/list-style">listStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/list-style-image">listStyleImage</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/list-style-position">listStylePosition</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/list-style-type">listStyleType</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/margin">margin</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/margin-bottom">marginBottom</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/margin-left">marginLeft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/margin-right">marginRight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/margin-top">marginTop</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/marker-offset" class="new ">markerOffset</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/marks" class="new ">marks</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/max-height">maxHeight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/max-width">maxWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/min-height">minHeight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/min-width">minWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-appearance">MozAppearance</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-background-clip">MozBackgroundClip</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-background-inline-policy">MozBackgroundInlinePolicy</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-background-origin">MozBackgroundOrigin</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-binding">MozBinding</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-bottom-colors">MozBorderBottomColors</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-end" class="new ">MozBorderEnd</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-end-color" class="new ">MozBorderEndColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-end-style" class="new ">MozBorderEndStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-end-width" class="new ">MozBorderWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-image">MozBorderImage</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-left-colors">MozBorderLeftColors</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-radius">MozBorderRadius</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-radius-bottomleft">MozBorderRadiusBottomleft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-radius-bottomright">MozBorderRadiusBottomright</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-radius-topleft">MozBorderRadiusTopleft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-radius-topright">MozBorderRadiusTopright</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-right-colors">MozBorderRightColors</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-start" class="new ">MozBorderStart</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-start-color" class="new ">MozBorderStartColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-start-style" class="new ">MozBorderStartStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-border-start-width" class="new ">MozBorderStartWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-border-top-colors">MozBorderTopColors</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-align">MozBoxAlign</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-direction">MozBoxDirection</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-flex">MozBoxFlex</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-orient">MozBoxOrient</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-ordinal-group">MozBoxOrdinalGroup</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-pack">MozBoxPack</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-box-shadow">MozBoxShadow</a></li> <li>
+<a class="internal" rel="internal" href="https://developer.mozilla.org/En/CSS/Box-sizing">MozBoxSizing</a> </li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-column-count">MozColumnCount</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-column-gap">MozColumnGap</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-column-rule">MozColumnRule</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-column-rule-color">MozColumnRuleColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-column-rule-style">MozColumnRuleStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-column-rule-width">MozColumnRuleWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-column-width">MozColumnWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-float-edge">MozFloatEdge</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-force-broken-image-icon">MozForceBrokenImageIcon</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-image-region">MozImageRegion</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-margin-end">MozMarginEnd</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-margin-start">MozMarginStart</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/opacity">MozOpacity</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline">MozOutline</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-color">MozOutlineColor</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-offset">MozOutlineOffset</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-radius">MozOutlineRadius</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-radius-bottomleft">MozOutlineRadiusBottomleft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-radius-bottomright">MozOutlineRadiusBottomtop</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-radius-topleft">MozOutlineRadiusTopleft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-radius-topright">MozOutlineRadiusTopright</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-style">MozOutlineStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-outline-width">MozOutlineWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-padding-end">MozPaddingEnd</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-padding-start">MozPaddingStart</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-stack-sizing">MozStackSizing</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-transform">MozTransform</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-transform-origin">MozTransformOrigin</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-user-focus">MozUserFocus</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-user-input">MozUserInput</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-user-modify">MozUserModify</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/-moz-user-select">MozUserSelect</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/CSS/-moz-window-shadow">MozWindowShadow</a></li> <li>
+<a rel="internal" href="https://developer.mozilla.org/en/CSS/opacity">opacity</a> (CSS3)</li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/orphans" class="new ">orphans</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/outline">outline</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/outline-color">outlineColor</a></li> <li>
+<a rel="internal" href="https://developer.mozilla.org/en/CSS/outline-offset">outlineOffset</a> (CSS3)</li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/outline-style">outlineStyle</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/outline-width">outlineWidth</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/overflow">overflow</a></li> <li>
+<a rel="internal" href="https://developer.mozilla.org/En/CSS/Overflow-x">overflowX</a> (CSS3)</li> <li>
+<a rel="internal" href="https://developer.mozilla.org/En/CSS/Overflow-y">overflowY</a> (CSS3)</li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/padding">padding</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/padding-bottom">paddingBottom</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/padding-left">paddingLeft</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/padding-right">paddingRight</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/padding-top">paddingTop</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/page" class="new ">page</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/page-break-after">pageBreakAfter</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/page-break-before">pageBreakBefore</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/page-break-inside">pageBreakInside</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/pause" class="new ">pause</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/pause-after" class="new ">pauseAfter</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/pause-before" class="new ">pauseBefore</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/pitch" class="new ">pitch</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/pitch-range" class="new ">pitchRange</a></li> <li>
+<a rel="internal" href="https://developer.mozilla.org/en/CSS/play-during" class="new ">playDuring</a> (not implemented)</li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/position">position</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/quotes">quotes</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/richness" class="new ">richness</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/right">right</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/size" class="new ">size</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/speak" class="new ">speak</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/speak-header" class="new ">speakHeader</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/speak-numeral" class="new ">speakNumeral</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/speak-punctuation" class="new ">speakPunctuation</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/speech-rate" class="new ">speechRate</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/stress" class="new ">stress</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/table-layout">tableLayout</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/text-align">textAlign</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/text-decoration">textDecoration</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/text-indent">textIndent</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/text-shadow">textShadow</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/text-transform">textTransform</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/top">top</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/unicode-bidi" class="new ">unicodeBidi</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/vertical-align">verticalAlign</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/visibility">visibility</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/voice-family" class="new ">voiceFamily</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/volume" class="new ">volume</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/white-space">whiteSpace</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/widows">widows</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/width">width</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/word-spacing">wordSpacing</a></li> <li>
+<a rel="internal" href="https://developer.mozilla.org/En/CSS/Word-wrap">wordWrap</a> (CSS3)</li> <li><a rel="internal" href="https://developer.mozilla.org/en/CSS/z-index">zIndex</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="CSS.html">https://developer.mozilla.org/en/DOM/CSS</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/CSS by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:16:53 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

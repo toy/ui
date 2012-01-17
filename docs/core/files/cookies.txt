@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+developer.mozilla.org	TRUE	/	FALSE	1999999999	PHPSESSID	sh79eglq82jvrrmk7uooavrsd5
+statse.webtrendslive.com	TRUE	/	FALSE	1999999999	ACOOKIE	C8ctADk1LjI1LjEwLjIyLTMzMDM1ODEzNjAuMzAxMjE0NjUAAAAAAAAAAAABAAAA1/MAAL94C02+eAtNAQAAAK1OAAC/eAtNvngLTQAAAAA-
+

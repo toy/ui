@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/Gecko_DOM_Reference by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 11:58:20 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Gecko DOM Reference - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=11928">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=11928">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 11928;
+Deki.PageTitle = 'en/Gecko DOM Reference';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enGeckoDOMReference" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Gecko DOM Reference</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Preface" rel="internal">Preface</a>
+</li>
+<li>
+<span>2.</span> <a href="#Introduction" rel="internal">Introduction</a>
+</li>
+<li>
+<span>3.</span> <a href="#DOM_Object_References" rel="internal">DOM Object References</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>3.1.</span> <a href="#DOM_document_Reference" rel="internal">DOM document Reference</a>
+</li>
+<li>
+<span>3.2.</span> <a href="#DOM_element_Reference" rel="internal">DOM element Reference</a>
+</li>
+<li>
+<span>3.3.</span> <a href="#DOM_event_Reference" rel="internal">DOM event Reference</a>
+</li>
+<li>
+<span>3.4.</span> <a href="#DOM_range_Reference" rel="internal">DOM range Reference</a>
+</li>
+<li>
+<span>3.5.</span> <a href="#DOM_selection_Reference" rel="internal">DOM selection Reference</a>
+</li>
+<li>
+<span>3.6.</span> <a href="#DOM_style_Reference" rel="internal">DOM style Reference</a>
+</li>
+<li>
+<span>3.7.</span> <a href="#DOM_window_Reference" rel="internal">DOM window Reference</a>
+</li>
+</ol>
+</li>
+<li>
+<span>4.</span> <a href="#DOM_-_Other_Objects" rel="internal">DOM - Other Objects</a>
+</li>
+<li>
+<span>5.</span> <a href="#HTML_interfaces" rel="internal">HTML interfaces</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>5.1.</span> <a href="#HTML_element_interfaces" rel="internal">HTML element interfaces</a>
+</li>
+<li>
+<span>5.2.</span> <a href="#Canvas_interfaces" rel="internal">Canvas interfaces</a>
+</li>
+<li>
+<span>5.3.</span> <a href="#Media_related_interfaces" rel="internal">Media related interfaces</a>
+</li>
+<li>
+<span>5.4.</span> <a href="#Collection_interfaces" rel="internal">Collection interfaces</a>
+</li>
+<li>
+<span>5.5.</span> <a href="#Other_HTML_interfaces" rel="internal">Other HTML interfaces</a>
+</li>
+</ol>
+</li>
+<li>
+<span>6.</span> <a href="#DOM_Examples" rel="internal">DOM Examples</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>This is the table of contents for the <a rel="internal" href="https://developer.mozilla.org/en/Gecko">Gecko</a> <a rel="internal" href="https://developer.mozilla.org/en/DOM">DOM</a> reference.</p>
+<div id="section_1">
+<span id="Preface"></span><h2 class="editable"><a rel="internal" href="Gecko_DOM_Reference/Preface.html">Preface</a></h2>
+<ul>
+<li><a rel="internal" href="Gecko_DOM_Reference/Preface.html#About_This_Reference">About This Reference</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Preface.html#Who_Should_Read_This_Guide">Who Should Read This Guide</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Preface.html#What_is_Gecko.3F">What is Gecko?</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Preface.html#API_Syntax">API Syntax</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Preface.html#Using_the_Examples">Using the Examples</a></li>
+</ul>
+</div>
+<div id="section_2">
+<span id="Introduction"></span><h2 class="editable"><a rel="internal" href="Gecko_DOM_Reference/Introduction.html">Introduction</a></h2>
+<ul>
+<li><a rel="internal" href="Gecko_DOM_Reference/Introduction.html#What_is_the_DOM.3F">What is the DOM?</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Introduction.html#DOM_and_JavaScript">DOM and JavaScript</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Introduction.html#How_Do_I_Access_the_DOM.3F">How Do I Access the DOM?</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Introduction.html#Important_Data_Types">Important Data Types</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Introduction.html#DOM_Interfaces">DOM Interfaces</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Introduction.html#Testing_the_DOM_API">Testing the DOM API</a></li>
+</ul>
+</div>
+<div id="section_3">
+<span id="DOM_Object_References"></span><h2 class="editable">DOM Object References</h2>
+<div id="section_4">
+<span id="DOM_document_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/document.html">DOM document Reference</a></h3>
+<ul>
+<li><a rel="internal" href="DOM/document.html#Introduction">Introduction</a></li> <li><a rel="internal" href="DOM/document.html#Properties">Properties</a></li> <li><a rel="internal" href="DOM/document.html#Methods">Methods</a></li> <li><a rel="internal" href="DOM/document.html#Event_handlers">Event Handlers</a></li>
+</ul>
+</div>
+<div id="section_5">
+<span id="DOM_element_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/element.html">DOM element Reference</a></h3>
+<ul>
+<li><a rel="internal" href="DOM/element.html#Introduction">Introduction</a></li> <li><a rel="internal" href="DOM/element.html#Properties">Properties</a></li> <li><a rel="internal" href="DOM/element.html#Methods">Methods</a></li> <li><a rel="internal" href="DOM/element.html#Event_Handlers">Event Handlers</a></li>
+</ul>
+</div>
+<div id="section_6">
+<span id="DOM_event_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/event.html">DOM event Reference</a></h3>
+<p>(with subclasses <a rel="internal" href="DOM/Event/UIEvent.html">UIEvent</a>, <a rel="internal" href="DOM/Event/UIEvent/KeyEvent.html">KeyEvent</a>, <a rel="internal" href="DOM/Event/UIEvent/MouseEvent.html">MouseEvent</a>)</p>
+<ul>
+<li><a rel="internal" href="DOM/event.html#Introduction">Introduction</a></li> <li><a rel="internal" href="DOM/event.html#Properties">Properties</a></li> <li><a rel="internal" href="DOM/event.html#Methods">Methods</a></li>
+</ul>
+</div>
+<div id="section_7">
+<span id="DOM_range_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/range.html">DOM range Reference</a></h3>
+<ul>
+<li><a rel="internal" href="DOM/range.html#Introduction">Introduction</a></li> <li><a rel="internal" href="DOM/range.html#Properties">Properties</a></li> <li><a rel="internal" href="DOM/range.html#Methods">Methods</a></li>
+</ul>
+</div>
+<div id="section_8">
+<span id="DOM_selection_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/Selection.html">DOM selection Reference</a></h3>
+<ul>
+<li><a rel="internal" href="DOM/Selection.html#Introduction">Introduction</a></li> <li><a rel="internal" href="DOM/Selection.html#Glossary">Glossary</a></li> <li><a rel="internal" href="DOM/Selection.html#Properties">Properties</a></li> <li><a rel="internal" href="DOM/Selection.html#Methods">Methods</a></li> <li><a rel="internal" href="DOM/Selection.html#See_Also">See Also</a></li> <li><a rel="internal" href="DOM/Selection.html#External_links">External links</a></li>
+</ul>
+</div>
+<div id="section_9">
+<span id="DOM_style_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/HTMLStyleElement.html">DOM style Reference</a></h3>
+<ul>
+<li><a rel="internal" href="DOM/HTMLStyleElement.html#Notes">Notes</a></li> <li><a rel="internal" href="DOM/HTMLStyleElement.html#Material_to_be_moved_to_other_pages">Material to be moved to other pages</a></li>
+</ul>
+</div>
+<div id="section_10">
+<span id="DOM_window_Reference"></span><h3 class="editable"><a rel="internal" href="DOM/window.html">DOM window Reference</a></h3>
+<ul>
+<li><a rel="internal" href="DOM/window.html#Introduction">Introduction</a></li> <li><a rel="internal" href="DOM/window.html#Properties">Properties</a></li> <li><a rel="internal" href="DOM/window.html#Methods">Methods</a></li> <li><a rel="internal" href="DOM/window.html#Event_Handlers">Event Handlers</a></li>
+</ul>
+</div>
+</div>
+<div id="section_11">
+<span id="DOM_-_Other_Objects"></span><h2 class="editable">DOM - Other Objects</h2>
+<ul>
+<li><a rel="internal" href="DOM/Attr.html">Attr</a></li> <li><a rel="internal" href="DOM/CDATASection.html">CDATASection</a></li> <li><a rel="internal" href="DOM/CharacterData.html">CharacterData</a></li> <li><a rel="internal" href="DOM/Comment.html">Comment</a></li> <li><a rel="internal" href="DOM/DocumentFragment.html">DocumentFragment</a></li> <li><a rel="internal" href="DOM/DocumentType.html">DocumentType</a></li> <li>
+<a rel="internal" href="DOM/DOMConfiguration.html">DOMConfiguration</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li>
+<a rel="internal" href="DOM/DOMError.html">DOMError</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li>
+<a rel="internal" href="DOM/DOMErrorHandler.html">DOMErrorHandler</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li><a rel="internal" href="DOM/DOMException.html">DOMException</a></li> <li><a rel="internal" href="DOM/DOMImplementation.html">DOMImplementation</a></li> <li><a rel="internal" href="DOM/DOMImplementationList.html">DOMImplementationList</a></li> <li><a rel="internal" href="DOM/DOMImplementationRegistry.html">DOMImplementationRegistry</a></li> <li><a rel="internal" href="DOM/DOMImplementationSource.html">DOMImplementationSource</a></li> <li>
+<a rel="internal" href="DOM/DOMLocator.html">DOMLocator</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li><a rel="internal" href="DOM/DOMObject.html">DOMObject</a></li> <li><a rel="internal" href="DOM/DOMString.html">DOMString</a></li> <li>
+<a rel="internal" href="DOM/DOMStringList.html">DOMStringList</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li><a rel="internal" href="DOM/DOMTimeStamp.html">DOMTimeStamp</a></li> <li><a rel="internal" href="DOM/DOMUserData.html">DOMUserData</a></li> <li>
+<a rel="internal" href="DOM/Entity.html">Entity</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li>
+<a rel="internal" href="DOM/EntityReference.html">EntityReference</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li>
+<a rel="internal" href="DOM/NameList.html">NameList</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li><a rel="internal" href="DOM/NamedNodeMap.html">NamedNodeMap</a></li> <li><a rel="internal" href="DOM/Node.html">Node</a></li> <li><a rel="internal" href="DOM/NodeList.html">NodeList</a></li> <li>
+<a rel="internal" href="DOM/Notation.html">Notation</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li>
+<code><a rel="custom nofollow" href="DOM/Plugin.html">Plugin</a></code>
+</li> <li>
+<code><a rel="custom nofollow" href="DOM/PluginArray.html">PluginArray</a></code>
+</li> <li><a rel="internal" href="DOM/ProcessingInstruction.html">ProcessingInstruction</a></li> <li>
+<a class="internal" rel="internal" href="DOM/SharedWorker.html">SharedWorker</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li><a rel="internal" href="DOM/Text.html">Text</a></li> <li>
+<a rel="internal" href="DOM/TimeRanges.html">TimeRanges</a> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</li> <li>
+<a rel="internal" href="DOM/TypeInfo.html">TypeInfo</a> 
+<span class="unimplementedInlineTemplate" style="border: 1px solid rgb(255, 205, 154); background-color: rgb(255, 153, 204); font-size: x-small; white-space: nowrap; padding: 2px;">Unimplemented</span>
+</li> <li><a rel="internal" href="DOM/UserDataHandler.html">UserDataHandler</a></li> <li>
+<a class="internal" rel="internal" href="DOM/Worker.html">Worker</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</li> <li>
+<a rel="internal" href="https://developer.mozilla.org/" class="new internal">WorkerGlobalScope</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span>
+</li>
+</ul>
+</div>
+<div id="section_12">
+<span id="HTML_interfaces"></span><h2 class="editable">HTML interfaces</h2>
+<p><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLDocument.html">HTMLDocument</a></span> (see also <a rel="internal" href="DOM/document.html">document</a>)</p>
+<div id="section_13">
+<span id="HTML_element_interfaces"></span><h3 class="editable">HTML element interfaces</h3>
+<ul class="tree">
+<li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLElement.html">HTMLElement</a></span>, directly implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/dd">&lt;dd&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/dt">&lt;dt&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/tt">&lt;tt&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/i">&lt;i&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/b">&lt;b&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/u">&lt;u&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/s">&lt;s&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/strike">&lt;strike&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/big">&lt;big&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/small">&lt;small&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/em">&lt;em&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/strong">&lt;strong&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/dfn">&lt;dfn&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/code">&lt;code&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/samp">&lt;samp&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/kbd">&lt;kbd&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/var">&lt;var&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/cite">&lt;cite&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/acronym">&lt;acronym&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/abbr">&lt;abbr&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/sub">&lt;sub&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/sup">&lt;sup&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/bdo">&lt;bdo&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/center">&lt;center&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/address">&lt;address&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/noframes" class="new">&lt;noframes&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/wbr">&lt;wbr&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/noscript">&lt;noscript&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/noembed" class="new">&lt;noembed&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/header">&lt;header&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/footer">&lt;footer&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/article">&lt;article&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/aside">&lt;aside&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/section">&lt;section&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/nav">&lt;nav&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/figure">&lt;figure&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/figcaption">&lt;figcaption&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/mark">&lt;mark&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/ruby" class="new">&lt;ruby&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/rt" class="new">&lt;rt&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/rp" class="new">&lt;rp&gt;</a></code> <ul class="tree">
+<li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLAnchorElement.html">HTMLAnchorElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/a">&lt;a&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLAppletElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/applet">&lt;applet&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLAudioElement.html">HTMLAudioElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/audio">&lt;audio&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLAreaElement.html">HTMLAreaElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/area">&lt;area&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLBaseElement.html">HTMLBaseElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/base">&lt;base&gt;</a></code>
+</li> <li>
+<a rel="internal" href="https://developer.mozilla.org/" class="new "><span style="font-family: Times New Roman;">HTMLBaseFontElemen</span>t</a>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/basefont">&lt;basefont&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLBodyElement.html">HTMLBodyElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/body">&lt;body&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLBRElement.html">HTMLBRElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/br">&lt;br&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLButtonElement.html">HTMLButtonElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/button">&lt;button&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLCanvasElement.html">HTMLCanvasElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/canvas">&lt;canvas&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLDirectoryElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/dir">&lt;dir&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLDivElement.html">HTMLDivElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/div">&lt;div&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLDListElement.html">HTMLDListElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/dl">&lt;dl&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLEmbedElement.html">HTMLEmbedElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/embed">&lt;embed&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLFieldSetElement.html">HTMLFieldSetElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/fieldset">&lt;fieldset&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLFontElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/font">&lt;font&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLFormElement.html">HTMLFormElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/form">&lt;form&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLFrameElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/frame" class="new">&lt;frame&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLFrameSetElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/frameset" class="new">&lt;frameset&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLHeadElement.html">HTMLHeadElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/head">&lt;head&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLHeadingElement.html">HTMLHeadingElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/h1">&lt;h1&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/h2">&lt;h2&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/h3">&lt;h3&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/h4">&lt;h4&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/h5">&lt;h5&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/h6">&lt;h6&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLHtmlElement.html">HTMLHtmlElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/html">&lt;html&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLHRElement.html">HTMLHRElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/hr">&lt;hr&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLIFrameElement.html">HTMLIFrameElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/iframe">&lt;iframe&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLImageElement.html">HTMLImageElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/image" class="new">&lt;image&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLInputElement.html">HTMLInputElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/input">&lt;input&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLKeygenElement.html">HTMLKeygenElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/keygen">&lt;keygen&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLLabelElement.html">HTMLLabelElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/label">&lt;label&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLLIElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/li">&lt;li&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLLinkElement.html">HTMLLinkElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/link">&lt;link&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLMapElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/map" class="new">&lt;map&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLMenuElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/menu" class="new">&lt;menu&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLMetaElement.html">HTMLMetaElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/meta">&lt;meta&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLModElement.html">HTMLModElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/del">&lt;del&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/ins">&lt;ins&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLObjectElement.html">HTMLObjectElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/object">&lt;object&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLOListElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/ol">&lt;ol&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLOptGroupElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/optgroup">&lt;optgroup&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLOptionElement.html">HTMLOptionElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/option">&lt;option&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLOutputElement.html">HTMLOutputElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/output">&lt;output&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLParagraphElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/p">&lt;p&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLParamElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/param" class="new">&lt;param&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLPreElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/pre">&lt;pre&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/plaintext">&lt;plaintext&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLQuoteElement.html">HTMLQuoteElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/q">&lt;q&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/blockquote">&lt;blockquote&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLScriptElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/script">&lt;script&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLSelectElement.html">HTMLSelectElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/select">&lt;select&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLSourceElement.html">HTMLSourceElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/source">&lt;source&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLSpanElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/span">&lt;span&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLStyleElement.html">HTMLStyleElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/style">&lt;style&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLTableElement.html">HTMLTableElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/table">&lt;table&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/caption">&lt;caption&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLTableCellElement</a></span>, <br><ul>
+<li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLTableDataCellElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/td">&lt;td&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLTableHeaderCellElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/th">&lt;th&gt;</a></code>
+</li> </ul>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLTableColElement.html">HTMLTableColElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/col">&lt;col&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/colgroup">&lt;colgroup&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLTableRowElement.html">HTMLTableRowElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/tr">&lt;tr&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLTableSectionElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/tfoot">&lt;tfoot&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/thead">&lt;thead&gt;</a></code>, 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/tbody">&lt;tbody&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLTextAreaElement.html">HTMLTextAreaElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/textarea">&lt;textarea&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLTimeElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/time" class="new">&lt;time&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLTitleElement.html">HTMLTitleElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/title">&lt;title&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLTrackElement</a></span>, implemented by: 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/track" class="new">&lt;track&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLUListElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/ul">&lt;ul&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLUnknownElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/bgsound">&lt;bgsound&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/isindex" class="new">&lt;isindex&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/bq" class="new">&lt;bq&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/nextid" class="new">&lt;nextid&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/multicol" class="new">&lt;multicol&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/spacer" class="new">&lt;spacer&gt;</a></code>, 
+<code><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/noframes" class="new">&lt;noframes&gt;</a></code>
+</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLVideoElement.html" class="new ">HTMLVideoElement</a></span>, implemented by: 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/video">&lt;video&gt;</a></code>
+</li> </ul>
+</li>
+</ul>
+</div>
+<div id="section_14">
+<span id="Canvas_interfaces"></span><h3 class="editable">Canvas interfaces</h3>
+<ul>
+<li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/en/HTML/Element/canvas">HTMLCanvasElement</a></span>, implemented by the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/canvas">&lt;canvas&gt;</a></code> element.</li> <li><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/CanvasRenderingContext2D.html">CanvasRenderingContext2D</a></span></li> <li><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/CanvasGradient.html">CanvasGradient</a></span></li> <li><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/CanvasPattern.html">CanvasPattern</a></span></li> <li><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/TextMetrics.html">TextMetrics</a></span></li> <li><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/ImageData.html">ImageData</a></span></li> <li><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/CanvasPixelArray.html">CanvasPixelArray</a></span></li>
+</ul>
+</div>
+<div id="section_15">
+<span id="Media_related_interfaces"></span><h3 class="editable">Media related interfaces</h3>
+<p>These interfaces are used for audio and video media related tasks.</p>
+<ul>
+<li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLAudioElement.html">HTMLAudioElement</a></span>, implemented by the HTML5 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/audio">&lt;audio&gt;</a></code> element.</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLVideoElement.html" class="new ">HTMLVideoElement</a></span>, implemented by the HTML5 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/HTML/Element/video">&lt;video&gt;</a></code> element.</li> <li>
+<span style="font-family: Times New Roman;"><a rel="internal" href="DOM/NotifyAudioAvailableEvent.html">NotifyAudioAvailableEvent</a></span>, describing an event delivered to allow scripts to have access to the audio stream's raw sample data.</li>
+</ul>
+</div>
+<div id="section_16">
+<span id="Collection_interfaces"></span><h3 class="editable">Collection interfaces</h3>
+<p><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLCollection.html">HTMLCollection</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLAllCollection</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLFormControlsCollection.html">HTMLFormControlsCollection</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="DOM/HTMLOptionsCollection.html">HTMLOptionsCollection</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">HTMLPropertiesCollection</a></span></p>
+</div>
+<div id="section_17">
+<span id="Other_HTML_interfaces"></span><h3 class="editable">Other HTML interfaces</h3>
+<p><span style="font-family: Times New Roman;"><a rel="internal" href="DOM/DOMTokenList.html">DOMTokenList</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">DOMSettableTokenList</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">DOMStringMap</a></span>, <span style="font-family: Times New Roman;"><a rel="internal" href="https://developer.mozilla.org/" class="new ">RadioNodeList</a></span></p>
+</div>
+</div>
+<div id="section_18">
+<span id="DOM_Examples"></span><h2 class="editable"><a rel="internal" href="Gecko_DOM_Reference/Examples.html">DOM Examples</a></h2>
+<ul>
+<li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_1:_height_and_width">Example 1: height and width</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_2:_Image_Attributes">Example 2: Image Attributes</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_3:_Manipulating_Styles">Example 3: Manipulating Styles</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_4:_Using_Stylesheets">Example 4: Using Stylesheets</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_5:_Event_Propagation">Example 5: Event Propagation</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_6:_getComputedStyle">Example 6: getComputedStyle</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_7:_Displaying_Event_Object_Properties">Example 7: Displaying Event Object Properties</a></li> <li><a rel="internal" href="Gecko_DOM_Reference/Examples.html#Example_8:_Using_the_DOM_Table_Interface">Example 8: Using the DOM Table Interface</a></li>
+</ul>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Gecko_DOM_Reference.html">https://developer.mozilla.org/en/Gecko_DOM_Reference</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/Gecko_DOM_Reference by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:00:51 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

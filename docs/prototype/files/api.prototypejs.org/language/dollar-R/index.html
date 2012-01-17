@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/dollar-R/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:37 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | $R</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">utility</span> $R
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">$R(start, end[, exclusive = false]) &rarr; <a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code></pre>
+
+
+      <p>Creates a new <code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code> object. This method is a convenience wrapper
+around the <code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code> constructor, but <code><a href="index.html" title="$R (utility)">$R</a></code> is the preferred alias.</p>
+
+<p><code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code> instances represent a range of consecutive values, be they
+numerical, textual, or of another type that semantically supports value
+ranges. See the type's documentation for further details, and to discover
+how your own objects can support value ranges.</p>
+
+<p>The <code><a href="index.html" title="$R (utility)">$R</a></code> function takes exactly the same arguments as the original
+constructor: the <strong>lower and upper bounds</strong> (value of the same, proper
+type), and <strong>whether the upper bound is exclusive</strong> or not. By default, the
+upper bound is inclusive.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nx">$R</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">).</span><span class="nx">include</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">// -&gt; true</span>
+ <span class="nx">$A</span><span class="p">(</span><span class="nx">$R</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<span class="c1">// -&gt; &#39;0, 1, 2, 3, 4, 5&#39;</span>
+ <span class="nx">$A</span><span class="p">(</span><span class="nx">$R</span><span class="p">(</span><span class="s1">&#39;aa&#39;</span><span class="p">,</span> <span class="s1">&#39;ah&#39;</span><span class="p">)).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<span class="c1">// -&gt; &#39;aa, ab, ac, ad, ae, af, ag, ah&#39;</span>
+ <span class="nx">$R</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">true</span><span class="p">).</span><span class="nx">include</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="c1">// -&gt; false</span>
+ <span class="nx">$R</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="kc">true</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// invoked 10 times for value = 0 to 9</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>Note that <code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code> mixes in the <code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code> module: this makes it
+easy to convert a range to an <code><a href="../Array/index.html" title="Array (class)">Array</a></code> (<code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code> provides the
+<code><a href="../Enumerable/prototype/toArray/index.html" title="Enumerable#toArray (instance method)">Enumerable#toArray</a></code> method, which makes the <code><a href="../dollar-A/index.html" title="$A (utility)">$A</a></code> conversion
+straightforward), or to iterate through values. (Note, however, that getting
+the bounds back will be more efficiently done using the
+<code><a href="../ObjectRange/prototype/start/index.html" title="ObjectRange#start (instance property)">ObjectRange#start</a></code> and <code><a href="../ObjectRange/prototype/end/index.html" title="ObjectRange#end (instance property)">ObjectRange#end</a></code> properties than calling the
+<code><a href="../Enumerable/prototype/min/index.html" title="Enumerable#min (instance method)">Enumerable#min</a></code> and <code><a href="../Enumerable/prototype/max/index.html" title="Enumerable#max (instance method)">Enumerable#max</a></code> methods).</p>
+
+<h5>Warning</h5>
+
+<p><strong>Be careful with <code><a href="../String/index.html" title="String (class)">String</a></code> ranges</strong>: as described in its <code><a href="../String/prototype/succ/index.html" title="String#succ (instance method)">String#succ</a></code>
+method, it does not use alphabetical boundaries, but goes all the way
+through the character table:</p>
+
+<div class="highlight"><pre><span class="nx">$A</span><span class="p">(</span><span class="nx">$R</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">))</span>
+<span class="c1">// -&gt; [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;], no surprise there</span>
+ <span class="nx">$A</span><span class="p">(</span><span class="nx">$R</span><span class="p">(</span><span class="s1">&#39;ax&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">))</span>
+<span class="c1">// -&gt; Ouch! Humongous array, starting as [&#39;ax&#39;, &#39;ay&#39;, &#39;az&#39;, &#39;a{&#39;, &#39;a|&#39;, &#39;a}&#39;, &#39;a~&#39;...]</span>
+</pre>
+</div>
+
+
+<p>See <code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code> for more information.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/dollar-R/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:37 GMT -->
+</html>

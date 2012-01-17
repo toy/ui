@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/window by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:09:29 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>window - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=3621">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=3621">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 3621;
+Deki.PageTitle = 'en/DOM/window';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMwindow" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">window</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Properties" rel="internal">Properties</a>
+</li>
+<li>
+<span>2.</span> <a href="#Methods" rel="internal">Methods</a>
+</li>
+<li>
+<span>3.</span> <a href="#Event_Handlers" rel="internal">Event Handlers</a>
+</li>
+<li>
+<span>4.</span> <a href="#See_Also" rel="internal">See Also</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<p>This section provides a brief reference for all of the methods, properties, and events available through the DOM <code>window</code> object. The <code>window</code> object implements the <code>Window</code> interface, which in turn inherits from the <code><a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Views/views.html#Views-AbstractView" title="http://www.w3.org/TR/DOM-Level-2-Views/views.html#Views-AbstractView" target="_blank">AbstractView</a></code> interface.</p>
+<p>The <code>window</code> object represents the window itself. The <code>document</code> property of a <code>window</code> points to the <a rel="internal" href="document.html">DOM document</a> loaded in that window. A window for a given document can be obtained using the 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3adocument.defaultView">document.defaultView</a></code> property.</p>
+<p>In a tabbed browser, such as Firefox, each tab contains its own <code>window</code> object (and if you're writing an extension, the browser window itself is a separate window too - see <a rel="internal" href="https://developer.mozilla.org/en/Working_with_windows_in_chrome_code#Content_windows">Working with windows in chrome code</a> for more information). That is, the <code>window</code> object is not shared between tabs in the same window. Some methods, namely 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.resizeTo">window.resizeTo</a></code> and 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.resizeBy">window.resizeBy</a></code> apply to the whole window and not to the specific tab the <code>window</code> object belongs to. Generally, anything that can't reasonably pertain to a tab pertains to the window instead.</p>
+<div id="section_1">
+<span id="Properties"></span><h3 class="editable">Properties</h3>
+<dl>
+<dt>
+<a rel="internal" href="window-9.html">window.applicationCache</a> 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</dt> <dd>An 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/nsIDOMOfflineResourceList">nsIDOMOfflineResourceList</a></code> object providing access to the offline resources for the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-10.html">window.closed</a></dt> <dd>This property indicates whether the current window is closed or not.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/en/Components_object">window.Components</a></dt> <dd>The entry point to many <a rel="internal" href="https://developer.mozilla.org/en/XPCOM">XPCOM</a> features. Some properties, e.g. <a rel="internal" href="https://developer.mozilla.org/en/Components.classes">classes</a>, are only available to sufficiently privileged code.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="window-4.html">window.content</a> and window._content</dt> <dd>Returns a reference to the content element in the current window. The variant with underscore is deprecated.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-11.html">window.controllers</a></dt> <dd>Returns the XUL controller objects for the current chrome window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-12.html">window.crypto</a></dt> <dd>Returns the browser crypto object.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-13.html">window.defaultStatus</a></dt> <dd>Gets/sets the status bar text for the given window.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="window-14.html">window.dialogArguments</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Gets the arguments passed to the window (if it's a dialog box) at the time <code><a rel="internal" href="window-15.html">window.showModalDialog()</a></code> was called. This is an 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIArray">nsIArray</a></code>.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="window-16.html">window.directories</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> <dd>Synonym of 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3awindow.personalbar">window.personalbar</a></code>
+</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-2.html">window.document</a></dt> <dd>Returns a reference to the document that the window contains.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-17.html">window.frameElement</a></dt> <dd>Returns the element in which the window is embedded, or null if the window is not embedded.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-18.html">window.frames</a></dt> <dd>Returns an array of the subframes in the current window.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="window-19.html">window.fullScreen</a> 
+<span title="
+(Firefox 3)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9</span>
+</dt> <dd>This property indicates whether the window is displayed in full screen or not.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="Storage.html#globalStorage">window.globalStorage</a> 
+<span title="
+(Firefox 2 / Thunderbird 2)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.8.1</span> <span class="lang lang-en"><span class="nonStandardInlineTemplate" style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     </dt> <dd>Multiple storage objects that are used for storing data across multiple pages.  Note that this is non-standard; it is recommended that you use <a class="internal" rel="internal" href="Storage.html#localStorage">window.localStorage</a> instead.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-20.html">window.history</a></dt> <dd>Returns a reference to the history object.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-21.html">window.innerHeight</a></dt> <dd>Gets the height of the content area of the browser window including, if rendered, the horizontal scrollbar.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-22.html">window.innerWidth</a></dt> <dd>Gets the width of the content area of the browser window including, if rendered, the vertical scrollbar.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-23.html">window.length</a></dt> <dd>Returns the number of frames in the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-24.html">window.location</a></dt> <dd>Gets/sets the location, or current URL, of the window object.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-25.html">window.locationbar</a></dt> <dd>Returns the locationbar object, whose visibility can be toggled in the window.</dd>
+</dl>
+<dl>
+<dt>
+<a class="internal" rel="internal" href="Storage.html#localStorage">window.localStorage</a> 
+<span title="
+(Firefox 3.5 / Thunderbird 3 / SeaMonkey 2)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.1</span>
+</dt> <dd>Returns a reference to the local storage object used to store data that may only be accessed by the origin that created it.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-26.html">window.menubar</a></dt> <dd>Returns the menubar object, whose visibility can be toggled in the window.</dd> <dt>
+<code><a rel="custom nofollow" href="window-27.html">window.mozAnimationStartTime</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>The time in milliseconds since epoch at which the current animation cycle began.</dd> <dt>
+<a class="internal" rel="internal" href="window-28.html">window.mozInnerScreenX</a> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</dt> <dd>Returns the horizontal (X) coordinate of the top-left corner of the window's viewport, in screen coordinates. This value is reported in CSS pixels. See <code>mozScreenPixelsPerCSSPixel</code> in 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsIDOMWindowUtils">nsIDOMWindowUtils</a></code> for a conversion factor to adapt to screen pixels if needed.</dd> <dt>
+<a class="internal" rel="internal" href="window-29.html">window.mozInnerScreenY</a> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</dt> <dd>Returns the vertical (Y) coordinate of the top-left corner of the window's viewport, in screen coordinates. This value is reported in CSS pixels. See <code>mozScreenPixelsPerCSSPixel</code> for a conversion factor to adapt to screen pixels if needed.</dd> <dt>
+<a rel="internal" href="window-30.html">window.mozPaintCount</a> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Returns the number of times the current document has been rendered to the screen in this window. This can be used to compute rendering performance.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-31.html">window.name</a></dt> <dd>Gets/sets the name of the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-32.html">window.navigator</a></dt> <dd>Returns a reference to the navigator object.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-33.html">window.opener</a></dt> <dd>Returns a reference to the window that opened this current window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-34.html">window.outerHeight</a></dt> <dd>Gets the height of the outside of the browser window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-35.html">window.outerWidth</a></dt> <dd>Gets the width of the outside of the browser window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-36.html">window.pageXOffset</a></dt> <dd>An alias for <a rel="internal" href="window-36.html">window.scrollX</a>.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-37.html">window.pageYOffset</a></dt> <dd>An alias for <a rel="internal" href="window-37.html">window.scrollY</a>
+</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-38.html">window.parent</a></dt> <dd>Returns a reference to the parent of the current window or subframe.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-39.html">window.personalbar</a></dt> <dd>Returns the personalbar object, whose visibility can be toggled in the window.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="window-40.html">window.pkcs11</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> <dd>Formerly provided access to install and remove PKCS11 modules. Now this property is always null.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new ">window.returnValue</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>The return value to be returned to the function that called <code><a rel="internal" href="window-15.html">window.showModalDialog()</a></code> to display the window as a modal dialog.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-41.html">window.screen</a></dt> <dd>Returns a reference to the screen object associated with the window.</dd>
+</dl>
+<p></p>
+<dl>
+<dt><a rel="internal" href="window.screen.html">window.screen.availTop</a></dt> <dd>Specifies the y-coordinate of the first pixel that is not allocated to permanent or semipermanent user interface features.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-2.html">window.screen.availLeft</a></dt> <dd>Returns the first available pixel available from the left side of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-3.html">window.screen.availHeight</a></dt> <dd>Specifies the height of the screen, in pixels, minus permanent or semipermanent user interface features displayed by the operating system, such as the Taskbar on Windows.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-4.html">window.screen.availWidth</a></dt> <dd>Returns the amount of horizontal space in pixels available to the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-5.html">window.screen.colorDepth</a></dt> <dd>Returns the color depth of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-6.html">window.screen.height</a></dt> <dd>Returns the height of the screen in pixels.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-7.html">window.screen.left</a></dt> <dd>Returns the current distance in pixels from the left side of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-8.html">window.screen.pixelDepth</a></dt> <dd>Gets the bit depth of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-9.html">window.screen.top</a></dt> <dd>Returns the distance from the top of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window.screen-10.html">window.screen.width</a></dt> <dd>Returns the width of the screen.</dd>
+</dl>
+<p></p>
+<dl>
+<dt><a rel="internal" href="window-42.html">window.screenX</a></dt> <dd>Returns the horizontal distance of the left border of the user's browser from the left side of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-43.html">window.screenY</a></dt> <dd>Returns the vertical distance of the top border of the user's browser from the top side of the screen.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-44.html">window.scrollbars</a></dt> <dd>Returns the scrollbars object, whose visibility can be toggled in the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-45.html">window.scrollMaxX</a></dt> <dd>The maximum offset that the window can be scrolled to horizontally.</dd> <dd>(i.e., the document width minus the viewport width)</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-46.html">window.scrollMaxY</a></dt> <dd>The maximum offset that the window can be scrolled to vertically (i.e., the document height minus the viewport height).</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-36.html">window.scrollX</a></dt> <dd>Returns the number of pixels that the document has already been scrolled horizontally.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-37.html">window.scrollY</a></dt> <dd>Returns the number of pixels that the document has already been scrolled vertically.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-47.html">window.self</a></dt> <dd>Returns an object reference to the window object itself.</dd>
+</dl>
+<dl>
+<dt>
+<a rel="internal" href="Storage.html#sessionStorage">window.sessionStorage</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_2_for_developers">Firefox 2</a></span>
+</dt> <dd>A storage object for storing data within a single page session.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-48.html">window.sidebar</a></dt> <dd>Returns a reference to the window object of the sidebar.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-49.html">window.status</a></dt> <dd>Gets/sets the text in the statusbar at the bottom of the browser.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-50.html">window.statusbar</a></dt> <dd>Returns the statusbar object, whose visibility can be toggled in the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-51.html">window.toolbar</a></dt> <dd>Returns the toolbar object, whose visibility can be toggled in the window.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-52.html">window.top</a></dt> <dd>Returns a reference to the topmost window in the window hierarchy.</dd> <dt>
+<code><a rel="custom nofollow" href="window-53.html">window.URL</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>A DOM URL object, which provides the 
+<code><a rel="custom nofollow" href="window.URL.html">window.URL.createObjectURL()</a></code> and 
+<code><a rel="custom nofollow" href="window.URL-2.html">window.URL.revokeObjectURL()</a></code> methods.</dd>
+</dl>
+<dl>
+<dt><a rel="internal" href="window-54.html">window.window</a></dt> <dd>Returns a reference to the current window.</dd>
+</dl>
+</div>
+<div id="section_2">
+<span id="Methods"></span><h3 class="editable">Methods</h3>
+<dl></dl>
+<dl>
+<dt><a rel="internal" href="element-7.html">window.addEventListener</a></dt> <dd>Register an event handler to a specific event type on the window.</dd> <dt><a rel="internal" href="window-3.html">window.alert</a></dt> <dd>Displays an alert dialog.</dd> </dl>
+<p></p> <dl>
+<dt><a rel="internal" href="window-55.html">window.atob</a></dt> <dd>Decodes a string of data which has been encoded using base-64 encoding.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-56.html">window.back</a></dt> <dd>Moves back one in the window history.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-57.html">window.blur</a></dt> <dd>Sets focus away from the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-58.html">window.btoa</a></dt> <dd>Creates a base-64 encoded ASCII string from a string of binary data.</dd> </dl>
+<dl>
+<dt>
+<a rel="internal" href="window-59.html">window.captureEvents</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> <dd>Registers the window to capture all events of the specified type.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-60.html">window.clearInterval</a></dt> <dd>Cancels the repeated execution set using <code>setInterval</code>.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-61.html">window.clearTimeout</a></dt> <dd>Clears a delay that's been set for a specific function.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-62.html">window.close</a></dt> <dd>Closes the current window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-63.html">window.confirm</a></dt> <dd>Displays a dialog with a message that the user needs to respond to.</dd> </dl>
+<dl></dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">window.disableExternalCapture</a></dt> <dt></dt> <dt><a class="internal" rel="internal" href="Window-64.html">window.dispatchEvent</a></dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-6.html">window.dump</a></dt> <dd>Writes a message to the console.</dd> </dl>
+<dl>
+<dt>
+<a rel="internal" href="https://developer.mozilla.org/" class="new internal">window.enableExternalCapture</a> </dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-65.html">window.escape</a></dt> <dd>Encodes a string.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-66.html">window.find</a></dt> <dd>Searches for a given string in a window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-67.html">window.focus</a></dt> <dd>Sets focus on the current window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-68.html">window.forward</a></dt> <dd>Moves the window one document forward in the history.</dd> </dl>
+<dl>
+<dt><a class="internal" rel="internal" href="Window-69.html">window.GeckoActiveXObject</a></dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-70.html">window.getAttention</a></dt> <dd>Flashes the application icon.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">window.getAttentionWithCycleCount</a></dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-71.html">window.getComputedStyle</a></dt> <dd>Gets computed style for the specified element. Computed style indicates the computed values of all CSS properties of the element.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-8.html">window.getSelection</a></dt> <dd>Returns the selection object representing the selected item(s).</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-72.html">window.home</a></dt> <dd>Returns the browser to the home page.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">window.maximize</a></dt> </dl>
+<dl>
+<dt>
+<a class="internal" rel="internal" href="window-73.html">window.minimize</a> (top-level XUL windows only)</dt> <dd>Minimizes the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-74.html">window.moveBy</a></dt> <dd>Moves the current window by a specified amount.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-75.html">window.moveTo</a></dt> <dd>Moves the window to the specified coordinates.</dd> <dt>
+<code><a rel="custom nofollow" href="window-76.html">window.mozRequestAnimationFrame</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Tells the browser that an animation is in progress, requesting that the browser schedule a repaint of the window for the next animation frame. This will cause a <code>MozBeforePaint</code> event to fire before that repaint occurs.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-77.html">window.open</a></dt> <dd>Opens a new window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-78.html">window.openDialog</a></dt> <dd>Opens a new dialog window.</dd> </dl>
+<dl>
+<dt>
+<a rel="internal" href="window-79.html">window.postMessage</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Provides a secure means for one window to send a string of data to another window, which need not be within the same domain as the first, in a secure manner.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-80.html">window.print</a></dt> <dd>Opens the Print Dialog to print the current document.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-81.html">window.prompt</a></dt> <dd>Returns the text entered by the user in a prompt dialog.</dd> </dl>
+<dl>
+<dt><a class="internal" rel="internal" href="Window-82.html">window.QueryInterface</a></dt> </dl>
+<dl>
+<dt>
+<a rel="internal" href="window-83.html">window.releaseEvents</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> <dd>Releases the window from trapping events of a specific type.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="element-58.html">window.removeEventListener</a></dt> <dd>Removes an event listener from the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-84.html">window.resizeBy</a></dt> <dd>Resizes the current window by a certain amount.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-85.html">window.resizeTo</a></dt> <dd>Dynamically resizes window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">window.restore</a></dt> <dt></dt> </dl>
+<dl>
+<dt>
+<a class="internal" rel="internal" href="Window-86.html">window.routeEvent</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-87.html">window.scroll</a></dt> <dd>Scrolls the window to a particular place in the document.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-88.html">window.scrollBy</a></dt> <dd>Scrolls the document in the window by the given amount.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-89.html">window.scrollByLines</a></dt> <dd>Scrolls the document by the given number of lines.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-90.html">window.scrollByPages</a></dt> <dd>Scrolls the current document by the specified number of pages.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-7.html">window.scrollTo</a></dt> <dd>Scrolls to a particular set of coordinates in the document.</dd> </dl>
+<dl>
+<dt><a class="internal" rel="internal" href="window-91.html">window.setCursor</a></dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-92.html">window.setInterval</a></dt> <dd>Execute a function each X milliseconds.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new internal">window.setResizable</a></dt> </dl>
+<dl>
+<dt><a rel="internal" href="window-93.html">window.setTimeout</a></dt> <dd>Sets a delay for executing a function.</dd> </dl>
+<dl>
+<dt>
+<a rel="internal" href="window-15.html">window.showModalDialog</a> 
+<span style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding:0px 2px;">New in <a rel="custom nofollow" href="https://developer.mozilla.org/en/Firefox_3_for_developers">Firefox 3</a></span>
+</dt> <dd>Displays a modal dialog.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-94.html">window.sizeToContent</a></dt> <dd>Sizes the window according to its content.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-95.html">window.stop</a></dt> <dd>This method stops window loading.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-96.html">window.unescape</a></dt> <dd>Unencodes a value that has been encoded in hexadecimal (e.g. a cookie).</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-97.html">window.updateCommands</a></dt> <dd>Updates the state of commands of the current chrome window (UI).</dd> </dl>
+<dl>
+<dt><a class="internal" rel="internal" href="https://developer.mozilla.org/en/XPCNativeWrapper">window.XPCNativeWrapper</a></dt> <dt></dt> <dt>
+<a class="internal" rel="internal" href="Window-98.html">window.XPCSafeJSObjectWrapper</a> </dt> </dl>
+</div>
+<div id="section_3">
+<span id="Event_Handlers"></span><h3 class="editable">Event Handlers</h3> <dl>
+<dt><a rel="internal" href="window-99.html">window.onabort</a></dt> <dd>An event handler property for abort events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-100.html">window.onbeforeunload</a></dt> <dd>An event handler property for before-unload events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-101.html">window.onblur</a></dt> <dd>An event handler property for blur events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-102.html">window.onchange</a></dt> <dd>An event handler property for change events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-103.html">window.onclick</a></dt> <dd>An event handler property for click events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-104.html">window.onclose</a></dt> <dd>An event handler property for handling the window close event.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-105.html">window.oncontextmenu</a></dt> <dd>An event handler property for right-click events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-106.html">window.ondragdrop</a></dt> <dd>An event handler property for drag and drop events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-107.html">window.onerror</a></dt> <dd>An event handler property for errors raised on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-108.html">window.onfocus</a></dt> <dd>An event handler property for focus events on the window.</dd> </dl>
+<dl>
+<dt>
+<a rel="internal" href="window-109.html">window.onhashchange</a> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</dt> <dd>An event handler property for hash change events on the window; called when the part of the URL after the hash mark ("#") changes.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-110.html">window.onkeydown</a></dt> <dd>An event handler property for keydown events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-111.html">window.onkeypress</a></dt> <dd>An event handler property for keypress events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-112.html">window.onkeyup</a></dt> <dd>An event handler property for keyup events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-5.html">window.onload</a></dt> <dd>An event handler property for window loading.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-113.html">window.onmousedown</a></dt> <dd>An event handler property for mousedown events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-114.html">window.onmousemove</a></dt> <dd>An event handler property for mousemove events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-115.html">window.onmouseout</a></dt> <dd>An event handler property for mouseout events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-116.html">window.onmouseover</a></dt> <dd>An event handler property for mouseover events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-117.html">window.onmouseup</a></dt> <dd>An event handler property for mouseup events on the window.</dd> <dt>
+<code><a rel="custom nofollow" href="window-118.html">window.onmozbeforepaint</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>An event handler property for the <code>MozBeforePaint</code> event, which is sent before repainting the window if the event has been requested by a call to the 
+<code><a rel="custom nofollow" href="window-76.html">window.mozRequestAnimationFrame()</a></code> method.</dd> <dt>
+<a rel="internal" href="window-119.html">window.onmozorientation</a> 
+<span title="
+(Firefox 3.6 / Thunderbird 3.1 / Fennec 1.0)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 1.9.2</span>
+</dt> <dd>An event handler property for orientation events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-120.html">window.onpaint</a></dt> <dd>An event handler property for paint events on the window.</dd> <dt>
+<a rel="internal" href="window-121.html">window.onpopstate</a> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2</span>
+</dt> <dd>An event handler property for popstate events, which are fired when navigating to a session history entry representing a state object.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-122.html">window.onreset</a></dt> <dd>An event handler property for reset events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-123.html">window.onresize</a></dt> <dd>An event handler property for window resizing.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-124.html">window.onscroll</a></dt> <dd>An event handler property for window scrolling.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-125.html">window.onselect</a></dt> <dd>An event handler property for window selection.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-126.html">window.onsubmit</a></dt> <dd>An event handler property for submits on window forms.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="window-127.html">window.onunload</a></dt> <dd>An event handler property for unload events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">window.onpageshow</a></dt> <dd>An event handler property for pageshow events on the window.</dd> </dl>
+<dl>
+<dt><a rel="internal" href="https://developer.mozilla.org/" class="new ">window.onpagehide</a></dt> <dd>An event handler property for pagehide events on the window.</dd> </dl>
+<p> </p> </div>
+<div id="section_4">
+<span id="See_Also"></span><h3 class="editable">See Also</h3>
+<p><a rel="internal" href="https://developer.mozilla.org/en/Working_with_windows_in_chrome_code">Working with windows in chrome code</a></p>
+<p> </p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="window.html">https://developer.mozilla.org/en/DOM/window</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/window by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:11:54 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

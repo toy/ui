@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/range by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:08:23 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>range - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=3125">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=3125">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 3125;
+Deki.PageTitle = 'en/DOM/range';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMrange" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">range</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Properties" rel="internal"> Properties </a>
+</li>
+<li>
+<span>2.</span> <a href="#Methods" rel="internal"> Methods </a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>2.1.</span> <a href="#Positioning_Methods" rel="internal"> Positioning Methods </a>
+</li>
+<li>
+<span>2.2.</span> <a href="#Editing_Methods" rel="internal"> Editing Methods </a>
+</li>
+<li>
+<span>2.3.</span> <a href="#Other_Methods" rel="internal"> Other Methods </a>
+</li>
+<li>
+<span>2.4.</span> <a href="#Gecko_Methods" rel="internal">Gecko Methods</a>
+</li>
+</ol>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>
+<span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span>
+</p>
+<p>The <code>Range</code> object represents a fragment of a document that can contain nodes and parts of text nodes in a given document.
+</p>
+<p>A range can be created using the <code><a rel="internal" href="document-63.html">createRange</a></code> method of the <code><a rel="internal" href="document.html">Document</a></code> object. Range objects can also be retrieved by using the <code><a rel="internal" href="Selection/getRangeAt.html">getRangeAt</a></code> method of the <code><a rel="internal" href="Selection.html">selection</a></code> object.
+</p>
+<div id="section_1">
+<span id="Properties"></span><h3 class="editable"> Properties </h3>
+<dl>
+<dt>
+<a rel="internal" href="range-2.html">collapsed</a>
+</dt>
+<dd>Returns a boolean indicating whether the range's start and end points are at the same position.
+</dd>
+<dt>
+<a rel="internal" href="range-3.html">commonAncestorContainer</a>
+</dt>
+<dd>Returns the deepest Node that contains the startContainer and endContainer Nodes.
+</dd>
+<dt>
+<a rel="internal" href="range-4.html">endContainer</a>
+</dt>
+<dd>Returns the Node within which the Range ends.
+</dd>
+<dt>
+<a rel="internal" href="range-5.html">endOffset</a>
+</dt>
+<dd>Returns a number representing where in the endContainer the Range ends.
+</dd>
+<dt>
+<a rel="internal" href="range-6.html">startContainer</a>
+</dt>
+<dd>Returns the Node within which the Range starts. </dd>
+<dt>
+<a rel="internal" href="range-7.html">startOffset</a>
+</dt>
+<dd>Returns a number representing where in the startContainer the Range starts.
+</dd>
+</dl>
+</div>
+<div id="section_2">
+<span id="Methods"></span><h3 class="editable"> Methods </h3>
+<div id="section_3">
+<span id="Positioning_Methods"></span><h4 class="editable"> Positioning Methods </h4>
+<p>These methods set the start and end points of a range.
+</p>
+<dl>
+<dt>
+<a rel="internal" href="range-8.html">setStart</a>
+</dt>
+<dd>Sets the start position of a Range.
+</dd>
+<dt>
+<a rel="internal" href="range-9.html">setEnd</a>
+</dt>
+<dd>Sets the end position of a Range.
+</dd>
+<dt>
+<a rel="internal" href="range-10.html">setStartBefore</a>
+</dt>
+<dd>Sets the start position of a Range relative to another Node.
+</dd>
+<dt>
+<a rel="internal" href="range-11.html">setStartAfter</a>
+</dt>
+<dd>Sets the start position of a Range relative to another Node.
+</dd>
+<dt>
+<a rel="internal" href="range-12.html">setEndBefore</a>
+</dt>
+<dd>Sets the end position of a Range relative to another Node.
+</dd>
+<dt>
+<a rel="internal" href="range-13.html">setEndAfter</a>
+</dt>
+<dd>Sets the end position of a Range relative to another Node. </dd>
+<dt>
+<a rel="internal" href="range-14.html">selectNode</a>
+</dt>
+<dd>Sets the Range to contain the node and its contents.
+</dd>
+<dt>
+<a rel="internal" href="range-15.html">selectNodeContents</a>
+</dt>
+<dd>Sets the Range to contain the contents of a Node.
+</dd>
+<dt>
+<a rel="internal" href="range-16.html">collapse</a>
+</dt>
+<dd>Collapses the Range to one of its boundary points.
+</dd>
+</dl>
+</div>
+<div id="section_4">
+<span id="Editing_Methods"></span><h4 class="editable"> Editing Methods </h4>
+<p>These methods retrieve Nodes from a range and modify the contents of a range.
+</p>
+<dl>
+<dt>
+<a rel="internal" href="range-17.html">cloneContents</a>
+</dt>
+<dd>Returns a document fragment copying the nodes of a Range. </dd>
+<dt>
+<a rel="internal" href="range-18.html">deleteContents</a>
+</dt>
+<dd>Removes the contents of a Range from the document.
+</dd>
+<dt>
+<a rel="internal" href="range-19.html">extractContents</a>
+</dt>
+<dd>Moves contents of a Range from the document tree into a document fragment
+</dd>
+<dt>
+<a rel="internal" href="range-20.html">insertNode</a>
+</dt>
+<dd>Insert a node at the start of a Range. </dd>
+<dt>
+<a rel="internal" href="range-21.html">surroundContents</a>
+</dt>
+<dd>Moves content of a Range into a new node.
+</dd>
+</dl>
+</div>
+<div id="section_5">
+<span id="Other_Methods"></span><h4 class="editable"> Other Methods </h4>
+<dl>
+<dt>
+<a rel="internal" href="range-22.html">compareBoundaryPoints</a>
+</dt>
+<dd>Compares the boundary points of two Ranges.
+</dd>
+<dt>
+<a rel="internal" href="range-23.html">cloneRange</a>
+</dt>
+<dd>Returns a Range object with boundary points identical to the cloned Range. </dd>
+<dt>
+<a rel="internal" href="range-24.html">detach</a>
+</dt>
+<dd>Releases Range from use to improve performance.
+</dd>
+<dt>
+<a rel="internal" href="range-25.html">toString</a>
+</dt>
+<dd>Returns the text of the Range
+</dd>
+</dl>
+</div>
+<div id="section_6">
+<span id="Gecko_Methods"></span><h4 class="editable">Gecko Methods</h4>
+<p>This section describes <code>Range</code> methods that are particular to Mozilla and not part of the W3C DOM specifications.</p>
+<dl>
+<dt>
+<a rel="internal" href="range-26.html">compareNode</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> <dd>Returns a constant representing whether the node is before, after, inside, or surrounding the range.</dd> <dt><a rel="internal" href="range-27.html">comparePoint</a></dt> <dd>Returns -1, 0, or 1 indicating whether the point occurs before, inside, or after the range.</dd> <dt><a rel="internal" href="range-28.html">createContextualFragment</a></dt> <dd>Returns a document fragment created from a given string of code.</dd> <dt>
+<code><a rel="custom nofollow" href="range-29.html">range.getBoundingClientRect()</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Returns a 
+<code><a rel="internal" href="https://developer.mozilla.org/" class="new">ClientRect</a></code> object which bounds the entire contents of the range; this would be the union of all the rectangles returned by 
+<code><a rel="custom nofollow" href="range-30.html">range.getClientRects()</a></code>.</dd> <dt>
+<code><a rel="custom nofollow" href="range-30.html">range.getClientRects()</a></code> 
+<span title="
+(Firefox 4 / Thunderbird 3.3 / SeaMonkey 2.1)
+" style="border: 1px solid rgb(129, 129, 81); background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap; padding: 0px 2px;">Requires Gecko 2.0</span>
+</dt> <dd>Returns a list of 
+<code><a rel="internal" href="https://developer.mozilla.org/" class="new">ClientRect</a></code> objects that aggregates the results of 
+<code><a rel="custom nofollow" href="https://developer.mozilla.org/en/DOM%3aElement.getClientRects">Element.getClientRects()</a></code> for all the elements in the range.</dd> <dt>
+<a rel="internal" href="range-31.html">intersectsNode</a> <span class="lang lang-en"> <span class="obsoleteInlineTemplate" style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete</span> </span>      </dt> <dd>Returns a <code>boolean</code> indicating whether the given node intersects the range.</dd> <dt><a rel="internal" href="range-32.html">isPointInRange</a></dt> <dd>Returns a <code>boolean</code> indicating whether the given point is in the range.</dd>
+</dl>
+<p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="range.html">https://developer.mozilla.org/en/DOM/range</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/range by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:09:00 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

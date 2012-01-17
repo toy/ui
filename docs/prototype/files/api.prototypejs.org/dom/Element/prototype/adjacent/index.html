@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/adjacent/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:27:46 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#adjacent</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#adjacent
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#adjacent(selector...) &rarr; [<a href="../../index.html" title="Element (class)">Element</a>…]</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">selector</code>
+          <span class="argument-types">(<code><a href="../../../../language/String/index.html" title="String (class)">String</a></code>)</span>
+         &ndash; A CSS selector.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>Finds all siblings of the current element that match the given
+selector(s). If you provide multiple selectors, siblings matching <em>any</em>
+of the selectors are included. If a sibling matches multiple selectors,
+it is only included once. The order of the returned array is not defined.</p>
+
+<h5>Example</h5>
+
+<p>Assuming this list:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;cities&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;us&quot;</span> <span class="na">id=</span><span class="s">&quot;nyc&quot;</span><span class="nt">&gt;</span>New York<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;uk&quot;</span> <span class="na">id=</span><span class="s">&quot;lon&quot;</span><span class="nt">&gt;</span>London<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;us&quot;</span> <span class="na">id=</span><span class="s">&quot;chi&quot;</span><span class="nt">&gt;</span>Chicago<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;jp&quot;</span> <span class="na">id=</span><span class="s">&quot;tok&quot;</span><span class="nt">&gt;</span>Tokyo<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;us&quot;</span> <span class="na">id=</span><span class="s">&quot;la&quot;</span><span class="nt">&gt;</span>Los Angeles<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;us&quot;</span> <span class="na">id=</span><span class="s">&quot;aus&quot;</span><span class="nt">&gt;</span>Austin<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre>
+</div>
+
+
+<p>Then:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;nyc&#39;</span><span class="p">).</span><span class="nx">adjacent</span><span class="p">(</span><span class="s1">&#39;li.us&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; [li#chi, li#la, li#aus]</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;nyc&#39;</span><span class="p">).</span><span class="nx">adjacent</span><span class="p">(</span><span class="s1">&#39;li.uk&#39;</span><span class="p">,</span> <span class="s1">&#39;li.jp&#39;</span><span class="p">);</span>
+<span class="c1">// -&gt; [li#lon, li#tok]</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../adjacent/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/adjacent/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:27:46 GMT -->
+</html>

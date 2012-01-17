@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:29 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Event</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Event
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>The namespace for Prototype's event system.</p>
+
+<h5>Events: a fine mess</h5>
+
+<p>Event management is one of the really sore spots of cross-browser
+scripting.</p>
+
+<p>True, the prevalent issue is: everybody does it the W3C way, and MSIE
+does it another way altogether. But there are quite a few subtler,
+sneakier issues here and there waiting to bite your ankle &mdash; such as the
+<code>keypress</code>/<code>keydown</code> issue with KHTML-based browsers (Konqueror and
+Safari). Also, MSIE has a tendency to leak memory when it comes to
+discarding event handlers.</p>
+
+<h5>Prototype to the rescue</h5>
+
+<p>Of course, Prototype smooths it over so well you'll forget these
+troubles even exist. Enter the <code><a href="index.html" title="Event (class)">Event</a></code> namespace. It is replete with
+methods that help to normalize the information reported by events across
+browsers.</p>
+
+<p><code><a href="index.html" title="Event (class)">Event</a></code> also provides a standardized list of key codes you can use with
+keyboard-related events, including <code>KEY_BACKSPACE</code>, <code>KEY_TAB</code>,
+<code>KEY_RETURN</code>, <code>KEY_ESC</code>, <code>KEY_LEFT</code>, <code>KEY_UP</code>, <code>KEY_RIGHT</code>, <code>KEY_DOWN</code>,
+<code>KEY_DELETE</code>, <code>KEY_HOME</code>, <code>KEY_END</code>, <code>KEY_PAGEUP</code>, <code>KEY_PAGEDOWN</code> and
+<code>KEY_INSERT</code>.</p>
+
+<p>The functions you're most likely to use a lot are <code><a href="observe/index.html" title="Event.observe (class method)">Event.observe</a></code>,
+<code><a href="element/index.html" title="Event.element (class method)">Event.element</a></code> and <code><a href="stop/index.html" title="Event.stop (class method)">Event.stop</a></code>. If your web app uses custom events,
+you'll also get a lot of mileage out of <code><a href="fire/index.html" title="Event.fire (class method)">Event.fire</a></code>.</p>
+
+<h5>Instance methods on event objects</h5>
+
+<p>As of Prototype 1.6, all methods on the <code>Event</code> object are now also
+available as instance methods on the event object itself:</p>
+
+<p><strong>Before</strong></p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">respondToClick</span><span class="p">);</span>
+ <span class="kd">function</span> <span class="nx">respondToClick</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">Event</span><span class="p">.</span><span class="nx">element</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">addClassName</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p><strong>After</strong></p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">).</span><span class="nx">observe</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">respondToClick</span><span class="p">);</span>
+ <span class="kd">function</span> <span class="nx">respondToClick</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">element</span><span class="p">();</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">addClassName</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>These methods are added to the event object through <code><a href="extend/index.html" title="Event.extend (class method)">Event.extend</a></code>,
+in the same way that <code>Element</code> methods are added to DOM nodes through
+<code><a href="../Element/extend/index.html" title="Element.extend (class method)">Element.extend</a></code>. Events are extended automatically when handlers are
+registered with Prototype's <code><a href="observe/index.html" title="Event.observe (class method)">Event.observe</a></code> method; if you're using a
+different method of event registration, for whatever reason,you'll need to
+extend these events manually with <code><a href="extend/index.html" title="Event.extend (class method)">Event.extend</a></code>.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+                <div class="section section-classes">
+                <div class="section-title">
+                  <h3>Classes</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <ul class="method-details-list">
+      <li class="method-description">
+  <h4><a href="Handler/index.html">Event.Handler</a></h4>
+
+    <p /><p>Creates an observer on an element that listens for a particular event on
+that element's descendants, optionally filtering by a CSS selector.</p>
+</li>
+    </ul>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+                  <div class="section section-class_methods">
+                <div class="section-title">
+                  <h3>Class methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="element/index.html" title="Event.element (class method)" class="class-method deprecated">element</a></code></li>
+
+<li><code><a href="extend/index.html" title="Event.extend (class method)" class="class-method">extend</a></code></li>
+
+<li><code><a href="findElement/index.html" title="Event.findElement (class method)" class="class-method">findElement</a></code></li>
+
+<li><code><a href="fire/index.html" title="Event.fire (class method)" class="class-method">fire</a></code></li>
+
+<li><code><a href="isLeftClick/index.html" title="Event.isLeftClick (class method)" class="class-method">isLeftClick</a></code></li>
+
+<li><code><a href="isMiddleClick/index.html" title="Event.isMiddleClick (class method)" class="class-method">isMiddleClick</a></code></li>
+
+<li><code><a href="isRightClick/index.html" title="Event.isRightClick (class method)" class="class-method">isRightClick</a></code></li>
+
+<li><code><a href="observe/index.html" title="Event.observe (class method)" class="class-method">observe</a></code></li>
+
+<li><code><a href="on/index.html" title="Event.on (class method)" class="class-method">on</a></code></li>
+
+<li><code><a href="pointer/index.html" title="Event.pointer (class method)" class="class-method">pointer</a></code></li>
+
+<li><code><a href="pointerX/index.html" title="Event.pointerX (class method)" class="class-method">pointerX</a></code></li>
+
+<li><code><a href="pointerY/index.html" title="Event.pointerY (class method)" class="class-method">pointerY</a></code></li>
+
+<li><code><a href="stop/index.html" title="Event.stop (class method)" class="class-method">stop</a></code></li>
+
+<li><code><a href="stopObserving/index.html" title="Event.stopObserving (class method)" class="class-method">stopObserving</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/element/index.html" title="Event#element (instance method)" class="instance-method deprecated">element</a></code></li>
+
+<li><code><a href="prototype/extend/index.html" title="Event#extend (instance method)" class="instance-method">extend</a></code></li>
+
+<li><code><a href="prototype/findElement/index.html" title="Event#findElement (instance method)" class="instance-method">findElement</a></code></li>
+
+<li><code><a href="prototype/isLeftClick/index.html" title="Event#isLeftClick (instance method)" class="instance-method">isLeftClick</a></code></li>
+
+<li><code><a href="prototype/isMiddleClick/index.html" title="Event#isMiddleClick (instance method)" class="instance-method">isMiddleClick</a></code></li>
+
+<li><code><a href="prototype/isRightClick/index.html" title="Event#isRightClick (instance method)" class="instance-method">isRightClick</a></code></li>
+
+<li><code><a href="prototype/pointer/index.html" title="Event#pointer (instance method)" class="instance-method">pointer</a></code></li>
+
+<li><code><a href="prototype/pointerX/index.html" title="Event#pointerX (instance method)" class="instance-method">pointerX</a></code></li>
+
+<li><code><a href="prototype/pointerY/index.html" title="Event#pointerY (instance method)" class="instance-method">pointerY</a></code></li>
+
+<li><code><a href="prototype/stop/index.html" title="Event#stop (instance method)" class="instance-method">stop</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Event/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:29 GMT -->
+</html>

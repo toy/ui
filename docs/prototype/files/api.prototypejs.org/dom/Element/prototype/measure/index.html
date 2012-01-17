@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/measure/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:26 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element#measure</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Element#measure
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element#measure(property) &rarr; <a href="../../../../language/Number/index.html" title="Number (class)">Number</a></code></pre>
+
+
+      <p>Gives the pixel value of <code>element</code>'s dimension specified by
+<code>property</code>.</p>
+
+<p>Useful for one-off measurements of elements. If you find yourself
+calling this method frequently over short spans of code, you might want
+to call <code><a href="../../getLayout/index.html" title="Element.getLayout (class method)">Element.getLayout</a></code> and operate on the <code><a href="../../Layout/index.html" title="Element.Layout (class)">Element.Layout</a></code>
+object itself (thereby taking advantage of measurement caching).</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;troz&#39;</span><span class="p">).</span><span class="nx">measure</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 150</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;troz&#39;</span><span class="p">).</span><span class="nx">measure</span><span class="p">(</span><span class="s1">&#39;border-top&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 5</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;troz&#39;</span><span class="p">).</span><span class="nx">measure</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">);</span> <span class="c1">//-&gt; 226</span>
+</pre>
+</div>
+
+
+<h5>Caveats</h5>
+
+<ul>
+<li><code>Element.measure</code> can measure the dimensions of an element hidden with
+CSS (<code>display: none</code>), but <em>only</em> if its parent element is visible.</li>
+</ul>
+
+      
+      
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../measure/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/prototype/measure/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:28:26 GMT -->
+</html>

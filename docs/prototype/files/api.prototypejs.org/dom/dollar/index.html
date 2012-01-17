@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/dollar/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:19 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | $</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">utility</span> $
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">$(id) &rarr; <a href="../Element/index.html" title="Element (class)">Element</a><br />$(id...) &rarr; [<a href="../Element/index.html" title="Element (class)">Element</a>…]</code></pre>
+  <ul class="argument-list">
+      <li>
+        <code class="argument-name">id</code>
+          <span class="argument-types">(<code><a href="../../language/String/index.html" title="String (class)">String</a></code> | <code><a href="../Element/index.html" title="Element (class)">Element</a></code>)</span>
+         &ndash; A DOM node or a string that references a node's ID.
+      </li>
+  </ul> <!-- .argument-list -->
+
+
+      <p>If provided with a string, returns the element in the document with
+matching ID; otherwise returns the passed element.</p>
+
+<p>Takes in an arbitrary number of arguments. Returns one <code><a href="../Element/index.html" title="Element (class)">Element</a></code> if
+given one argument; otherwise returns an <code><a href="../../language/Array/index.html" title="Array (class)">Array</a></code> of <code><a href="../Element/index.html" title="Element (class)">Element</a></code>s.</p>
+
+<p>All elements returned by the function are "extended" with <code><a href="../Element/index.html" title="Element (class)">Element</a></code>
+instance methods.</p>
+
+<h5>More Information</h5>
+
+<p>The <code><a href="index.html" title="$ (utility)">$</a></code> function is the cornerstone of Prototype. Not only does it
+provide a handy alias for <code>document.getElementById</code>, it also lets you pass
+indifferently IDs (strings) or DOM node references to your functions:</p>
+
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>
+    <span class="c1">//  rest of the function...</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+<p>Code written this way is flexible — you can pass it the ID of the element
+or the element itself without any type sniffing.</p>
+
+<p>Invoking it with only one argument returns the <code><a href="../Element/index.html" title="Element (class)">Element</a></code>, while invoking it
+with multiple arguments returns an <code><a href="../../language/Array/index.html" title="Array (class)">Array</a></code> of <code><a href="../Element/index.html" title="Element (class)">Element</a></code>s (and this
+works recursively: if you're twisted, you could pass it an array
+containing some arrays, and so forth). As this is dependent on
+<code>getElementById</code>, <a href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-getElBId">W3C specs</a>
+apply: nonexistent IDs will yield <code>null</code> and IDs present multiple times in
+the DOM will yield erratic results. <em>If you're assigning the same ID to
+multiple elements, you're doing it wrong!</em></p>
+
+<p>The function also <em>extends every returned element</em> with <code><a href="../Element/extend/index.html" title="Element.extend (class method)">Element.extend</a></code>
+so you can use Prototype's DOM extensions on it. In the following code,
+the two lines are equivalent. However, the second one feels significantly
+more object-oriented:</p>
+
+<div class="highlight"><pre><span class="c1">// Note quite OOP-like...</span>
+<span class="nx">Element</span><span class="p">.</span><span class="nx">hide</span><span class="p">(</span><span class="s1">&#39;itemId&#39;</span><span class="p">);</span>
+<span class="c1">// A cleaner feel, thanks to guaranted extension</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;itemId&#39;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</pre>
+</div>
+
+
+<p>However, when using iterators, leveraging the <code><a href="index.html" title="$ (utility)">$</a></code> function makes for
+more elegant, more concise, and also more efficient code:</p>
+
+<div class="highlight"><pre><span class="p">[</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span><span class="nx">Element</span><span class="p">.</span><span class="nx">hide</span><span class="p">);</span>
+<span class="c1">// The better way:</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">).</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;hide&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>See <a href="../../../prototypejs.org/learn/extensions.html">How Prototype extends the DOM</a>
+for more info.</p>
+      
+      
+
+
+      
+    </div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/dollar/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:19 GMT -->
+</html>

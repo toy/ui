@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/Element/prototype/getValue/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:11 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Form.Element#getValue</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">instance method</span> Form.Element#getValue
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Form.Element#getValue() &rarr; <a href="../../../../../language/String/index.html" title="String (class)">String</a> | <a href="../../../../../language/Array/index.html" title="Array (class)">Array</a></code></pre>
+
+
+      <p>Returns the current value of a form control.</p>
+
+<p>A string is returned for most controls; only multiple <code>select</code> boxes
+return an array of values.</p>
+
+<p>The global shortcut for this method is <code><a href="../../../../dollar-F/index.html" title="$F (utility)">$F</a></code>.</p>
+
+<h5>How to reference form controls by their <em>name</em></h5>
+
+<p>This method is consistent with other DOM extensions in that it requires an
+element <strong>ID</strong> as the string argument, not the name of the
+form control (as some might think). If you want to reference controls by
+their names, first find the control the regular JavaScript way and use the
+node itself instead of an ID as the argument.</p>
+
+<p>For example, if you have an <code>input</code> named "company" in a <code>form</code> with an
+ID "contact":</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;contact&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">form</span><span class="p">[</span><span class="s1">&#39;company&#39;</span><span class="p">];</span>
+ <span class="nx">Form</span><span class="p">.</span><span class="nx">Element</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+ <span class="c1">// but, the preferred call is:</span>
+<span class="nx">$</span><span class="p">(</span><span class="nx">input</span><span class="p">).</span><span class="nx">getValue</span><span class="p">();</span> <span class="c1">// we used the $() method so the node gets extended</span>
+ <span class="c1">// you can also use the shortcut</span>
+<span class="nx">$F</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<h5>Note</h5>
+
+<p>An error is thrown ("element has no properties") if the <code>element</code> argument
+is an unknown ID.</p>
+      
+      
+  <p class="alias alias-of">Alias of: <code><a href="../../../../dollar-F/index.html" title="$F (utility)">$F</a></code></p>
+
+
+        <p class="note">
+    This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="../../getValue/index.html">generic method</a>.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Form/Element/prototype/getValue/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:26:11 GMT -->
+</html>

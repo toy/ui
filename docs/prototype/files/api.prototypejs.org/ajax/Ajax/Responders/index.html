@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/ajax/Ajax/Responders/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:16 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Ajax.Responders</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">namespace</span> Ajax.Responders
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>A repository of global listeners notified about every step of
+Prototype-based Ajax requests.</p>
+
+<p>Sometimes, you need to provide generic behaviors over all Ajax operations
+happening on the page (through <code><a href="../Request/index.html" title="Ajax.Request (class)">Ajax.Request</a></code>, <code><a href="../Updater/index.html" title="Ajax.Updater (class)">Ajax.Updater</a></code> or
+<code><a href="../PeriodicalUpdater/index.html" title="Ajax.PeriodicalUpdater (class)">Ajax.PeriodicalUpdater</a></code>).</p>
+
+<p>For instance, you might want to automatically show an indicator when an
+Ajax request is ongoing, and hide it when none are. You may well want to
+factor out exception handling as well, logging those somewhere on the page
+in a custom fashion. The possibilities are myriad.</p>
+
+<p>To achieve this, Prototype provides <code>Ajax.Responders</code>, which lets you
+register (and, if you wish, unregister later) <em>responders</em>, which are
+objects with specially-named methods. These names come from a set of
+general callbacks corresponding to different points in time (or outcomes)
+of an Ajax request's life cycle.</p>
+
+<p>For instance, Prototype automatically registers a responder that maintains
+a nifty variable: <code><a href="../activeRequestCount/index.html" title="Ajax.activeRequestCount (class property)">Ajax.activeRequestCount</a></code>. This represents, at a given
+time, the number of currently active Ajax requests &mdash; by monitoring their
+<code>onCreate</code> and <code>onComplete</code> events. The code for this is fairly simple:</p>
+
+<div class="highlight"><pre><span class="nx">Ajax</span><span class="p">.</span><span class="nx">Responders</span><span class="p">.</span><span class="nx">register</span><span class="p">({</span>
+  <span class="nx">onCreate</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Ajax</span><span class="p">.</span><span class="nx">activeRequestCount</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">onComplete</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">Ajax</span><span class="p">.</span><span class="nx">activeRequestCount</span><span class="o">--</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<h5>Responder callbacks</h5>
+
+<p>The callbacks for responders are similar to the callbacks described in
+the <a href="../index.html" title="Ajax (namespace)">Ajax</a>, but take a different signature. They're invoked with
+three parameters: the requester object (i.e., the corresponding "instance"
+of <code><a href="../Request/index.html" title="Ajax.Request (class)">Ajax.Request</a></code>), the <code>XMLHttpRequest</code> object, and the result of
+evaluating the <code>X-JSON</code> response header, if any (can be <code>null</code>). They also
+execute in the context of the responder, bound to the <code>this</code> reference.</p>
+
+<ul>
+<li><code>onCreate</code>: Triggered whenever a requester object from the <code>Ajax</code>
+namespace is created, after its parameters are adjusted and before its
+XHR connection is opened. This takes <em>two</em> arguments: the requester
+object and the underlying XHR object.</li>
+<li><code>onUninitialized</code> (<em>Not guaranteed</em>):  Invoked just after the XHR object
+is created.</li>
+<li><code>onLoading</code> (<em>Not guaranteed</em>): Triggered when the underlying XHR object
+is being setup, and its connection opened.</li>
+<li><code>onLoaded</code> (<em>Not guaranteed</em>): Triggered once the underlying XHR object
+is setup, the connection is open, and it is ready to send its actual
+request.</li>
+<li><code>onInteractive</code> (<em>Not guaranteed</em>): Triggered whenever the requester
+receives a part of the response (but not the final part), should it
+be sent in several packets.</li>
+<li><code>onException</code>: Triggered whenever an XHR error arises. Has a custom
+signature: the first argument is the requester (i.e. an <code><a href="../Request/index.html" title="Ajax.Request (class)">Ajax.Request</a></code>
+instance), and the second is the exception object.</li>
+<li><code>onComplete</code>: Triggered at the <em>very end</em> of a request's life-cycle, after
+the request completes, status-specific callbacks are called, and possible
+automatic behaviors are processed. Guaranteed to run regardless of what
+happened during the request.</li>
+</ul>
+
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="section section-class_methods">
+                <div class="section-title">
+                  <h3>Class methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="register/index.html" title="Ajax.Responders.register (class method)" class="class-method">register</a></code></li>
+
+<li><code><a href="unregister/index.html" title="Ajax.Responders.unregister (class method)" class="class-method">unregister</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/ajax/Ajax/Responders/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:16 GMT -->
+</html>

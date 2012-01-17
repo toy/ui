@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/document.createElementNS by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:15:34 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>document.createElementNS - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=21519">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=21519">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 21519;
+Deki.PageTitle = 'en/DOM/document.createElementNS';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMdocumentcreateElementNS" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">document.createElementNS</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal"> Summary </a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal"> Syntax </a>
+</li>
+<li>
+<span>3.</span> <a href="#Example" rel="internal"> Example </a>
+</li>
+<li>
+<span>4.</span> <a href="#Notes" rel="internal">Notes</a>
+</li>
+<li>
+<span>5.</span> <a href="#See_Also" rel="internal"> See Also </a>
+</li>
+<li>
+<span>6.</span> <a href="#Specification" rel="internal"> Specification </a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p>
+<span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span>
+</p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable"> Summary </h3>
+<p>Creates an element with the specified namespace URI and qualified name.
+</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable"> Syntax </h3>
+<pre class="eval"><var>element</var> = <var>document</var>.createElementNS(<var>namespaceURI</var>, <var>qualifiedName</var>);
+</pre>
+<ul>
+<li> <code>element</code> is the created <a rel="internal" href="element.html">element</a>.
+</li>
+<li> <code>namespaceURI</code> is a string that specifies the <a class="external" rel="external nofollow" href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/glossary.html#dt-namespaceURI" title="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/glossary.html#dt-namespaceURI" target="_blank">namespace URI</a> to associate with the element. The <a rel="internal" href="element-93.html">namespaceURI</a> property of the created element is initialized with the value of <code>namespaceURI</code>.
+</li>
+<li> <code>qualifiedName</code> is a string that specifies the type of element to be created. The <a rel="internal" href="element-94.html">nodeName</a> property of the created element is initialized with the value of <code>qualifiedName</code>.
+</li>
+</ul>
+</div>
+<div id="section_3">
+<span id="Example"></span><h3 class="editable"> Example </h3>
+<p>This creates a new &lt;div&gt; element in the <a rel="internal" href="https://developer.mozilla.org/en/XHTML">XHTML</a> namespace and appends it to the vbox element. Although this is not an extremely useful <a rel="internal" href="https://developer.mozilla.org/en/XUL">XUL</a> document, it does demonstrate the use of elements from two different namespaces within a single document:
+</p>
+<pre>
+&lt;?xml version="1.0"?&gt;
+&lt;page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      title="||Working with elements||"
+      onload="init()"&gt;
+
+&lt;script type="text/javascript"&gt;&lt;![CDATA[
+ var container;
+ var newdiv;
+ var txtnode;
+
+ function init(){
+   container = document.getElementById("ContainerBox");
+   newdiv = document.createElementNS("http://www.w3.org/1999/xhtml","html:div");
+   txtnode = document.createTextNode("This is text that was constructed dynamically with createElementNS and createTextNode then inserted into the document using appendChild.");
+   newdiv.appendChild(txtnode);
+   container.appendChild(newdiv);
+ }
+
+]]&gt;&lt;/script&gt;
+
+ &lt;vbox id='ContainerBox' flex='1'&gt;
+  &lt;html:div&gt;
+   The script on this page will add dynamic content below:
+  &lt;/html:div&gt;
+ &lt;/vbox&gt;
+
+&lt;/page&gt;
+</pre>
+</div>
+<div id="section_4">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<p>The example given above uses inline script which is not recommended in XHTML documents. This particular example is actually an XUL document with embedded XHTML, however, the recommendation still applies. Inline script does not cause any problems for this short example, however, for any serious work you should learn about <a rel="internal" href="https://developer.mozilla.org/en/Properly_Using_CSS_and_JavaScript_in_XHTML_Documents">Properly Using CSS and JavaScript in XHTML Documents</a>.</p>
+<p>To create an element without specifying a namespace URI, use the <a rel="internal" href="document-3.html">createElement</a> method.</p>
+</div>
+<div id="section_5">
+<span id="See_Also"></span><h3 class="editable"> See Also </h3>
+<p><a rel="internal" href="document-3.html">document.createElement</a>
+</p>
+<p><a rel="internal" href="document-64.html">document.createTextNode</a>
+</p>
+<p><a rel="internal" href="element-93.html">element.namespaceURI</a>
+</p>
+</div>
+<div id="section_6">
+<span id="Specification"></span><h3 class="editable"> Specification </h3>
+<p><a class="external" rel="external nofollow" href="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-DocCrElNS" title="http://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-DocCrElNS" target="_blank">DOM 2 Core: createElementNS</a>
+</p>
+<p><a class="external" rel="external nofollow" href="http://www.w3.org/TR/1999/REC-xml-names-19990114" title="http://www.w3.org/TR/1999/REC-xml-names-19990114" target="_blank">Namespaces in XML</a>
+</p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="document-57.html">https://developer.mozilla.org/en/DOM/document.createElementNS</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/document.createElementNS by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:15:36 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

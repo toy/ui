@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/setOpacity/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:27:23 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.setOpacity</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class method</span> Element.setOpacity
+</h2>
+
+  
+
+
+
+
+
+<div class="section">
+  <div class="section-title">
+  </div> <!-- .section-title -->
+  <div class="section-content">
+    <div class="method-description">
+        <pre class="syntax"><code class="ebnf">Element.setOpacity(element, opacity) &rarr; [<a href="../index.html" title="Element (class)">Element</a>…]</code></pre>
+
+
+      <p>Sets the visual opacity of an element while working around inconsistencies
+in various browsers. The <code>opacity</code> argument should be a floating point
+number, where the value of <code>0</code> is fully transparent and <code>1</code> is fully opaque.</p>
+
+<p><code><a href="../setStyle/index.html" title="Element.setStyle (class method)">Element.setStyle</a></code> method uses <code><a href="index.html" title="Element.setOpacity (class method)">Element.setOpacity</a></code> internally when needed.</p>
+
+<h5>Examples</h5>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;myelement&#39;</span><span class="p">);</span>
+<span class="c1">// set to 50% transparency</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setOpacity</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+ <span class="c1">// these are equivalent, but allow for setting more than</span>
+<span class="c1">// one CSS property at once:</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">({</span> <span class="nx">opacity</span><span class="o">:</span> <span class="mf">0.5</span> <span class="p">});</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="s2">&quot;opacity: 0.5&quot;</span><span class="p">);</span>
+</pre>
+</div>
+
+      
+      
+
+
+        <p class="note">
+      This method can be called <em>either</em> as an <a href="../prototype/setOpacity/index.html">instance method</a> <em>or</em> as a generic method.
+  If calling as a generic, pass the instance in as the first argument.</p><p>
+
+    </p></div>
+  </div> <!-- .section-content -->
+</div> <!-- .section -->
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/setOpacity/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:27:23 GMT -->
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/Enumerable/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:39 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Enumerable</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">mixin</span> Enumerable
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> provides a large set of useful methods for enumerations &mdash;
+objects that act as collections of values. It is a cornerstone of
+Prototype.</p>
+
+<p><code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> is a <em>mixin</em>: a set of methods intended not for standaone
+use, but for incorporation into other objects.</p>
+
+<p>Prototype mixes <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> into several classes. The most visible cases
+are <code><a href="../Array/index.html" title="Array (class)">Array</a></code> and <code><a href="../Hash/index.html" title="Hash (class)">Hash</a></code>, but you'll find it in less obvious spots as
+well, such as in <code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code> and various DOM- or Ajax-related objects.</p>
+
+<h5>The <code>context</code> parameter</h5>
+
+<p>Every method of <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> that takes an iterator also takes the "context
+object" as the next (optional) parameter. The context object is what the
+iterator will be <em>bound</em> to &mdash; what the keyword <code>this</code> will refer to inside
+the iterator.</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{};</span>
+ <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span><span class="p">;</span>
+<span class="p">},</span> <span class="nx">myObject</span><span class="p">);</span> <span class="c1">// we have specified the context</span>
+ <span class="nx">myObject</span><span class="p">;</span>
+<span class="c1">// -&gt; { foo: 0, bar: 1, baz: 2}</span>
+</pre>
+</div>
+
+
+<p>If there is no <code>context</code> argument, the iterator function will execute in
+the scope from which the <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> method itself was called.</p>
+
+<h5>Mixing <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> into your own objects</h5>
+
+<p>So, let's say you've created your very own collection-like object (say,
+some sort of Set, or perhaps something that dynamically fetches data
+ranges from the server side, lazy-loading style). You want to be able to
+mix <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> in (and we commend you for it). How do you go about this?</p>
+
+<p>The Enumerable module basically makes only one requirement on your object:
+it must provide a method named <code>_each</code> (note the leading underscore) that
+will accept a function as its unique argument, and will contain the actual
+"raw iteration" algorithm, invoking its argument with each element in turn.</p>
+
+<p>As detailed in the documentation for <code><a href="prototype/each/index.html" title="Enumerable#each (instance method)">Enumerable#each</a></code>, <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code>
+provides all the extra layers (handling iteration short-circuits, passing
+numeric indices, etc.). You just need to implement the actual iteration,
+as fits your internal structure.</p>
+
+<p>If you're still confused, just have a look at the Prototype source code for
+<code><a href="../Array/index.html" title="Array (class)">Array</a></code>, <code><a href="../Hash/index.html" title="Hash (class)">Hash</a></code>, or <code><a href="../ObjectRange/index.html" title="ObjectRange (class)">ObjectRange</a></code>. They all begin with their own
+<code>_each</code> method, which should help you grasp the idea.</p>
+
+<p>Once you're done with this, you just need to mix <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> in, which
+you'll usually do before defining your methods, so as to make sure whatever
+overrides you provide for <code><a href="index.html" title="Enumerable (mixin)">Enumerable</a></code> methods will indeed prevail. In
+short, your code will probably end up looking like this:</p>
+
+<div class="highlight"><pre> <span class="kd">var</span> <span class="nx">YourObject</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Enumerable</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// with whatever constructor arguments you need</span>
+    <span class="c1">// Your construction code</span>
+  <span class="p">},</span>
+   <span class="nx">_each</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">iterator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Your iteration code, invoking iterator at every turn</span>
+  <span class="p">},</span>
+   <span class="c1">// Your other methods here, including Enumerable overrides</span>
+<span class="p">});</span>
+</pre>
+</div>
+
+
+<p>Then, obviously, your object can be used like this:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">YourObject</span><span class="p">();</span>
+<span class="c1">// Populate the collection somehow</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">pluck</span><span class="p">(</span><span class="s1">&#39;somePropName&#39;</span><span class="p">);</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;someMethodName&#39;</span><span class="p">);</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span>
+<span class="c1">// etc.</span>
+</pre>
+</div>
+
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/all/index.html" title="Enumerable#all (instance method)" class="instance-method">all</a></code></li>
+
+<li><code><a href="prototype/any/index.html" title="Enumerable#any (instance method)" class="instance-method">any</a></code></li>
+
+<li><code><a href="prototype/collect/index.html" title="Enumerable#collect (instance method)" class="instance-method">collect</a></code></li>
+
+<li><code><a href="prototype/detect/index.html" title="Enumerable#detect (instance method)" class="instance-method">detect</a></code></li>
+
+<li><code><a href="prototype/each/index.html" title="Enumerable#each (instance method)" class="instance-method">each</a></code></li>
+
+<li><code><a href="prototype/eachSlice/index.html" title="Enumerable#eachSlice (instance method)" class="instance-method">eachSlice</a></code></li>
+
+<li><code><a href="prototype/entries/index.html" title="Enumerable#entries (instance method)" class="instance-method">entries</a></code></li>
+
+<li><code><a href="prototype/every/index.html" title="Enumerable#every (instance method)" class="instance-method">every</a></code></li>
+
+<li><code><a href="prototype/filter/index.html" title="Enumerable#filter (instance method)" class="instance-method">filter</a></code></li>
+
+<li><code><a href="prototype/find/index.html" title="Enumerable#find (instance method)" class="instance-method">find</a></code></li>
+
+<li><code><a href="prototype/findAll/index.html" title="Enumerable#findAll (instance method)" class="instance-method">findAll</a></code></li>
+
+<li><code><a href="prototype/grep/index.html" title="Enumerable#grep (instance method)" class="instance-method">grep</a></code></li>
+
+<li><code><a href="prototype/include/index.html" title="Enumerable#include (instance method)" class="instance-method">include</a></code></li>
+
+<li><code><a href="prototype/inGroupsOf/index.html" title="Enumerable#inGroupsOf (instance method)" class="instance-method">inGroupsOf</a></code></li>
+
+<li><code><a href="prototype/inject/index.html" title="Enumerable#inject (instance method)" class="instance-method">inject</a></code></li>
+
+<li><code><a href="prototype/inspect/index.html" title="Enumerable#inspect (instance method)" class="instance-method">inspect</a></code></li>
+
+<li><code><a href="prototype/invoke/index.html" title="Enumerable#invoke (instance method)" class="instance-method">invoke</a></code></li>
+
+<li><code><a href="prototype/map/index.html" title="Enumerable#map (instance method)" class="instance-method">map</a></code></li>
+
+<li><code><a href="prototype/max/index.html" title="Enumerable#max (instance method)" class="instance-method">max</a></code></li>
+
+<li><code><a href="prototype/member/index.html" title="Enumerable#member (instance method)" class="instance-method">member</a></code></li>
+
+<li><code><a href="prototype/min/index.html" title="Enumerable#min (instance method)" class="instance-method">min</a></code></li>
+
+<li><code><a href="prototype/partition/index.html" title="Enumerable#partition (instance method)" class="instance-method">partition</a></code></li>
+
+<li><code><a href="prototype/pluck/index.html" title="Enumerable#pluck (instance method)" class="instance-method">pluck</a></code></li>
+
+<li><code><a href="prototype/reject/index.html" title="Enumerable#reject (instance method)" class="instance-method">reject</a></code></li>
+
+<li><code><a href="prototype/select/index.html" title="Enumerable#select (instance method)" class="instance-method">select</a></code></li>
+
+<li><code><a href="prototype/size/index.html" title="Enumerable#size (instance method)" class="instance-method">size</a></code></li>
+
+<li><code><a href="prototype/some/index.html" title="Enumerable#some (instance method)" class="instance-method">some</a></code></li>
+
+<li><code><a href="prototype/sortBy/index.html" title="Enumerable#sortBy (instance method)" class="instance-method">sortBy</a></code></li>
+
+<li><code><a href="prototype/toArray/index.html" title="Enumerable#toArray (instance method)" class="instance-method">toArray</a></code></li>
+
+<li><code><a href="prototype/zip/index.html" title="Enumerable#zip (instance method)" class="instance-method">zip</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/Enumerable/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:39 GMT -->
+</html>

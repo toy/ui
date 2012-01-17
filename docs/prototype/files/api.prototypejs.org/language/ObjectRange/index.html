@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/language/ObjectRange/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:42 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | ObjectRange</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> ObjectRange
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>A succession of values.</p>
+
+<p>An <code><a href="index.html" title="ObjectRange (class)">ObjectRange</a></code> can model a range of any value that implements a <code>succ</code>
+method (which links that value to its "successor").</p>
+
+<p>Prototype provides such a method for <code><a href="../Number/index.html" title="Number (class)">Number</a></code> and <code><a href="../String/index.html" title="String (class)">String</a></code>, but you
+are (of course) welcome to implement useful semantics in your own objects,
+in order to enable ranges based on them.</p>
+
+<p><code><a href="index.html" title="ObjectRange (class)">ObjectRange</a></code> mixes in <code><a href="../Enumerable/index.html" title="Enumerable (mixin)">Enumerable</a></code>, which makes ranges very versatile.
+It takes care, however, to override the default code for <code>include</code>, to
+achieve better efficiency.</p>
+
+<p>While <code><a href="index.html" title="ObjectRange (class)">ObjectRange</a></code> does provide a constructor, the preferred way to obtain
+a range is to use the <code><a href="../dollar-R/index.html" title="$R (utility)">$R</a></code> utility function, which is strictly equivalent
+(only way more concise to use).</p>
+
+<p>See <code><a href="../dollar-R/index.html" title="$R (utility)">$R</a></code> for more information.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new ObjectRange (constructor)">new ObjectRange</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/include/index.html" title="ObjectRange#include (instance method)" class="instance-method">include</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-instance_properties">
+                <div class="section-title">
+                  <h3>Instance properties</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/end/index.html" title="ObjectRange#end (instance property)" class="instance-property">end</a></code></li>
+
+<li><code><a href="prototype/start/index.html" title="ObjectRange#start (instance property)" class="instance-property">start</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/language/ObjectRange/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:42 GMT -->
+</html>

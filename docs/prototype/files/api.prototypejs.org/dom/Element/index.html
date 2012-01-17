@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:24 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Element
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>The <code><a href="index.html" title="Element (class)">Element</a></code> object provides a variety of powerful DOM methods for
+interacting with DOM elements&nbsp;&mdash; creating them, updating them,
+traversing them, etc. You can access these either as methods of <code><a href="index.html" title="Element (class)">Element</a></code>
+itself, passing in the element to work with as the first argument, or as
+methods on extended element <em>instances</em>:</p>
+
+<div class="highlight"><pre><span class="c1">// Using Element:</span>
+<span class="nx">Element</span><span class="p">.</span><span class="nx">addClassName</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">,</span> <span class="s1">&#39;highlighted&#39;</span><span class="p">);</span>
+ <span class="c1">// Using an extended element instance:</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">).</span><span class="nx">addClassName</span><span class="p">(</span><span class="s1">&#39;highlighted&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p><code><a href="index.html" title="Element (class)">Element</a></code> is also a constructor for building element instances from scratch,
+see <a href="#new-constructor"><code>new Element</code></a> for details.</p>
+
+<p>Most <code><a href="index.html" title="Element (class)">Element</a></code> methods return the element instance, so that you can chain
+them easily:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">).</span><span class="nx">addClassName</span><span class="p">(</span><span class="s1">&#39;read&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;I read this message!&#39;</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<h5>More Information</h5>
+
+<p>For more information about extended elements, check out <a href="../../../prototypejs.org/learn/extensions.html">"How Prototype
+extends the DOM"</a>, which will walk
+you through the inner workings of Prototype's DOM extension mechanism.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+                <div class="section section-classes">
+                <div class="section-title">
+                  <h3>Classes</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <ul class="method-details-list">
+      <li class="method-description">
+  <h4><a href="Layout/index.html">Element.Layout</a></h4>
+
+    <p /><p>A set of key/value pairs representing measurements of various
+dimensions of an element.</p>
+</li>
+<li class="method-description">
+  <h4><a href="Offset/index.html">Element.Offset</a></h4>
+
+    <p /><p>A representation of the top- and left-offsets of an element relative to
+another.</p>
+</li>
+    </ul>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Element (constructor)">new Element</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                  <div class="section section-class_methods">
+                <div class="section-title">
+                  <h3>Class methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="absolutize/index.html" title="Element.absolutize (class method)" class="class-method">absolutize</a></code></li>
+
+<li><code><a href="addClassName/index.html" title="Element.addClassName (class method)" class="class-method">addClassName</a></code></li>
+
+<li><code><a href="addMethods/index.html" title="Element.addMethods (class method)" class="class-method">addMethods</a></code></li>
+
+<li><code><a href="adjacent/index.html" title="Element.adjacent (class method)" class="class-method">adjacent</a></code></li>
+
+<li><code><a href="ancestors/index.html" title="Element.ancestors (class method)" class="class-method">ancestors</a></code></li>
+
+<li><code><a href="childElements/index.html" title="Element.childElements (class method)" class="class-method">childElements</a></code></li>
+
+<li><code><a href="classNames/index.html" title="Element.classNames (class method)" class="class-method deprecated">classNames</a></code></li>
+
+<li><code><a href="cleanWhitespace/index.html" title="Element.cleanWhitespace (class method)" class="class-method">cleanWhitespace</a></code></li>
+
+<li><code><a href="clone/index.html" title="Element.clone (class method)" class="class-method">clone</a></code></li>
+
+<li><code><a href="clonePosition/index.html" title="Element.clonePosition (class method)" class="class-method">clonePosition</a></code></li>
+
+<li><code><a href="cumulativeOffset/index.html" title="Element.cumulativeOffset (class method)" class="class-method">cumulativeOffset</a></code></li>
+
+<li><code><a href="cumulativeScrollOffset/index.html" title="Element.cumulativeScrollOffset (class method)" class="class-method">cumulativeScrollOffset</a></code></li>
+
+<li><code><a href="descendantOf/index.html" title="Element.descendantOf (class method)" class="class-method">descendantOf</a></code></li>
+
+<li><code><a href="descendants/index.html" title="Element.descendants (class method)" class="class-method">descendants</a></code></li>
+
+<li><code><a href="down/index.html" title="Element.down (class method)" class="class-method">down</a></code></li>
+
+<li><code><a href="empty/index.html" title="Element.empty (class method)" class="class-method">empty</a></code></li>
+
+<li><code><a href="extend/index.html" title="Element.extend (class method)" class="class-method">extend</a></code></li>
+
+<li><code><a href="fire/index.html" title="Element.fire (class method)" class="class-method">fire</a></code></li>
+
+<li><code><a href="firstDescendant/index.html" title="Element.firstDescendant (class method)" class="class-method">firstDescendant</a></code></li>
+
+<li><code><a href="getDimensions/index.html" title="Element.getDimensions (class method)" class="class-method">getDimensions</a></code></li>
+
+<li><code><a href="getElementsBySelector/index.html" title="Element.getElementsBySelector (class method)" class="class-method">getElementsBySelector</a></code></li>
+
+<li><code><a href="getHeight/index.html" title="Element.getHeight (class method)" class="class-method">getHeight</a></code></li>
+
+<li><code><a href="getLayout/index.html" title="Element.getLayout (class method)" class="class-method">getLayout</a></code></li>
+
+<li><code><a href="getOffsetParent/index.html" title="Element.getOffsetParent (class method)" class="class-method">getOffsetParent</a></code></li>
+
+<li><code><a href="getOpacity/index.html" title="Element.getOpacity (class method)" class="class-method">getOpacity</a></code></li>
+
+<li><code><a href="getStorage/index.html" title="Element.getStorage (class method)" class="class-method">getStorage</a></code></li>
+
+<li><code><a href="getStyle/index.html" title="Element.getStyle (class method)" class="class-method">getStyle</a></code></li>
+
+<li><code><a href="getWidth/index.html" title="Element.getWidth (class method)" class="class-method">getWidth</a></code></li>
+
+<li><code><a href="hasAttribute/index.html" title="Element.hasAttribute (class method)" class="class-method">hasAttribute</a></code></li>
+
+<li><code><a href="hasClassName/index.html" title="Element.hasClassName (class method)" class="class-method">hasClassName</a></code></li>
+
+<li><code><a href="hide/index.html" title="Element.hide (class method)" class="class-method">hide</a></code></li>
+
+<li><code><a href="identify/index.html" title="Element.identify (class method)" class="class-method">identify</a></code></li>
+
+<li><code><a href="immediateDescendants/index.html" title="Element.immediateDescendants (class method)" class="class-method deprecated">immediateDescendants</a></code></li>
+
+<li><code><a href="insert/index.html" title="Element.insert (class method)" class="class-method">insert</a></code></li>
+
+<li><code><a href="inspect/index.html" title="Element.inspect (class method)" class="class-method">inspect</a></code></li>
+
+<li><code><a href="makeClipping/index.html" title="Element.makeClipping (class method)" class="class-method">makeClipping</a></code></li>
+
+<li><code><a href="makePositioned/index.html" title="Element.makePositioned (class method)" class="class-method">makePositioned</a></code></li>
+
+<li><code><a href="match/index.html" title="Element.match (class method)" class="class-method">match</a></code></li>
+
+<li><code><a href="measure/index.html" title="Element.measure (class method)" class="class-method">measure</a></code></li>
+
+<li><code><a href="next/index.html" title="Element.next (class method)" class="class-method">next</a></code></li>
+
+<li><code><a href="nextSiblings/index.html" title="Element.nextSiblings (class method)" class="class-method">nextSiblings</a></code></li>
+
+<li><code><a href="observe/index.html" title="Element.observe (class method)" class="class-method">observe</a></code></li>
+
+<li><code><a href="on/index.html" title="Element.on (class method)" class="class-method">on</a></code></li>
+
+<li><code><a href="on/index.html" title="Element.on (class method)" class="class-method">on</a></code></li>
+
+<li><code><a href="positionedOffset/index.html" title="Element.positionedOffset (class method)" class="class-method">positionedOffset</a></code></li>
+
+<li><code><a href="previous/index.html" title="Element.previous (class method)" class="class-method">previous</a></code></li>
+
+<li><code><a href="previousSiblings/index.html" title="Element.previousSiblings (class method)" class="class-method">previousSiblings</a></code></li>
+
+<li><code><a href="purge/index.html" title="Element.purge (class method)" class="class-method">purge</a></code></li>
+
+<li><code><a href="readAttribute/index.html" title="Element.readAttribute (class method)" class="class-method">readAttribute</a></code></li>
+
+<li><code><a href="recursivelyCollect/index.html" title="Element.recursivelyCollect (class method)" class="class-method">recursivelyCollect</a></code></li>
+
+<li><code><a href="relativize/index.html" title="Element.relativize (class method)" class="class-method">relativize</a></code></li>
+
+<li><code><a href="remove/index.html" title="Element.remove (class method)" class="class-method">remove</a></code></li>
+
+<li><code><a href="removeClassName/index.html" title="Element.removeClassName (class method)" class="class-method">removeClassName</a></code></li>
+
+<li><code><a href="replace/index.html" title="Element.replace (class method)" class="class-method">replace</a></code></li>
+
+<li><code><a href="retrieve/index.html" title="Element.retrieve (class method)" class="class-method">retrieve</a></code></li>
+
+<li><code><a href="scrollTo/index.html" title="Element.scrollTo (class method)" class="class-method">scrollTo</a></code></li>
+
+<li><code><a href="select/index.html" title="Element.select (class method)" class="class-method">select</a></code></li>
+
+<li><code><a href="setOpacity/index.html" title="Element.setOpacity (class method)" class="class-method">setOpacity</a></code></li>
+
+<li><code><a href="setStyle/index.html" title="Element.setStyle (class method)" class="class-method">setStyle</a></code></li>
+
+<li><code><a href="show/index.html" title="Element.show (class method)" class="class-method">show</a></code></li>
+
+<li><code><a href="siblings/index.html" title="Element.siblings (class method)" class="class-method">siblings</a></code></li>
+
+<li><code><a href="stopObserving/index.html" title="Element.stopObserving (class method)" class="class-method">stopObserving</a></code></li>
+
+<li><code><a href="store/index.html" title="Element.store (class method)" class="class-method">store</a></code></li>
+
+<li><code><a href="toggle/index.html" title="Element.toggle (class method)" class="class-method">toggle</a></code></li>
+
+<li><code><a href="toggleClassName/index.html" title="Element.toggleClassName (class method)" class="class-method">toggleClassName</a></code></li>
+
+<li><code><a href="undoClipping/index.html" title="Element.undoClipping (class method)" class="class-method">undoClipping</a></code></li>
+
+<li><code><a href="undoPositioned/index.html" title="Element.undoPositioned (class method)" class="class-method">undoPositioned</a></code></li>
+
+<li><code><a href="up/index.html" title="Element.up (class method)" class="class-method">up</a></code></li>
+
+<li><code><a href="update/index.html" title="Element.update (class method)" class="class-method">update</a></code></li>
+
+<li><code><a href="viewportOffset/index.html" title="Element.viewportOffset (class method)" class="class-method">viewportOffset</a></code></li>
+
+<li><code><a href="visible/index.html" title="Element.visible (class method)" class="class-method">visible</a></code></li>
+
+<li><code><a href="wrap/index.html" title="Element.wrap (class method)" class="class-method">wrap</a></code></li>
+
+<li><code><a href="writeAttribute/index.html" title="Element.writeAttribute (class method)" class="class-method">writeAttribute</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/absolutize/index.html" title="Element#absolutize (instance method)" class="instance-method">absolutize</a></code></li>
+
+<li><code><a href="prototype/addClassName/index.html" title="Element#addClassName (instance method)" class="instance-method">addClassName</a></code></li>
+
+<li><code><a href="prototype/adjacent/index.html" title="Element#adjacent (instance method)" class="instance-method">adjacent</a></code></li>
+
+<li><code><a href="prototype/ancestors/index.html" title="Element#ancestors (instance method)" class="instance-method">ancestors</a></code></li>
+
+<li><code><a href="prototype/childElements/index.html" title="Element#childElements (instance method)" class="instance-method">childElements</a></code></li>
+
+<li><code><a href="prototype/classNames/index.html" title="Element#classNames (instance method)" class="instance-method deprecated">classNames</a></code></li>
+
+<li><code><a href="prototype/cleanWhitespace/index.html" title="Element#cleanWhitespace (instance method)" class="instance-method">cleanWhitespace</a></code></li>
+
+<li><code><a href="prototype/clone/index.html" title="Element#clone (instance method)" class="instance-method">clone</a></code></li>
+
+<li><code><a href="prototype/clonePosition/index.html" title="Element#clonePosition (instance method)" class="instance-method">clonePosition</a></code></li>
+
+<li><code><a href="prototype/cumulativeOffset/index.html" title="Element#cumulativeOffset (instance method)" class="instance-method">cumulativeOffset</a></code></li>
+
+<li><code><a href="prototype/cumulativeScrollOffset/index.html" title="Element#cumulativeScrollOffset (instance method)" class="instance-method">cumulativeScrollOffset</a></code></li>
+
+<li><code><a href="prototype/descendantOf/index.html" title="Element#descendantOf (instance method)" class="instance-method">descendantOf</a></code></li>
+
+<li><code><a href="prototype/descendants/index.html" title="Element#descendants (instance method)" class="instance-method">descendants</a></code></li>
+
+<li><code><a href="prototype/down/index.html" title="Element#down (instance method)" class="instance-method">down</a></code></li>
+
+<li><code><a href="prototype/empty/index.html" title="Element#empty (instance method)" class="instance-method">empty</a></code></li>
+
+<li><code><a href="prototype/fire/index.html" title="Element#fire (instance method)" class="instance-method">fire</a></code></li>
+
+<li><code><a href="prototype/firstDescendant/index.html" title="Element#firstDescendant (instance method)" class="instance-method">firstDescendant</a></code></li>
+
+<li><code><a href="prototype/getDimensions/index.html" title="Element#getDimensions (instance method)" class="instance-method">getDimensions</a></code></li>
+
+<li><code><a href="prototype/getElementsBySelector/index.html" title="Element#getElementsBySelector (instance method)" class="instance-method">getElementsBySelector</a></code></li>
+
+<li><code><a href="prototype/getHeight/index.html" title="Element#getHeight (instance method)" class="instance-method">getHeight</a></code></li>
+
+<li><code><a href="prototype/getLayout/index.html" title="Element#getLayout (instance method)" class="instance-method">getLayout</a></code></li>
+
+<li><code><a href="prototype/getOffsetParent/index.html" title="Element#getOffsetParent (instance method)" class="instance-method">getOffsetParent</a></code></li>
+
+<li><code><a href="prototype/getOpacity/index.html" title="Element#getOpacity (instance method)" class="instance-method">getOpacity</a></code></li>
+
+<li><code><a href="prototype/getStorage/index.html" title="Element#getStorage (instance method)" class="instance-method">getStorage</a></code></li>
+
+<li><code><a href="prototype/getStyle/index.html" title="Element#getStyle (instance method)" class="instance-method">getStyle</a></code></li>
+
+<li><code><a href="prototype/getWidth/index.html" title="Element#getWidth (instance method)" class="instance-method">getWidth</a></code></li>
+
+<li><code><a href="prototype/hasAttribute/index.html" title="Element#hasAttribute (instance method)" class="instance-method">hasAttribute</a></code></li>
+
+<li><code><a href="prototype/hasClassName/index.html" title="Element#hasClassName (instance method)" class="instance-method">hasClassName</a></code></li>
+
+<li><code><a href="prototype/hide/index.html" title="Element#hide (instance method)" class="instance-method">hide</a></code></li>
+
+<li><code><a href="prototype/identify/index.html" title="Element#identify (instance method)" class="instance-method">identify</a></code></li>
+
+<li><code><a href="prototype/immediateDescendants/index.html" title="Element#immediateDescendants (instance method)" class="instance-method deprecated">immediateDescendants</a></code></li>
+
+<li><code><a href="prototype/insert/index.html" title="Element#insert (instance method)" class="instance-method">insert</a></code></li>
+
+<li><code><a href="prototype/inspect/index.html" title="Element#inspect (instance method)" class="instance-method">inspect</a></code></li>
+
+<li><code><a href="prototype/makeClipping/index.html" title="Element#makeClipping (instance method)" class="instance-method">makeClipping</a></code></li>
+
+<li><code><a href="prototype/makePositioned/index.html" title="Element#makePositioned (instance method)" class="instance-method">makePositioned</a></code></li>
+
+<li><code><a href="prototype/match/index.html" title="Element#match (instance method)" class="instance-method">match</a></code></li>
+
+<li><code><a href="prototype/measure/index.html" title="Element#measure (instance method)" class="instance-method">measure</a></code></li>
+
+<li><code><a href="prototype/next/index.html" title="Element#next (instance method)" class="instance-method">next</a></code></li>
+
+<li><code><a href="prototype/nextSiblings/index.html" title="Element#nextSiblings (instance method)" class="instance-method">nextSiblings</a></code></li>
+
+<li><code><a href="prototype/observe/index.html" title="Element#observe (instance method)" class="instance-method">observe</a></code></li>
+
+<li><code><a href="prototype/on/index.html" title="Element#on (instance method)" class="instance-method">on</a></code></li>
+
+<li><code><a href="prototype/on/index.html" title="Element#on (instance method)" class="instance-method">on</a></code></li>
+
+<li><code><a href="prototype/positionedOffset/index.html" title="Element#positionedOffset (instance method)" class="instance-method">positionedOffset</a></code></li>
+
+<li><code><a href="prototype/previous/index.html" title="Element#previous (instance method)" class="instance-method">previous</a></code></li>
+
+<li><code><a href="prototype/previousSiblings/index.html" title="Element#previousSiblings (instance method)" class="instance-method">previousSiblings</a></code></li>
+
+<li><code><a href="prototype/purge/index.html" title="Element#purge (instance method)" class="instance-method">purge</a></code></li>
+
+<li><code><a href="prototype/readAttribute/index.html" title="Element#readAttribute (instance method)" class="instance-method">readAttribute</a></code></li>
+
+<li><code><a href="prototype/recursivelyCollect/index.html" title="Element#recursivelyCollect (instance method)" class="instance-method">recursivelyCollect</a></code></li>
+
+<li><code><a href="prototype/relativize/index.html" title="Element#relativize (instance method)" class="instance-method">relativize</a></code></li>
+
+<li><code><a href="prototype/remove/index.html" title="Element#remove (instance method)" class="instance-method">remove</a></code></li>
+
+<li><code><a href="prototype/removeClassName/index.html" title="Element#removeClassName (instance method)" class="instance-method">removeClassName</a></code></li>
+
+<li><code><a href="prototype/replace/index.html" title="Element#replace (instance method)" class="instance-method">replace</a></code></li>
+
+<li><code><a href="prototype/retrieve/index.html" title="Element#retrieve (instance method)" class="instance-method">retrieve</a></code></li>
+
+<li><code><a href="prototype/scrollTo/index.html" title="Element#scrollTo (instance method)" class="instance-method">scrollTo</a></code></li>
+
+<li><code><a href="prototype/select/index.html" title="Element#select (instance method)" class="instance-method">select</a></code></li>
+
+<li><code><a href="prototype/setOpacity/index.html" title="Element#setOpacity (instance method)" class="instance-method">setOpacity</a></code></li>
+
+<li><code><a href="prototype/setStyle/index.html" title="Element#setStyle (instance method)" class="instance-method">setStyle</a></code></li>
+
+<li><code><a href="prototype/show/index.html" title="Element#show (instance method)" class="instance-method">show</a></code></li>
+
+<li><code><a href="prototype/siblings/index.html" title="Element#siblings (instance method)" class="instance-method">siblings</a></code></li>
+
+<li><code><a href="prototype/stopObserving/index.html" title="Element#stopObserving (instance method)" class="instance-method">stopObserving</a></code></li>
+
+<li><code><a href="prototype/store/index.html" title="Element#store (instance method)" class="instance-method">store</a></code></li>
+
+<li><code><a href="prototype/toggle/index.html" title="Element#toggle (instance method)" class="instance-method">toggle</a></code></li>
+
+<li><code><a href="prototype/toggleClassName/index.html" title="Element#toggleClassName (instance method)" class="instance-method">toggleClassName</a></code></li>
+
+<li><code><a href="prototype/undoClipping/index.html" title="Element#undoClipping (instance method)" class="instance-method">undoClipping</a></code></li>
+
+<li><code><a href="prototype/undoPositioned/index.html" title="Element#undoPositioned (instance method)" class="instance-method">undoPositioned</a></code></li>
+
+<li><code><a href="prototype/up/index.html" title="Element#up (instance method)" class="instance-method">up</a></code></li>
+
+<li><code><a href="prototype/update/index.html" title="Element#update (instance method)" class="instance-method">update</a></code></li>
+
+<li><code><a href="prototype/viewportOffset/index.html" title="Element#viewportOffset (instance method)" class="instance-method">viewportOffset</a></code></li>
+
+<li><code><a href="prototype/visible/index.html" title="Element#visible (instance method)" class="instance-method">visible</a></code></li>
+
+<li><code><a href="prototype/wrap/index.html" title="Element#wrap (instance method)" class="instance-method">wrap</a></code></li>
+
+<li><code><a href="prototype/writeAttribute/index.html" title="Element#writeAttribute (instance method)" class="instance-method">writeAttribute</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:24 GMT -->
+</html>

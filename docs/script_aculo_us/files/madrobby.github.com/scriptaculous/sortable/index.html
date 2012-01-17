@@ -1,0 +1,126 @@
+<!DOCTYPE html SYSTEM>
+<html>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/sortable/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:24 GMT -->
+<head>
+  <title>Sortable &mdash; Scriptaculous Documentation</title>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type" />  
+  <link href="../css/docs.css" rel="stylesheet" media="screen" />
+  <link href="https://github.com/madrobby/scriptaculous/commits/master.atom" title="Recent Commits to scriptaculous:master" rel="alternate" type="application/atom+xml" />
+  <meta name="description" content="script.aculo.us is an open-source JavaScript framework for visual effects and interface behaviours." />
+</head>
+<body>
+
+
+<div id="content">
+  <h1 id="page-title">Sortable</h1>
+  <div id="wiki">
+    <div class="wikistyle">
+<p class="upper-chiclet"><a href="../behaviours/index.html">Behaviours</a> &gt; <strong>Sortable</strong></p>
+<p>A Sortable is a quick way to initialize many <a href="../draggable/index.html">Draggable</a> elements in a container element. When you create a new Sortable, it takes care of the creation of the corresponding <a href="../draggable/index.html">draggable</a> <a href="../droppables/index.html">Droppables</a>.</p>
+<h2>Syntax</h2>
+<p>Use <code>Sortable.create('id_of_container',[options]);</code> to create new Sortables. See <a href="../sortable-create/index.html">Sortable.create</a>. Furthermore, there are special requirements to get sortables to work in FF3 which are also covered in <a href="../sortable-create/index.html">Sortable.create</a>.</p>
+<h2>Object</h2>
+<table>
+<tr>
+<th>Property/Method </th>
+<th>Description </th>
+</tr>
+<tr>
+<td>SERIALIZE_RULE</td>
+<td><pre><code class="javascript">(RegExp) /^[^_\-](?:[A-Za-z0-9\-\_]*)[_](.*)$/</code></pre></td>
+</tr>
+<tr>
+<td>sortables</td>
+<td>(Object) { }</td>
+</tr>
+<tr>
+<td>options (element)</td>
+<td>Internal function</td>
+</tr>
+<tr>
+<td>destroy (element)</td>
+<td>Destroys sortable</td>
+</tr>
+<tr>
+<td>create (element, options)</td>
+<td>Creates sortable</td>
+</tr>
+<tr>
+<td>findElements (element, options)</td>
+<td>Internal function</td>
+</tr>
+<tr>
+<td>onHover (element, dropon, overlap)</td>
+<td>Internal function, which may be overridden through the options parameter on creation</td>
+</tr>
+<tr>
+<td>onEmptyHover (element, dropon, overlap)</td>
+<td> Internal function</td>
+</tr>
+<tr>
+<td>unmark()</td>
+<td>Internal function</td>
+</tr>
+<tr>
+<td>mark()</td>
+<td>Internal function</td>
+</tr>
+<tr>
+<td>tree (element)</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../sortable-sequence/index.html">sequence</a> (element)</td>
+<td></td>
+</tr>
+<tr>
+<td>setSequence (element, new_sequence)</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../sortable-serialize/index.html">serialize</a> (element)</td>
+<td></td>
+</tr>
+</table>
+<h2>Demos</h2>
+<p>See <a href="../sortable-lists-demo/index.html">Sortable Lists Demo</a>.</p>
+<h2>Creating sortables</h2>
+<p>See <a href="../sortable-create/index.html">Sortable.create</a>.</p>
+<h2>Disabling sortables</h2>
+<pre><code class="javascript">
+  Sortable.destroy( element );
+</code></pre>
+<p>A call to <code>Sortable.create</code> implicitly calls <code>Sortable.destroy</code> if the referenced element was already a Sortable.</p>
+<h2>Functions</h2>
+<table>
+<tr>
+<td>Function</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><a href="../sortable-serialize/index.html">Sortable.serialize</a></td>
+<td>The Sortable object also provides a function to serialize the Sortable in a format suitable for <span class="caps"><span class="caps">HTTP</span> <span class="caps">GET</span></span> or <span class="caps"><span class="caps">POST</span></span> requests. This can be used to submit the order of the Sortable via an Ajax call. See <a href="../sortable-serialize/index.html">Sortable.serialize</a></td>
+</tr>
+<tr>
+<td><a href="../sortable-sequence/index.html">Sortable.sequence</a></td>
+<td>The Sortable object also provides a function to get the values in an sequence array object. See <a href="../sortable-sequence/index.html">Sortable.sequence</a></td>
+</tr>
+</table>
+<h2>Tutorials</h2>
+<p><a href="http://zenofshen.com/posts/ajax-sortable-lists-tutorial">Use <span class="caps">PHP</span> and Ajax call to interact with Sortable</a></p>
+<p>A <a href="http://www.jhl.it/Courses/LUGPC4.html">short tutorial</a> on using Sortables prepared for the Linux Users Group, Villafranca, Italy.</p>
+</div>
+  </div>
+
+    
+  
+</div>
+
+
+
+<noscript><p><img src="../../../in.getclicky.com/66350389ns.gif" height="1" alt="Clicky" width="1" /></p></noscript>
+</body>
+
+<!-- Mirrored from madrobby.github.com/scriptaculous/sortable/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 02:42:25 GMT -->
+</html>

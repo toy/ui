@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/Layout/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:25 GMT -->
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <title>Prototype  v1.7 API documentation | Element.Layout</title>
+  <meta name="generator" content="PDoc" />
+  
+  <script src="../../../javascripts/pdoc/prototype.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/application.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../../javascripts/pdoc/tabs.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../../../javascripts/pdoc/item_index.js" type="text/javascript" charset="utf-8"></script>
+  
+  <link href="../../../stylesheets/pdoc/api.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+<link href="../../../stylesheets/pdoc/pygments.css" rel="stylesheet" type="text/css" media="screen, projection" charset="utf-8" />
+  
+  <script type="text/javascript">
+    PDoc.pathPrefix = '../../../index.html';
+  </script>
+</head>
+  <body>
+
+     <!-- #sidebar -->
+
+    <div id="page">
+      
+
+      <div class="page-content" id="main">
+        
+
+
+
+
+<h2 class="page-title">
+  <span class="type">class</span> Element.Layout
+</h2>
+
+  
+
+
+
+
+                <div class="section section-description">
+                <div class="section-title">
+                  <h3>Description</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p>A set of key/value pairs representing measurements of various
+dimensions of an element.</p>
+
+<h4>Overview</h4>
+
+
+<p>The <code>Element.Layout</code> class is a specialized way to measure elements.
+It helps mitigate:</p>
+
+<ul>
+<li>The convoluted steps often needed to get common measurements for
+elements.</li>
+<li>The tendency of browsers to report measurements in non-pixel units.</li>
+<li>The quirks that lead some browsers to report inaccurate measurements.</li>
+<li>The difficulty of measuring elements that are hidden.</li>
+</ul>
+
+
+<h4>Usage</h4>
+
+
+<p>Instantiate an <code>Element.Layout</code> class by passing an element into the
+constructor:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">layout</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Element</span><span class="p">.</span><span class="nx">Layout</span><span class="p">(</span><span class="nx">someElement</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>You can also use <code><a href="../getLayout/index.html" title="Element.getLayout (class method)">Element.getLayout</a></code>, if you prefer.</p>
+
+<p>Once you have a layout object, retrieve properties using <code><a href="../../../language/Hash/index.html" title="Hash (class)">Hash</a></code>'s
+familiar <code>get</code> and <code>set</code> syntax.</p>
+
+<div class="highlight"><pre><span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">);</span>  <span class="c1">//-&gt; 400</span>
+<span class="nx">layout</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">);</span>    <span class="c1">//-&gt; 180</span>
+</pre>
+</div>
+
+
+<p>The following are the CSS-related properties that can be retrieved.
+Nearly all of them map directly to their property names in CSS. (The
+only exception is for borders — e.g., <code>border-width</code> instead of
+<code>border-left-width</code>.)</p>
+
+<ul>
+<li><code>height</code></li>
+<li><code>width</code></li>
+<li><code>top</code></li>
+<li><code>left</code></li>
+<li><code>right</code></li>
+<li><code>bottom</code></li>
+<li><code>border-left</code></li>
+<li><code>border-right</code></li>
+<li><code>border-top</code></li>
+<li><code>border-bottom</code></li>
+<li><code>padding-left</code></li>
+<li><code>padding-right</code></li>
+<li><code>padding-top</code></li>
+<li><code>padding-bottom</code></li>
+<li><code>margin-top</code></li>
+<li><code>margin-bottom</code></li>
+<li><code>margin-left</code></li>
+<li><code>margin-right</code></li>
+</ul>
+
+
+<p>In addition, these "composite" properties can be retrieved:</p>
+
+<ul>
+<li><code>padding-box-width</code> (width of the content area, from the beginning of
+the left padding to the end of the right padding)</li>
+<li><code>padding-box-height</code> (height of the content area, from the beginning
+of the top padding to the end of the bottom padding)</li>
+<li><code>border-box-width</code> (width of the content area, from the outer edge of
+the left border to the outer edge of the right border)</li>
+<li><code>border-box-height</code> (height of the content area, from the outer edge
+of the top border to the outer edge of the bottom border)</li>
+<li><code>margin-box-width</code> (width of the content area, from the beginning of
+the left margin to the end of the right margin)</li>
+<li><code>margin-box-height</code> (height of the content area, from the beginning
+of the top margin to the end of the bottom margin)</li>
+</ul>
+
+
+<h4>Caching</h4>
+
+
+<p>Because these properties can be costly to retrieve, <code>Element.Layout</code>
+behaves differently from an ordinary <code><a href="../../../language/Hash/index.html" title="Hash (class)">Hash</a></code>.</p>
+
+<p>First: by default, values are "lazy-loaded" — they aren't computed
+until they're retrieved. To measure all properties at once, pass
+a second argument into the constructor:</p>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">layout</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Element</span><span class="p">.</span><span class="nx">Layout</span><span class="p">(</span><span class="nx">someElement</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</pre>
+</div>
+
+
+<p>Second: once a particular value is computed, it's cached. Asking for
+the same property again will return the original value without
+re-computation. This means that <strong>an instance of <code>Element.Layout</code>
+becomes stale when the element's dimensions change</strong>. When this
+happens, obtain a new instance.</p>
+
+<h4>Hidden elements</h4>
+
+
+<p>Because it's a common case to want the dimensions of a hidden element
+(e.g., for animations), it's possible to measure elements that are
+hidden with <code>display: none</code>.</p>
+
+<p>However, <strong>it's only possible to measure a hidden element if its parent
+is visible</strong>. If its parent (or any other ancestor) is hidden, any
+width and height measurements will return <code>0</code>, as will measurements for
+<code>top|bottom|left|right</code>.</p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+
+                  <div class="section section-superclass">
+                <div class="section-title">
+                  <h3>Superclass</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <p><code><a href="../../../language/Hash/index.html" title="Hash (class)">Hash</a></code></p>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+
+
+                <div class="section section-constructor">
+                <div class="section-title">
+                  <h3>Constructor</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+    <p><code><a href="new/index.html" title="new Element.Layout (constructor)">new Element.Layout</a></code></p>
+                </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+
+                  <div class="section section-instance_methods">
+                <div class="section-title">
+                  <h3>Instance methods</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="prototype/get/index.html" title="Element.Layout#get (instance method)" class="instance-method">get</a></code></li>
+
+<li><code><a href="prototype/toCSS/index.html" title="Element.Layout#toCSS (instance method)" class="instance-method">toCSS</a></code></li>
+
+<li><code><a href="prototype/toHash/index.html" title="Element.Layout#toHash (instance method)" class="instance-method">toHash</a></code></li>
+
+<li><code><a href="prototype/toObject/index.html" title="Element.Layout#toObject (instance method)" class="instance-method">toObject</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+                  <div class="section section-constants">
+                <div class="section-title">
+                  <h3>Constants</h3>
+                </div> <!-- .section-title -->
+                <div class="section-content">
+
+      <ul class="method-list">
+        <li><code><a href="COMPOSITE_PROPERTIES/index.html" title="Element.Layout.COMPOSITE_PROPERTIES (constant)" class="constant">COMPOSITE_PROPERTIES</a></code></li>
+
+<li><code><a href="PROPERTIES/index.html" title="Element.Layout.PROPERTIES (constant)" class="constant">PROPERTIES</a></code></li>
+
+      </ul>
+                  </div> <!-- .section-content -->
+            </div> <!-- .section -->
+
+
+      </div> <!-- #main -->
+      
+       <!-- #footer -->
+
+    </div> <!-- #page -->
+  </body>
+
+<!-- Mirrored from api.prototypejs.org/dom/Element/Layout/ by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 03:25:25 GMT -->
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Mirrored from www.davidflanagan.com/javascript5/display.php?n=21-10&f=21/10.js by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:50 GMT -->
+<head>
+<meta http-equiv="Keywords" name="Keywords"
+content="JavaScript, examples, JavaScript: The Definitive Guide">
+<title>Example 21-10 from JavaScript: The Definitive Guide, Fifth Edition</title>
+<style>
+
+body {
+  font-family: arial, sans-serif
+}
+
+.lefttitle {
+  font: bold x-small arial, sans-serif;
+  margin: 5px;
+  letter-spacing: .15em;
+  text-transform:uppercase;
+}
+
+.leftcaption {
+  font: italic x-small sans-serif;
+  margin-bottom: 20px;
+}
+
+#banner {
+	font-family:sans-serif;
+	color:#333;
+	font-size:x-large;
+	font-weight:normal;	
+	padding:15px;
+	padding-top: 3px;
+        border-bottom:4px double #666;
+}
+
+#banner h1 {
+	font-size: x-large;
+	margin: 0px;
+	padding: 0px;
+}
+
+#banner .description {
+	font-size:large;
+	margin-left: 2px;
+}
+
+
+pre {
+  border: solid black 1px;
+  background-color: #ddd;
+  padding: 10px;
+  margin: 0px;
+}
+	
+</style>
+
+</script>
+</head>
+<body>
+<div id="banner">
+<h1>davidflanagan.com/javascript5</h1>
+<span class="description">
+Example 21-10 from
+<i>JavaScript: The Definitive Guide, Fifth Edition</i>
+</span>
+</div>
+
+<div style="float: left; text-align: center; width:200px; margin-right:20px">
+
+<div class="lefttitle">Buy The Book</div>
+<iframe src="http://rcm.amazon.com/e/cm?t=davidflanagancom&amp;o=1&amp;p=8&amp;l=as1&amp;asins=0596101996&amp;fc1=000000&amp;IS2=1&amp;lt1=_blank&amp;lc1=0000ff&amp;bc1=000000&amp;bg1=ffffff&amp;f=ifr" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<div class="leftcaption">
+This example is posted here for the convenience
+of my readers.
+</div>
+
+<div class="lefttitle">Tip the Author</div>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="../../www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+<img alt="" border="0" src="../../www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+</form>
+
+<div class="leftcaption">
+Found a helpful example, but don't own the book?
+</div>
+
+<div class="lefttitle">Advertising</div>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-5162555666633441";
+google_alternate_color = "ffffff";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "text_image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript"
+  src="../../pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+<div style="margin-left: 220px;">
+
+<div class="lefttitle" style="padding:0px; text-align: right"><a href="http://www.davidflanagan.com/javascript5/index.html">Table of Examples</a></div>
+
+<pre>
+
+/**
+ * XML.XPathExpression is a class that encapsulates an XPath query and its
+ * associated namespace prefix-to-URL mapping.  Once an XML.XPathExpression
+ * object has been created, it can be evaluated one or more times (in one
+ * or more contexts) using the getNode() or getNodes() methods.
+ *
+ * The first argument to this constructor is the text of the XPath expression.
+ * 
+ * If the expression includes any XML namespaces, the second argument must
+ * be a JavaScript object that maps namespace prefixes to the URLs that define
+ * those namespaces.  The properties of this object are the prefixes, and
+ * the values of those properties are the URLs.
+ */
+XML.XPathExpression = function(xpathText, namespaces) {
+    this.xpathText = xpathText;    // Save the text of the expression
+    this.namespaces = namespaces;  // And the namespace mapping
+
+    if (document.createExpression) {
+        // If we're in a W3C-compliant browser, use the W3C API
+        // to compile the text of the XPath query
+        this.xpathExpr = 
+            document.createExpression(xpathText, 
+                                      // This function is passed a 
+                                      // namespace prefix and returns the URL.
+                                      function(prefix) {
+                                          return namespaces[prefix];
+                                      });
+    }
+    else {
+        // Otherwise, we assume for now that we're in IE and convert the
+        // namespaces object into the textual form that IE requires.
+        this.namespaceString = "";
+        if (namespaces != null) {
+            for(var prefix in namespaces) {
+                // Add a space if there is already something there
+                if (this.namespaceString) this.namespaceString += ' ';
+                // And add the namespace
+                this.namespaceString += 'xmlns:' + prefix + '="' +
+                    namespaces[prefix] + '"';
+            }
+        }
+    }
+};
+
+/**
+ * This is the getNodes() method of XML.XPathExpression.  It evaluates the
+ * XPath expression in the specified context.  The context argument should
+ * be a Document or Element object.  The return value is an array 
+ * or array-like object containing the nodes that match the expression.
+ */
+XML.XPathExpression.prototype.getNodes = function(context) {
+    if (this.xpathExpr) {
+        // If we are in a W3C-compliant browser, we compiled the
+        // expression in the constructor.  We now evaluate that compiled
+        // expression in the specified context
+        var result =
+            this.xpathExpr.evaluate(context, 
+                                    // This is the result type we want
+                                    XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+                                    null);
+
+        // Copy the results we get into an array.
+        var a = new Array(result.snapshotLength);
+        for(var i = 0; i &lt; result.snapshotLength; i++) {
+            a[i] = result.snapshotItem(i);
+        }
+        return a;
+    }
+    else {
+        // If we are not in a W3C-compliant browser, attempt to evaluate
+        // the expression using the IE API.
+        try {
+            // We need the Document object to specify namespaces
+            var doc = context.ownerDocument;
+            // If the context doesn't have ownerDocument, it is the Document
+            if (doc == null) doc = context;
+            // This is IE-specific magic to specify prefix-to-URL mapping
+            doc.setProperty("SelectionLanguage", "XPath");
+            doc.setProperty("SelectionNamespaces", this.namespaceString);
+
+            // In IE, the context must be an Element not a Document, 
+            // so if context is a document, use documentElement instead
+            if (context == doc) context = doc.documentElement;
+            // Now use the IE method selectNodes() to evaluate the expression
+            return context.selectNodes(this.xpathText);
+        }
+        catch(e) {
+            // If the IE API doesn't work, we just give up
+            throw "XPath not supported by this browser.";
+        }
+    }
+}
+
+
+/**
+ * This is the getNode() method of XML.XPathExpression.  It evaluates the
+ * XPath expression in the specified context and returns a single matching
+ * node (or null if no node matches).  If more than one node matches,
+ * this method returns the first one in the document.
+ * The implementation differs from getNodes() only in the return type.
+ */
+XML.XPathExpression.prototype.getNode = function(context) {
+    if (this.xpathExpr) {
+        var result =
+            this.xpathExpr.evaluate(context, 
+                                    // We just want the first match
+                                    XPathResult.FIRST_ORDERED_NODE_TYPE,
+                                    null);
+        return result.singleNodeValue;
+    }
+    else {
+        try {
+            var doc = context.ownerDocument;
+            if (doc == null) doc = context;
+            doc.setProperty("SelectionLanguage", "XPath");
+            doc.setProperty("SelectionNamespaces", this.namespaceString);
+            if (context == doc) context = doc.documentElement;
+            // In IE call selectSingleNode instead of selectNodes
+            return context.selectSingleNode(this.xpathText);
+        }
+        catch(e) {
+            throw "XPath not supported by this browser.";
+        }
+    }
+};
+
+// A utility to create an XML.XPathExpression and call getNodes() on it
+XML.getNodes = function(context, xpathExpr, namespaces) {
+    return (new XML.XPathExpression(xpathExpr, namespaces)).getNodes(context);
+};
+
+// A utility to create an XML.XPathExpression and call getNode() on it
+XML.getNode  = function(context, xpathExpr, namespaces) {
+    return (new XML.XPathExpression(xpathExpr, namespaces)).getNode(context);
+};
+</pre>
+
+<div class="lefttitle" style="padding:0px; text-align: right"><a href="http://www.davidflanagan.com/javascript5/index.html">Table of Examples</a></div>
+
+
+<p>
+<script type="text/javascript">amazon_ad_tag="davidflanagancom"; amazon_ad_width="300"; amazon_ad_height="250"; amazon_ad_logo="hide";</script>
+<script type="text/javascript" src="../../www.assoc-amazon.com/s/ads.js"></script>
+
+</div>
+
+</body>
+
+<!-- Mirrored from www.davidflanagan.com/javascript5/display.php?n=21-10&f=21/10.js by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:55 GMT -->
+</html>

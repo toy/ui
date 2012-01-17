@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/Gecko_DOM_Reference/Preface by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:02:02 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>Preface - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=20678">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=20678">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 20678;
+Deki.PageTitle = 'en/Gecko DOM Reference/Preface';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enGeckoDOMReferencePreface" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">Preface</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#About_This_Reference" rel="internal">About This Reference</a>
+</li>
+<li>
+<span>2.</span> <a href="#Who_Should_Read_This_Guide" rel="internal">Who Should Read This Guide</a>
+</li>
+<li>
+<span>3.</span> <a href="#What_is_Gecko.3f" rel="internal">What is Gecko?</a>
+</li>
+<li>
+<span>4.</span> <a href="#API_Syntax" rel="internal">API Syntax</a>
+</li>
+<li>
+<span>5.</span> <a href="#Using_the_Examples" rel="internal">Using the Examples</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="About_This_Reference"></span><h3 class="editable">About This Reference</h3>
+<p>This section describes the guide itself: whom it's for, how the information is presented, and how you can use the examples in the reference in your own DOM development.</p>
+<p>Note that this document is under development, and is not currently a comprehensive listing of the DOM methods and properties implemented for Gecko. Each individual section of the document (e.g., the <a rel="internal" href="../DOM/document.html">DOM Document Reference</a>) is complete for the object(s) it describes, however. As reference information for the various members of the huge APIs becomes available, it is integrated into this document here.</p>
+</div>
+<div id="section_2">
+<span id="Who_Should_Read_This_Guide"></span><h3 class="editable">Who Should Read This Guide</h3>
+<p>The reader of the <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> is a web developer or savvy web user who knows something about how web pages are constructed. This reference avoids making presumptions about the reader's acquaintance with the DOM, with <a rel="internal" href="https://developer.mozilla.org/en/XML">XML</a>, with web servers or web standards, and even with <a rel="internal" href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>, the language in which the DOM is made accessible to the reader. But the document does presume familiarity with <a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a>, with markup, with the basic structure of web pages, with web browsers, and with stylesheets.</p>
+<p>Here introductory material is presented, with many examples, and high-level explanations should be valuable for inexperienced and experienced web developers alike, and it is a not only "beginners" web development guide. In general, however, it is an evolving API reference manual.</p>
+</div>
+<div id="section_3">
+<span id="What_is_Gecko.3F"></span><span id="What_is_Gecko.3f"></span><h3 class="editable">What is Gecko?</h3>
+<p>Mozilla, Firefox, Netscape 6+, and other Mozilla-based browsers have identical implementations of the DOM. This is so because they use the same technology. </p>
+<p>Gecko, the software component in these browsers that handles the parsing of the HTML, the layout of the pages, the document object model, and even the rendering of the entire application interface, is a fast, standards-compliant rendering engine that implements the W3C DOM standards and the DOM-like (but not standardized) browser object model (i.e., <a rel="internal" href="../DOM/window.html"><code>window</code></a> et al) in the context of web pages and the application interface, or <em>chrome</em>, of the browser.</p>
+<p>Though the application interface and the content displayed by the browser are different in many practical ways, the DOM exposes them uniformly as a hierarchy of nodes. </p>
+</div>
+<div id="section_4">
+<span id="API_Syntax"></span><h3 class="editable">API Syntax</h3>
+<p>Each description in the API reference includes the syntax, the input and output parameters (where the return type is given), an example, any additional notes, and a link to the appropriate specification.</p>
+<p>Typically, read-only properties have a single line of syntax, because it is not possible to set them, those properties may only be accessed. For example, the read-only property <code>availHeight</code> of the <code>screen</code> object includes the following syntax information:</p>
+<pre>
+iAvail = window.screen.availHeight
+</pre>
+<p>This means that you can only use the property on the right hand of the statement; whereas with read/write properties, you can assign to the property, as the following syntax example illustrates:</p>
+<pre>
+msg = window.status
+window.status = msg
+</pre>
+<p>In general, the object whose member is being described is given in the syntax statement with a simple type, e.g, <code>element</code> for all elements, <code>document</code> for the top-level document object, table for the <code>TABLE</code> object, etc. (see <a rel="internal" href="Introduction.html#Important_Data_Types">Important Data Types</a> for more information about data types).</p>
+</div>
+<div id="section_5">
+<span id="Using_the_Examples"></span><h3 class="editable">Using the Examples</h3>
+<p>Many of the examples in this reference are complete files that you can execute by cutting and pasting into a new file and then opening in your web browser. Others are snippets. You can run these latter by placing them within JavaScript callback functions. For example, the example for the <a rel="internal" href="../DOM/window-2.html">window.document</a> property can be tested or within a function like the following, which is called by the accompanying button:</p>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Test Page&lt;/title&gt;
+&lt;script type="text/javascript"&gt;
+function testWinDoc() {
+ 
+  doc= window.document;
+ 
+  alert(doc.title);
+ 
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;button onclick="testWinDoc();"&gt;test document property&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>Similar functions and pages can be devised for all the object members that are not already packaged up for use. See the <a rel="internal" href="Introduction.html#Testing_the_DOM_API">Testing the DOM API</a> section in the introduction for a "test harness" that you can use to test a number of APIs all at once.</p>
+<p></p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="Preface.html">https://developer.mozilla.org/en/Gecko_DOM_Reference/Preface</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/Gecko_DOM_Reference/Preface by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:02:03 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>

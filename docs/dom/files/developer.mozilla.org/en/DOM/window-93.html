@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" id="developer-mozilla-org">
+<!-- Mirrored from developer.mozilla.org/en/DOM/window.setTimeout by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:42 GMT --><!-- Added by HTTrack --><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack --><title>window.setTimeout - MDC Doc Center</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="ROBOTS" content="ALL">
+<meta name="Copyright" content="Copyright (c) 2005-2010 Mozilla.">
+<meta name="Rating" content="General">
+<link rel="home" href="https://developer.mozilla.org/">
+<link rel="copyright" href="#copyright">
+<meta name="robots" content="index,follow">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="https://developer.mozilla.org/index.php?title=Special:Recentchanges&amp;feed=rss">
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=13964">
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="https://developer.mozilla.org/index.php?title=Special:Article&amp;type=feed&amp;pageid=13964">
+<meta name="generator" content="MindTouch  9.12.3">
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="https://developer.mozilla.org/deki/gui/opensearch.php?type=description">
+<link rel="stylesheet" type="text/css" media="screen" href="../../skins/common/css.css">
+<!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/common/print.css">
+<link rel="stylesheet" type="text/css" media="screen,projection" href="../../skins/mdn/Transitional/css.css">
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie7.css"><![endif]--><!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="all" href="/skins/mdn/Transitional/ie6.css"><![endif]--><link rel="stylesheet" type="text/css" media="print" href="../../skins/mdn/Transitional/print.css">
+<script type="text/javascript" src="../../skins/common/js188f.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script><script type="text/javascript">var _starttime = new Date().getTime();</script><!--[if IE]>
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]--><script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org/';
+Deki.PageId = 13964;
+Deki.PageTitle = 'en/DOM/window.setTimeout';
+Deki.PathTpl = '/skins/mdn';
+Deki.PathSkin = '/skins/mdn/Transitional';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '17 Dec 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('../../skins/mdn/_editor.css');
+Deki.EditorStyles.push('../../skins/mdn/Transitional/_content.css');
+Deki.EditorStyles.push('../../skins/common/custom_css.css');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+		});
+		</script><link href="../../skins/common/custom_css.css" rel="stylesheet" type="text/css">
+</head>
+<div class="wrap">
+  <div id="content-main" class="full">
+
+    
+        
+    <article class="article PageDW-enDOMwindowsetTimeout" role="main"><div class="page-title hideforedit">
+            
+              <h1 class="first" id="title">window.setTimeout</h1>      
+              </div>
+      
+    <div class="page-content boxed">
+
+     
+      
+    
+            
+      <div id="page-top">
+<div id="pageToc"><div class="pageToc">
+<h5>Table of contents</h5>
+<ol style="list-style-type:none; margin-left:0px; padding-left:0px;">
+<li>
+<span>1.</span> <a href="#Summary" rel="internal">Summary</a>
+</li>
+<li>
+<span>2.</span> <a href="#Syntax" rel="internal">Syntax</a>
+</li>
+<li>
+<span>3.</span> <a href="#Compatibility" rel="internal">Compatibility</a>
+</li>
+<li>
+<span>4.</span> <a href="#Examples" rel="internal">Examples</a>
+</li>
+<li>
+<span>5.</span> <a href="#Notes" rel="internal">Notes</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;">
+<li>
+<span>5.1.</span> <a href="#The_'this'_problem" rel="internal">The 'this' problem</a>
+</li>
+<li>
+<span>5.2.</span> <a href="#Minimum_delay_and_timeout_nesting" rel="internal">Minimum delay and timeout nesting</a>
+</li>
+</ol>
+</li>
+<li>
+<span>6.</span> <a href="#Specification" rel="internal">Specification</a>
+</li>
+</ol>
+</div></div>
+<div class="pageText" id="pageText">
+<p><span class="lang lang-en">« <a rel="internal" href="../Gecko_DOM_Reference.html">Gecko DOM Reference</a> </span></p>
+<div id="section_1">
+<span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Executes a code snippet or a function after specified delay.</p>
+</div>
+<div id="section_2">
+<span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<pre class="eval"><em>var timeoutID</em> = window.setTimeout(<em>func</em>, <em>delay</em>, [<em>param1</em>, <em>param2</em>, ...]);
+<em>var timeoutID</em> = window.setTimeout(<em>code</em>, <em>delay</em>);
+</pre>
+<p>where</p>
+<ul>
+<li>
+<code>timeoutID</code> is the ID of the timeout, which can be used later with <a rel="internal" href="window-61.html">window.clearTimeout</a>.</li> <li>
+<code>func</code> is the <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/Function">function</a> you want to execute after <code>delay</code> milliseconds.</li> <li>
+<code>code</code> in the alternate syntax, is a string of code you want to execute after <code>delay</code> milliseconds. (Using this syntax is not recommended for the same reasons as using <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Functions/eval#Don%27t_use_eval!">eval()</a>)</li> <li>
+<code>delay</code> is the number of milliseconds (thousandths of a second) that the function call should be delayed by. Note that the actual delay may be longer, see Notes below.</li>
+</ul>
+<p>Note that passing additional parameters to the function in the first syntax does not work in Internet Explorer.</p>
+<div class="note">
+<strong>Note:</strong> Gecko passes an extra parameter to the callback routine, indicating the "lateness" of the timeout in milliseconds.</div>
+</div>
+<div id="section_3">
+<span id="Compatibility"></span><h3 class="editable">Compatibility</h3>
+<p>Introduced with JavaScript 1.0, Netscape 2.0. Passing a Function object reference was introduced with JavaScript 1.2, Netscape 4.0; supported by the MSHTML DOM since version 5.0.</p>
+</div>
+<div id="section_4">
+<span id="Examples"></span><h3 class="editable">Examples</h3>
+<pre class="eval">
+function generateOutput(aConcise) {
+  if(aConcise)
+    parent.generateConciseOutput();
+  else
+    parent.generateOutput();
+}
+window.setTimeout(generateOutput, 1000, true);</pre>
+<pre class="eval">
+// Increase compatibility with unnamed functions
+window.setTimeout(function() {
+    generateOutput(true);
+}, 1000);
+</pre>
+<pre class="eval">
+window.setTimeout('window.parent.generateOutput()', 1000);</pre>
+<pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;setTimeout example&lt;/title&gt;
+
+&lt;script type="text/javascript"&gt;
+function delayedAlert()
+{
+  timeoutID = window.setTimeout(slowAlert, 2000);
+}
+
+function slowAlert()
+{
+  alert("That was really slow!");
+}
+
+function clearAlert()
+{
+  window.clearTimeout(timeoutID);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;button onclick="delayedAlert();"
+ &gt;show an alert box after 2 seconds&lt;/button&gt;&lt;br&gt;
+&lt;button onclick="clearAlert();"&gt;Cancel&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<p>See also <a rel="internal" href="window-61.html#Example">clearTimeout() example</a>.</p>
+</div>
+<div id="section_5">
+<span id="Notes"></span><h3 class="editable">Notes</h3>
+<p>You can cancel the timeout using <code><a rel="internal" href="window-61.html">window.clearTimeout()</a></code>.</p>
+<p>If you wish to have your function called repeatedly (i.e. every N milliseconds), consider using <code><a rel="internal" href="window-92.html">window.setInterval()</a></code>.</p>
+<div id="section_6">
+<span id="The_.27this.27_problem"></span><span id="The_'this'_problem"></span><h4 class="editable">The 'this' problem</h4>
+<p>Code executed by <code>setTimeout()</code> is run in a separate execution context to the function from which it was called. As a consequence, the <code>this</code> keyword for the called function will be set to the <code>window</code> (or <code>global</code>) object, it will not be the same as the <code>this</code> value for the function that called <code>setTimeout</code>. This issue is explained in more detail in the <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Special_Operators/this_Operator#Method_binding">JavaScript reference</a>.</p>
+<div class="note">
+<strong>Note:</strong> JavaScript 1.8.5 introduces the <code><a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function/bind">Function.prototype.bind()</a></code> method, which lets you specify the value that should be used as <code>this</code> for all calls to a given function. This lets you easily bypass problems where it's unclear what this will be, depending on the context from which your function was called.</div>
+</div>
+<div id="section_7">
+<span id="Minimum_delay_and_timeout_nesting"></span><h4 class="editable">Minimum delay and timeout nesting</h4>
+<p><a title="http://code.google.com/p/chromium/issues/detail?id=792#c10" class=" external" rel="external nofollow" href="http://code.google.com/p/chromium/issues/detail?id=792#c10" target="_blank">Historically</a> browsers implement <code>setTimeout</code> "clamping": successive <code>setTimeout</code> calls with <code>delay</code> smaller than the "minimum delay" limit are forced to the use at least the minimum delay.</p>
+<ul>
+<li>Gecko (as of 1.9.2, Firefox 3.6) <a title="http://mxr.mozilla.org/mozilla-central/source/dom/base/nsGlobalWindow.cpp#244" class=" external" rel="external nofollow" href="http://mxr.mozilla.org/mozilla-central/source/dom/base/nsGlobalWindow.cpp#244" target="_blank">uses</a> DOM_MIN_TIMEOUT_VALUE=10 ms, DOM_CLAMP_TIMEOUT_NESTING_LEVEL=5</li> <li>HTML 5 <a rel="internal" href="https://developer.mozilla.org/en/JavaScript/Guide/Obsolete_Pages/Creating_New_Objects/Defining_Methods">defines</a> the minimum delay = 4 ms, starting with the second successive <code>setTimeout</code>.</li>
+</ul>
+<p>In addition to "clamping", the timeout can also fire later when the page (or the OS/browser itself) is busy with other tasks.</p>
+<p>To implement a 0-ms timeout in modern browser you can use <a rel="internal" href="window-79.html">window.postMessage</a> as <a rel="internal" href="https://developer.mozilla.org/en/Describing_microformats_in_JavaScript">described here</a>.</p>
+</div>
+</div>
+<div id="section_8">
+<span id="Specification"></span><h3 class="editable">Specification</h3>
+<p>Part of DOM level 0, as specified in <a class="external" title="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#timers" rel="external nofollow" href="http://www.whatwg.org/specs/web-apps/current-work/multipage/browsers.html#timers" target="_blank">HTML5</a>.</p>
+<p> </p>
+</div>
+</div>
+</div>
+<div class="printfooter" id="printfooter">
+<hr>
+<p>Retrieved from "<a href="window-93.html">https://developer.mozilla.org/en/DOM/window.setTimeout</a>"</p>
+</div>
+
+            </div>
+
+    </article>
+
+  </div>
+<!-- /#content-main -->
+
+</div>
+<!-- /.wrap -->
+<!-- Mirrored from developer.mozilla.org/en/DOM/window.setTimeout by HTTrack Website Copier/3.x [XR&CO'2010], Fri, 17 Dec 2010 12:17:42 GMT --><!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8">
+<!-- /Added by HTTrack -->
+</html>
